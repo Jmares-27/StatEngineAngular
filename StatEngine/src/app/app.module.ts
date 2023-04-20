@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { appRoutes } from './app.routes';
+import { RegisterPageComponent } from './register-page/register-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterPageComponent
   ],
   imports: [
     BrowserModule,
