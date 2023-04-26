@@ -8,3 +8,4 @@ HTTPIntercept changes HTTPRequests into more usable data (HTTP Objects)
 Guides being followed: 
 - No JWT (Local Storage): https://www.tutorialspoint.com/angular8/angular8_authentication_and_authorization.htm#
 - Angular + Express + JWT + HttpClient: https://blog.angular-university.io/angular-jwt-authentication/
+- Angular + JWT (Session Storage): https://www.bezkoder.com/angular-14-jwt-auth/
