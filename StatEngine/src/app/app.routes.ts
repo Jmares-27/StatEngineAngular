@@ -7,6 +7,6 @@ import { HomePageComponent } from "./home-page/home-page.component";
 export const appRoutes: Routes = [
     {path:'login', component: LoginPageComponent},
     {path:'landing-page', component: LandingPageComponent},
-    {path: '**', component:LandingPageComponent},
+    //{path: '**', component: HomePageComponent},
     {path: 'home-page', component: HomePageComponent}
 ]

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthenticationService } from '../authentication.service';
+import { AuthenticationService } from '../backend-services/authentication.service';
 
 @Component({
   selector: 'app-register-page',
