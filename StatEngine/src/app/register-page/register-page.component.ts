@@ -44,8 +44,10 @@ export class RegisterPageComponent {
     );
 
     this.display_checker = true;
+    this.router.navigate(['/search-player'])
   }
 
+  
 
 
 }
