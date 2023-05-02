@@ -12,6 +12,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { appRoutes } from './app.routes';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { SearchPlayerComponent } from './search-player/search-player.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomePageComponent } from './home-page/home-page.component';
     LandingPageComponent,
     LoginPageComponent,
     RegisterPageComponent,
-    HomePageComponent
+    HomePageComponent,
+    SearchPlayerComponent
   ],
   imports: [
     BrowserModule,
