@@ -1,15 +1,11 @@
-import { Routes } from "@angular/router";
+import { HomeComponent } from "./home/home.component";
+import { RegisterComponent } from "./register/register.component";
+import { LoginComponent } from "./login/login.component";
+import {Route, Routes} from '@angular/router'
 
-import { LoginPageComponent } from "./login-page/login-page.component";
-import { LandingPageComponent } from "./landing-page/landing-page.component";
-import { HomePageComponent } from "./home-page/home-page.component";
-import { RegisterPageComponent } from "./register-page/register-page.component";
-import { SearchPlayerComponent } from "./search-player/search-player.component";
-export const appRoutes: Routes = [
-    {path:'login', component: LoginPageComponent},
-    {path:'register-page', component: RegisterPageComponent},
-    {path:'landing-page', component: LandingPageComponent},
-    //{path: '**', component: HomePageComponent},
-    {path: 'home-page', component: HomePageComponent},
-    {path: 'search-player', component: SearchPlayerComponent}
+export const appRoutes: Routes =[
+    {path: 'home', component:HomeComponent},
+    {path: 'login', component:LoginComponent},
+    {path: 'register', component: RegisterComponent},
+    {path: '**', redirectTo:'home'}
 ]

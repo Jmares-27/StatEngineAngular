@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HttpService } from './_services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,25 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'StatEngine';
+  opened = true;
+
+  constructor(private http:HttpService, private router: Router){}
+  homeRedirect(){
+    this.router.navigate(['home']);
+  }
+
+  registerRedirect(){
+    this.router.navigate(['register']);
+  }
+
+  loginRedirect(){
+    this.router.navigate(['login']);
+  }
+
+  menuToggle():boolean{
+    this.opened=!this.opened
+    return this.opened
+  }
+
+
 }

@@ -1,20 +1,27 @@
-<div class="container">
+<style>
+    .menubox{
+        width:100%;
+        height:40px;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 4%;
+        background-color: pink;
+    }
+</style>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['/']"> </a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a [routerLink]="['login']">Login page</a></li>
-        <li><a [routerLink]="['landing-page']">Landing page</a></li>
-        <li><a [routerLink]="['home-page']">Home page</a></li>
-        <li><a [routerLink]="['register-page']">Register page</a></li>
-        <li><a [routerLink]="['search-player']">Search Player</a></li>
-      </ul>
-    </div>
-  </nav>
-  <h1>{{this.title}}</h1>
-  <router-outlet></router-outlet>
-
-</div>
+<mat-drawer-container>
+  <mat-drawer mode="side" style="height: scrollheight; width: 15%;background-color: lightcoral;" [(opened)]="opened">
+      
+      <div class="menubox" style="background-color: salmon;"><a><h1><b>MENU</b></h1></a></div>
+      <div class="menubox"><a (click)="homeRedirect()">Home</a></div>
+      <div class="menubox"><a (click)="registerRedirect()">Register a User</a></div>
+      <div class="menubox"><a (click)="loginRedirect()">Login</a></div>
+  
+  </mat-drawer>
+  <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
+    <button mat-flat-button (click)="menuToggle()">Toggle Sidebar</button>
+    <router-outlet></router-outlet>
+    <footer style="justify-content: center; text-align: center;padding-top: 100%;">This is a StatEngine Production</footer>
+  </mat-drawer-content>
+</mat-drawer-container>
