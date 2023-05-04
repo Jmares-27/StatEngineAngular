@@ -13,12 +13,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
 
 //Other Imports
 import { appRoutes } from './app.routes';
 import { RouterModule } from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,10 @@ import {ReactiveFormsModule} from '@angular/forms';
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatButtonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatInputModule,
+    HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
