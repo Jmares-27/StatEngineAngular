@@ -10,8 +10,14 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   createUser(user:Object):Observable<Object>{
-    return this.http.post(`${this.baseURL}`,user);
+    return this.http.post(`${this.baseURL}/api/createUser`,user);
   }
 
+  //passes a user object to the [server url]/api/login to check if this user exists
+  checkUser(user:Object):Observable<Object>{
+    console.log("HTTP SERVICE:",user);
+    return this.http.put(`${this.baseURL}/api/login`,user);
+
+  }
 
 }

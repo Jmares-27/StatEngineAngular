@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div style="justify-content: center;display: flexbox;">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+        <div style="text-align: center;">    
+            <h1>Login</h1>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput formControlName="username">
+                <mat-hint>Enter a username</mat-hint>
+            </mat-form-field>
+        </div>  
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-hint>Enter a password</mat-hint>
+            </mat-form-field>
+        </div>
+        <div> <!--Block 3 for submit button-->
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%;" onclick="onSubmit();" [disabled]="!loginForm.valid">Submit</button>
+        </div>
+    </form>
+</div>
