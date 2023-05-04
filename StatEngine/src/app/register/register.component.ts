@@ -18,4 +18,7 @@ export class RegisterComponent {
     })
   }
 
+  onSubmit(){
+    
+  }
 }
