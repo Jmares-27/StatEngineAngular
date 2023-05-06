@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { query } from '@angular/animations';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,17 @@ export class HttpService {
   checkUser(user:Object):Observable<Object>{
     console.log("HTTP SERVICE:",user);
     return this.http.put(`${this.baseURL}/api/login`,user);
+
+  }
+
+  searchUser(username:Object):Observable<Object>{
+    
+    // let queryParams = new HttpParams(); 
+    // queryParams = queryParams.set("username", this.username);
+
+    //console.log("HTTP SERVICE:",username);
+
+    return this.http.get(`${this.baseURL}/api/searchuser/${username}`);
 
   }
 

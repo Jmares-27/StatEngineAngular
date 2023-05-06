@@ -24,6 +24,10 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  searchRedirect(){
+    this.router.navigate(['search'])
+  }
+
   menuToggle():boolean{
     this.opened=!this.opened
     return this.opened
