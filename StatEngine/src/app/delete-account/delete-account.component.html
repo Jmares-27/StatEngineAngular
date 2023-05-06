@@ -1,1 +1,20 @@
 <p>delete-account works!</p>
+<div style="display:flex; justify-content: center; padding-top: 10%;">
+    <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
+        <div style="text-align: center;">    
+            <h1>Search</h1>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label>Searching Name</mat-label>
+                <input matInput formControlName="username">
+                <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div> <!--Block 3 for submit button-->
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%;">Search!!</button>
+        </div>
+
+        <div style="display:flex; justify-content: center; padding-top: 10%;">{{message}}</div>
+    </form>
