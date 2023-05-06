@@ -1,36 +1,51 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule} from '@angular/forms';
 
-import { RouterModule } from '@angular/router';
-
-import { HttpClientModule } from '@angular/common/http';
+//Component Imports
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+
+//Materials Imports
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+
+//Other Imports
 import { appRoutes } from './app.routes';
-import { RegisterPageComponent } from './register-page/register-page.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { SearchPlayerComponent } from './search-player/search-player.component';
-import { BugReportComponent } from './bug-report/bug-report.component';
+import { RouterModule } from '@angular/router';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LandingPageComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
-    HomePageComponent,
-    SearchPlayerComponent,
-    BugReportComponent
+    HomeComponent,
+    RegisterComponent,
+    LoginComponent,
+    SearchComponent,
+    DeleteAccountComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule,
     HttpClientModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

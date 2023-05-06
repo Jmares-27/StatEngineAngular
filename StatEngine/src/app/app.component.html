@@ -1,20 +1,28 @@
-<div class="container">
+<style>
+    .menubox{
+        width:125px;
+        height:40px;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 4%;
+        background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
+        color: #FFFFFF;
+    }    
+</style>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" [routerLink]="['/']"> </a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a [routerLink]="['login']">Login page</a></li>
-        <li><a [routerLink]="['landing-page']">Landing page</a></li>
-        <li><a [routerLink]="['home-page']">Home page</a></li>
-        <li><a [routerLink]="['register-page']">Register page</a></li>
-        <li><a [routerLink]="['search-player']">Search Player</a></li>
-      </ul>
-    </div>
-  </nav>
-  <h1>{{this.title}}</h1>
-  <router-outlet></router-outlet>
-
-</div>
+<mat-drawer-container>
+  <mat-drawer mode="side" style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%)" [(opened)]="opened">
+      <div class="menubox" ><a><h1><b>MENU</b></h1></a></div>
+      <div class="menubox"><a (click)="homeRedirect()" >Home</a></div>
+      <div class="menubox"><a (click)="registerRedirect()" >Sign Up</a></div>
+      <div class="menubox"><a (click)="loginRedirect()" >Login</a></div>
+      <div class="menubox"><a (click)="searchRedirect()">Search</a></div>
+      <div class="menubox"><a (click)="deleteAccountRedirect()">Delete Account</a></div>
+  </mat-drawer>
+  <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
+    <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button>
+    <router-outlet></router-outlet>
+    <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer>
+  </mat-drawer-content>
+</mat-drawer-container>
