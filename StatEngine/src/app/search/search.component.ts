@@ -24,12 +24,8 @@ export class SearchComponent{
   onSubmit(){
     // console.log()
     
-      // username: this.SearchForm.value.username
 
     this.searchString = this.SearchForm.value.username
-    var resultdata = {
-      message: ''
-    }
     // console.log(this.searchString); //USED FOR TESTING
 
     this.http.searchUser(this.searchString ).subscribe(

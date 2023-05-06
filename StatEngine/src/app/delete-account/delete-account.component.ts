@@ -43,10 +43,10 @@ export class DeleteAccountComponent {
           this.message = "There is no such player exist"
         }
         else{
-          //datafound?
+          
           console.log("user data-->", data)
           this.status_checker = true
-          this.message = "User found!"
+          this.message = "Delete successfully!!"
         }
       },
       error => console.log(error)
