@@ -27,7 +27,7 @@ export class LoginComponent {
     console.log(newUser); //USED FOR TESTING
     await this.http.checkUser(newUser).subscribe(
       data=>{
-        console.log(data);
+        console.log("DATA: ",data)
       },
       error => console.log(error)
     )
