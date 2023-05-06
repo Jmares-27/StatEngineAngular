@@ -32,4 +32,14 @@ export class HttpService {
 
   }
 
+
+  deleteAccount(username:Object):Observable<Object>{
+
+    return this.http.delete(`${this.baseURL}/api/deleteAccount/${username}`);
+
+  }
+
 }
+
+
+
