@@ -20,7 +20,7 @@
   
   </mat-drawer>
   <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
-    <button mat-flat-button (click)="menuToggle()">Toggle Sidebar</button>
+    <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="position: fixed;">Toggle Sidebar</button>
     <router-outlet></router-outlet>
     <footer style="justify-content: center; text-align: center;padding-top: 100%;">This is a StatEngine Production</footer>
   </mat-drawer-content>
