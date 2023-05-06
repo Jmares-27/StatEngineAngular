@@ -1,24 +1,47 @@
-<div style="justify-content: center;display: flexbox;">
+<style>
+    .back-ground {   
+    
+
+        position: absolute;
+        width: 1440px;
+        height: 900px;
+        left: 0px;
+        top:  0px;
+
+        background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
+        color: white;
+
+        
+    };
+
+    
+
+
+
+</style>
+
+<div class="back-ground" style="display:flex; justify-content: center; padding-top: 20%;">
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
         <div style="text-align: center;">    
+            <h1>StatEngine</h1>
             <h1>Login</h1>
         </div>
         <div>
             <mat-form-field appearance="outline">
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="username">
+                <mat-label style="color:white">Username</mat-label>
+                <input matInput formControlName="username" style="color:white">
                 <mat-hint>Enter a username</mat-hint>
             </mat-form-field>
         </div>  
         <div>
             <mat-form-field appearance="outline">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" type="password">
+                <mat-label style="color:white">Password</mat-label>
+                <input matInput formControlName="password" type="password" style="color:white">
                 <mat-hint>Enter a password</mat-hint>
             </mat-form-field>
         </div>
         <div> <!--Block 3 for submit button-->
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%;" onclick="onSubmit();" [disabled]="!loginForm.valid">Submit</button>
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!loginForm.valid">Sign In</button>
         </div>
     </form>
 </div>

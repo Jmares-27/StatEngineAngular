@@ -1,27 +1,27 @@
 <style>
     .menubox{
-        width:100%;
+        width:125px;
         height:40px;
         justify-content: center;
         text-align: center;
         font-size: 20px;
         padding-top: 4%;
-        background-color: pink;
-    }
+        background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
+        color: #FFFFFF;
+    }    
 </style>
 
 <mat-drawer-container>
-  <mat-drawer mode="side" style="height: scrollheight; width: 15%;background-color: lightcoral;" [(opened)]="opened">
-      
-      <div class="menubox" style="background-color: salmon;"><a><h1><b>MENU</b></h1></a></div>
-      <div class="menubox"><a (click)="homeRedirect()">Home</a></div>
-      <div class="menubox"><a (click)="registerRedirect()">Register a User</a></div>
-      <div class="menubox"><a (click)="loginRedirect()">Login</a></div>
+  <mat-drawer mode="side" style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%)" [(opened)]="opened">
+      <div class="menubox" ><a><h1><b>MENU</b></h1></a></div>
+      <div class="menubox"><a (click)="homeRedirect()" >Home</a></div>
+      <div class="menubox"><a (click)="registerRedirect()" >Sign Up</a></div>
+      <div class="menubox"><a (click)="loginRedirect()" >Login</a></div>
       <div class="menubox"><a (click)="searchRedirect()">Search</a></div>
   </mat-drawer>
-  <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
+  <mat-drawer-content>
     <button mat-flat-button (click)="menuToggle()">Toggle Sidebar</button>
     <router-outlet></router-outlet>
-    <footer style="justify-content: center; text-align: center;padding-top: 100%;">This is a StatEngine Production</footer>
+    <footer style="justify-content: center; text-align: center;padding-top: 100%; " >This is a StatEngine Production</footer>
   </mat-drawer-content>
 </mat-drawer-container>
