@@ -31,8 +31,9 @@
 
         <div> <!--Block 3 for submit button-->
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!deleteForm.valid">Delete Now</button>
+            <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
             <footer style="justify-content: center; text-align: center; padding-top: 90%; color: white " >This is a StatEngine Production</footer>
         </div>
 
-        <div style="display:flex; justify-content: center; padding-top: 10%;">{{message}}</div>
+
     </form>
