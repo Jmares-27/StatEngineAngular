@@ -27,6 +27,7 @@ export class AppComponent {
   searchRedirect(){
     this.router.navigate(['search'])
   }
+  
   deleteAccountRedirect(){
     this.router.navigate(['deleteAccount'])
   }

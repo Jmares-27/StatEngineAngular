@@ -11,6 +11,6 @@ export const appRoutes: Routes =[
     {path: 'login', component:LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'search', component: SearchComponent},
-    {path: 'DeleteAccount', component: DeleteAccountComponent},
+    {path: 'deleteAccount', component: DeleteAccountComponent},
     {path: '**', redirectTo:'home'}
 ]
