@@ -13,6 +13,7 @@ import { appRoutes } from './app.routes';
 import { RegisterPageComponent } from './register-page/register-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { SearchPlayerComponent } from './search-player/search-player.component';
+import { BugReportComponent } from './bug-report/bug-report.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SearchPlayerComponent } from './search-player/search-player.component';
     LoginPageComponent,
     RegisterPageComponent,
     HomePageComponent,
-    SearchPlayerComponent
+    SearchPlayerComponent,
+    BugReportComponent
   ],
   imports: [
     BrowserModule,
