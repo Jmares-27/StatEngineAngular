@@ -14,6 +14,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -44,7 +45,8 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
 
   ],
   providers: [],

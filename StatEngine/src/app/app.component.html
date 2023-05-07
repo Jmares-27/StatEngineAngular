@@ -21,7 +21,10 @@
       <div class="menubox"><a (click)="deleteAccountRedirect()">Delete Account</a></div>
   </mat-drawer>
   <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
-    <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button>
+    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
+    <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: black"  aria-label="Example icon button with a menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
     <router-outlet></router-outlet>
     <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer>
   </mat-drawer-content>
