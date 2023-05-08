@@ -20,7 +20,7 @@
             </mat-form-field>
         </div>
         <div> <!--Block 3 for submit button-->
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!loginForm.valid">Sign In</button>
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" [disabled]="!loginForm.valid">Sign In</button>
             <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
         </div>
     </form>

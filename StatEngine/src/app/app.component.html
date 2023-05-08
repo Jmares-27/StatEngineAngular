@@ -1,18 +1,18 @@
 
-
-<mat-drawer-container>
-  <mat-drawer mode="side" style="height: scrollheight; width: 15%;background-color: lightcoral;" [(opened)]="opened">
+<mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
+  <mat-drawer mode="side" style="height: 100vh; width: 20vw; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
       
-      <div class="menubox" style="background-color: salmon;"><a><h1><b>MENU</b></h1></a></div>
+      <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
       <div class="menubox"><a (click)="homeRedirect()">Home</a></div>
-      <div class="menubox"><a (click)="registerRedirect()">Register a User</a></div>
+      <div class="menubox"><a (click)="registerRedirect()">Register</a></div>
       <div class="menubox"><a (click)="loginRedirect()">Login</a></div>
       <div class="menubox"><a (click)="searchRedirect()">Search</a></div>
-      <div class="menubox"><a (click)="myAccountRedirect()">My Account</a> </div>
+      <div class="menubox"><a (click)="myAccountRedirect()">Account</a> </div>
+      <div class="menubox" style="padding-top: 67vh;"><a (click)="logoutRedirect()">Log Out</a></div>
   
   </mat-drawer>
 
-  <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
+  <mat-drawer-content style=" height: 100vh;">
 
     <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()" style="color: lightgray">

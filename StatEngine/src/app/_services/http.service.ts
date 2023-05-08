@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { query } from '@angular/animations';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ import { query } from '@angular/animations';
 export class HttpService {
   private baseURL = 'http://localhost:3026'
   private bool = false;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   
   createUser(user:Object):Observable<Object>{
@@ -18,7 +19,6 @@ export class HttpService {
 
   //passes a user object to the [server url]/api/login to check if this user exists
   checkUser(user:Object):Observable<Object>{
-    console.log("HTTP SERVICE:",user);
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
@@ -28,12 +28,15 @@ export class HttpService {
         var dataString = JSON.stringify(data);
         var dataJson = JSON.parse(dataString);
         this.bool = dataJson["value"]
-        console.log(this.bool);
       }
     )
     return this.bool;
   }
 
+  logOut(){
+    localStorage.removeItem("token");
+    this.router.navigate(['home'])
+  }
   searchUser(username:Object):Observable<Object>{
     
     // let queryParams = new HttpParams(); 
