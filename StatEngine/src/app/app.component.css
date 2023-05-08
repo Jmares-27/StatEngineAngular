@@ -20,4 +20,7 @@
 .nav-toggle {
     position: relative; /* Ensure the container establishes a new stacking context */
     z-index: 1;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.699);
+    margin: 5px;
   }
