@@ -1,28 +1,6 @@
-<style>
-    .back-ground {   
-    
-
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0px;
-        top:  0px;
-
-        background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
-        color: white;
-
-        
-    };
-
-    
-
-
-
-</style>
-
-
 <div class="back-ground"  style="display:flex; justify-content: center; padding-top: 10%;">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-container">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
         <div style="text-align: center;">    
             <h1>StatEngine</h1>
             <h1>Sign Up</h1>
@@ -54,4 +32,5 @@
         </div>
 
     </form>
+    </div>
 </div>
