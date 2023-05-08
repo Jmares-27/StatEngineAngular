@@ -43,14 +43,17 @@ export class RegisterComponent {
         }
         else if  ( data == "Sign Up Success!" ) {
 
-          console.log("user data-->", data)
+          this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
+          this.router.navigate(['login'])
+          console.log("Sign Up success!")
+          // console.log("user data-->", data)
           this.status_checker = true
-          this.message = "Sign Up Success!"
+          // this.message = "Sign Up Success!"
+
         }
       },
       error => console.log(error)
     )
-    this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
-    this.router.navigate(['login'])
+
   }
 }
