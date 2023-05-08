@@ -19,13 +19,18 @@
       <div class="menubox"><a (click)="loginRedirect()" >Login</a></div>
       <div class="menubox"><a (click)="searchRedirect()">Search</a></div>
       <div class="menubox"><a (click)="deleteAccountRedirect()">Delete Account</a></div>
+
   </mat-drawer>
+
   <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-    <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: black"  aria-label="Example icon button with a menu icon">
+
+    <router-outlet></router-outlet>
+    <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <router-outlet></router-outlet>
     <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer>
+    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
+
   </mat-drawer-content>
+  
 </mat-drawer-container>
