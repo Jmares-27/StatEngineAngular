@@ -34,3 +34,17 @@
     color: #FFFFFF;
 }
 
+mat-cell{
+
+    color: white;
+
+}
+
+.data-table__cell{
+
+    color: white;
+}
+
+@media only screen and (max-device-width: 480px) {
+    
+}
