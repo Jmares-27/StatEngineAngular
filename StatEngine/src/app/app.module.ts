@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
+import { MatListModule } from '@angular/material/list';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -24,6 +25,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { SidemenuComponent } from './sidemenu/sidemenu.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     LoginComponent,
     SearchComponent,
     DeleteAccountComponent,
+    SidemenuComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,6 +50,7 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     MatInputModule,
     HttpClientModule,
     MatIconModule,
+    MatListModule,
 
   ],
   providers: [],
