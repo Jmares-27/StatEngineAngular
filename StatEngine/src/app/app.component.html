@@ -1,15 +1,4 @@
-<style>
-    .menubox{
-        width:125px;
-        height:40px;
-        justify-content: center;
-        text-align: center;
-        font-size: 20px;
-        padding-top: 4%;
-        background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
-        color: #FFFFFF;
-    }    
-</style>
+
 
 <mat-drawer-container>
   <mat-drawer mode="side" style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%)" [(opened)]="opened">
@@ -22,9 +11,9 @@
   </mat-drawer>
   <mat-drawer-content style="background-color: whitesmoke; height: 100%;">
     <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-    <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: black"  aria-label="Example icon button with a menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+      <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()" style="color: black">
+        <mat-icon>menu</mat-icon>
+      </button>
     <router-outlet></router-outlet>
     <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer>
   </mat-drawer-content>

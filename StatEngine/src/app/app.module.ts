@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
+import {MatTableModule} from '@angular/material/table';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -47,6 +48,7 @@ import { DeleteAccountComponent } from './delete-account/delete-account.componen
     MatInputModule,
     HttpClientModule,
     MatIconModule,
+    MatTableModule,
 
   ],
   providers: [],

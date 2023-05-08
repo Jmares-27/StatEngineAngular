@@ -1,0 +1,36 @@
+.back-ground{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+
+    background: rgb(242,242,242);
+    background: linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
+    filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));
+    
+}  
+.title{
+    color: white;
+    font-size: 32px;
+    padding-top: 10%;
+}
+
+.table-container{
+    width:80%;
+    margin: 0 auto;
+    border-radius: 10px; /* Adjust the border-radius value to your desired level of rounding */
+    overflow: hidden; /* Ensures the table content is contained within the rounded edges */
+    
+    
+}
+
+.ex-table td {
+    color: #FFFFFF; /* Set the desired text color */
+  }
+
+.ex-table{
+    background-color: #323338;
+    color: #FFFFFF;
+}
+
