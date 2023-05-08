@@ -11,10 +11,6 @@ export class MyAccountComponent {
   constructor(private http: HttpService, private router: Router){}
 
   testFunction(){
-    this.http.isLoggedIn().subscribe(
-      data =>{
-        console.log(data);
-      }
-    )
+    return this.http.isLoggedIn();
   }
 }

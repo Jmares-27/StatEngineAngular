@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
   private baseURL = 'http://localhost:3026'
+  private bool = false;
   constructor(private http: HttpClient) { }
 
   
@@ -20,8 +21,16 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
-  isLoggedIn(): Observable<boolean>{
-    return this.http.get<boolean>(`${this.baseURL}/api/authenticate`);
+  isLoggedIn(){
+    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+      data =>{
+        var dataString = JSON.stringify(data);
+        var dataJson = JSON.parse(dataString);
+        this.bool = dataJson["value"]
+        console.log(this.bool);
+      }
+    )
+    return this.bool;
   }
 
 }
