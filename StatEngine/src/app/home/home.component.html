@@ -9,30 +9,33 @@
       
             <!-- Date Column -->
             <ng-container matColumnDef="date">
-            <th mat-header-cell *matHeaderCellDef> Date </th>
+            <th mat-header-cell *matHeaderCellDef style="color:white"> Date </th>
             <td mat-cell *matCellDef="let stat"> {{stat.date}} </td>
             </ng-container>
         
             <!-- Map Column -->
             <ng-container matColumnDef="map">
-            <th mat-header-cell *matHeaderCellDef> Map </th>
+            <th mat-header-cell *matHeaderCellDef style="color:white"> Map </th>
             <td mat-cell *matCellDef="let stat"> {{stat.map}} </td>
             </ng-container>
         
             <!-- Kills Column -->
             <ng-container matColumnDef="kills">
-            <th mat-header-cell *matHeaderCellDef> Kills </th>
+            <th mat-header-cell *matHeaderCellDef style="color:white"> Kills </th>
             <td mat-cell *matCellDef="let stat"> {{stat.kills}} </td>
             </ng-container>
         
             <!-- Deaths Column -->
             <ng-container matColumnDef="deaths">
-            <th mat-header-cell *matHeaderCellDef> Deaths </th>
+            <th mat-header-cell *matHeaderCellDef style="color:white"> Deaths </th>
             <td mat-cell *matCellDef="let stat"> {{stat.deaths}} </td>
             </ng-container>
         
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
         </table>
+        <footer style="justify-content: center; text-align: center; padding-top: 10%; color: white " >This is a StatEngine Production</footer>
     </div>
+
 </div>

@@ -1,21 +1,3 @@
-<style>
-    .back-ground {   
-    
-
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0px;
-        top:  0px;
-        display:flex; 
-        justify-content: center; 
-        padding-top: 10%;
-        background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
-        color: white;
-
-        
-    };
-</style>
 
 <div class="back-ground">
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
@@ -39,7 +21,7 @@
         </div>
         <div> <!--Block 3 for submit button-->
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!loginForm.valid">Sign In</button>
-            <footer style="justify-content: center; text-align: center; padding-top: 90%; color: white " >This is a StatEngine Production</footer>
+            <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
         </div>
     </form>
 </div>
