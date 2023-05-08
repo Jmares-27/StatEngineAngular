@@ -9,6 +9,7 @@ export class HttpService {
   private baseURL = 'http://localhost:3026'
   constructor(private http: HttpClient) { }
 
+  
   createUser(user:Object):Observable<Object>{
     return this.http.post(`${this.baseURL}/api/createUser`,user);
   }
@@ -17,7 +18,10 @@ export class HttpService {
   checkUser(user:Object):Observable<Object>{
     console.log("HTTP SERVICE:",user);
     return this.http.post(`${this.baseURL}/api/login`,user);
+  }
 
+  isLoggedIn(): Observable<boolean>{
+    return this.http.get<boolean>(`${this.baseURL}/api/authenticate`);
   }
 
 }

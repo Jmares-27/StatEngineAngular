@@ -19,7 +19,6 @@ export class LoginComponent {
 
 
   async onLogin(){
-    console.log()
     var newUser = {
       username: this.loginForm.value.username,
       password:this.loginForm.value.password,
@@ -27,7 +26,10 @@ export class LoginComponent {
     console.log(newUser); //USED FOR TESTING
     await this.http.checkUser(newUser).subscribe(
       data=>{
-        console.log("DATA: ",data)
+        var dataString = JSON.stringify(data);
+        var dataJson = JSON.parse(dataString);
+        console.log(dataJson);
+        localStorage.setItem("token", dataJson["token"]);
       },
       error => console.log(error)
     )

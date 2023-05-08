@@ -24,6 +24,10 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  myAccountRedirect(){
+    this.router.navigate(['myaccount']);
+  }
+
   menuToggle():boolean{
     this.opened=!this.opened
     return this.opened
