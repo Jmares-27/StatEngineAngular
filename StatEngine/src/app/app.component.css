@@ -22,7 +22,7 @@
     z-index: 1;
     color: white;
     background-color: rgba(0, 0, 0, 0.699);
-    margin: 5px;
+    margin: 2vw;
   }
 
 
@@ -35,5 +35,9 @@
 @media only screen and (max-device-width: 480px) {
     .sidebar{
         width: 70vw;
+    }
+
+    .nav-toggle{
+        margin: 5px;
     }
 }
