@@ -24,3 +24,16 @@
     background-color: rgba(0, 0, 0, 0.699);
     margin: 5px;
   }
+
+
+
+  
+.sidebar{
+    width: 40vw;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .sidebar{
+        width: 70vw;
+    }
+}
