@@ -1,0 +1,37 @@
+<style>
+    .back-ground{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top: 0px;
+
+        background: conic-gradient(from 45deg at 0% 100%, #999999 0deg, rgba(0, 0, 0, 0) 360deg), linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
+        filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));
+    }  
+
+</style>
+
+
+<div class="back-ground" style="display:flex; justify-content: center; padding-top: 10%">
+    <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
+        <div style="text-align: center; padding-top: 28%; ">    
+            <h1 style="color:white">Search</h1>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label style="color:white">Search for a Player</mat-label>
+                <input matInput formControlName="username" style="color:white">
+                <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+            </mat-form-field>
+        </div>
+
+        <div> <!--Block 3 for submit button-->
+            
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!SearchForm.valid">Search</button>
+        </div>
+
+        <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+        <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+    </form>
+</div>

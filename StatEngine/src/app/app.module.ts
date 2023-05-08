@@ -15,6 +15,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon'
+import {MatTableModule} from '@angular/material/table';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -23,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
-
+import { SearchComponent } from './search/search.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { AuthInterceptor } from './authInterceptor';
     RegisterComponent,
     LoginComponent,
     MyAccountComponent,
+    SearchComponent,
+    DeleteAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,9 @@ import { AuthInterceptor } from './authInterceptor';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule,
+    MatTableModule,
 
   ],
   providers: [{

@@ -27,6 +27,14 @@ export class AppComponent {
   myAccountRedirect(){
     this.router.navigate(['myaccount']);
   }
+  
+  searchRedirect(){
+    this.router.navigate(['search'])
+  }
+  
+  deleteAccountRedirect(){
+    this.router.navigate(['deleteAccount'])
+  }
 
   menuToggle():boolean{
     this.opened=!this.opened
