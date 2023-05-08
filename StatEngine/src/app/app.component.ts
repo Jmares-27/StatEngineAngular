@@ -24,6 +24,10 @@ export class AppComponent {
     this.router.navigate(['login']);
   }
 
+  myAccountRedirect(){
+    this.router.navigate(['myaccount']);
+  }
+  
   searchRedirect(){
     this.router.navigate(['search'])
   }

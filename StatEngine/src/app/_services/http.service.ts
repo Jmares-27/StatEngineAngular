@@ -8,8 +8,10 @@ import { query } from '@angular/animations';
 })
 export class HttpService {
   private baseURL = 'http://localhost:3026'
+  private bool = false;
   constructor(private http: HttpClient) { }
 
+  
   createUser(user:Object):Observable<Object>{
     return this.http.post(`${this.baseURL}/api/createUser`,user);
   }
@@ -18,7 +20,18 @@ export class HttpService {
   checkUser(user:Object):Observable<Object>{
     console.log("HTTP SERVICE:",user);
     return this.http.post(`${this.baseURL}/api/login`,user);
+  }
 
+  isLoggedIn(){
+    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+      data =>{
+        var dataString = JSON.stringify(data);
+        var dataJson = JSON.parse(dataString);
+        this.bool = dataJson["value"]
+        console.log(this.bool);
+      }
+    )
+    return this.bool;
   }
 
   searchUser(username:Object):Observable<Object>{
