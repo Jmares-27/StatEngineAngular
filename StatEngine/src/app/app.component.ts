@@ -15,28 +15,39 @@ export class AppComponent {
   constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar){}
   homeRedirect(){
     this.router.navigate(['home']);
+    this.menuToggle();
+
   }
 
   registerRedirect(){
     this.router.navigate(['register']);
+    this.menuToggle();
   }
 
   loginRedirect(){
     this.router.navigate(['login']);
+    this.menuToggle();
+
   }
 
   myAccountRedirect(){
     this.router.navigate(['myaccount']);
+    this.menuToggle();
+
   }
   
   searchRedirect(){
     this.router.navigate(['search'])
+    this.menuToggle();
+
   }
 
   logoutRedirect(){
     this.http.logOut();
     this.snackBar.open("Logging out! Redirecting...","",{duration: 2000});
     this.router.navigate(["home"]);
+    this.menuToggle();
+
   }
   
   deleteAccountRedirect(){

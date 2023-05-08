@@ -21,6 +21,23 @@
     position: relative; /* Ensure the container establishes a new stacking context */
     z-index: 1;
     color: white;
-    background-color: rgba(0, 0, 0, 0.699);
-    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.425);
+    margin: 2vw;
   }
+
+
+
+  
+.sidebar{
+    width: 40vw;
+}
+
+@media only screen and (max-device-width: 480px) {
+    .sidebar{
+        width: 70vw;
+    }
+
+    .nav-toggle{
+        margin: 5px;
+    }
+}
