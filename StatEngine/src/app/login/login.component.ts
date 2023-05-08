@@ -28,7 +28,6 @@ export class LoginComponent {
       data=>{
         var dataString = JSON.stringify(data);
         var dataJson = JSON.parse(dataString);
-        console.log(dataJson);
         localStorage.setItem("token", dataJson["token"]);
       },
       error => console.log(error)
