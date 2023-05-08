@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 interface Page {
   link: string;
   name: string;
+  icon: string;
 }
 
 @Component({
@@ -14,27 +15,23 @@ interface Page {
 
 
 
-export class SidemenuComponent implements OnInit {
+export class SidemenuComponent {
 
   public pages: Page[] = [
-    {name: 'Menu', link:'/'},
-    {name: 'Home', link:'/'},
-    {name: 'Sign Up', link:'/register'},
-    {name: 'Login', link:'/login'},
-    {name: 'Search', link:'/search'},
-    {name: 'Delete Account', link:'/deleteAccount'},
+    {name: 'Home', link:'/', icon: 'home'},
+    {name: 'Sign Up', link:'/register', icon: 'info'},
+    {name: 'Login', link:'/login', icon: 'person'},
+    {name: 'Search', link:'/search', icon: 'search'},
+    {name: 'Delete Account', link:'/deleteAccount', icon: 'help'},
   ]
 
   constructor(private router: Router) {
 
   }
 
-  ngOnInit(){
-
+  navigateTo(link: string) {
+    this.router.navigate([link]);
   }
-
-  redirect(){
-    this.router.navigate(['/home']);
-  }
+  
 
 }

@@ -1,13 +1,15 @@
-
-    <app-sidemenu></app-sidemenu>
-    <router-outlet></router-outlet>
-    
+<mat-sidenav-container>
+  <app-sidemenu></app-sidemenu>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
     <!--
     <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
       <mat-icon>menu</mat-icon>
     </button>
   -->
-    <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer>
+    <!--<footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer> -->
     <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
 
 <!--

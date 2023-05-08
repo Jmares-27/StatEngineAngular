@@ -16,6 +16,7 @@ import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -51,6 +52,7 @@ import { SidemenuComponent } from './sidemenu/sidemenu.component';
     HttpClientModule,
     MatIconModule,
     MatListModule,
+    MatDividerModule,
 
   ],
   providers: [],

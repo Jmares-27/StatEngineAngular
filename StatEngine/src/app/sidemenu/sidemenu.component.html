@@ -1,27 +1,15 @@
 <div>
     <mat-sidenav-container>
-        <mat-sidenav mode="side" opened>
-            Hello
-            <button mat-button class="menu-button">
-                <mat-icon>home</mat-icon>
-                <span>Home</span>
-            </button>
-            <button mat-button class="menu-button">
-                <mat-icon>person</mat-icon>
-                <span>Login</span>
-            </button>
-            <button mat-button class="menu-button">
-                <mat-icon>info</mat-icon>
-                <span>Register</span>
-            </button>
-
-            <mat-divider></mat-divider>
-
-            <button mat-button class="menu-button">
-                <mat-icon>help</mat-icon>
-                <span>Delete Account</span>
-            </button>
-        </mat-sidenav>
-        
+      <mat-sidenav mode="side" opened>
+        <ng-container *ngFor="let page of pages">
+          <mat-list-item class="menubox" (click)="navigateTo(page.link)">
+            <mat-icon>{{ page.icon }}</mat-icon>
+            <span>{{ page.name }}</span>
+            console.log("{{page.name}} created")
+          </mat-list-item>
+        </ng-container>
+        <mat-divider></mat-divider>
+      </mat-sidenav>
     </mat-sidenav-container>
-</div>
+  </div>
+  

@@ -6,7 +6,7 @@
     font-size: 20px;
     padding-top: 4%;
     background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
-    color: #FFFFFF;
+    color: black;
 }   
 
 .content {
@@ -14,10 +14,11 @@
 }
 
 mat-sidenav-container {
-    height: calc(100vh - 65p);
+    height: calc(100vh);
 }
 
 mat-sidenav {
+    background-color: red;
     margin: 16px;
     width: 200px;
     border-right: none;
