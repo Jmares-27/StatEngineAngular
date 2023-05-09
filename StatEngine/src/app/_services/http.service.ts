@@ -48,6 +48,9 @@ export class HttpService {
 
   }
 
+  updatePassword(userData:JSON):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/resetpassword`,userData);
+  }
 
   deleteAccount(username:Object):Observable<Object>{
 

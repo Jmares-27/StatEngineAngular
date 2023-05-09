@@ -3,11 +3,13 @@
     height:40px;
     justify-content: center;
     text-align: center;
+    text-shadow: #000000;
     font-size: 20px;
     padding-top: 4%;
     background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
     color: #FFFFFF;
     display:flex;
+    margin: auto
 }
 
 .menubox :hover{
@@ -15,7 +17,21 @@
     height: 40px;
     padding-top: 0.5%;
     background-image: linear-gradient(to right,#676767 100%, #4b4b4b 65.63%, #5f5f5f 0%);
-    cursor: pointer;
+    cursor:pointer;
+    margin: auto;
+}
+
+.menuboxText {
+    justify-content: center;
+    text-align: bottom;
+    margin: auto;
+}
+
+.menuboxText :hover{
+    justify-content: center;
+    text-align: bottom;
+    text-shadow: #000000;
+    margin: auto;
 }
 
 .nav-toggle {
@@ -30,7 +46,7 @@
 
   
 .sidebar{
-    width: 40vw;
+    width: 15vw;
 }
 
 @media only screen and (max-device-width: 480px) {
