@@ -22,6 +22,9 @@ export class RegisterComponent {
     })
   }
 
+  onClickToSignIn(){
+    this.router.navigate(['login']);
+  }
 
   onSubmit(){
     console.log()
