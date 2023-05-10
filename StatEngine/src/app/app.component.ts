@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { HttpService } from './_services/http.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -59,5 +58,7 @@ export class AppComponent {
     return this.opened
   }
 
-
+  bugReportRedirect(){
+    this.router.navigate(['bugreport'])
+  }
 }

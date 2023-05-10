@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { BugReportComponent } from './bug-report/bug-report.component';
 
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,6 +18,8 @@ import { MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
+import { MatSelectModule } from '@angular/material/select';
+
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -39,6 +42,7 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
     SearchComponent,
     DeleteAccountComponent,
     PasswordresetComponent,
+    BugReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +58,8 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
     HttpClientModule,
     MatIconModule,
     MatTableModule,
+    MatSelectModule,
+
 
   ],
   providers: [{

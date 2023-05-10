@@ -58,6 +58,10 @@ export class HttpService {
 
   }
 
+  bugReport(bugReportDetail:Object):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/bugReport`,bugReportDetail);
+  }
+
 }
 
 
