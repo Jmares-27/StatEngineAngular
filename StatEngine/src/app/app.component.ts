@@ -60,5 +60,6 @@ export class AppComponent {
 
   bugReportRedirect(){
     this.router.navigate(['bugreport'])
+    this.menuToggle();
   }
 }

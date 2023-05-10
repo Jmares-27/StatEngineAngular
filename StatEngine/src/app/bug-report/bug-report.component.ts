@@ -14,8 +14,8 @@ export class BugReportComponent {
   status_checker = false
   constructor(private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.bugReportForm = this.formBuilder.group({
-      title:['',[Validators.required]],
-      description:['',[Validators.required]],
+      category:['',[Validators.required]],
+      description:[''],
       reportedBy:['',[Validators.required]]
     })
   }
@@ -23,7 +23,7 @@ export class BugReportComponent {
 
   onSubmit() {
     var newBugReport = {
-      title: this.bugReportForm.value.title,
+      category: this.bugReportForm.value.category,
       description: this.bugReportForm.value.description,
       reportedBy:this.bugReportForm.value.reportedBy,
     }
