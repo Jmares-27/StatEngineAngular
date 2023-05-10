@@ -19,6 +19,10 @@ export class LoginComponent {
   }
 
 
+  onClickToSignUp(){
+    this.router.navigate(['register']);
+  }
+
   async onLogin(){
     var newUser = {
       username: this.loginForm.value.username,
