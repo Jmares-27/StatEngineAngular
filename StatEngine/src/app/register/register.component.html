@@ -9,21 +9,22 @@
             <mat-form-field appearance="outline">
                 <mat-label style="color:white">Email</mat-label>
                 <input matInput formControlName="email" style="color:white">
-                <mat-hint>Enter your email</mat-hint>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
         </div>
         <div>
             <mat-form-field appearance="outline">
                 <mat-label style="color:white">Username</mat-label>
                 <input matInput formControlName="username" style="color:white">
-                <mat-hint >Enter a username.</mat-hint>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
         </div>  
         <div>
             <mat-form-field appearance="outline">
                 <mat-label style="color:white">Password</mat-label>
                 <input matInput formControlName="password" type="password" style="color:white">
-                <mat-hint>Enter a password</mat-hint>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                <!-- <mat-hint>Enter a password</mat-hint> -->
             </mat-form-field>
         </div>
         <div> <!--Block 3 for submit button-->
