@@ -45,4 +45,8 @@ export class LoginComponent {
       this.router.navigate(["myaccount"]);
     }
   }
+
+  goTo(){
+    this.router.navigate(["passwordreset"]);
+  }
 }

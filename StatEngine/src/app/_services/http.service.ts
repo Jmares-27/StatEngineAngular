@@ -55,12 +55,15 @@ export class HttpService {
 
   }
 
-  updatePassword(username:object, newPa:Object):Observable<Object>{
+  updatePassword(username:Object, newPa:Object):Observable<Object>{
 
-    return this.http.post(`${this.baseURL}/api/updatePassword/${username}/${newPa}`, {username,newPa});
+    return this.http.put(`${this.baseURL}/api/updatePassword/${username}/${newPa}`, {username,newPa});
   }
 
+  resetPassword(username:Object, password:Object):Observable<Object>{
 
+    return this.http.post(`${this.baseURL}/api/resetpassword`, {username,password});
+  }
 
 
 }
