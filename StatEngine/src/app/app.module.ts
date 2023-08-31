@@ -18,6 +18,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card'; 
+import {MatListModule} from '@angular/material/list';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -57,7 +58,8 @@ import { UserComponent } from './user/user.component';
     HttpClientModule,
     MatIconModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatListModule
     
 
   ],
