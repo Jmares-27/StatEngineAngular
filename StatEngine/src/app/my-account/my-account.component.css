@@ -52,25 +52,14 @@
 
 }
 
-
-.profile-image {
+.image {
+    background-image: url('/../assets/images/The_Murray.jpg');
+    background-size: cover;
     width: 300px;
     height: 300px;
-    border-radius: 150px;
-    -webkit-border-radius: 150px;
-    -moz-border-radius: 150px;
-    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
-    overflow:  hidden ;
     background-color: white;
+    background-position:50% 50%;
     
-    
-}
-
-.image {
-    display: flex;
-    justify-content: center;
 }
 
 .listFont {
