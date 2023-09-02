@@ -36,6 +36,23 @@
 
 }
 
+.card-stats-class {
+    float: left;
+    height: 650px;
+    width: 1000px;
+    max-width: 2000px;
+    text-align: left;
+    padding: 50px;
+    left: 150px;
+    top: 5px;
+    display: flex;
+    bottom: 80px;
+    background-color: gray;
+    
+
+}
+
+
 .profile-image {
     width: 300px;
     height: 300px;
