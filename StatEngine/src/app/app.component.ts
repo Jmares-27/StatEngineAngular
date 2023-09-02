@@ -17,7 +17,7 @@ export class AppComponent {
   constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar, private matIconRegistry:MatIconRegistry, private domSanitizer:DomSanitizer){
     this.matIconRegistry.addSvgIcon('discord',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/discord-icon-svgrepo-com.svg'))
     this.matIconRegistry.addSvgIcon('instagram',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/instagram-svgrepo-com.svg'))
-    this.matIconRegistry.addSvgIcon('facebook',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/facebook-svgrepo-com.svg'))
+    this.matIconRegistry.addSvgIcon('facebook',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/facebook-svgrepo-com.svg')) 
   }
   homeRedirect(){
     this.router.navigate(['home']);
