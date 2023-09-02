@@ -23,7 +23,6 @@
 
 .card-class {
     float: left;
-    color: rgb(0, 0, 0);
     height: 650px;
     width: 450px;
     text-align: left;
@@ -32,6 +31,8 @@
     top: 5px;
     display: flex;
     bottom: 80px;
+    background-color: gray;
+    
 
 }
 
@@ -45,6 +46,7 @@
     -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
     overflow:  hidden ;
+    background-color: white;
     
     
 }
@@ -58,3 +60,6 @@
     font: bold;
 }
 
+.class-list-text {
+    color:red;
+}
