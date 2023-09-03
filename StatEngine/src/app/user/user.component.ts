@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent {
+  id:number = 123
 
 }

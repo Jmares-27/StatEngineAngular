@@ -20,8 +20,18 @@
 				Stats
 			</mat-card-title>
 		</mat-card-header>
+		<div class='table'>
+			<mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+				<ng-container matColumnDef = "map">
+					<mat-header-cell *matHeaderCellDef style="color:white"> Map </mat-header-cell>
+					<mat-cell *matCellDef = "let stat"> {{stat.map}}</mat-cell>
+				</ng-container>
+				
+			</mat-table>
+		</div>
 				
 	
 	</mat-card>
+
 
 </div>
