@@ -6,8 +6,8 @@
     top: 0px;
 
     background: rgb(242,242,242);
-    background: linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
-    filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));
+    background: conic-gradient(from 45deg at 0% 100%, #999999 0deg, rgba(0, 0, 0, 0) 360deg), linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
+    filter: drop-shadow(24% 16% 0% rgba(0, 0, 0, 0.14)) drop-shadow(0% 6% 30% rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10 rgba(0, 0, 0, 0.2));
     
 }  
 .title{
@@ -34,3 +34,13 @@
     color: #FFFFFF;
 }
 
+mat-cell{
+
+    color: white;
+
+}
+
+.data-table__cell{
+
+    color: white;
+}

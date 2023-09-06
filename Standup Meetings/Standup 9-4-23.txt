@@ -1,0 +1,14 @@
+Nathan | 09-04-23
+Working on the process to update the build of the website (still trying nginx so we can host front/backend on single instance before moving to other options). Also working on connecting angular instance to online server to test backend api proxy config.
+Build files run and display on the public IP of the EC2 instance
+Code not completed yet for online mongodb instance
+
+Dat |  09-04-23
+1. I am working on login and authentication functions to make sure data are correctly stored in the local storage and the first time successful log in will not complaint "Login unsuccessful" even though the data does exist in the database
+2. I have managed to get the data (token and the user data) stored in the local storage in form of ( key: token , value: {userdata like username, email, password, etc}   )
+3. Still trying to find a way to get the token from the local storage to properly log the user in 
+
+Johnnie |  09-04-23
+I am working on creating a viewable user profile in angular
+I have managed to create a single card that will contain a user name, profile pic, and minor information
+Stupid picture won’t get in the little circle
