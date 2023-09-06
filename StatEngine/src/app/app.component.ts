@@ -10,8 +10,15 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AppComponent {
   title = 'StatEngine';
   opened = true;
+  isDisplayed = false;
 
-  constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar){}
+  constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+    if (this.checkAuthenication() == true) {
+      this.isDisplayed = true;
+    }else {
+      this.isDisplayed = false;
+    }
+  }
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
@@ -41,12 +48,24 @@ export class AppComponent {
 
   }
 
+  checkAuthenication() {
+    if (this.http.getAuthentication() ==  null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  canDisplayed(){
+    this.isDisplayed = true;
+  }
+
   logoutRedirect(){
     this.http.logOut();
+    this.isDisplayed = false;
     this.snackBar.open("Logging out! Redirecting...","",{duration: 2000});
     this.router.navigate(["home"]);
     this.menuToggle();
-
   }
   
   deleteAccountRedirect(){

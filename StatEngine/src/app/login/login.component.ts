@@ -4,6 +4,8 @@ import { HttpService } from '../_services/http.service';
 import { Router } from '@angular/router';
 import { user } from '../user';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppComponent } from '../app.component';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -11,7 +13,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent {
   loginForm;
-  constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
+  constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
     this.loginForm = this.formBuilder.group({
       username:['',[Validators.required]],
       password:['',[Validators.required]]
@@ -89,6 +91,7 @@ export class LoginComponent {
           // console.log ("local Storage is :", localStorage.getItem("token"));
 
           if (this.http.getAuthentication()){
+            this.appComponent.canDisplayed();
             this.snackBar.open("Login Success!","",{duration:2000});
             this.router.navigate(["search"]);
 
