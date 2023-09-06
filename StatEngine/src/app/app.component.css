@@ -1,13 +1,18 @@
 .menubox{
     width:125px;
-    height:40px;
+    height:30px;
     justify-content: center;
     text-align: center;
     font-size: 20px;
     padding-top: 4%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
     color: #FFFFFF;
-}    
+    cursor: pointer
+
+}
+
 
 .nav-toggle {
     position: relative; /* Ensure the container establishes a new stacking context */
