@@ -26,7 +26,7 @@ export class LoginComponent {
   async onLogin(){
     var newUser = {
       username: this.loginForm.value.username,
-      password:this.loginForm.value.password,
+      password: this.loginForm.value.password,
     }
     await this.http.checkUser(newUser).subscribe(
       data=>{
@@ -48,5 +48,59 @@ export class LoginComponent {
       this.snackBar.open("Login Success!","",{duration:2000});
       this.router.navigate(["myaccount"]);
     }
+  }
+
+  async onLogin2() {
+    var newUser = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
+    }
+    // console.log ("login form data", newUser)
+    this.http.checkUser(newUser).subscribe(
+      data=>{
+        // console.log("HERE -->", data);
+        if (data == "No user exist!" ) {
+          // console.log("inside no data") //used for testing
+
+          console.log ("There is no such player exist")
+
+        }
+        else{
+          //datafound?
+          var dataString = JSON.stringify(data);
+          var dataJson = JSON.parse(dataString);
+          const userdata = {
+            username: dataJson.data.username,
+            email: dataJson.data.email,
+            password: dataJson.data.password,
+            steamID: dataJson.data.steamID,
+            token: dataJson.data.token
+          };
+          console.log (userdata)
+          const userdataString = JSON.stringify(userdata);
+          console.log (userdataString);
+          // const userdataToken = JSON.stringify(dataJson.token);
+          // localStorage.setItem("token", dataJson.token);
+          
+          localStorage.setItem("userData", userdataString);
+          // console.log("user data-->", dataJson.data.username)
+
+          // console.log ("local Storage is :", localStorage.getItem("token"));
+          // if (localStorage.getItem("userData")==null){
+          //   this.loginForm.reset(this.loginForm.value);
+          //   this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
+          // } else {
+          //   this.snackBar.open("Login Success!","",{duration:2000});
+          //   this.router.navigate(["myaccount"]);
+          // }
+        }
+      },
+      error => console.log(error)
+    )
+  }
+
+
+  goToPassReset(){
+    this.router.navigate(["passwordreset"]);
   }
 }

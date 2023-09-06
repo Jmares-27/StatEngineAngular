@@ -1,6 +1,6 @@
 
 <div class="back-ground">
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin2()" novalidate>
         <div style="text-align: center;">    
             <h1>StatEngine</h1>
             <h1>Login</h1>
@@ -24,7 +24,15 @@
         </div>
         <div> <!--Block 3 for submit button-->
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" [disabled]="!loginForm.valid">Sign In</button>
-            <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+        </div>
+
+
+        <div>
+            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 15%; top: 50%; color: white" (click)="goToPassReset()">Reset Password</button>
+        </div>
+
+        <div>
+        <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
         </div>
     </form>
 </div>
