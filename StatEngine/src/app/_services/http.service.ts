@@ -32,9 +32,26 @@ export class HttpService {
     )
     return this.bool;
   }
+  
+  getAuthentication() {
+    var userDataString = localStorage.getItem("userData");
+    // var userDataString = JSON.stringify (userData);
+    // console.log ("userData", userDataString);
+    if (userDataString ){
+      var userData = JSON.parse(userDataString);
+      // console.log ("This is token", userData.token);
+      return userData.token;  
+
+    }
+    else {
+      console.log ("No data");
+      return null;
+    }
+  
+  }
 
   logOut(){
-    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
     this.router.navigate(['home'])
   }
   searchUser(username:Object):Observable<Object>{

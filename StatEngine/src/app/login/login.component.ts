@@ -63,7 +63,8 @@ export class LoginComponent {
           // console.log("inside no data") //used for testing
 
           console.log ("There is no such player exist")
-
+          this.loginForm.reset(this.loginForm.value);
+          this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
         }
         else{
           //datafound?
@@ -76,9 +77,9 @@ export class LoginComponent {
             steamID: dataJson.data.steamID,
             token: dataJson.data.token
           };
-          console.log (userdata)
+          // console.log (userdata)
           const userdataString = JSON.stringify(userdata);
-          console.log (userdataString);
+          // console.log (userdataString);
           // const userdataToken = JSON.stringify(dataJson.token);
           // localStorage.setItem("token", dataJson.token);
           
@@ -86,13 +87,15 @@ export class LoginComponent {
           // console.log("user data-->", dataJson.data.username)
 
           // console.log ("local Storage is :", localStorage.getItem("token"));
-          // if (localStorage.getItem("userData")==null){
-          //   this.loginForm.reset(this.loginForm.value);
-          //   this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
-          // } else {
-          //   this.snackBar.open("Login Success!","",{duration:2000});
-          //   this.router.navigate(["myaccount"]);
-          // }
+
+          if (this.http.getAuthentication()){
+            this.snackBar.open("Login Success!","",{duration:2000});
+            this.router.navigate(["search"]);
+
+          } else {
+            this.loginForm.reset(this.loginForm.value);
+            this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
+          }
         }
       },
       error => console.log(error)
