@@ -22,19 +22,36 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
-  isLoggedIn(){
-    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
-      data =>{
-        var dataString = JSON.stringify(data);
-        var dataJson = JSON.parse(dataString);
-        this.bool = dataJson["value"]
-      }
-    )
-    return this.bool;
+  // isLoggedIn(){
+  //   this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+  //     data =>{
+  //       var dataString = JSON.stringify(data);
+  //       var dataJson = JSON.parse(dataString);
+  //       this.bool = dataJson["value"]
+  //     }
+  //   )
+  //   return this.bool;
+  // }
+  
+  getAuthentication() {
+    var userDataString = localStorage.getItem("userData");
+    // var userDataString = JSON.stringify (userData);
+    // console.log ("userData", userDataString);
+    if (userDataString){
+      var userData = JSON.parse(userDataString);
+      // console.log ("This is token", userData.token);
+      return userData.token;  
+
+    }
+    else {
+      console.log ("No data");
+      return null;
+    }
+  
   }
 
   logOut(){
-    localStorage.removeItem("token");
+    localStorage.removeItem("userData");
     this.router.navigate(['home'])
   }
   searchUser(username:Object):Observable<Object>{
@@ -48,6 +65,9 @@ export class HttpService {
 
   }
 
+  // updatePassword(userData:JSON):Observable<Object>{
+  //   return this.http.post(`${this.baseURL}/api/resetpassword`,userData);
+  // }
 
   deleteAccount(username:Object):Observable<Object>{
 
@@ -65,6 +85,10 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/resetpassword`, {username,password});
   }
 
+
+  bugReport(bugReportDetail:Object):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/bugReport`,bugReportDetail);
+  }
 
 }
 

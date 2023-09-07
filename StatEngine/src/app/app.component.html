@@ -1,14 +1,31 @@
 
 <mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
-  <mat-drawer mode="over" class="sidebar" style="height: 100vh; width: 15vw; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
+  <mat-drawer mode="over" class="sidebar" style="height: 100vh; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
+
+      <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+      <div class="menubox"><a class="menuboxText" (click)="homeRedirect()"><img src="icons/Home.png">Home</a></div>
       
-      <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
-      <div class="menubox"><a (click)="homeRedirect()">Home</a></div>
-      <div class="menubox"><a (click)="registerRedirect()">Register</a></div>
-      <div class="menubox"><a (click)="loginRedirect()">Login</a></div>
-      <div class="menubox"><a (click)="searchRedirect()">Search</a></div>
-      <div class="menubox"><a (click)="myAccountRedirect()">Account</a> </div>
-      <div class="menubox" style="position:absolute; bottom:0;"><a (click)="logoutRedirect()">Log Out</a></div>
+      <div class="menubox"  *ngIf="displayRegAndLogin">
+      <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div>
+      </div>
+
+      <div class="menubox"  *ngIf="displayRegAndLogin">
+      <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div>
+      </div>
+      <div class="menubox"><a class="menuboxText" (click)="searchRedirect()"><img src="icons/Home.png">Search</a></div>
+      <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()"><img src="icons/Home.png">My Account</a> </div>
+
+
+
+
+      <div class="menubox"  *ngIf="isDisplayed">
+        <div class="menubox"><a class="menuboxText" (click)="bugReportRedirect()"><img src="icons/Home.png">Report A Bug</a> </div>
+      </div>
+
+
+      <div class="menubox"  *ngIf="isDisplayed">
+        <div class="menubox" style="position:absolute; bottom:0;"><a class="menuboxText" (click)="logoutRedirect()">Log Out</a></div>
+      </div>
   
   </mat-drawer>
 

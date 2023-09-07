@@ -31,9 +31,10 @@ export class SearchComponent{
     this.http.searchUser(this.searchString ).subscribe(
       data=>{
         // console.log("HERE -->", data);
-        if ( !data ) {
+        if (data == "No user exist!" ) {
           // console.log("inside no data") //used for testing
           this.status_checker = true
+          console.log ("There is no such player exist")
           this.message = "There is no such player exist"
         }
         else{

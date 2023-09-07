@@ -21,10 +21,11 @@ export class PasswordresetComponent {
 }
 
 async resetPassword(){
-  var userData = {
-    username: this.resetForm.value.username,
-    password:this.resetForm.value.password,
-  }
+  var userData = [
+    {username: this.resetForm.value.username},
+    {password: this.resetForm.value.password},
+  ]
+  convertedData: JSON = JSON.parse(JSON.stringify(userData));
   await this.http.checkUser(userData).subscribe(
     data=>{
       var dataString = JSON.stringify(userData);
@@ -32,7 +33,7 @@ async resetPassword(){
     },
     error => console.log(error)
   )
-  //this.http.updatePassword()
+ //this.http.updatePassword(convertedData);
 }
 
 onSubmit(){
