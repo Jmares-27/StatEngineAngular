@@ -27,7 +27,8 @@
         <div>
             <mat-form-field appearance="outline">
                 <mat-label style="color:white">Reported By</mat-label>
-                <input matInput formControlName="reportedBy" style="color:white">
+                <input matInput   style="color:white" readonly value={{this.username}}>
+
                 <!-- <mat-hint>Enter a password</mat-hint> -->
             </mat-form-field>
         </div>

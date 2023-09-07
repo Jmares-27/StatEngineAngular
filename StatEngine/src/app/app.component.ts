@@ -11,13 +11,20 @@ export class AppComponent {
   title = 'StatEngine';
   opened = true;
   isDisplayed = false;
+  displayRegAndLogin  = false;
+
 
   constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
       this.isDisplayed = true;
+      this.displayRegAndLogin = false;
     }else {
       this.isDisplayed = false;
+      this.displayRegAndLogin = true;
     }
+
+
+
   }
   homeRedirect(){
     this.router.navigate(['home']);
@@ -63,13 +70,14 @@ export class AppComponent {
   logoutRedirect(){
     this.http.logOut();
     this.isDisplayed = false;
+    this.displayRegAndLogin = true;
     this.snackBar.open("Logging out! Redirecting...","",{duration: 2000});
     this.router.navigate(["home"]);
     this.menuToggle();
   }
   
   deleteAccountRedirect(){
-    this.router.navigate(['deleteAccount'])
+    this.router.navigate(['deleteaccount'])
   }
 
   menuToggle():boolean{

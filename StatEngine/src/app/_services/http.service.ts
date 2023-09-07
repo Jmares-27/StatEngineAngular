@@ -22,16 +22,16 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
-  isLoggedIn(){
-    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
-      data =>{
-        var dataString = JSON.stringify(data);
-        var dataJson = JSON.parse(dataString);
-        this.bool = dataJson["value"]
-      }
-    )
-    return this.bool;
-  }
+  // isLoggedIn(){
+  //   this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+  //     data =>{
+  //       var dataString = JSON.stringify(data);
+  //       var dataJson = JSON.parse(dataString);
+  //       this.bool = dataJson["value"]
+  //     }
+  //   )
+  //   return this.bool;
+  // }
   
   getAuthentication() {
     var userDataString = localStorage.getItem("userData");
