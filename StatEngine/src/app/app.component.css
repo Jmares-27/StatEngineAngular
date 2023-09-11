@@ -1,11 +1,14 @@
 .menubox{
-    width:100%;
+    width:150px;
     height:40px;
+
     justify-content: center;
     text-align: center;
     text-shadow: #000000;
     font-size: 20px;
     padding-top: 4%;
+    margin-top: 20px;
+    margin-bottom: 20px;
     background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
     color: #FFFFFF;
     display:flex;
