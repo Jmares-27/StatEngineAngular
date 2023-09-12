@@ -25,20 +25,15 @@ Stupid picture won’t get in the little circle
 ==================================================================================================================================================================================================
 ==================================================================================================================================================================================================
 
-Dat |  09-06-23
+Dat |  09-09-23
 1. I am working on login and authentication functions to make sure data are correctly stored in the local storage and the first time successful log in will not complaint "Login unsuccessful" even though the data does exist in the database part 2
 2. I got the userData (username, email, password) with token stored in the localStorage, in addition, I added a way to only display components such as report a bug, delete account, etc only when the user successfully logged in. Basically, this bug/issue should be fixed.
 3. 
-==================================================================================================================================================================================================
-==================================================================================================================================================================================================
 
 Nathan | 09-09-23
 1. Working on express testing with API proxy from current build with MongoDB cluster
 2. Connection from normal local Angular instance to database
 3. Nothing yet - awaiting the pain that I'm sure is coming
-
-==================================================================================================================================================================================================
-==================================================================================================================================================================================================
 
 Derek | 09-09-23
 1. Working on figuring out SteamAPI for basic stats pulling
