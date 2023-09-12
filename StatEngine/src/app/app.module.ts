@@ -19,7 +19,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
-
+import {MatCardModule} from '@angular/material/card';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -31,6 +31,8 @@ import { AuthInterceptor } from './authInterceptor';
 import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
+import { ViewFriendlistComponent } from './view-friendlist/view-friendlist.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,8 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
     DeleteAccountComponent,
     PasswordresetComponent,
     BugReportComponent,
+    BugReportSuccessComponent,
+    ViewFriendlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
     MatIconModule,
     MatTableModule,
     MatSelectModule,
-
+    MatCardModule,
 
   ],
   providers: [{

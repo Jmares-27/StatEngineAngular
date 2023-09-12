@@ -89,4 +89,14 @@ export class AppComponent {
     this.router.navigate(['bugreport'])
     this.menuToggle();
   }
+
+  bugReportSuccessRedirect(){
+    this.router.navigate(['bugreportsuccess'])
+    this.menuToggle();
+  }
+
+  viewFriendListRedirect(){
+    this.router.navigate(['viewfriendlist'])
+    this.menuToggle();
+  }
 }

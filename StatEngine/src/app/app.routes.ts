@@ -8,6 +8,8 @@ import { SearchComponent } from "./search/search.component";
 import { DeleteAccountComponent } from "./delete-account/delete-account.component";
 import { PasswordresetComponent } from "./passwordreset/passwordreset.component";
 import { BugReportComponent } from "./bug-report/bug-report.component";
+import { BugReportSuccessComponent } from "./bug-report-success/bug-report-success.component";
+import { ViewFriendlistComponent } from "./view-friendlist/view-friendlist.component";
 
 export const appRoutes: Routes =[
     {path: 'home', component:HomeComponent},
@@ -17,5 +19,7 @@ export const appRoutes: Routes =[
     {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
     {path: 'passwordreset', component: PasswordresetComponent},
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
+    {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},
+    {path: 'viewfriendlist', component: ViewFriendlistComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo:'home'}
 ]

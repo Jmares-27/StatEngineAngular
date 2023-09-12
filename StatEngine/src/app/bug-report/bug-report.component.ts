@@ -3,6 +3,7 @@ import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-bug-report',
   templateUrl: './bug-report.component.html',
@@ -13,7 +14,7 @@ export class BugReportComponent {
   message = ""
   status_checker = false
   username = ""
-  constructor(private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private appComponent: AppComponent,private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.bugReportForm = this.formBuilder.group({
       category:['',[Validators.required]],
       description:[''],
@@ -42,6 +43,7 @@ export class BugReportComponent {
           this.bugReportForm.reset(this.bugReportForm);
           this.snackBar.open("Submitted!","",{duration:2000});
           console.log("Submitted to the backend")
+          this.appComponent.bugReportSuccessRedirect();
         }
         else{
 
