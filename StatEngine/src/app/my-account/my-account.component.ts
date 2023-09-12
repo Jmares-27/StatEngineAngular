@@ -16,7 +16,8 @@ export class MyAccountComponent {
   kills: number;
   deaths: number;
   kd: number;
-  displayedColumns: string[] = ['Map','Kills','Deaths','K/D'];
+  Map: string;
+  displayedColumns: string[] = ['map','kills','deaths','KD'];
   dataSource = playerStats;
   
  
@@ -30,7 +31,10 @@ export interface statData {
 }
 
 const playerStats: statData[] = [
-  {map: "boowo",kills: 23, deaths: 20, KD: Math.floor(23/40)}
+  {map: "Anubis",kills: 23, deaths: 20, KD: 23/20},
+  {map: "Anubis",kills: 2, deaths: 80, KD: 23/20},
+  {map: "Anubis",kills: 12, deaths: 23, KD: 23/20},
+  {map: "Anubis",kills: 54, deaths: 3, KD: 23/20}
 
 ]
 

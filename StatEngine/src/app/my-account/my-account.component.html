@@ -21,13 +21,31 @@
 			</mat-card-title>
 		</mat-card-header>
 		<div class='table'>
-			<mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+			<table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
 				<ng-container matColumnDef = "map">
-					<mat-header-cell *matHeaderCellDef style="color:white"> Map </mat-header-cell>
-					<mat-cell *matCellDef = "let stat"> {{stat.map}}</mat-cell>
+					<th mat-header-cell *matHeaderCellDef style="color:black"> map </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.map}}</td>
 				</ng-container>
-				
-			</mat-table>
+
+				<ng-container matColumnDef = "kills">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> kills </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.kills}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "deaths">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> deaths </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.deaths}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "KD">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> KD </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.KD}}</td>
+				</ng-container>
+
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
 		</div>
 				
 	
