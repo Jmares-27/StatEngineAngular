@@ -19,34 +19,40 @@ export class LoginComponent {
   }
 
 
-  async onLogin(){
+  onLogin(){
     var newUser = {
       username: this.loginForm.value.username,
       password:this.loginForm.value.password,
     }
-    await this.http.checkUser(newUser).subscribe(
+    this.http.checkUser(newUser).subscribe(
       data=>{
         var dataString = JSON.stringify(data);
         var dataJson = JSON.parse(dataString);
         localStorage.setItem("token", dataJson["token"]);
+        console.log(localStorage.getItem("token"))
+        const currenttoken =localStorage.getItem("token")
+        if (currenttoken=="undefined" || currenttoken==null){
+          this.loginForm.reset(this.loginForm.value);
+          this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
+          
+        }
+        else{
+          this.snackBar.open("Login Success!","",{duration:2000});
+          this.goToAccount();
+          console.log("login")
+          
+    }
       },
       error => console.log(error)
+
     )
-    console.log(localStorage.getItem("token"))
-    if (localStorage.getItem("token")==undefined){
-      this.loginForm.reset(this.loginForm.value);
-      this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
-    } else if (localStorage.getItem("token")==null){
-      this.snackBar.open("Login Success!","",{duration:2000});
-      this.router.navigate(["myaccount"]);
-    }
-    else{
-      this.snackBar.open("Login Success!","",{duration:2000});
-      this.router.navigate(["myaccount"]);
-    }
   }
 
   goTo(){
     this.router.navigate(["passwordreset"]);
+  }
+
+  goToAccount(){
+    this.router.navigate(["myaccount"]);
   }
 }
