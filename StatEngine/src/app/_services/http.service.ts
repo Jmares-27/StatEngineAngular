@@ -53,6 +53,7 @@ export class HttpService {
   logOut(){
     localStorage.removeItem("userData");
     this.router.navigate(['home'])
+    window.location.reload();
   }
   searchUser(username:Object):Observable<Object>{
     

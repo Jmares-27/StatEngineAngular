@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpService } from '../_services/http.service';
 import { Router } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
+import { UserComponent } from '../user/user.component';
 
 @Component({
   selector: 'app-my-account',
@@ -9,36 +10,32 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent {
-  message = ""
-  status_checker = false
-  searchString = ""
-  deleteForm;
-  constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router){
-    // searchString: String;
-    this.deleteForm = this.formBuilder.group({
-      username:['',[Validators.required]],
-    });
-  }
-
-  onSubmit(){
-    this.http.deleteAccount(this.deleteForm.value.username ).subscribe(
-      data=>{
-        // console.log("HERE -->", data);
-        if ( !data ) {
-          // console.log("inside no data") //used for testing
-          this.status_checker = true
-          this.message = "There is no such player exist"
-        }
-        else{
-          
-          console.log("user data-->", data)
-          this.status_checker = true
-          this.message = "Delete successfully!!"
-          this.http.logOut();
-        }
-      },
-      error => console.log(error)
-    )
-  }
+  
+  userId: number
+  userName: string = null;
+  kills: number;
+  deaths: number;
+  kd: number;
+  Map: string;
+  displayedColumns: string[] = ['map','kills','deaths','KD'];
+  dataSource = playerStats;
+  
  
 }
+export interface statData {
+  kills: number;
+  deaths: number;
+  KD: number;
+  map: string;
+
+}
+
+const playerStats: statData[] = [
+  {map: "Anubis",kills: 23, deaths: 20, KD: 23/20},
+  {map: "Anubis",kills: 2, deaths: 80, KD: 23/20},
+  {map: "Anubis",kills: 12, deaths: 23, KD: 23/20},
+  {map: "Anubis",kills: 54, deaths: 3, KD: 23/20}
+
+]
+
+

@@ -2,6 +2,10 @@ import { Component } from '@angular/core';
 import { HttpService } from './_services/http.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -24,12 +28,16 @@ export class AppComponent {
     }
 
 
-
+  constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar, private matIconRegistry:MatIconRegistry, private domSanitizer:DomSanitizer){
+    this.matIconRegistry.addSvgIcon('discord',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/discord-icon-svgrepo-com.svg'))
+    this.matIconRegistry.addSvgIcon('instagram',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/instagram-svgrepo-com.svg'))
+    this.matIconRegistry.addSvgIcon('facebook',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/facebook-svgrepo-com.svg')) 
   }
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
-
+    
+    
   }
 
   registerRedirect(){

@@ -1,3 +1,58 @@
+<div class="back-ground">
+    <mat-card class = "card-class" >
+		<mat-card-header style = "color: white">
+			<mat-card-title>
+				Murray_Olay
+					<div mat-card-avatar class = "image"></div>
+				</mat-card-title>
+			</mat-card-header>		
+		<mat-list >
+		<h2 matSubheader style = "font-size: 22px; width: 53px; height: 24px; margin-left: 1rem; color: white">Socials</h2>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="discord"></mat-icon> <span style= "color: white">MurphTurph</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="instagram"></mat-icon><span style= "color: white">MucleHead</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="facebook"></mat-icon><span style= "color: white">Facebook</span></mat-list-item>
+		</mat-list>
+	</mat-card>
+	<br>
+	<mat-card class = "card-stats-class">
+		<mat-card-header style = "color: white">
+			<mat-card-title style = "vertical-align: 40">
+				Stats
+			</mat-card-title>
+		</mat-card-header>
+		<div class='table'>
+			<table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+				<ng-container matColumnDef = "map">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> map </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.map}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "kills">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> kills </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.kills}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "deaths">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> deaths </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.deaths}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "KD">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> KD </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.KD}}</td>
+				</ng-container>
+
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+		</div>
+				
+	
+	</mat-card>
+
+
+=======
 <div style="background: conic-gradient(from 45deg at 0% 100%, #999999 0deg, rgba(0, 0, 0, 0) 360deg), linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%); filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));">
     <div style="display:flexbox">
         <p style="text-align: center;color:white;"><b>Example user account page</b></p>
@@ -24,4 +79,3 @@
     
         </form>
     </div>
-</div>
