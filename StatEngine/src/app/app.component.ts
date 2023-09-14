@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,6 +14,19 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AppComponent {
   title = 'StatEngine';
   opened = true;
+  isDisplayed = false;
+  displayRegAndLogin  = false;
+
+
+  constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+    if (this.checkAuthenication() == true) {
+      this.isDisplayed = true;
+      this.displayRegAndLogin = false;
+    }else {
+      this.isDisplayed = false;
+      this.displayRegAndLogin = true;
+    }
+
 
   constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar, private matIconRegistry:MatIconRegistry, private domSanitizer:DomSanitizer){
     this.matIconRegistry.addSvgIcon('discord',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/discord-icon-svgrepo-com.svg'))
@@ -49,16 +63,29 @@ export class AppComponent {
 
   }
 
+  checkAuthenication() {
+    if (this.http.getAuthentication() ==  null) {
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  canDisplayed(){
+    this.isDisplayed = true;
+  }
+
   logoutRedirect(){
     this.http.logOut();
+    this.isDisplayed = false;
+    this.displayRegAndLogin = true;
     this.snackBar.open("Logging out! Redirecting...","",{duration: 2000});
     this.router.navigate(["home"]);
     this.menuToggle();
-
   }
   
   deleteAccountRedirect(){
-    this.router.navigate(['deleteAccount'])
+    this.router.navigate(['deleteaccount'])
   }
 
   menuToggle():boolean{
@@ -66,5 +93,8 @@ export class AppComponent {
     return this.opened
   }
 
-
+  bugReportRedirect(){
+    this.router.navigate(['bugreport'])
+    this.menuToggle();
+  }
 }

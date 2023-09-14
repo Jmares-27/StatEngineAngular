@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  registerForm;
+  registerForm:FormGroup;
   message = ""
   status_checker = false
   constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, private snackBar: MatSnackBar){
@@ -22,6 +22,9 @@ export class RegisterComponent {
     })
   }
 
+  onClickToSignIn(){
+    this.router.navigate(['login']);
+  }
 
   onSubmit(){
     console.log()
@@ -55,5 +58,14 @@ export class RegisterComponent {
       error => console.log(error)
     )
 
+  }
+  email = new FormControl('', [Validators.required, Validators.email]);
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return 'You must enter a value';
+    }
+
+    return this.email.hasError('email') ? 'Not a valid email' : '';
   }
 }
