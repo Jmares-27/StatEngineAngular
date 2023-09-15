@@ -1,1 +1,44 @@
-<p>bug-report works!</p>
+<div class="back-ground"  style="display:flex; justify-content: center; padding-top: 10%;">
+    <div class="form-container">
+        <form [formGroup]="bugReportForm" (ngSubmit)="onSubmit()" novalidate>
+        <div style="text-align: center;">    
+            <h1 style="color:white">StatEngine</h1>
+            <h1 style="color:white">Bug Report</h1>
+        </div>
+        <div>
+            <mat-form-field  appearance="fill">
+                <mat-select formControlName="category">
+            
+            
+                  <mat-option value="" disabled selected>Select A Category*</mat-option>
+                  <mat-option value="Category1">Category1</mat-option>
+                  <mat-option value="Category2">Category2</mat-option>
+                  <mat-option value="Category3">Category3</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label style="color:white">Description</mat-label>
+                <input matInput formControlName="description" type="text" style="color:white" alt="Give us more description">
+                <!-- <mat-hint >Enter a username.</mat-hint> -->
+            </mat-form-field>
+        </div>  
+        <div>
+            <mat-form-field appearance="outline">
+                <mat-label style="color:white">Reported By</mat-label>
+                <input matInput   style="color:white" readonly value={{this.username}}>
+
+                <!-- <mat-hint>Enter a password</mat-hint> -->
+            </mat-form-field>
+        </div>
+        <div> <!--Block 3 for submit button-->
+            <button  mat-flat-button color="primary"  type="submit"  style="justify-content: center; align-self: center; left: 30%; top: 50%; color:white; " [disabled]="!bugReportForm.valid" >Submit</button>
+            <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+            <footer style="justify-content: center; text-align: center; padding-top: 60%; color: white " >This is a StatEngine Production</footer>
+        </div>
+       
+    </form>
+   
+    </div>
+</div>
