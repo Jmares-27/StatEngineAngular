@@ -20,14 +20,10 @@ export class LoginComponent {
     })
   }
 
-onLogin(){
   onClickToSignUp(){
     this.router.navigate(['register']);
   }
-
-
-
- onLogin() {
+  onLogin() {
     var newUser = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
@@ -93,9 +89,9 @@ onLogin(){
       },
       error => console.log(error)
 
+    )}
     )
   }
-
   goToPassReset(){
     this.router.navigate(["passwordreset"]);
   }
