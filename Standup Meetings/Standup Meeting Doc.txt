@@ -66,3 +66,8 @@ Nathan | 09-14-23
 1. Connecting MongoDB database to Angular build on Nginx web server
 2. Verified connection using the Nginx build with public IP
 3. Need to edit the build files to point to public IP instead of localhost
+
+Sean | 09-14-23
+1. Fixing various display bugs in regards to responsiveness across devices/screen sizes.
+2. Registered domain name, email address, steam account.
+3. Currently researching various marketplaces for potential useful API's
