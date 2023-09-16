@@ -79,3 +79,10 @@ Johnny | 09-15-23
 1. Creating User(Logged In) Home Page and some UI Tweaks
 2. Visual changes such as alignment and hover behavior
 3. No issues at the moment
+
+
+Johnnie | 09-15-23
+1. performing tweaks to login and logout funtions
+2. upon login the page rediracts to the users account
+3. need more coffee
+
