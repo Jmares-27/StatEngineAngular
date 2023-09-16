@@ -71,3 +71,8 @@ Sean | 09-14-23
 1. Fixing various display bugs in regards to responsiveness across devices/screen sizes.
 2. Registered domain name, email address, steam account.
 3. Currently researching various marketplaces for potential useful API's
+
+Johnny | 09-15-23
+1. Creating User(Logged In) Home Page and some UI Tweaks
+2. Visual changes such as alignment and hover behavior
+3. No issues at the moment
