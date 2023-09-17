@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon'
 import {MatTableModule} from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -64,7 +65,7 @@ import { ViewFriendlistComponent } from './view-friendlist/view-friendlist.compo
     MatTableModule,
     MatSelectModule,
     MatCardModule,
-
+    FlexLayoutModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

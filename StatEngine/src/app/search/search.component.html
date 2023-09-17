@@ -13,25 +13,28 @@
 </style>
 
 
-<div class="back-ground" style="display:flex; justify-content: center; padding-top: 10%">
-    <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
+<div class="back-ground" style="display:flex; justify-content: center; padding-top: 10%" >
+    <!-- <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
         <div style="text-align: center; padding-top: 28%; ">    
             <h1 style="color:white">Search</h1>
         </div>
+
         <div>
             <mat-form-field appearance="outline">
                 <mat-label style="color:white">Search for a Player</mat-label>
                 <input matInput formControlName="username" style="color:white">
-                <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
             </mat-form-field>
         </div>
 
-        <div> <!--Block 3 for submit button-->
-            
+        <div>
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!SearchForm.valid">Search</button>
         </div>
 
         <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
         <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
-    </form>
+    </form> -->
+
+    <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
 </div>
+
+

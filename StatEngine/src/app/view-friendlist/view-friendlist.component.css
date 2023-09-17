@@ -27,6 +27,7 @@
 
 .card-background {
     background:black;
+    max-width: 400px;
 }
 
 .ex-table td {

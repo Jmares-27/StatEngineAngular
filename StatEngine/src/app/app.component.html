@@ -1,42 +1,65 @@
 
 <mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
   <mat-drawer mode="over" class="sidebar" style="height: 100vh; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
-
       <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
 
-      <div class="menubox"> <img  class="menuboxText" (click)="homeRedirect()" src="assets/icons/Home.png" />Home</div>
+      <div class="menubox"  (click)="homeRedirect()"><p><img src="assets/icons/Home.png">Home</p></div>
       
-      <div class="menubox"  *ngIf="displayRegAndLogin">
-      <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div>
-      </div>
-
-      <div class="menubox"  *ngIf="displayRegAndLogin">
-      <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div>
-      </div>
-      <div class="menubox"><a class="menuboxText" (click)="searchRedirect()"><img src="icons/Home.png">Search</a></div>
-      <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()"><img src="icons/Home.png">My Account</a> </div>
+        <!-- <div class="menubox"><a class="menuboxText" (click)="viewFriendListRedirect()"><img src="icons/Home.png">Friend list</a> </div> -->
+        <div class="menubox" *ngIf="isDisplayed" (click)="viewFriendListRedirect()"><p><img src="assets/icons/FriendList.png">Friend List</p></div>
 
 
 
+      <!-- <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div> -->
+      <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Home</div>
+  
 
-      <div class="menubox"  *ngIf="isDisplayed">
-        <div class="menubox"><a class="menuboxText" (click)="bugReportRedirect()"><img src="icons/Home.png">Report A Bug</a> </div>
-      </div>
+      <!-- <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div> -->
+      <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()">Login</div>
+
+      <div class="menubox"><a class="menuboxText" (click)="searchRedirect()">Search</a></div>
+      <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 
 
-      <div class="menubox"  *ngIf="isDisplayed">
-        <div class="menubox" style="position:absolute; bottom:0;"><a class="menuboxText" (click)="logoutRedirect()">Log Out</a></div>
-      </div>
+
+
+
+        <!-- <div class="menubox"><a class="menuboxText" (click)="bugReportRedirect()"><img src="icons/Home.png">Report A Bug</a> </div> -->
+        <div *ngIf="isDisplayed" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
+
+
+
+        <!-- <div class="menubox" style="position:absolute; bottom:0;"><a class="menuboxText" (click)="logoutRedirect()">Log Out</a></div> -->
+        <div  *ngIf="isDisplayed" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
   
   </mat-drawer>
 
   <mat-drawer-content style=" height: 100vh;">
 
+
+
+
+
     <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
         <mat-icon>menu</mat-icon>
       </button>
-    
+      
+      <form [formGroup]="SearchForm" style="justify-content: center; text-align: center;" class="search-box" >
+        <!-- <hint style="color:white">Search for a Player</hint> -->
+        <!-- <button (click)="searchSubmit()"><img src="assets/icons/Search2.png"></button>
+        <input  matInput formControlName="username" > -->
+  
+        <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
+  
+        <mat-form-field appearance="outline">
+          <mat-label style="color:white">Search for a Player</mat-label>
+          <input matInput formControlName="username" style="color:white">
+          <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+        </mat-form-field>
+        <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+      </form>
+
     <router-outlet></router-outlet>
     <!-- <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
       <mat-icon>menu</mat-icon>
