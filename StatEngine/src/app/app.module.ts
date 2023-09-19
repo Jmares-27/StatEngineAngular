@@ -21,6 +21,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { FlexLayoutModule } from "@angular/flex-layout";
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -32,6 +33,8 @@ import { AuthInterceptor } from './authInterceptor';
 import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
+import { ViewFriendlistComponent } from './view-friendlist/view-friendlist.component';
 import { UserComponent } from './user/user.component';
 
 @NgModule({
@@ -45,7 +48,9 @@ import { UserComponent } from './user/user.component';
     DeleteAccountComponent,
     PasswordresetComponent,
     UserComponent,
-    BugReportComponent
+    BugReportComponent,
+    BugReportSuccessComponent,
+    ViewFriendlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,9 @@ import { UserComponent } from './user/user.component';
     MatTableModule,
     MatCardModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
+    FlexLayoutModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

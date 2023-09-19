@@ -21,4 +21,6 @@ const EXAMPLE_DATA: GameStats[] = [
 export class HomeComponent {
 displayedColumns: string[] = ['date', 'map', 'kills', 'deaths'];
   dataSource = EXAMPLE_DATA;
+
+
 }
