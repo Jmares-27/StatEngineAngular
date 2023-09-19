@@ -20,33 +20,18 @@ export class LoginComponent {
     })
   }
 
+
   onClickToSignUp(){
     this.router.navigate(['register']);
   }
+
+
+
   onLogin() {
     var newUser = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
     }
-    this.http.checkUser(newUser).subscribe(
-      data=>{
-        var dataString = JSON.stringify(data);
-        var dataJson = JSON.parse(dataString);
-        localStorage.setItem("token", dataJson["token"]);
-        console.log(localStorage.getItem("token"))
-        const currenttoken =localStorage.getItem("token")
-        if (currenttoken=="undefined" || currenttoken==null){
-          this.loginForm.reset(this.loginForm.value);
-          this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
-          
-        }
-        else{
-          this.snackBar.open("Login Success!","",{duration:2000});
-          this.goToAccount();
-          console.log("login")
-          
-    }
-    // console.log ("login form data", newUser)
     this.http.checkUser(newUser).subscribe(
       data=>{
         // console.log("HERE -->", data);

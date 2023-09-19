@@ -1,0 +1,32 @@
+<div class="back-ground"  style="display:flex; justify-content: center; padding-top: 10%;">
+
+    
+        <ng-container *ngIf="friends.length > 0; else noFriends">
+            <div fxLayout="column"  fxLayoutGap="10px" >
+              <div    style="color:white" *ngFor="let friend of friends">
+                <mat-card class="card-background">
+                  <mat-card-header>
+                        <img mat-card-avatar src='https://material.angular.io/assets/img/examples/shiba1.jpg'>
+                        <mat-card-title>{{friend.name}}</mat-card-title>
+                        <mat-card-subtitle style="color:white">say something about yourself</mat-card-subtitle>
+                    </mat-card-header>
+                    <mat-card-content>
+                      <a>Kills: {{ friend.kills }} </a>
+                      <a>Deaths: {{ friend.deaths }}</a>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <div><button mat-button (click)="like(friend)" style="color:white"><img src="assets/icons/Like.png"></button>{{ friend.likes }} Likes</div>
+                        <div><button mat-button (click)="dislike(friend)" style="color:white"><img src="assets/icons/Dislike.png"></button>{{ friend.dislikes }} Dislikes</div>
+                    </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </ng-container>
+          
+          <ng-template #noFriends >
+            <p style="color:white">You have no friends. 😢</p>
+          </ng-template>
+
+
+
+</div>

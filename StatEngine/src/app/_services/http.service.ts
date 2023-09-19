@@ -22,32 +22,15 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
-  // isLoggedIn(){
-  //   this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
-  //     data =>{
-  //       var dataString = JSON.stringify(data);
-  //       var dataJson = JSON.parse(dataString);
-  //       this.bool = dataJson["value"]
-  //     }
-  //   )
-  //   return this.bool;
-  // }
-  
-  getAuthentication() {
-    var userDataString = localStorage.getItem("userData");
-    // var userDataString = JSON.stringify (userData);
-    // console.log ("userData", userDataString);
-    if (userDataString){
-      var userData = JSON.parse(userDataString);
-      // console.log ("This is token", userData.token);
-      return userData.token;  
-
-    }
-    else {
-      console.log ("No data");
-      return null;
-    }
-  
+  isLoggedIn(){
+    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+      data =>{
+        var dataString = JSON.stringify(data);
+        var dataJson = JSON.parse(dataString);
+        this.bool = dataJson["value"]
+      }
+    )
+    return this.bool;
   }
 
   logOut(){
