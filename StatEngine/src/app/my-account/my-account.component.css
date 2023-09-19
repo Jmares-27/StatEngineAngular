@@ -23,14 +23,11 @@
 
 .card-class {
     float: left;
-    height: 650px;
-    width: 450px;
+    height: 100%;
+    width: 30%;
     text-align: left;
-    padding: 10px;
-    left: 50px;
-    top: 5px;
-    display: flex;
-    bottom: 80px;
+    margin-left: 5%;
+    display: flexbox;
     background-color: gray;
     
 
@@ -38,14 +35,14 @@
 
 .card-stats-class {
     float: left;
-    height: 650px;
-    width: 1000px;
+    height: 80%;
+    width: 70%;
     max-width: 2000px;
     text-align: left;
-    padding: 50px;
-    left: 150px;
-    top: 5px;
-    display: flex;
+    margin-left:10%;
+    margin-top:6.2%;
+    padding:2%;
+    display: flexbox;
     bottom: 80px;
     background-color: gray;
     

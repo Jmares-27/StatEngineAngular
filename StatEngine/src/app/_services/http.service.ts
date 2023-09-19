@@ -91,6 +91,10 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/bugReport`,bugReportDetail);
   }
 
+  updateSteamID(steamID:Object):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/setSteamID`,steamID);
+  }
+
 }
 
 

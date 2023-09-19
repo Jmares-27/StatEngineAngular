@@ -47,9 +47,23 @@
   				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 			</table>
 		</div>
-				
-	
+		<div style="margin-top:10%"></div>
+		<mat-card style="float:left;">
+			<mat-card-title>
+				(Placeholder) Input SteamID:
+			</mat-card-title>
+			<mat-card-content>
+				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
+					<mat-label>Please enter a steamID to be linked to your account:</mat-label>
+					<input matInput formControlName="steamID">
+					<mat-hint>Numbers only!</mat-hint>
+				</form>
+				<button (click)="onIDSubmit()">Submit</button>
+
+			</mat-card-content>
+		</mat-card>
 	</mat-card>
+</div>
 
 
 <!-- =======

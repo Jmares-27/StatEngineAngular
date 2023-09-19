@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../_services/http.service';
 import { Router } from '@angular/router';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserComponent } from '../user/user.component';
 
 @Component({
@@ -10,7 +10,6 @@ import { UserComponent } from '../user/user.component';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent {
-  
   userId: number
   userName: string = null;
   kills: number;
@@ -19,8 +18,21 @@ export class MyAccountComponent {
   Map: string;
   displayedColumns: string[] = ['map','kills','deaths','KD'];
   dataSource = playerStats;
+  steamIDForm: FormGroup;
+  constructor(private fb: FormBuilder, private http: HttpService){
+    this.steamIDForm = this.fb.group({
+      steamID: ["", Validators.required]
+    });
+  }
+  onIDSubmit(){
+    console.log(this.steamIDForm.value.steamID)
+    this.http.updateSteamID(this.steamIDForm.value.steamID).subscribe((data)=>{
+      console.log(data)
+    })
+  }
   
- 
+
+
 }
 export interface statData {
   kills: number;
