@@ -74,9 +74,7 @@ export class LoginComponent {
       },
       error => console.log(error)
 
-    )}
-    )
-  }
+  )}
   goToPassReset(){
     this.router.navigate(["passwordreset"]);
   }
@@ -87,5 +85,8 @@ export class LoginComponent {
 
   goToAccount(){
     this.router.navigate(["myaccount"]);
+  } 
   }
-}
+
+
+

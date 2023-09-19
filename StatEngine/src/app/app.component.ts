@@ -125,18 +125,6 @@ export class AppComponent {
     this.isDisplayed = true;
   }
 
-  checkAuthenication() {
-    if (this.http.getAuthentication() ==  null) {
-      return false;
-    }
-    else {
-      return true;
-    }
-  }
-  canDisplayed(){
-    this.isDisplayed = true;
-  }
-
   logoutRedirect(){
     this.http.logOut();
     this.isDisplayed = false;

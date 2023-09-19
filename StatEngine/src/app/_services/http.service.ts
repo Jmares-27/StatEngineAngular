@@ -22,6 +22,23 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
+  getAuthentication() {
+    var userDataString = localStorage.getItem("userData");
+    // var userDataString = JSON.stringify (userData);
+    // console.log ("userData", userDataString);
+    if (userDataString){
+      var userData = JSON.parse(userDataString);
+      // console.log ("This is token", userData.token);
+      return userData.token;  
+
+    }
+    else {
+      console.log ("No data");
+      return null;
+    }
+  
+  }
+  
   isLoggedIn(){
     this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
       data =>{
