@@ -15,8 +15,7 @@ export class BugReportComponent {
   username = ""
   constructor(private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.bugReportForm = this.formBuilder.group({
-      category:['',[Validators.required]],
-      description:[''],
+      description:['', [Validators.required]],
       reportedBy:['',],
     })
 
@@ -30,7 +29,6 @@ export class BugReportComponent {
 
   onSubmit() {
     var newBugReport = {
-      category: this.bugReportForm.value.category,
       description: this.bugReportForm.value.description,
       reportedBy: this.username,
     }
