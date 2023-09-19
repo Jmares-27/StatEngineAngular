@@ -33,6 +33,7 @@ import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { UserComponent } from './user/user.component';
+import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { UserComponent } from './user/user.component';
     MatTableModule,
     MatCardModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    AuthModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

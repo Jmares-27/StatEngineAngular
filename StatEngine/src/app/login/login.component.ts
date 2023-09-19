@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { user } from '../user';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppComponent } from '../app.component';
+import { AuthModule, LogLevel } from 'angular-auth-oidc-client';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ import { AppComponent } from '../app.component';
 })
 export class LoginComponent {
   loginForm;
-  constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
+  constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar,
+    private steamAuth: AuthModule){
     this.loginForm = this.formBuilder.group({
       username:['',[Validators.required]],
       password:['',[Validators.required]]
