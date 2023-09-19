@@ -2,7 +2,7 @@
 <mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
   <mat-drawer mode="over" class="sidebar" style="height: 100vh; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
 
-      <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+      <div><a (click)="menuToggle()"><h1 class="nav-title-text"><b>MENU</b></h1></a></div>
       <div class="menubox"><a class="menuboxText" (click)="homeRedirect()"><img src="icons/Home.png">Home</a></div>
       
       <div class="menubox"  *ngIf="displayRegAndLogin">
