@@ -21,7 +21,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-import { FlexLayoutModule } from "@angular/flex-layout";
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -70,7 +69,6 @@ import { UserComponent } from './user/user.component';
     MatListModule,
     MatSelectModule,
     MatCardModule,
-    FlexLayoutModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
