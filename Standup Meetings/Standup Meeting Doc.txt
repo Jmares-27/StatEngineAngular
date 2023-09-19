@@ -53,3 +53,36 @@ Dat | 09-11-23
 1. Create friendlist component and display data similar to the figma model and find a way to be able to display icons.
 2. I hard-coded some data and was able to display each friend in a card, But still need to reposition data for easier readability. In addition, Johnny found a way to be able to display the icons in Dat's branch (will merge to main when it is fully comeplete). 
 3. No issue at the moment.
+
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Dat | 09-14-23 
+1.  Display friendlist data similar to the figma model and create a search box on every pages instead of using a search page only (just like the figma model)
+2.  I included all other icons (friend list icon, log out icon, etc ) and properly displayed them on the page, and i got a very basic search box appear on every pages, still need to tune it up to make it fit with the figma model
+3.  Still trying to host our website to be able to get the steam API key so that we can query data from steam, see Nathan comment on 09/09/23
+
+Nathan | 09-14-23
+1. Connecting MongoDB database to Angular build on Nginx web server
+2. Verified connection using the Nginx build with public IP
+3. Need to edit the build files to point to public IP instead of localhost
+
+Sean | 09-14-23
+1. Fixing various display bugs in regards to responsiveness across devices/screen sizes.
+2. Registered domain name, email address, steam account.
+3. Currently researching various marketplaces for potential useful API's
+
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Johnny | 09-15-23
+1. Creating User(Logged In) Home Page and some UI Tweaks
+2. Visual changes such as alignment and hover behavior
+3. No issues at the moment
+
+
+Johnnie | 09-15-23
+1. performing tweaks to login and logout funtions
+2. upon login the page rediracts to the users account
+3. need more coffee
+
