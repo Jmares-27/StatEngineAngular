@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  private baseURL = 'http://18.223.143.39:3026'
+  private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
   constructor(private http: HttpClient, private router: Router) { }
 
