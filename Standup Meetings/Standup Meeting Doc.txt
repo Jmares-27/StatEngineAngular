@@ -86,3 +86,11 @@ Johnnie | 09-15-23
 2. upon login the page rediracts to the users account
 3. need more coffee
 
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Nathan | 09-19-23
+1. Nginx/backend deployment on cloud
+2. Successfully tested and launched publicly available site at statengines.org as well as public EC2 IP address. Backend works in conjunction with front end to communicate with MongoDB instance
+3. Looking into Steam API
+
