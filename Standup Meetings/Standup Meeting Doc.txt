@@ -98,3 +98,8 @@ Derek | 09-19-23
 1. Adding an option to manually add steamID and translating python script for Steam API calls into Typescript
 2. Fixed merge errors with merging down everyone's commits, reviewing code. 
 3. Slight issue in that my development backend server cannot connect to my frontend, but should be fairly easy fix. 
+
+Johnny | 09-19-23
+1. UI adjustments and attempt to standardize style
+2. More visual updates such as text appearance 
+3. There will most defininitely be merge conflicts 
