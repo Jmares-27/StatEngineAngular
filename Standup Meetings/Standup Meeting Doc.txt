@@ -108,3 +108,8 @@ Dat | 09-19-23
 1. Figure out a way for user to add another user to their friend list, and fix UI bugs 
 2. I got the texts in the menu to line up the middle again, I increased to the description box in the bug report to fit like the figma model. As for adding another user to the friend list I was thinking of create an array of friend list field in the users collection in MongoDB where it will hold all userid of the friends that the user added. But I still need to see if this will work.
 3. The search box is looking weird and I still trying to figure out a way to fix it (a UI problem).
+
+Johnnie | 09-19-23
+1. adding steam login butto that ses openId to direct the user to login to their steam account
+2. need to figre out authentication method for steam login
+3. i fell asleep while tying this, hence why its late ._. 
