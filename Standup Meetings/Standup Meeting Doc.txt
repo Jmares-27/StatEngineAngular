@@ -94,3 +94,7 @@ Nathan | 09-19-23
 2. Successfully tested and launched publicly available site at statengines.org as well as public EC2 IP address. Backend works in conjunction with front end to communicate with MongoDB instance
 3. Looking into Steam API
 
+Derek | 09-19-23
+1. Adding an option to manually add steamID and translating python script for Steam API calls into Typescript
+2. Fixed merge errors with merging down everyone's commits, reviewing code. 
+3. Slight issue in that my development backend server cannot connect to my frontend, but should be fairly easy fix. 
