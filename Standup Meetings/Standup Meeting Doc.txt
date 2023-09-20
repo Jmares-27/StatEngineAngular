@@ -110,6 +110,6 @@ Dat | 09-19-23
 3. The search box is looking weird and I still trying to figure out a way to fix it (a UI problem).
 
 Johnnie | 09-19-23
-1. adding steam login butto that ses openId to direct the user to login to their steam account
-2. need to figre out authentication method for steam login
+1. need to figure out authentication method for steam login
+2. adding steam login butto that ses openId to direct the user to login to their steam account
 3. i fell asleep while tying this, hence why its late ._. 
