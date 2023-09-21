@@ -107,6 +107,6 @@ export class LoginComponent {
   }
 
   steamOpenID(){
-    window.location.href = 'https://steamcommunity.com/openid/login?openid.ns=http://specs.openid.net/auth/2.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:4200/&openid.realm=hhttp://localhost:4200/&openid.mode=checkid_setup';
+    window.location.href = 'https://steamcommunity.com/openid/login?openid.ns=http://specs.openid.net/auth/2.0&openid.claimed_id=http://specs.openid.net/auth/2.0/identifier_select&openid.identity=http://specs.openid.net/auth/2.0/identifier_select&openid.return_to=http://localhost:4200&openid.realm=http://localhost:4200&openid.mode=checkid_setup';
   }
 }
