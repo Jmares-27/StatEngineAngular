@@ -16,7 +16,7 @@ export const appRoutes: Routes =[
     {path: 'login', component:LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuard]},
-    {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
+    {path: 'search', component: SearchComponent},
     {path: 'passwordreset', component: PasswordresetComponent},
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
     {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},

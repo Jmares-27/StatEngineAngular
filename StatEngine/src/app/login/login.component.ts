@@ -64,7 +64,7 @@ export class LoginComponent {
             this.appComponent.canDisplayed();
             this.appComponent.displayRegAndLogin = false;
             this.snackBar.open("Login Success!","",{duration:2000});
-            this.router.navigate(["search"]);
+            this.router.navigate(["myaccount"]);
 
           } else {
             this.loginForm.reset(this.loginForm.value);

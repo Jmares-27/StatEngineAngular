@@ -53,7 +53,7 @@ export class AppComponent {
           this.router.navigate(['search'])
               
           // this.message = "There is no such player exist"
-          // location.reload();
+          // window.location.reload();
         }
         else{
           //datafound
@@ -71,7 +71,7 @@ export class AppComponent {
           localStorage.setItem("searchResult", userdataString)
           // this.searchComponent.message = "User found!"
           this.router.navigate(['search'])
-          // location.reload();
+          // window.location.reload();
           // this.status_checker = true
           // this.message = "User found!"
         }

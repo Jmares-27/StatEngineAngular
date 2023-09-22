@@ -17,25 +17,26 @@
                 </mat-select>
             </mat-form-field>
         </div> -->
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Description</mat-label>
-                <input matInput formControlName="description" type="text" style="color:white" alt="Give us more description">
+        <div><h2 style="color: white">Tell us what is wrong</h2></div>
+        <div >
+            <mat-form-field appearance="outline"  class="description-box">
+                <mat-label  style="color:white">Description</mat-label>
+                <input   matInput formControlName="description" type="text" style="color:white" alt="Give us more description">
                 <!-- <mat-hint >Enter a username.</mat-hint> -->
             </mat-form-field>
         </div>  
         <div>
-            <mat-form-field appearance="outline">
+            <mat-form-field appearance="outline" class="reported-by-box">
                 <mat-label style="color:white">Reported By</mat-label>
-                <input matInput   style="color:white" readonly value={{this.username}}>
+                <input matInput  style="color:white" readonly value={{this.username}}>
 
                 <!-- <mat-hint>Enter a password</mat-hint> -->
             </mat-form-field>
         </div>
         <div> <!--Block 3 for submit button-->
-            <button  mat-flat-button color="primary"  type="submit"  style="justify-content: center; align-self: center; left: 30%; top: 50%; color:white; " [disabled]="!bugReportForm.valid" >Submit</button>
+            <button  mat-flat-button color="primary"  type="submit"  style="justify-content: center; align-self: center; left: 40%; top: 50%; color:white; " [disabled]="!bugReportForm.valid" >Submit</button>
             <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
-            <footer style="justify-content: center; text-align: center; padding-top: 60%; color: white " >This is a StatEngine Production</footer>
+            <footer style="justify-content: center; text-align: center; padding-top: 40%; color: white " >This is a StatEngine Production</footer>
         </div>
        
     </form>
