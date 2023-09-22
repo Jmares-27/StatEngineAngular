@@ -1,72 +1,51 @@
 
 <mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
   <mat-drawer mode="over" class="sidebar" style="height: 100vh; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
-      <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+    <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
 
-      <div class="menubox"  (click)="homeRedirect()"><p><img src="assets/icons/Home.png">Home</p></div>
+    <div class="menubox"  (click)="homeRedirect()"><p><img src="assets/icons/Home.png">Home</p></div>
       
-        <!-- <div class="menubox"><a class="menuboxText" (click)="viewFriendListRedirect()"><img src="icons/Home.png">Friend list</a> </div> -->
-        <div class="menubox" *ngIf="isDisplayed" (click)="viewFriendListRedirect()"><p><img src="assets/icons/FriendList.png">Friend List</p></div>
+    <div class="menubox" *ngIf="isDisplayed" (click)="viewFriendListRedirect()"><p><img src="assets/icons/FriendList.png">Friend List</p></div>
 
+    <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Register</div>
 
+    <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()">Login</div>
 
-      <!-- <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div> -->
-      <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Register</div>
-  
+    <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 
-      <!-- <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div> -->
-      <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()">Login</div>
+    <div *ngIf="isDisplayed" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
 
-      <!-- <div class="menubox"><a class="menuboxText" (click)="searchRedirect()">Search</a></div> -->
-      <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
-
-
-
-
-
-        <!-- <div class="menubox"><a class="menuboxText" (click)="bugReportRedirect()"><img src="icons/Home.png">Report A Bug</a> </div> -->
-        <div *ngIf="isDisplayed" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
-
-
-
-        <!-- <div class="menubox" style="position:absolute; bottom:0;"><a class="menuboxText" (click)="logoutRedirect()">Log Out</a></div> -->
-        <div  *ngIf="isDisplayed" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
+    <div  *ngIf="isDisplayed" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
   
   </mat-drawer>
 
   <mat-drawer-content style=" height: 100vh;">
 
+  <div class="top-row-container">
+
+    <!-- Nav-Toggle button -->
+    <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    
+    <!-- Search Form -->
     <form [formGroup]="SearchForm" style="justify-content: center; text-align: center; padding-top: 10px;"  class="search-box">
 
       <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
-
+      
       <mat-form-field appearance="fill">
         <mat-label style="color:black;">Search for a Player</mat-label>
         <input matInput formControlName="username" style="color:black">
-        <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
       </mat-form-field>
-      <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
     </form>
 
+    
+  </div>
 
 
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-      <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      
+  <router-outlet></router-outlet>
 
-
-    <router-outlet></router-outlet>
-    <!-- <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
-    <!-- <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer> -->
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-
-  </mat-drawer-content>
+</mat-drawer-content>
   
   
 </mat-drawer-container>

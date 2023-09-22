@@ -69,21 +69,30 @@
     text-align: bottom;
     text-shadow: #000000;
 }
-.nav-toggle {
-    position: relative; /* Ensure the container establishes a new stacking context */
+
+.top-row-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    position: relative;
     z-index: 1;
     color: white;
     background-color: rgba(0, 0, 0, 0.425);
-    margin-top: 0px;
+    margin-top: 15px;
+    float: left;
+    margin-left: 15px;
   }
-
-.search-box {
-    position: relative; /* Ensure the container establishes a new stacking context */
+  
+  .search-box {
+    position: relative;
     z-index: 1;
     margin: auto;
-    display:flex;
+    display: flex;
     align-items: flex-start;
     justify-content: center;
+    width: 90%;
   }
 
 
