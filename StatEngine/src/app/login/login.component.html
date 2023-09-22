@@ -19,14 +19,15 @@
                 <mat-hint>Enter a password</mat-hint>
             </mat-form-field>
         </div>
-        <div>            
-            <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
-        </div>
+
         <div> <!--Block 3 for submit button-->
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" [disabled]="!loginForm.valid">Sign In</button>
         </div>
 
-
+        <div>            
+            <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
+        </div>
+        
         <div>
             <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 15%; top: 50%; color: white" (click)="goToPassReset()">Reset Password</button>
         </div>

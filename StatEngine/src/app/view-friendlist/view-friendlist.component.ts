@@ -11,9 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ViewFriendlistComponent {
   friends = [
-    { id: 1, name: 'Alice', kills: 10, deaths: 5, likes: 0, dislikes: 0 },
-    { id: 2, name: 'Bob', kills: 8, deaths: 3, likes: 0, dislikes: 0 },
-    { id: 3, name: 'Charlie', kills: 15, deaths: 7, likes: 0, dislikes: 0 },
+    { id: 1, name: 'Hippo', kills: 10, deaths: 5, likes: 0, dislikes: 0 , img_url: 'assets/images/Hippo.png' },
+    { id: 2, name: 'Hippo the Smurf', kills: 8, deaths: 3, likes: 0, dislikes: 0, img_url: 'assets/images/Hippo_the_smurf.png' },
     // Add more friends here
   ];
 

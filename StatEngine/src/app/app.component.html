@@ -11,13 +11,13 @@
 
 
       <!-- <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div> -->
-      <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Home</div>
+      <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Register</div>
   
 
       <!-- <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div> -->
       <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()">Login</div>
 
-      <div class="menubox"><a class="menuboxText" (click)="searchRedirect()">Search</a></div>
+      <!-- <div class="menubox"><a class="menuboxText" (click)="searchRedirect()">Search</a></div> -->
       <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 
 
@@ -36,7 +36,17 @@
 
   <mat-drawer-content style=" height: 100vh;">
 
+    <form [formGroup]="SearchForm" style="justify-content: center; text-align: center; padding-top: 10px;"  class="search-box">
 
+      <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
+
+      <mat-form-field appearance="fill">
+        <mat-label style="color:black;">Search for a Player</mat-label>
+        <input matInput formControlName="username" style="color:black">
+        <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+      </mat-form-field>
+      <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
+    </form>
 
 
 
@@ -45,20 +55,7 @@
         <mat-icon>menu</mat-icon>
       </button>
       
-      <form [formGroup]="SearchForm" style="justify-content: center; text-align: center;" class="search-box" >
-        <!-- <hint style="color:white">Search for a Player</hint> -->
-        <!-- <button (click)="searchSubmit()"><img src="assets/icons/Search2.png"></button>
-        <input  matInput formControlName="username" > -->
-  
-        <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
-  
-        <mat-form-field appearance="outline">
-          <mat-label style="color:white">Search for a Player</mat-label>
-          <input matInput formControlName="username" style="color:white">
-          <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
-        </mat-form-field>
-        <!-- <mat-hint>Enter A Name You Want To Search</mat-hint> -->
-      </form>
+
 
     <router-outlet></router-outlet>
     <!-- <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
