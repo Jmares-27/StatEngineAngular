@@ -9,7 +9,7 @@ import { DeleteAccountComponent } from "./delete-account/delete-account.componen
 import { PasswordresetComponent } from "./passwordreset/passwordreset.component";
 import { BugReportComponent } from "./bug-report/bug-report.component";
 import { BugReportSuccessComponent } from "./bug-report-success/bug-report-success.component";
-import { ViewFriendlistComponent } from "./view-friendlist/view-friendlist.component";
+import { FavoritesComponent } from "./favorites/favorites.component";
 
 export const appRoutes: Routes =[
     {path: 'home', component:HomeComponent},
@@ -20,6 +20,6 @@ export const appRoutes: Routes =[
     {path: 'passwordreset', component: PasswordresetComponent},
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
     {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},
-    {path: 'viewfriendlist', component: ViewFriendlistComponent, canActivate: [AuthGuard]},
+    {path: 'favorites', component:FavoritesComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo:'home'}
 ]
