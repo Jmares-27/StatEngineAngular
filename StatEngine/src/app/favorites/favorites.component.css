@@ -24,11 +24,20 @@
     
     
 }
+.avatar {
+    width: 110px;
+    height: 110px;
+}
 
+.mat-card-contents{
+    justify-content: center;
+    text-align: center;
+}
 .card-details {
     background:black;
     width: 500px;
-    height: 200px;
+    height: 150px;
+    border-radius: 20px;
 }
 
 .ex-table td {

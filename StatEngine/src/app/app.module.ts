@@ -33,8 +33,8 @@ import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
-import { ViewFriendlistComponent } from './view-friendlist/view-friendlist.component';
 import { UserComponent } from './user/user.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,7 @@ import { UserComponent } from './user/user.component';
     UserComponent,
     BugReportComponent,
     BugReportSuccessComponent,
-    ViewFriendlistComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

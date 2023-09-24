@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewFriendlistComponent } from './view-friendlist.component';
+import { FavoritesComponent } from './favorites.component';
 
-describe('ViewFriendlistComponent', () => {
-  let component: ViewFriendlistComponent;
-  let fixture: ComponentFixture<ViewFriendlistComponent>;
+describe('FavoritesComponent', () => {
+  let component: FavoritesComponent;
+  let fixture: ComponentFixture<FavoritesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewFriendlistComponent ]
+      declarations: [ FavoritesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewFriendlistComponent);
+    fixture = TestBed.createComponent(FavoritesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
