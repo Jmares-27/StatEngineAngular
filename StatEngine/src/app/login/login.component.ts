@@ -43,6 +43,7 @@ export class LoginComponent {
         else{
           this.snackBar.open("Login Success!","",{duration:2000});
           this.goToAccount();
+          localStorage.setItem("username", this.loginForm.value.username);
           console.log("login")
           
     }
