@@ -2,7 +2,7 @@
 <!-- Background -->
 <div class="back-ground">
     <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
+    <form [formGroup]="loginForm"  novalidate>
 
         <!-- StatEngine Logo -->
         <h1 class = "title-header">StatEngine</h1>
@@ -13,7 +13,7 @@
 
             <!-- Username Field -->
             <div>
-                <mat-form-field appearance="outline">
+                <mat-form-field class="input-box" appearance="outline">
                     <mat-label style="color:white">Username</mat-label>
                     <input matInput formControlName="username" style="color:white">
                     <!-- <mat-hint>Enter a username</mat-hint> -->
@@ -22,7 +22,7 @@
 
             <!-- Password Field -->
             <div>
-                <mat-form-field appearance="outline">
+                <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline">
                     <mat-label style="color:white">Password</mat-label>
                     <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
@@ -33,25 +33,25 @@
             </div>
 
             <!-- Sign up button -->
-            <div class="login-buttons"> <!--Block 3 for submit button-->
-                <button mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+            <div  style ="margin-top: 35px;" class="login-buttons"> <!--Block 3 for submit button-->
+                <button (click)="onLogin()" mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
             </div>
 
-            <!-- Reset Password Button -->
-            <div class="login-buttons">
-                <button mat-flat-button color="primary" type="submit"  (click)="goToPassReset()">Reset Password</button>
-            </div>
-            
             <!-- Sign up button -->
-            <div>            
-                <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
+            <div class="login-buttons">            
+                <a style="margin-right: 150px;"><button mat-button (click)="onClickToSignUp()" style="color:white"><u >Sign Up</u></button></a>
+                <button mat-button  (click)="goToPassReset()" style="color:white"><u>Reset Password</u></button>
             </div>
+
+
+            
+
             
             
         </div>
 
         <div>
-        <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+        <footer style="justify-content: center; text-align: center; padding-top: 50%; color: white " >This is a StatEngine Production</footer>
         </div>
     </form>
 </div>

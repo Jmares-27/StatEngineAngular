@@ -10,6 +10,12 @@
     background: linear-gradient(180deg, #62B8B9 10.0%, #0F1119 35%, #B63986 80.0%);
     color: white;
 }
+.input-box {
+    width: 300px;
+    height: 20px;
+    margin-left: 30px;
+
+}
 
 .title-header{
     text-align: center;
