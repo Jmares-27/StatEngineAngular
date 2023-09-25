@@ -131,3 +131,8 @@ Derek | 09-24-23
 1. Working on displaying data pulled from steamAPI for each specific user
 2. Finished system to automatically pull information from steamAPI: returns 206 items
 3. Trying to brainstorm a way to nicely display this data. 
+
+Johnnie | 09-24-23
+1. redirecting user to a loading pge after steam api returns url info that needs to be proccessed
+2. currently has steam api redirect user to home page after steam id login
+3. no issue besides not being able to stay up to commit to the doc in time ._.
