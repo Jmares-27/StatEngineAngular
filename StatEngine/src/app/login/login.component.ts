@@ -51,15 +51,15 @@ export class LoginComponent {
             steamID: dataJson.data.steamID,
             token: dataJson.data.token
           };
-          // console.log (userdata)
+          console.log (userdata)
           const userdataString = JSON.stringify(userdata);
-          // console.log (userdataString);
+          console.log (userdataString);
 
           
           localStorage.setItem("userData", userdataString);
 
-          // console.log("user data-->", dataJson.data.username)
-          // console.log ("local Storage is :", localStorage.getItem("token"));
+          console.log("user data-->", dataJson.data.username)
+          console.log ("local Storage is :", localStorage.getItem("token"));
 
           if (this.http.getAuthentication()){
             this.appComponent.canDisplayed();
