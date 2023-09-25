@@ -61,18 +61,18 @@ export class AppComponent {
           var dataString = JSON.stringify(data);
           var dataJson = JSON.parse(dataString);
           const userdata = {
-            id: dataJson.data._id,
-            username: dataJson.data.username,
-            email: dataJson.data.email,
-            password: dataJson.data.password,
-            steamID: dataJson.data.steamID,
-            KD: dataJson.data.KD,
-            likes: dataJson.data.likes,
-            dislikes: dataJson.data.dislike,
-            karmaRatio: dataJson.data.karmaRatio,
-            profile_img_url: dataJson.data.profile_img_url,
-            friend_list: dataJson.data.friendlist,
-            token: dataJson.data.token
+            id: dataJson._id,
+            username: dataJson.username,
+            email: dataJson.email,
+            password: dataJson.password,
+            steamID: dataJson.steamID,
+            KD: dataJson.KD,
+            likes: dataJson.likes,
+            dislikes: dataJson.dislike,
+            karmaRatio: dataJson.karmaRatio,
+            profile_img_url: dataJson.profile_img_url,
+            friend_list: dataJson.friendlist,
+            token: dataJson.token
           };
 
           const userdataString = JSON.stringify(userdata);

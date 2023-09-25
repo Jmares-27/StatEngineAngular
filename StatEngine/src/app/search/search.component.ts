@@ -35,7 +35,6 @@ export class SearchComponent{
       username:['',[Validators.required]],
     });
     this.message = localStorage.getItem("searchResult")
-    console.log("the message is:", localStorage.getItem("searchResult"))
     if (localStorage.getItem("searchResult") == "There is no such player exist") {
       this.message = "There is no such player exist"
     }
@@ -56,7 +55,7 @@ export class SearchComponent{
         friend_list: dataJson.friendlist,
         token: dataJson.token
       }
-      console.log ("data is ere:" , this.userData)
+      // console.log ("data is here:" , this.userData)
     }
 
 
