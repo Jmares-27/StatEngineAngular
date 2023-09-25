@@ -12,6 +12,29 @@
 
   
 }
+.login-container{
+  background-color: #323338;
+  padding: 40px;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(97, 97, 112, 0.5);
+}
+
+.login-buttons{
+  display:flex;
+  position: relative;
+  justify-content: center; 
+  align-items: center; 
+  left: 0%;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.title-header{
+  text-align: center;
+  font-weight: bold;
+}
+
 ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
     background-color: white;
     border-radius: 5px;

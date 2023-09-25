@@ -1,35 +1,53 @@
 
+<!-- Background -->
 <div class="back-ground">
+    <!-- Login Form -->
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
-        <div style="text-align: center;">    
-            <h1>StatEngine</h1>
-            <h1>Login</h1>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Username</mat-label>
-                <input matInput formControlName="username" style="color:white">
-                <mat-hint>Enter a username</mat-hint>
-            </mat-form-field>
-        </div>  
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Password</mat-label>
-                <input matInput formControlName="password" type="password" style="color:white">
-                <mat-hint>Enter a password</mat-hint>
-            </mat-form-field>
-        </div>
 
-        <div> <!--Block 3 for submit button-->
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" [disabled]="!loginForm.valid">Sign In</button>
-        </div>
-
-        <div>            
-            <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
-        </div>
+        <!-- StatEngine Logo -->
+        <h1 class = "title-header">StatEngine</h1>
         
-        <div>
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 15%; top: 50%; color: white" (click)="goToPassReset()">Reset Password</button>
+        <!-- Login Container -->
+        <div class = "login-container">
+            <h1 class = "title-header">Login</h1>
+
+            <!-- Username Field -->
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Username</mat-label>
+                    <input matInput formControlName="username" style="color:white">
+                    <!-- <mat-hint>Enter a username</mat-hint> -->
+                </mat-form-field>
+            </div>  
+
+            <!-- Password Field -->
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Password</mat-label>
+                    <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-hint>Enter a password</mat-hint> -->
+                </mat-form-field>
+            </div>
+
+            <!-- Sign up button -->
+            <div class="login-buttons"> <!--Block 3 for submit button-->
+                <button mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+            </div>
+
+            <!-- Reset Password Button -->
+            <div class="login-buttons">
+                <button mat-flat-button color="primary" type="submit"  (click)="goToPassReset()">Reset Password</button>
+            </div>
+            
+            <!-- Sign up button -->
+            <div>            
+                <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
+            </div>
+            
+            
         </div>
 
         <div>

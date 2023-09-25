@@ -12,6 +12,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  hide = true;
   loginForm;
   constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
     this.loginForm = this.formBuilder.group({

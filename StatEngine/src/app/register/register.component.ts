@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  hide = true;
   registerForm:FormGroup;
   message = ""
   status_checker = false
