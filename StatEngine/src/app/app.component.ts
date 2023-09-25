@@ -153,8 +153,8 @@ export class AppComponent {
     this.menuToggle();
   }
 
-  viewFriendListRedirect(){
-    this.router.navigate(['viewfriendlist'])
+  favoritesRedirect(){
+    this.router.navigate(['favorites'])
     this.menuToggle();
   }
 }

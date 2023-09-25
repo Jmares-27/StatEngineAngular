@@ -113,3 +113,11 @@ Johnnie | 09-19-23
 1. need to figure out authentication method for steam login
 2. adding steam login butto that ses openId to direct the user to login to their steam account
 3. i fell asleep while tying this, hence why its late ._. 
+
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Johnny | 09-24-23
+1. Orgnaizing and making containers for all components as well as refactoring and commenting code
+2. Cleaned up register and login components
+3. Double clicking the password visibility button on the login page just logs you in 
