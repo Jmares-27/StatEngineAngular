@@ -118,7 +118,7 @@ Johnnie | 09-19-23
 ==================================================================================================================================================================================================
 
 Johnny | 09-24-23
-1. Orgnaizing and making containers for all components as well as refactoring and commenting code
+1. Organizing and making containers for all components as well as refactoring and commenting code
 2. Cleaned up register and login components
 3. Double clicking the password visibility button on the login page just logs you in 
 
@@ -136,3 +136,8 @@ Johnnie | 09-24-23
 1. redirecting user to a loading pge after steam api returns url info that needs to be proccessed
 2. currently has steam api redirect user to home page after steam id login
 3. no issue besides not being able to stay up to commit to the doc in time ._.
+
+Nathan | 09-24-23
+1. Connecting steam login button in frontend with working backend function
+2. Express function works that returns steam account data
+3. Making sure everything can point to cloud ip/links instead of localhost
