@@ -57,14 +57,22 @@ export class AppComponent {
         }
         else{
           //datafound
-          console.log("user data-->", data)
+          // console.log("user data-->", data)
           var dataString = JSON.stringify(data);
           var dataJson = JSON.parse(dataString);
           const userdata = {
-            username: dataJson.data.username,
-            email: dataJson.data.email,
-            password: dataJson.data.password,
-            steamID: dataJson.data.steamID,
+            id: dataJson._id,
+            username: dataJson.username,
+            email: dataJson.email,
+            password: dataJson.password,
+            steamID: dataJson.steamID,
+            KD: dataJson.KD,
+            likes: dataJson.likes,
+            dislikes: dataJson.dislike,
+            karmaRatio: dataJson.karmaRatio,
+            profile_img_url: dataJson.profile_img_url,
+            friend_list: dataJson.friendlist,
+            token: dataJson.token
           };
 
           const userdataString = JSON.stringify(userdata);

@@ -21,4 +21,14 @@
   }
 
 
-  
+.avatar {
+    width: 110px;
+    height: 110px;
+}
+
+.card-details {
+    background:black;
+    width: 500px;
+    height: 150px;
+    border-radius: 20px;
+}

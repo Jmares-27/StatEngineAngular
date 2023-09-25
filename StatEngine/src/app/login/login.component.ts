@@ -44,11 +44,19 @@ export class LoginComponent {
         else{ //data found
           var dataString = JSON.stringify(data);
           var dataJson = JSON.parse(dataString);
+
+
           const userdata = {
             username: dataJson.data.username,
             email: dataJson.data.email,
             password: dataJson.data.password,
             steamID: dataJson.data.steamID,
+            KD: dataJson.data.KD,
+            likes: dataJson.data.likes,
+            dislikes: dataJson.data.dislike,
+            karmaRatio: dataJson.data.karmaRatio,
+            profile_img_url: dataJson.data.profile_img_url,
+            friend_list: dataJson.data.friend_list,
             token: dataJson.data.token
           };
           console.log (userdata)
