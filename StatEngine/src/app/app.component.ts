@@ -57,7 +57,7 @@ export class AppComponent {
         }
         else{
           //datafound
-          console.log("user data-->", data)
+          // console.log("user data-->", data)
           var dataString = JSON.stringify(data);
           var dataJson = JSON.parse(dataString);
           const userdata = {
@@ -65,6 +65,13 @@ export class AppComponent {
             email: dataJson.data.email,
             password: dataJson.data.password,
             steamID: dataJson.data.steamID,
+            KD: dataJson.data.KD,
+            likes: dataJson.data.likes,
+            dislikes: dataJson.data.dislike,
+            karmaRatio: dataJson.data.karmaRatio,
+            profile_img_url: dataJson.data.profile_img_url,
+            friend_list: dataJson.data.friendlist,
+            token: dataJson.data.token
           };
 
           const userdataString = JSON.stringify(userdata);

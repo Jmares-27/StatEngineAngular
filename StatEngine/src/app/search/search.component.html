@@ -13,28 +13,85 @@
 </style>
 
 
-<div class="back-ground" style="display:flex; justify-content: center; padding-top: 10%" >
-    <!-- <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
-        <div style="text-align: center; padding-top: 28%; ">    
-            <h1 style="color:white">Search</h1>
-        </div>
+<div class="back-ground" style="  display:flex; justify-content: center; padding-top: 10%" >
 
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Search for a Player</mat-label>
-                <input matInput formControlName="username" style="color:white">
-            </mat-form-field>
-        </div>
-
-        <div>
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!SearchForm.valid">Search</button>
-        </div>
+    <div  *ngIf="message == 'There is no such player exist'; else userExist">
 
         <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
-        <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
-    </form> -->
 
-    <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+        <!-- <form [formGroup]="SearchForm" (ngSubmit)="onSubmit()" novalidate>
+            <div style="text-align: center; padding-top: 28%; ">    
+                <h1 style="color:white">Search</h1>
+            </div>
+
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Search for a Player</mat-label>
+                    <input matInput formControlName="username" style="color:white">
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!SearchForm.valid">Search</button>
+            </div>
+
+            <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+            <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+        </form> -->
+
+        <!-- <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div> -->
+    </div>
+    <ng-template #userExist >
+        <mat-card class="card-details" style="margin-top: 20px; color:white">
+            <mat-card-header>
+                <div>
+                <img class="avatar" mat-card-avatar src={{userData.img_url}}>
+                
+                </div>
+
+                <div>                        
+                <mat-card-title style="padding-left: 10px;">
+                    {{userData.username}}
+                    
+                    <a *ngIf="userData.karmaRatio >= 1; else badKarma"> 
+                        <img style="width:30px;height:25px;" src="assets/icons/Like.png">     
+                    </a>
+                    <button style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button>
+                    <button style="background-color: black;" ><u style="color:white;">view stat</u></button>
+                </mat-card-title> 
+                <mat-card-subtitle style="color:white; padding-left: 10px;">{{userData.introduction}}</mat-card-subtitle>
+
+                <div style="padding-left: 10px; padding-top: 20px;">
+                    <!-- <a>Kills: {{ friend.kills }} </a>
+                    <a>Deaths: {{ friend.deaths }}</a> -->
+                    <a>K/D: {{userData.KD}}</a>
+                </div>
+                <!-- <a><button mat-button (click)="like(friend)" style="color:white"><img src="assets/icons/Like.png"></button>{{ friend.likes }} Likes</a>
+                <a><button mat-button (click)="dislike(friend)" style="color:white"><img src="assets/icons/Dislike.png"></button>{{ friend.dislikes }} Dislikes</a> -->
+                </div>
+
+            </mat-card-header>
+            <mat-card-content>
+
+            </mat-card-content>
+            <mat-card-actions style="justify-content: center;text-align: center;">
+
+            </mat-card-actions>
+            <footer style="justify-content: center; text-align: center; padding-top: 70%; color: white " >This is a StatEngine Production</footer>
+        </mat-card>
+
+
+        <ng-template #badKarma>
+            <!-- Content to display when the condition is false -->
+            <img style="width:30px;height:30px" src="assets/icons/Dislike.png"> 
+            <footer style="justify-content: center; text-align: center; padding-top: 70%; color: white " >This is a StatEngine Production</footer>
+        </ng-template>
+
+
+
+    </ng-template>
+
+
 </div>
 
 

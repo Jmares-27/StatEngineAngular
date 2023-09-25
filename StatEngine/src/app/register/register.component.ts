@@ -34,11 +34,15 @@ export class RegisterComponent {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
       password:this.registerForm.value.password,
+      description: "",
       steamID:"",
+      KD: 0,
       date_created: dateString,
       likes: 0,
       dislike: 0,
-      profile_img_url: "",
+      karmaRatio: 1,
+      profile_img_url: "assets/images/no_profile_img.png",
+      friend_list: [],
     }
     // console.log(newUser); //USED FOR TESTING
     this.http.createUser(newUser).subscribe(
