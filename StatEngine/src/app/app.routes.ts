@@ -8,14 +8,18 @@ import { SearchComponent } from "./search/search.component";
 import { DeleteAccountComponent } from "./delete-account/delete-account.component";
 import { PasswordresetComponent } from "./passwordreset/passwordreset.component";
 import { BugReportComponent } from "./bug-report/bug-report.component";
+import { BugReportSuccessComponent } from "./bug-report-success/bug-report-success.component";
+import { FavoritesComponent } from "./favorites/favorites.component";
 
 export const appRoutes: Routes =[
     {path: 'home', component:HomeComponent},
     {path: 'login', component:LoginComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuard]},
-    {path: 'search', component: SearchComponent, canActivate: [AuthGuard]},
+    {path: 'search', component: SearchComponent},
     {path: 'passwordreset', component: PasswordresetComponent},
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
+    {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},
+    {path: 'favorites', component:FavoritesComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo:'home'}
 ]

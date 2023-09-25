@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  private baseURL = 'http://localhost:3026'
+  private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -22,17 +22,6 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/login`,user);
   }
 
-  // isLoggedIn(){
-  //   this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
-  //     data =>{
-  //       var dataString = JSON.stringify(data);
-  //       var dataJson = JSON.parse(dataString);
-  //       this.bool = dataJson["value"]
-  //     }
-  //   )
-  //   return this.bool;
-  // }
-  
   getAuthentication() {
     var userDataString = localStorage.getItem("userData");
     // var userDataString = JSON.stringify (userData);
@@ -48,6 +37,17 @@ export class HttpService {
       return null;
     }
   
+  }
+  
+  isLoggedIn(){
+    this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
+      data =>{
+        var dataString = JSON.stringify(data);
+        var dataJson = JSON.parse(dataString);
+        this.bool = dataJson["value"]
+      }
+    )
+    return this.bool;
   }
 
   logOut(){

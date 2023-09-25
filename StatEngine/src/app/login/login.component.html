@@ -1,38 +1,57 @@
 
+<!-- Background -->
 <div class="back-ground">
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" novalidate>
-        <div style="text-align: center;">    
-            <h1>StatEngine</h1>
-            <h1>Login</h1>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Username</mat-label>
-                <input matInput formControlName="username" style="color:white">
-                <mat-hint>Enter a username</mat-hint>
-            </mat-form-field>
-        </div>  
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Password</mat-label>
-                <input matInput formControlName="password" type="password" style="color:white">
-                <mat-hint>Enter a password</mat-hint>
-            </mat-form-field>
-        </div>
-        <div>            
-            <button mat-button (click)="onClickToSignUp()" style="color:white"><u>Sign Up</u></button>
-        </div>
-        <div> <!--Block 3 for submit button-->
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" [disabled]="!loginForm.valid">Sign In</button>
-        </div>
+    <!-- Login Form -->
+    <form [formGroup]="loginForm"  novalidate>
+
+        <!-- StatEngine Logo -->
+        <h1 class = "title-header">StatEngine</h1>
+        
+        <!-- Login Container -->
+        <div class = "login-container">
+            <h1 class = "title-header">Login</h1>
+
+            <!-- Username Field -->
+            <div>
+                <mat-form-field class="input-box" appearance="outline">
+                    <mat-label style="color:white">Username</mat-label>
+                    <input matInput formControlName="username" style="color:white">
+                    <!-- <mat-hint>Enter a username</mat-hint> -->
+                </mat-form-field>
+            </div>  
+
+            <!-- Password Field -->
+            <div>
+                <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline">
+                    <mat-label style="color:white">Password</mat-label>
+                    <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-hint>Enter a password</mat-hint> -->
+                </mat-form-field>
+            </div>
+
+            <!-- Sign up button -->
+            <div  style ="margin-top: 35px;" class="login-buttons"> <!--Block 3 for submit button-->
+                <button (click)="onLogin()" mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+            </div>
+
+            <!-- Sign up button -->
+            <div class="login-buttons">            
+                <a style="margin-right: 150px;"><button mat-button (click)="onClickToSignUp()" style="color:white"><u >Sign Up</u></button></a>
+                <button mat-button  (click)="goToPassReset()" style="color:white"><u>Reset Password</u></button>
+            </div>
 
 
-        <div>
-            <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 15%; top: 50%; color: white" (click)="goToPassReset()">Reset Password</button>
+            
+
+            
+            
         </div>
 
         <div>
-        <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+        <footer style="justify-content: center; text-align: center; padding-top: 50%; color: white " >This is a StatEngine Production</footer>
         </div>
     </form>
 </div>

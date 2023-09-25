@@ -12,6 +12,7 @@ import { AppComponent } from '../app.component';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  hide = true;
   loginForm;
   constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
     this.loginForm = this.formBuilder.group({
@@ -20,34 +21,18 @@ export class LoginComponent {
     })
   }
 
+
   onClickToSignUp(){
     this.router.navigate(['register']);
   }
+
+
+
   onLogin() {
     var newUser = {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
     }
-    this.http.checkUser(newUser).subscribe(
-      data=>{
-        var dataString = JSON.stringify(data);
-        var dataJson = JSON.parse(dataString);
-        localStorage.setItem("token", dataJson["token"]);
-        console.log(localStorage.getItem("token"))
-        const currenttoken =localStorage.getItem("token")
-        if (currenttoken=="undefined" || currenttoken==null){
-          this.loginForm.reset(this.loginForm.value);
-          this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
-          
-        }
-        else{
-          this.snackBar.open("Login Success!","",{duration:2000});
-          this.goToAccount();
-          localStorage.setItem("username", this.loginForm.value.username);
-          console.log("login")
-          
-    }
-    // console.log ("login form data", newUser)
     this.http.checkUser(newUser).subscribe(
       data=>{
         // console.log("HERE -->", data);
@@ -80,7 +65,7 @@ export class LoginComponent {
             this.appComponent.canDisplayed();
             this.appComponent.displayRegAndLogin = false;
             this.snackBar.open("Login Success!","",{duration:2000});
-            this.router.navigate(["search"]);
+            this.router.navigate(["myaccount"]);
 
           } else {
             this.loginForm.reset(this.loginForm.value);
@@ -90,9 +75,7 @@ export class LoginComponent {
       },
       error => console.log(error)
 
-    )}
-    )
-  }
+  )}
   goToPassReset(){
     this.router.navigate(["passwordreset"]);
   }
@@ -103,5 +86,8 @@ export class LoginComponent {
 
   goToAccount(){
     this.router.navigate(["myaccount"]);
+  } 
   }
-}
+
+
+

@@ -1,51 +1,64 @@
 
-<mat-drawer-container style="background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);">
-  <mat-drawer mode="over" class="sidebar" style="height: 100vh; background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);" [(opened)]="opened">
-
-      <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
-      <div class="menubox"><a class="menuboxText" (click)="homeRedirect()"><img src="icons/Home.png">Home</a></div>
-      
-      <div class="menubox"  *ngIf="displayRegAndLogin">
-      <div class="menubox"><a class="menuboxText" (click)="registerRedirect()"><img src="icons/Home.png">Register</a></div>
-      </div>
-
-      <div class="menubox"  *ngIf="displayRegAndLogin">
-      <div class="menubox"><a class="menuboxText" (click)="loginRedirect()"><img src="icons/Home.png">Login</a></div>
-      </div>
-      <div class="menubox"><a class="menuboxText" (click)="searchRedirect()"><img src="icons/Home.png">Search</a></div>
-      <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()"><img src="icons/Home.png">My Account</a> </div>
-
-
-
-
-      <div class="menubox"  *ngIf="isDisplayed">
-        <div class="menubox"><a class="menuboxText" (click)="bugReportRedirect()"><img src="icons/Home.png">Report A Bug</a> </div>
-      </div>
-
-
-      <div class="menubox"  *ngIf="isDisplayed">
-        <div class="menubox" style="position:absolute; bottom:0;"><a class="menuboxText" (click)="logoutRedirect()">Log Out</a></div>
-      </div>
-  
-  </mat-drawer>
-
+<!-- Navigation Bar -->
+<mat-drawer-container>
   <mat-drawer-content style=" height: 100vh;">
 
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
+    <div class="top-row-container">
+  
+      <!-- Nav-Toggle button -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
         <mat-icon>menu</mat-icon>
       </button>
-    
+      
+      <!-- Search Form -->
+      <form [formGroup]="SearchForm" style="justify-content: center; text-align: center; padding-top: 20px;"  class="search-box">
+        
+        <!-- Search Function Button -->
+        <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
+        
+        <!-- Username lookup field -->
+        <mat-form-field appearance="fill">
+          <mat-label style="color:black;">Search for a Player</mat-label>
+          <input matInput formControlName="username" style="color:black">
+        </mat-form-field>
+      </form>
+
+    </div>
+  
+  
     <router-outlet></router-outlet>
-    <!-- <button mat-icon-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgrey"  aria-label="Example icon button with a menu icon">
-      <mat-icon>menu</mat-icon>
-    </button> -->
-    <!-- <footer style="justify-content: center; text-align: center; padding-top: 90%; " ></footer> -->
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-
-    <!-- <button mat-flat-button id="sidenavtoggle" (click)="menuToggle()" style="color: lightgray">Toggle Sidebar</button> -->
-
+  
   </mat-drawer-content>
+
+  <!-- Navbar options -->
+  <mat-drawer mode="over" class="sidebar" [(opened)]="opened">
+    <!-- MENU -->
+    <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+
+    <!-- Home -->
+    <div class="menubox"  (click)="homeRedirect()"><h2><img src="assets/icons/Home.png">Home</h2></div>
+    
+    <!-- Favorites -->
+    <div class="menubox" *ngIf="isDisplayed" (click)="favoritesRedirect()"><p><img src="assets/icons/FriendList.png">Favorites</p></div>
+
+    <!-- Register -->
+    <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()"><h2 class="menuboxText">Register</h2></div>
+
+    <!-- Login -->
+    <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()"><h2 class="menuboxText">Login</h2></div>
+
+    <!-- My Account -->
+    <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
+
+    <!-- Report Bug -->
+    <div *ngIf="isDisplayed" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
+
+    <!-- Logout -->
+    <div  *ngIf="isDisplayed" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
+  
+  </mat-drawer>
+
+
   
   
 </mat-drawer-container>

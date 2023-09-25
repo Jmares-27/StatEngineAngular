@@ -11,6 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+  hide = true;
   registerForm:FormGroup;
   message = ""
   status_checker = false
@@ -28,11 +29,17 @@ export class RegisterComponent {
 
   onSubmit(){
     console.log()
+    const currentDate = new Date();
+    var dateString = currentDate.getMonth()+1 + "/"  + currentDate.getDate()  + "/" + currentDate.getFullYear();
     var newUser = {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
       password:this.registerForm.value.password,
-      steamID:""
+      steamID:"",
+      date_created: dateString,
+      likes: 0,
+      dislike: 0,
+      profile_img_url: "",
     }
     // console.log(newUser); //USED FOR TESTING
     this.http.createUser(newUser).subscribe(

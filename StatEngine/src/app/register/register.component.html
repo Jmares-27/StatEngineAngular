@@ -3,42 +3,53 @@
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
         <div style="text-align: center;">    
             <h1>StatEngine</h1>
-            <h1>Sign Up</h1>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Email</mat-label>
-                <input matInput formControlName="email" style="color:white">
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-        </div>
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Username</mat-label>
-                <input matInput formControlName="username" style="color:white">
-                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-            </mat-form-field>
-        </div>  
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label style="color:white">Password</mat-label>
-                <input matInput formControlName="password" type="password" style="color:white">
-                <mat-hint>Enter a password</mat-hint>
-                
-            </mat-form-field>
             
         </div>
-        <div>
-            <mat-hint>Already have an account? 
-                <button mat-button (click)="onClickToSignIn()" style="color:white"><u>Sign In</u></button>
-            </mat-hint>
+        <div class = "login-container">
+            <h1 class = "title-header">Sign Up</h1>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Email</mat-label>
+                    <input matInput formControlName="email" style="color:white">
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Username</mat-label>
+                    <input matInput formControlName="username" style="color:white">
+                    <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                </mat-form-field>
+            </div>  
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color:white">Password</mat-label>
+                    <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <!-- <mat-hint>Enter a password</mat-hint> -->
+                    
+                </mat-form-field>
+                
+            </div>
+
+            <div> <!--Block 3 for submit button-->
+                <button  mat-flat-button color="primary"  type="submit"  style="justify-content: center; align-self: center; left: 30%; top: 60%; color:white; " [disabled]="!registerForm.valid" >Submit</button>
+                <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+
+            </div>
+        
+            <div>
+                <mat-hint>Already have an account? 
+                    <button mat-button (click)="onClickToSignIn()" style="color:white"><u>Sign In</u></button>
+                </mat-hint>
+            </div>
         </div>
-        <div> <!--Block 3 for submit button-->
-            <button  mat-flat-button color="primary"  type="submit"  style="justify-content: center; align-self: center; left: 30%; top: 60%; color:white; " [disabled]="!registerForm.valid" >Submit</button>
-            <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+
+        <div>
             <footer style="justify-content: center; text-align: center; padding-top: 60%; color: white " >This is a StatEngine Production</footer>
         </div>
-       
     </form>
    
     </div>

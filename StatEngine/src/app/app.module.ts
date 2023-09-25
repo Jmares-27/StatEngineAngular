@@ -32,7 +32,9 @@ import { AuthInterceptor } from './authInterceptor';
 import { SearchComponent } from './search/search.component';
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
 import { UserComponent } from './user/user.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { UserComponent } from './user/user.component';
     DeleteAccountComponent,
     PasswordresetComponent,
     UserComponent,
-    BugReportComponent
+    BugReportComponent,
+    BugReportSuccessComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +67,8 @@ import { UserComponent } from './user/user.component';
     MatTableModule,
     MatCardModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCardModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

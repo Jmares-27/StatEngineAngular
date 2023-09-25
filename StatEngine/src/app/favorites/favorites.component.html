@@ -1,0 +1,62 @@
+<div class="back-ground"  style="display:flex; justify-content: center; padding-top: 10%;">
+
+
+    
+    <ng-container *ngIf="friends.length > 0; else noFriends">
+      <div  >
+        <div >
+         
+          <div style="color:white" *ngFor="let friend of friends">
+            <mat-card class="card-details" style="margin-top: 20px;">
+              <mat-card-header>
+                  <div>
+                    <img class="avatar" mat-card-avatar src={{friend.img_url}}>
+                    
+                  </div>
+
+                  <div>                        
+                    <mat-card-title style="padding-left: 10px;">
+                        {{friend.name}}
+                        
+                        <a *ngIf="friend.karmaRatio >= 1; else badKarma"> 
+                            <img style="width:30px;height:25px;" src="assets/icons/Like.png">     
+                        </a>
+                        <button style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button>
+                    </mat-card-title> 
+                    <mat-card-subtitle style="color:white; padding-left: 10px;">{{friend.introduction}}</mat-card-subtitle>
+
+                    <div style="padding-left: 10px; padding-top: 20px;">
+                      <!-- <a>Kills: {{ friend.kills }} </a>
+                      <a>Deaths: {{ friend.deaths }}</a> -->
+                      <a>K/D: {{friend.KD}}</a>
+                    </div>
+                    <!-- <a><button mat-button (click)="like(friend)" style="color:white"><img src="assets/icons/Like.png"></button>{{ friend.likes }} Likes</a>
+                    <a><button mat-button (click)="dislike(friend)" style="color:white"><img src="assets/icons/Dislike.png"></button>{{ friend.dislikes }} Dislikes</a> -->
+                  </div>
+
+                </mat-card-header>
+                <mat-card-content>
+
+                </mat-card-content>
+                <mat-card-actions style="justify-content: center;text-align: center;">
+
+                </mat-card-actions>
+            </mat-card>
+          </div>
+        </div>
+        <div>            <footer style="justify-content: center; text-align: center; padding-top: 60%; color: white " >This is a StatEngine Production</footer></div>
+        </div>
+      </ng-container>
+      
+      <ng-template #noFriends >
+        <p style="color:white">You have no friends. 😢</p>
+      </ng-template>
+
+      <ng-template #badKarma>
+        <!-- Content to display when the condition is false -->
+        <img style="width:30px;height:30px" src="assets/icons/Dislike.png"> 
+      </ng-template>
+      
+
+
+</div>

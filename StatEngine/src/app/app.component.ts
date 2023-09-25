@@ -5,7 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 
-
+import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
+import { SearchComponent } from './search/search.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -16,7 +17,10 @@ export class AppComponent {
   opened = true;
   isDisplayed = false;
   displayRegAndLogin  = false;
-  constructor(private http:HttpService, private router: Router, private snackBar: MatSnackBar, private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer){
+  searchString = ""
+  public SearchForm: FormGroup;
+
+  constructor( private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
       this.isDisplayed = true;
       this.displayRegAndLogin = false;
@@ -24,10 +28,61 @@ export class AppComponent {
       this.isDisplayed = false;
       this.displayRegAndLogin = true;
     }
-    this.matIconRegistry.addSvgIcon('discord',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/discord-icon-svgrepo-com.svg'))
-    this.matIconRegistry.addSvgIcon('instagram',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/instagram-svgrepo-com.svg'))
-    this.matIconRegistry.addSvgIcon('facebook',this.domSanitizer.bypassSecurityTrustResourceUrl('assets/images/facebook-svgrepo-com.svg')) 
+
+    this.SearchForm = this.formBuilder.group({
+      username:['',[Validators.required]],
+    });
+
   }
+
+  searchSubmit(){
+    
+
+    this.searchString = this.SearchForm.value.username
+    // console.log(this.searchString); //USED FOR TESTING
+
+    this.http.searchUser(this.searchString ).subscribe(
+      data=>{
+        // console.log("HERE -->", data);
+        if (data == "No user exist!" ) {
+          // console.log("inside no data") //used for testing
+          // this.status_checker = true
+          console.log ("There is no such player exist")
+          localStorage.setItem("searchResult", "There is no such player exist" )
+          // this.searchComponent.message = "There is no such player exist"
+          this.router.navigate(['search'])
+              
+          // this.message = "There is no such player exist"
+          // window.location.reload();
+        }
+        else{
+          //datafound
+          console.log("user data-->", data)
+          var dataString = JSON.stringify(data);
+          var dataJson = JSON.parse(dataString);
+          const userdata = {
+            username: dataJson.data.username,
+            email: dataJson.data.email,
+            password: dataJson.data.password,
+            steamID: dataJson.data.steamID,
+          };
+
+          const userdataString = JSON.stringify(userdata);
+          localStorage.setItem("searchResult", userdataString)
+          // this.searchComponent.message = "User found!"
+          this.router.navigate(['search'])
+          // window.location.reload();
+          // this.status_checker = true
+          // this.message = "User found!"
+        }
+      },
+      error => console.log(error)
+    )
+    
+  }
+
+
+
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
@@ -90,6 +145,16 @@ export class AppComponent {
 
   bugReportRedirect(){
     this.router.navigate(['bugreport'])
+    this.menuToggle();
+  }
+
+  bugReportSuccessRedirect(){
+    this.router.navigate(['bugreportsuccess'])
+    this.menuToggle();
+  }
+
+  favoritesRedirect(){
+    this.router.navigate(['favorites'])
     this.menuToggle();
   }
 }

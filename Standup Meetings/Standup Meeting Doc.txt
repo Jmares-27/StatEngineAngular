@@ -86,3 +86,48 @@ Johnnie | 09-15-23
 2. upon login the page rediracts to the users account
 3. need more coffee
 
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Nathan | 09-19-23
+1. Nginx/backend deployment on cloud
+2. Successfully tested and launched publicly available site at statengines.org as well as public EC2 IP address. Backend works in conjunction with front end to communicate with MongoDB instance
+3. Looking into Steam API
+
+Derek | 09-19-23
+1. Adding an option to manually add steamID and translating python script for Steam API calls into Typescript
+2. Fixed merge errors with merging down everyone's commits, reviewing code. 
+3. Slight issue in that my development backend server cannot connect to my frontend, but should be fairly easy fix. 
+
+Johnny | 09-19-23
+1. UI adjustments and attempt to standardize style
+2. More visual updates such as text appearance 
+3. There will most defininitely be merge conflicts 
+
+Dat | 09-19-23  
+1. Figure out a way for user to add another user to their friend list, and fix UI bugs 
+2. I got the texts in the menu to line up the middle again, I increased to the description box in the bug report to fit like the figma model. As for adding another user to the friend list I was thinking of create an array of friend list field in the users collection in MongoDB where it will hold all userid of the friends that the user added. But I still need to see if this will work.
+3. The search box is looking weird and I still trying to figure out a way to fix it (a UI problem).
+
+Johnnie | 09-19-23
+1. need to figure out authentication method for steam login
+2. adding steam login butto that ses openId to direct the user to login to their steam account
+3. i fell asleep while tying this, hence why its late ._. 
+
+==================================================================================================================================================================================================
+==================================================================================================================================================================================================
+
+Johnny | 09-24-23
+1. Orgnaizing and making containers for all components as well as refactoring and commenting code
+2. Cleaned up register and login components
+3. Double clicking the password visibility button on the login page just logs you in 
+
+Dat | 09-24-23
+1. Figure out a way for the user to favorite/unfavorite another user
+2. Modified friendlist component and change it to favorite component. Fixed Johnny's double clicking button auto logs you in issue above. I got the localstorage to update the favorite_list when favoriting another user, but i still need to work on a http request to update it in the backend.
+3. No issues at the moment
+
+Derek | 09-24-23
+1. Working on displaying data pulled from steamAPI for each specific user
+2. Finished system to automatically pull information from steamAPI: returns 206 items
+3. Trying to brainstorm a way to nicely display this data. 
