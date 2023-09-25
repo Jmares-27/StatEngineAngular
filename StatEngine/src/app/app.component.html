@@ -31,20 +31,21 @@
   </mat-drawer-content>
 
   <!-- Navbar options -->
-  <mat-drawer mode="over" class="sidebar" style="" [(opened)]="opened">
-    <div class="menubox"><a class="menuboxText" (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+  <mat-drawer mode="over" class="sidebar" [(opened)]="opened">
+    <!-- MENU -->
+    <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
 
     <!-- Home -->
-    <div class="menubox"  (click)="homeRedirect()"><p><img src="assets/icons/Home.png">Home</p></div>
+    <div class="menubox"  (click)="homeRedirect()"><h2><img src="assets/icons/Home.png">Home</h2></div>
     
     <!-- Friends List -->
-    <div class="menubox" *ngIf="isDisplayed" (click)="viewFriendListRedirect()"><p><img src="assets/icons/FriendList.png">Friend List</p></div>
+    <div class="menubox" *ngIf="isDisplayed" (click)="viewFriendListRedirect()"><h2><img src="assets/icons/FriendList.png">Friend List</h2></div>
     
     <!-- Register -->
-    <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()">Register</div>
+    <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()"><h2 class="menuboxText">Register</h2></div>
 
     <!-- Login -->
-    <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()">Login</div>
+    <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()"><h2 class="menuboxText">Login</h2></div>
 
     <!-- My Account -->
     <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
