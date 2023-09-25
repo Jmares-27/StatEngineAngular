@@ -55,7 +55,7 @@ export class LoginComponent {
             dislikes: dataJson.data.dislike,
             karmaRatio: dataJson.data.karmaRatio,
             profile_img_url: dataJson.data.profile_img_url,
-            friend_list: dataJson.data.friendlist,
+            friend_list: dataJson.data.friend_list,
             token: dataJson.data.token
           };
           // console.log (userdata)

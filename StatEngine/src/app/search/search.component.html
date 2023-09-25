@@ -56,7 +56,7 @@
                     <a *ngIf="userData.karmaRatio >= 1; else badKarma"> 
                         <img style="width:30px;height:25px;" src="assets/icons/Like.png">     
                     </a>
-                    <button style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button>
+                    <button (click)="favorite()" style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button>
                     <button style="background-color: black;" ><u style="color:white;">view stat</u></button>
                 </mat-card-title> 
                 <mat-card-subtitle style="color:white; padding-left: 10px;">{{userData.introduction}}</mat-card-subtitle>
@@ -77,21 +77,21 @@
             <mat-card-actions style="justify-content: center;text-align: center;">
 
             </mat-card-actions>
-            <footer style="justify-content: center; text-align: center; padding-top: 70%; color: white " >This is a StatEngine Production</footer>
+
         </mat-card>
 
 
         <ng-template #badKarma>
             <!-- Content to display when the condition is false -->
             <img style="width:30px;height:30px" src="assets/icons/Dislike.png"> 
-            <footer style="justify-content: center; text-align: center; padding-top: 70%; color: white " >This is a StatEngine Production</footer>
+
         </ng-template>
 
 
 
     </ng-template>
 
-
+    <!-- <footer style="justify-content: center; text-align: center; padding-top: 70%; color: white " >This is a StatEngine Production</footer> -->
 </div>
 
 

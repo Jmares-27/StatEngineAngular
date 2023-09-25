@@ -61,6 +61,7 @@ export class AppComponent {
           var dataString = JSON.stringify(data);
           var dataJson = JSON.parse(dataString);
           const userdata = {
+            id: dataJson.data._id,
             username: dataJson.data.username,
             email: dataJson.data.email,
             password: dataJson.data.password,

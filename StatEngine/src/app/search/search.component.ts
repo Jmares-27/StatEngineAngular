@@ -14,6 +14,7 @@ export class SearchComponent{
   searchString = ""
   public SearchForm: FormGroup;
   userData = {
+    id: "",
     username: "",
     email: "",
     password: "",
@@ -41,6 +42,7 @@ export class SearchComponent{
     else{
       var dataJson = JSON.parse(localStorage.getItem("searchResult"));
       this.userData = {
+        id: dataJson.id,
         username: dataJson.username,
         email: dataJson.email,
         password: dataJson.password,
@@ -59,8 +61,24 @@ export class SearchComponent{
 
 
 
-    localStorage.removeItem("searchResult")
 
+    // localStorage.removeItem("searchResult")
+
+  }
+
+  favorite() {
+          var userdataJson = JSON.parse(localStorage.getItem("userData"));
+          var searchDataJson = JSON.parse(localStorage.getItem("searchResult"));
+          console.log ("The friendlist", userdataJson.friend_list)
+          userdataJson.friend_list.push(searchDataJson.id)
+
+          localStorage.setItem("userData", JSON.stringify(userdataJson))
+          console.log (userdataJson)
+
+
+        
+
+        }
   }
 
 
@@ -90,4 +108,4 @@ export class SearchComponent{
   //     error => console.log(error)
   //   )
   // }
-}
+
