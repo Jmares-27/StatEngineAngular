@@ -121,3 +121,8 @@ Johnny | 09-24-23
 1. Orgnaizing and making containers for all components as well as refactoring and commenting code
 2. Cleaned up register and login components
 3. Double clicking the password visibility button on the login page just logs you in 
+
+Dat | 09-24-23
+1. Figure out a way for the user to favorite/unfavorite another user
+2. Modified friendlist component and change it to favorite component. Fixed Johnny's double clicking button auto logs you in issue above. I got the localstorage to update the favorite_list when favoriting another user, but i still need to work on a http request to update it in the backend.
+3. No issues at the moment
