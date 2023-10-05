@@ -35,6 +35,7 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
 import { UserComponent } from './user/user.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-page.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     BugReportComponent,
     BugReportSuccessComponent,
     FavoritesComponent,
+    SteamLoadingPageComponent,
   ],
   imports: [
     BrowserModule,
