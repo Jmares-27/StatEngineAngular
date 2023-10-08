@@ -65,7 +65,7 @@ export class AppComponent {
           // console.log("user data-->", data)
 
           const user: User = data;
-          console.log("user data-->", user)
+          // console.log("user data-->", user)
           localStorage.setItem("searchResult", JSON.stringify(user))
           // this.searchComponent.message = "User found!"
 
