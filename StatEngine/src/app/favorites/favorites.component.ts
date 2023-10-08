@@ -29,48 +29,48 @@ export class FavoritesComponent {
 
 
   
-  favorite(searchStringID:any) {
-    this.http.searchUser(searchStringID ).subscribe(
-      data=>{
-        // console.log("HERE -->", data);
-        if (data == "No user exist!" ) {
-          // console.log("inside no data") //used for testing
-          console.log ("There is no such player exist")
-          // this.message = "There is no such player exist"
-        }
-        else{
-          //datafound?
+  // favorite(searchStringID:any) {
+  //   this.http.searchUser(searchStringID ).subscribe(
+  //     data=>{
+  //       // console.log("HERE -->", data);
+  //       if (data == "No user exist!" ) {
+  //         // console.log("inside no data") //used for testing
+  //         console.log ("There is no such player exist")
+  //         // this.message = "There is no such player exist"
+  //       }
+  //       else{
+  //         //datafound?
 
-          var dataString = JSON.stringify(data);
-          var dataJson = JSON.parse(dataString);
+  //         var dataString = JSON.stringify(data);
+  //         var dataJson = JSON.parse(dataString);
 
 
-          const userdata = {
-            username: dataJson.data.username,
-            email: dataJson.data.email,
-            password: dataJson.data.password,
-            steamID: dataJson.data.steamID,
-            kills: 0,
-            deaths: 0,
-            KD: dataJson.data.KD,
-            likes: dataJson.data.likes,
-            dislikes: dataJson.data.dislike,
-            karmaRatio: dataJson.data.karmaRatio,
-            profile_img_url: dataJson.data.profile_img_url,
-            friend_list: dataJson.data.friendlist,
-          };
+  //         const userdata = {
+  //           username: dataJson.data.username,
+  //           email: dataJson.data.email,
+  //           password: dataJson.data.password,
+  //           steamID: dataJson.data.steamID,
+  //           kills: 0,
+  //           deaths: 0,
+  //           KD: dataJson.data.KD,
+  //           likes: dataJson.data.likes,
+  //           dislikes: dataJson.data.dislike,
+  //           karmaRatio: dataJson.data.karmaRatio,
+  //           profile_img_url: dataJson.data.profile_img_url,
+  //           friend_list: dataJson.data.friendlist,
+  //         };
 
-          this.favorites.push(userdata)
-          // console.log (userdata)
+  //         this.favorites.push(userdata)
+  //         // console.log (userdata)
 
 
         
 
-        }
-      },
-      error => console.log(error)
-    )
-  }
+  //       }
+  //     },
+  //     error => console.log(error)
+  //   )
+  // }
 
 
   unfavorite(searchStringID: any) {

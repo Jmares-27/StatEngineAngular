@@ -1,6 +1,6 @@
 
 .back-ground{
-    position: absolute;
+    /* position: absolute; */
     width: 90%;
     height: 90%;
     left: 0%;
@@ -31,4 +31,16 @@
     width: 500px;
     height: 150px;
     border-radius: 20px;
+}
+
+.search-box {
+    position: absolute;
+    z-index: 1;
+    margin:  top;
+    display: flex;
+    align-items: flex-start;
+    top: 0; /* Align to the top of the page */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+
 }

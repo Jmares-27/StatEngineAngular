@@ -1,33 +1,44 @@
 
 <!-- Navigation Bar -->
 <mat-drawer-container>
-  <mat-drawer-content style=" height: 100vh;">
+  <mat-drawer-content style=" height: 100vh; position: relative;">
 
-    <div class="top-row-container">
-  
+
+
+
+    <div class="top-row-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%">
+
+
+
       <!-- Nav-Toggle button -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
         <mat-icon>menu</mat-icon>
       </button>
+
       
       <!-- Search Form -->
-      <form [formGroup]="SearchForm" style="justify-content: center; text-align: center; padding-top: 20px;"  class="search-box">
-        
+      <form [formGroup]="SearchForm" class="search-box" >
+            
         <!-- Search Function Button -->
         <button  (click)="searchSubmit()"><img src="assets/icons/Search.png"></button>
-        
+                
         <!-- Username lookup field -->
         <mat-form-field appearance="fill">
-          <mat-label style="color:black;">Search for a Player</mat-label>
-          <input matInput formControlName="username" style="color:black">
+        <mat-label style="color:black; ">Search for a Player</mat-label>
+        <input matInput formControlName="username" style="color:black">
         </mat-form-field>
       </form>
 
     </div>
-  
-  
-    <router-outlet></router-outlet>
-  
+
+    <div>
+      <router-outlet ></router-outlet>
+
+    </div>
+
+
+
+
   </mat-drawer-content>
 
   <!-- Navbar options -->

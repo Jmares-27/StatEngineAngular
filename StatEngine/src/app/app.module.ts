@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
 
+
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -35,6 +36,7 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
 import { UserComponent } from './user/user.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+
 
 @NgModule({
   declarations: [

@@ -4,9 +4,10 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { SearchService } from './_services/search.service';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
-import { SearchComponent } from './search/search.component';
+import { User } from './models/user.model';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,10 +18,11 @@ export class AppComponent {
   opened = true;
   isDisplayed = false;
   displayRegAndLogin  = false;
-  searchString = ""
   public SearchForm: FormGroup;
+  searchString: "";
 
-  constructor( private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+
+  constructor( private searchServ:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
       this.isDisplayed = true;
       this.displayRegAndLogin = false;
@@ -35,60 +37,51 @@ export class AppComponent {
 
   }
 
+
   searchSubmit(){
     
 
     this.searchString = this.SearchForm.value.username
     // console.log(this.searchString); //USED FOR TESTING
 
-    this.http.searchUser(this.searchString ).subscribe(
-      data=>{
-        // console.log("HERE -->", data);
+    this.searchServ.searchUser(this.searchString).subscribe((data: any) => { 
         if (data == "No user exist!" ) {
           // console.log("inside no data") //used for testing
           // this.status_checker = true
           console.log ("There is no such player exist")
-          localStorage.setItem("searchResult", "There is no such player exist" )
+          // console.log ("data", data)
+          this.searchServ.message = "There is no such player exist"
+          this.searchServ.display_user = true
+          
+          // localStorage.setItem("searchResult", "There is no such player exist" )
           // this.searchComponent.message = "There is no such player exist"
           this.router.navigate(['search'])
               
-          // this.message = "There is no such player exist"
+
           // window.location.reload();
         }
         else{
           //datafound
           // console.log("user data-->", data)
-          var dataString = JSON.stringify(data);
-          var dataJson = JSON.parse(dataString);
-          const userdata = {
-            id: dataJson._id,
-            username: dataJson.username,
-            email: dataJson.email,
-            password: dataJson.password,
-            steamID: dataJson.steamID,
-            KD: dataJson.KD,
-            likes: dataJson.likes,
-            dislikes: dataJson.dislike,
-            karmaRatio: dataJson.karmaRatio,
-            profile_img_url: dataJson.profile_img_url,
-            friend_list: dataJson.friendlist,
-            token: dataJson.token
-          };
 
-          const userdataString = JSON.stringify(userdata);
-          localStorage.setItem("searchResult", userdataString)
+          const user: User = data;
+          console.log("user data-->", user)
+          localStorage.setItem("searchResult", JSON.stringify(user))
           // this.searchComponent.message = "User found!"
+
           this.router.navigate(['search'])
+
+
           // window.location.reload();
           // this.status_checker = true
-          // this.message = "User found!"
+          this.searchServ.message = "User found!"
+          this.searchServ.display_user = true
         }
       },
       error => console.log(error)
     )
     
   }
-
 
 
   homeRedirect(){

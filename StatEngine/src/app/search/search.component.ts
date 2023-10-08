@@ -1,8 +1,8 @@
-import { Component} from '@angular/core';
+import { Component, OnDestroy} from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
-
+import { SearchService } from '../_services/search.service';
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -10,9 +10,9 @@ import { Router, RouterConfigOptions } from '@angular/router';
 })
 export class SearchComponent{
   message = ""
-  status_checker = false
-  searchString = ""
-  public SearchForm: FormGroup;
+  display_user = false
+
+
   userData = {
     id: "",
     username: "",
@@ -24,37 +24,37 @@ export class SearchComponent{
     likes: 0,
     dislikes: 0,
     karmaRatio: 1,
-    img_url: "",
+    profile_img_url: "",
     friend_list: "",
-    token: ""
   }
 
-  constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router){
-    // searchString: String;
-    this.SearchForm = this.formBuilder.group({
-      username:['',[Validators.required]],
-    });
-    this.message = localStorage.getItem("searchResult")
-    if (localStorage.getItem("searchResult") == "There is no such player exist") {
-      this.message = "There is no such player exist"
+  constructor(private searchServ:SearchService,private formBuilder: FormBuilder, private http: HttpService, private router: Router){
+
+
+    this.display_user = false
+    // console.log("MESSAGE HERE: ", this.searchHttp.message)
+    if (this.searchServ.message == "There is no such player exist") {
+      this.message = this.searchServ.message
+      this.display_user = true
     }
     else{
-      var dataJson = JSON.parse(localStorage.getItem("searchResult"));
+      
+      var data = this.searchServ.userData
       this.userData = {
-        id: dataJson.id,
-        username: dataJson.username,
-        email: dataJson.email,
-        password: dataJson.password,
-        steamID: dataJson.steamID,
-        introduction: dataJson.introduction,
-        KD: dataJson.KD,
-        likes: dataJson.likes,
-        dislikes: dataJson.dislike,
-        karmaRatio: dataJson.karmaRatio,
-        img_url: dataJson.profile_img_url,
-        friend_list: dataJson.friendlist,
-        token: dataJson.token
+        id: data["id"],
+        username: data["username"],
+        email: data["email"],
+        password: data["password"],
+        steamID: data["steamID"],
+        introduction: data["introduction"],
+        KD: data["KD"],
+        likes: data["likes"],
+        dislikes: data["dislikes"],
+        karmaRatio: data["karmaRatio"],
+        profile_img_url: data["profile_img_url"],
+        friend_list: data["friend_list"],
       }
+      this.display_user = true
       // console.log ("data is here:" , this.userData)
     }
 
@@ -65,20 +65,32 @@ export class SearchComponent{
 
   }
 
+
+
+
+
+  navigateSearchPage(){
+    this.router.navigate(['search'])
+  }
+
   favorite() {
-          var userdataJson = JSON.parse(localStorage.getItem("userData"));
-          var searchDataJson = JSON.parse(localStorage.getItem("searchResult"));
-          console.log ("The friendlist", userdataJson.friend_list)
-          userdataJson.friend_list.push(searchDataJson.id)
+          // var userdataJson = JSON.parse(localStorage.getItem("userData"));
+          // var searchDataJson = JSON.parse(localStorage.getItem("searchResult"));
+          // console.log ("The friendlist", userdataJson.friend_list)
+          // userdataJson.friend_list.push(searchDataJson.id)
 
-          localStorage.setItem("userData", JSON.stringify(userdataJson))
-          console.log (userdataJson)
+          // localStorage.setItem("userData", JSON.stringify(userdataJson))
+          // console.log (userdataJson)
 
 
-        
+          var test = ""
 
         }
+
+        
   }
+
+
 
 
   // onSubmit(){

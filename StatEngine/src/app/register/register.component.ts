@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
-import { user } from '../user';
+import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -28,26 +28,32 @@ export class RegisterComponent {
   }
 
   onSubmit(){
-    console.log()
-    const currentDate = new Date();
-    var dateString = currentDate.getMonth()+1 + "/"  + currentDate.getDate()  + "/" + currentDate.getFullYear();
+    // const currentDate = new Date();
+    // var dateString = currentDate.getMonth()+1 + "/"  + currentDate.getDate()  + "/" + currentDate.getFullYear();
+    // var newUser = {
+    //   username: this.registerForm.value.username,
+    //   email: this.registerForm.value.email,
+    //   password:this.registerForm.value.password,
+    //   introduction: "",
+    //   steamID:"",
+    //   kills: 0,
+    //   deaths: 0,
+    //   KD: 0,
+    //   date_created: dateString,
+    //   likes: 0,
+    //   dislike: 0,
+    //   karmaRatio: 1,
+    //   profile_img_url: "assets/images/no_profile_img.png",
+    //   friend_list: [],
+    // }
+    // console.log(newUser); //USED FOR TESTING
+
+
     var newUser = {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
-      password:this.registerForm.value.password,
-      introduction: "",
-      steamID:"",
-      kills: 0,
-      deaths: 0,
-      KD: 0,
-      date_created: dateString,
-      likes: 0,
-      dislike: 0,
-      karmaRatio: 1,
-      profile_img_url: "assets/images/no_profile_img.png",
-      friend_list: [],
+      password: this.registerForm.value.password,
     }
-    // console.log(newUser); //USED FOR TESTING
     this.http.createUser(newUser).subscribe(
       data=>{
         // console.log("HERE -->", data);
