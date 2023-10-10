@@ -98,6 +98,10 @@ export class MyAccountComponent {
       this.snackBar.open("Steam ID Updated!","",{duration:2000});
     })
   }
+
+  Steamlogin() {
+    window.location.href = "http://localhost:4200/auth/steam";
+  }
   
 
 
