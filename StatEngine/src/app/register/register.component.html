@@ -8,14 +8,14 @@
         <div class = "login-container">
             <h1 class = "title-header">Sign Up</h1>
             <div>
-                <mat-form-field appearance="outline">
+                <mat-form-field class="input-box" appearance="outline">
                     <mat-label style="color:white">Email</mat-label>
                     <input matInput formControlName="email" style="color:white">
                     <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                 </mat-form-field>
             </div>
             <div>
-                <mat-form-field appearance="outline">
+                <mat-form-field class="input-box" appearance="outline">
                     <mat-label style="color:white">Username</mat-label>
                     <input matInput formControlName="username" style="color:white">
                     <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>

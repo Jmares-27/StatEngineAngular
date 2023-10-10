@@ -46,3 +46,7 @@
     padding: 10px;
     z-index: 1;
   }
+
+  .input-box{
+    width: 100%;
+  }
