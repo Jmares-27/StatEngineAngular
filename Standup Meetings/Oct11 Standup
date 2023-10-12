@@ -3,3 +3,8 @@ Name | Date
 1. What I Am Working ON.
 2. What I have completed.
 3. What issues am I running into.
+
+Name | 10/11/23
+1. working on using steam data retrieved from user profile and updating user account for our website
+2. steam data is returned in json format, can be parsed to update user.
+3. existsing, also think we need to keep steam bar as a means of looking for user profile in local database
