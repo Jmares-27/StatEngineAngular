@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  //private baseURL = 'http://localhost:3026'
+  // private baseURL = 'http://localhost:3026'
   private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
   constructor(private http: HttpClient, private router: Router) { }
@@ -24,13 +24,13 @@ export class HttpService {
   }
 
   getAuthentication() {
-    var userDataString = localStorage.getItem("userData");
+    // var userDataString = localStorage.getItem("userToken");
     // var userDataString = JSON.stringify (userData);
     // console.log ("userData", userDataString);
-    if (userDataString){
-      var userData = JSON.parse(userDataString);
-      // console.log ("This is token", userData.token);
-      return userData.token;  
+    if (localStorage.getItem("userToken")){
+      var userData = JSON.parse(localStorage.getItem("userToken"));
+      // console.log ("This is token", userData);
+      return userData;  
 
     }
     else {
@@ -52,20 +52,21 @@ export class HttpService {
   }
 
   logOut(){
+    localStorage.removeItem("userToken")
     localStorage.removeItem("userData");
     this.router.navigate(['home'])
     window.location.reload();
   }
-  searchUser(username:Object):Observable<Object>{
+  // searchUser(username:Object):Observable<Object>{
     
-    // let queryParams = new HttpParams(); 
-    // queryParams = queryParams.set("username", this.username);
+  //   // let queryParams = new HttpParams(); 
+  //   // queryParams = queryParams.set("username", this.username);
 
-    //console.log("HTTP SERVICE:",username);
+  //   //console.log("HTTP SERVICE:",username);
 
-    return this.http.get(`${this.baseURL}/api/searchuser/${username}`);
+  //   return this.http.get(`${this.baseURL}/api/searchuser/${username}`);
 
-  }
+  // }
 
   // updatePassword(userData:JSON):Observable<Object>{
   //   return this.http.post(`${this.baseURL}/api/resetpassword`,userData);

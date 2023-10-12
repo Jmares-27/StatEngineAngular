@@ -4,6 +4,7 @@ import { HttpService } from '../_services/http.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AppComponent } from '../app.component';
+
 @Component({
   selector: 'app-bug-report',
   templateUrl: './bug-report.component.html',
