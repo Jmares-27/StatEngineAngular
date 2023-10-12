@@ -4,7 +4,13 @@ Name | Date
 2. What I have completed.
 3. What issues am I running into.
 
-Name | 10/11/23
+Johnnie | 10/11/23
 1. working on using steam data retrieved from user profile and updating user account for our website
 2. steam data is returned in json format, can be parsed to update user.
 3. existsing, also think we need to keep steam bar as a means of looking for user profile in local database
+
+--------------------------------------------------------------------------
+Dat | 10/11/23
+1. I'm working on getting the search component to fully work
+2. Since we agreed on username is not unique in our database. I got the search box to return users with the same username as suggestions dropdown below the search box (as professor suggested)
+3. User's data is not loading properly when on performing search in the user page (same issue that i got when performing a search on the search page in the last sprint). But got some ideas, gonna try it out to see if it works. Also, cannot import nacl in python for some reason?
