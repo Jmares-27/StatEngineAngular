@@ -19,3 +19,8 @@ Derek | 10/11/23
 1. Working on getting market data from SteamAPI to aggregate into database usable format
 2. Finished Proof of Concept for searching items via inventory
 3. SteamAPI has a rate limit that is unknown, resulting in lots of denied requests when batch requesting market info. Figuring out a workaround. 
+---------------------------------------------------------------------------
+Sean | 10/11/23
+1.I'm working on Querying the DMarket CSGO Skins Marketplace API to retrieve listings.
+2.Working with python trying to resolve a bug with the NaCl module.
+3.When I get a working prototype I will be implementing functionality in our backend to query DMarket for current skins data.
