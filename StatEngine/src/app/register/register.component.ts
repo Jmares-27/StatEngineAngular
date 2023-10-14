@@ -37,6 +37,7 @@ export class RegisterComponent {
       password:this.registerForm.value.password,
       introduction: "",
       steamID:"",
+      steamName:"",
       kills: 0,
       deaths: 0,
       KD: 0,
