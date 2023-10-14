@@ -21,4 +21,14 @@ export class SteamLoadingPageComponent {
     });
   }
 
+  onIDSubmit(){
+    console.log(this.steamIDForm.value.steamID)
+    console.log(JSON.parse(localStorage.getItem("userData"))["username"])
+    this.http.updateSteamID(this.steamIDForm.value.steamID, this.userName).subscribe((data)=>{
+      this.snackBar.open("Steam ID Updated!","",{duration:2000});
+    })
+  }
+
 }
+
+
