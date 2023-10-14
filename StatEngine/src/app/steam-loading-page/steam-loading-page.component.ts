@@ -11,5 +11,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class SteamLoadingPageComponent {
 
- 
+  userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
+  steamIDForm: FormGroup;
 }
