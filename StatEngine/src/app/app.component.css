@@ -15,6 +15,9 @@
     margin: auto;
 }
 
+.suggested_users{
+    justify-content: center;
+}
 
 .menubox :hover{
     justify-content: center;

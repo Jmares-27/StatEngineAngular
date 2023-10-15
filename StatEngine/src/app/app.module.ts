@@ -9,7 +9,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
-
+import { SearchComponent } from './search/search.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
+import { UserComponent } from './user/user.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -22,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -30,12 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
-import { SearchComponent } from './search/search.component';
-import { DeleteAccountComponent } from './delete-account/delete-account.component';
-import { PasswordresetComponent } from './passwordreset/passwordreset.component';
-import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
-import { UserComponent } from './user/user.component';
-import { FavoritesComponent } from './favorites/favorites.component';
+
 
 
 @NgModule({
@@ -48,10 +49,11 @@ import { FavoritesComponent } from './favorites/favorites.component';
     SearchComponent,
     DeleteAccountComponent,
     PasswordresetComponent,
-    UserComponent,
+
     BugReportComponent,
     BugReportSuccessComponent,
     FavoritesComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,7 @@ import { FavoritesComponent } from './favorites/favorites.component';
     MatListModule,
     MatSelectModule,
     MatCardModule,
+    MatAutocompleteModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

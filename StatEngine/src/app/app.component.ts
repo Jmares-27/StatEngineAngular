@@ -7,7 +7,9 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SearchService } from './_services/search.service';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { User } from './models/user.model';
-
+import { UserService } from './_services/user.service';
+import { MatAutocomplete } from '@angular/material/autocomplete';
+// import { UserService } from './user/user.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,14 +17,15 @@ import { User } from './models/user.model';
 })
 export class AppComponent {
   title = 'StatEngine';
-  opened = true;
-  isDisplayed = false;
-  displayRegAndLogin  = false;
+  opened: boolean = true;
+  isDisplayed: boolean = false;
+  displayRegAndLogin: boolean  = false;
   public SearchForm: FormGroup;
-  searchString: "";
 
-
-  constructor( private searchServ:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+  searchString: string =  "";
+  showSuggestions: boolean = false;
+  suggestions: any = [];
+  constructor(private UserService:UserService, private searchService:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
       this.isDisplayed = true;
       this.displayRegAndLogin = false;
@@ -44,14 +47,14 @@ export class AppComponent {
     this.searchString = this.SearchForm.value.username
     // console.log(this.searchString); //USED FOR TESTING
 
-    this.searchServ.searchUser(this.searchString).subscribe((data: any) => { 
+    this.searchService.searchUser(this.searchString).subscribe((data: any) => { 
         if (data == "No user exist!" ) {
           // console.log("inside no data") //used for testing
           // this.status_checker = true
           console.log ("There is no such player exist")
           // console.log ("data", data)
-          this.searchServ.message = "There is no such player exist"
-          this.searchServ.display_user = true
+          this.searchService.message = "There is no such player exist"
+          this.searchService.display_user = true
           
           // localStorage.setItem("searchResult", "There is no such player exist" )
           // this.searchComponent.message = "There is no such player exist"
@@ -74,8 +77,8 @@ export class AppComponent {
 
           // window.location.reload();
           // this.status_checker = true
-          this.searchServ.message = "User found!"
-          this.searchServ.display_user = true
+          this.searchService.message = "User found!"
+          this.searchService.display_user = true
         }
       },
       error => console.log(error)
@@ -84,11 +87,123 @@ export class AppComponent {
   }
 
 
+  onSearchInput() {
+    this.searchString = this.SearchForm.value.username
+    if (this.searchString.length >= 3) {
+      this.searchService.getSuggestions(this.searchString).subscribe(
+        (data) => {
+          if (data == undefined){
+
+          }
+          else{          
+
+            // this.suggestions = Object.values(data);
+            // this.suggestions.push(data);
+            this.suggestions = data["users"]
+            this.showSuggestions = true;
+            // console.log ("suggestion data: ", this.suggestions)
+            // console.log ("data received", data["users"])
+          }
+
+        },
+        (error) => {
+          console.error('Error getting suggestions:', error);
+        }
+      );
+    } else {
+      this.showSuggestions = false;
+    }
+  }
+
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
     
     
+  }
+  userPageRedirect(selectedSuggestion){
+    this.searchService.userID = selectedSuggestion["_id"]
+    // console.log ("selected userID", this.searchService.userID)
+    this.http.getStats(this.searchService.userID).subscribe((data)=>{
+
+      
+      var body = JSON.parse(JSON.stringify(data))
+      console.log("body", body)
+      var last_match = body["last_match"]
+      var overall = body["overall"]
+      this.UserService.userName = body["username"]
+      this.UserService.lm_result = last_match["last_match_result"]
+      this.UserService.lm_kd = Math.round(parseFloat(last_match["last_match_kd"])*100)/100
+      this.UserService.lm_adr = Math.round(parseFloat(last_match["last_match_adr"])*100)/100
+      this.UserService.oa_kd = Math.round(parseFloat(overall["overall_kd"])*100)/100
+      this.UserService.oa_adr = Math.round(parseFloat(overall["overall_adr"])*100)/100
+      this.UserService.oa_hsp = Math.round(parseFloat(overall["overall_hsp"])*10000)/100
+
+      let results = document.getElementById("winloss")
+      if (this.UserService.lm_result == "Win"){
+        results.style.color = "green"
+      }
+      else{
+        results.style.color = "red"
+      }
+
+      let lm_kd = document.getElementById("lm_kd")
+      if (this.UserService.lm_kd > 1){
+        lm_kd.style.color = "green"
+      }
+      else{
+        lm_kd.style.color = "red"
+      }
+
+      let oa_kd = document.getElementById("oa_kd")
+      if (this.UserService.oa_kd > 1){
+        oa_kd.style.color = "green"
+      }
+      else{
+        oa_kd.style.color = "red"
+      }
+
+      let oa_adr = document.getElementById("oa_adr")
+      if (this.UserService.oa_adr > 80){
+        oa_adr.style.color = "green"
+      }
+      else{
+        oa_adr.style.color = "red"
+      }
+
+      let oa_hsp = document.getElementById("oa_hsp")
+      if (this.UserService.oa_hsp > 30){
+        oa_hsp.style.color = "green"
+      }
+      else{
+        oa_hsp.style.color = "red"
+      }
+
+      let lm_adr = document.getElementById("lm_adr")
+      if (this.UserService.lm_adr > 80){
+        lm_adr.style.color = "green"
+      }
+      else{
+        lm_adr.style.color = "red"
+      }
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+    this.router.navigate(['user', this.searchService.userID])
+    this.SearchForm.reset()
+    this.suggestions = []
+   
+    // this.refreshUserPage()
+    //call my account http.request
+    // this.menuToggle()
   }
 
   registerRedirect(){

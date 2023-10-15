@@ -98,8 +98,12 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,username});
   }
 
-  getStats(username:Object):Observable<Object>{
-    return this.http.post(`${this.baseURL}/api/getStats/${username}`, {username});
+  // getStats(username:Object):Observable<Object>{
+  //   return this.http.post(`${this.baseURL}/api/getStats/${username}`, {username});
+  // }
+
+  getStats(id:string):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/getStats/${id}`, {id});
   }
 
 }

@@ -1,1 +1,103 @@
-<p>user works!</p>
+<div class="back-ground">
+    
+	</div>
+	
+
+
+
+
+    <mat-card class = "card-class" >
+		<mat-card-header style = "color: white">
+			<mat-card-title>
+				{{userName}}
+					<div mat-card-avatar class = "image"></div>
+				</mat-card-title>
+			</mat-card-header>		
+		<mat-list >
+		<h2 matSubheader style = "font-size: 22px; width: 53px; height: 24px; margin-left: 1rem; color: white">Socials</h2>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="discord"></mat-icon> <span style= "color: white">MurphTurph</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="instagram"></mat-icon><span style= "color: white">MucleHead</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="facebook"></mat-icon><span style= "color: white">Facebook</span></mat-list-item>
+		</mat-list>
+		<button mat-flat-button color="primary" class="steamButton"><a href="http://localhost:3026/api/auth/steam/return">Login with Steam</a></button>
+	</mat-card>
+	<br>
+	
+	<div class="cardbox" style="width: 60%;">
+		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%;">
+			<mat-card-title style="font-size:60px">
+				<div style="padding:2%">
+					{{userName}}
+				</div>
+				<div style="color:black; opacity: 100%; font-size: 20px">
+					Overall Stats
+				</div>
+			</mat-card-title>
+			<mat-card-content style="padding-bottom: 3%;">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					KD:
+					<div style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
+						{{oa_kd}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					ADR:
+					<div style="font-size: 36px; font:bold; padding: 4%;" id="oa_adr">
+						{{oa_adr}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					Headshot Rate:
+					<div style="font-size: 36px; font:bold; padding: 6%;" id="oa_hsp">
+						{{oa_hsp}}%
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<div style="margin: 5%; width: 100%; float:left">
+		</div>
+		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%">
+			<mat-card-title style="font-size:60px">
+				<div style="color:black; opacity: 100%; font-size: 20px">
+					Last Match Stats
+				</div>
+			</mat-card-title>
+			<mat-card-content style="padding-bottom: 3%;">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					Result
+					<div style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
+						{{lm_result}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					KD:
+					<div style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
+						{{lm_kd}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					ADR:
+					<div style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
+						{{lm_adr}} 
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
+		<div style="margin: 5%; width: 100%; float:left">
+		</div>
+		<mat-card style="float:left; width: 92%;">
+			<mat-card-title>
+				(Placeholder) Input SteamID:
+			</mat-card-title>
+			<mat-card-content>
+				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
+					<mat-form-field [style.width.px]="600">
+						<mat-label>Please enter a steamID to be linked to your account:</mat-label>
+						<input matInput formControlName="steamID">
+						<mat-hint>Numbers only!</mat-hint>
+					</mat-form-field>			
+				</form>
+				<button mat-flat-button (click)="onIDSubmit()" color="primary">Submit</button>
+
+			</mat-card-content>
+		</mat-card>

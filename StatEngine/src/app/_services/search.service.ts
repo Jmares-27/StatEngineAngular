@@ -11,6 +11,8 @@ export class SearchService {
   private baseURL = 'http://localhost:3026'
   // private baseURL = 'http://3.144.231.224:3026'
 
+
+  public userID: string
   public message = '';
   public display_user = false;
   public userData = {
@@ -54,4 +56,10 @@ export class SearchService {
     return this.http.get(`${this.baseURL}/api/searchuser/${username}`)
   }
   
+  
+  getSuggestions(searchUsername:string):Observable<Object>{
+    return this.http.get(`${this.baseURL}/api/suggestions/${searchUsername}`)
+    
+  }
+
 }
