@@ -24,3 +24,8 @@ Sean | 10/11/23
 1.I'm working on Querying the DMarket CSGO Skins Marketplace API to retrieve listings.
 2.Working with python trying to resolve a bug with the NaCl module.
 3.When I get a working prototype I will be implementing functionality in our backend to query DMarket for current skins data.
+
+Johnny | 10/11/23
+1. Working on CSS formatting for mobile devices, specifically the search bar
+2. Minor CSS fixes for other pages such as home and nav bar
+3. Having trouble with the search bar overlapping the page when resizing to mobile
