@@ -5,3 +5,8 @@ Derek | 10-16-2023
 1. Translating SteamAPI function from Python Proof of Concept into Typescript
 2. Finished proof of concept for getting steam market data
 3. the rate limit has been determined to be 25 calls per 5 minute period. we can get all items into our database via asynchronous requests with increasing timeout budget. 
+
+Johnny | 10-16-2023
+1. Fixing search bar positioning relative to current page and looking at user page
+2. CSS and HTML adjustments as well as enter function
+3. Nothing at the moment
