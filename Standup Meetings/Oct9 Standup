@@ -1,0 +1,12 @@
+Format:
+Name
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+--------------------------------------------------------------------------
+Derek
+1. Working on Integrating SteamInventory API Calls into inventory page. Currently doing a proof of concept using Python before integration into codebase
+2. Completed functionality to access and stitch together object classes for items by scrolling through a user's inventory on the Proof of Concept.
+3. Not necessarily issues, but food for thought includes possibly using the steam community market to get a list of all items rather than scrolling individual user inventories. We can maybe even reduce the amount of API calls by calling to the market directly. The only problem is that we need the market hash names of every item, which so far we have only been able to get through inventory scrolling. More research in this area is needed.
+--------------------------------------------------------------------------
+
