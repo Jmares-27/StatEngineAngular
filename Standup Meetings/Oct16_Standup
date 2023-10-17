@@ -20,3 +20,8 @@ Nathan | 10-16-2023
 1. Created service to run express on web server
 2. Working on creating a service to run python script that updates steam item data in MongoDB
 3. File path differences when running code on EC2 instance vs. local (also forgetting to update standup doc day of)
+
+Dat | 10-16-2023 
+1. Code clean up by remove any functions and commented items that are not needed and commented out/remove any console.log() i see. Add validations and protect endpoints.
+2. Just finished search component and just start on add some validations for the email in the backend when when user send an http post request from the frontend.
+3. Nothing at the moment.
