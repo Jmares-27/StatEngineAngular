@@ -14,7 +14,7 @@ export class SteamLoadingPageComponent {
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   steamIDForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar, private router: Router){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
     this.steamIDForm = this.fb.group({
       steamID: ["", Validators.required]
