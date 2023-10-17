@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class HttpService {
-  // private baseURL = 'http://localhost:3026'
-  private baseURL = 'http://3.144.231.224:3026'
+  private baseURL = 'http://localhost:3026'
+  // private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -98,8 +98,12 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,username});
   }
 
-  getStats(username:Object):Observable<Object>{
-    return this.http.post(`${this.baseURL}/api/getStats/${username}`, {username});
+  // getStats(username:Object):Observable<Object>{
+  //   return this.http.post(`${this.baseURL}/api/getStats/${username}`, {username});
+  // }
+
+  getStats(id:string):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/getStats/${id}`, {id});
   }
 
 }

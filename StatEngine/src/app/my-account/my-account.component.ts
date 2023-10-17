@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent {
-  userId: number
+  userId: string
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   lm_result: string;
   lm_kd: number;
@@ -25,11 +25,12 @@ export class MyAccountComponent {
   steamIDForm: FormGroup;
   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
+    this.userId = JSON.parse(localStorage.getItem("userData"))["_id"];
     this.steamIDForm = this.fb.group({
       steamID: ["", Validators.required]
     });
 
-    this.http.getStats(this.userName).subscribe((data)=>{
+    this.http.getStats(this.userId).subscribe((data)=>{
 
       
       var body = JSON.parse(JSON.stringify(data))

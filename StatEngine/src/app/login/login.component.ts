@@ -31,7 +31,7 @@ export class LoginComponent {
       password: this.loginForm.value.password,
     }).subscribe((data: any) => { 
         if (data == 'No user exist!') {
-          console.log('There is no such player exist');
+          // console.log('There is no such player exist');
           this.loginForm.reset(this.loginForm.value);
           this.snackBar.open('Login Unsuccessful! Please Try Again.', 'X', {
             duration: 2000,
