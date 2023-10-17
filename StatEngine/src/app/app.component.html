@@ -3,22 +3,16 @@
 <mat-drawer-container>
   <mat-drawer-content style=" height: 100vh; position: relative;">
 
-
-
-
-    <div class="top-row-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%">
-
-
+    <div class="top-row-container" style="z-index: 2; position: relative; width: 100%">
 
       <!-- Nav-Toggle button -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
         <mat-icon>menu</mat-icon>
       </button>
 
-      
       <!-- Search Form -->
-      <form [formGroup]="SearchForm" class="search-box" >
-            
+      <form [formGroup]="SearchForm" (keydown.enter)="searchSubmit()" class="search-box" >
+             
         <!-- Search Function Button -->
         <button  (click)="onSearchInput()"><img src="assets/icons/Search.png"></button>
                 
@@ -45,12 +39,8 @@
 
     </div>
 
-    <div>
-      <router-outlet ></router-outlet>
 
-    </div>
-
-
+  <router-outlet ></router-outlet>
 
 
   </mat-drawer-content>
@@ -83,9 +73,5 @@
   
   </mat-drawer>
 
-
-  
-  
 </mat-drawer-container>
-
 
