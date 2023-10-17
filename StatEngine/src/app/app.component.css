@@ -16,8 +16,11 @@
 }
 
 .suggested_users{
-    justify-content: center;
+    display: flex;
+    justify-content: left;
+    /* align-items: center; */
 }
+
 
 .menubox :hover{
     justify-content: center;
