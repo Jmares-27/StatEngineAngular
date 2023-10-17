@@ -15,3 +15,8 @@ Johnnie | 10-16-2023
 1. setting up check for is a steamid is already present the user wont be prompted to reneter it when connecting to steam
 2. added validation for steam id to be present before pulling stats
 3. fell asleep before stand up, I havent had coffee yet, but no issues otherwise
+
+Nathan | 10-16-2023
+1. Created service to run express on web server
+2. Working on creating a service to run python script that updates steam item data in MongoDB
+3. File path differences when running code on EC2 instance vs. local (also forgetting to update standup doc day of)
