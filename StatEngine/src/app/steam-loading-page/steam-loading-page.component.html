@@ -6,7 +6,7 @@
 				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
 					<mat-form-field [style.width.px]="600">
 						<mat-label>Please enter a steamID to be linked to your account:</mat-label>
-						<input matInput formControlName="steamID"  minlength = '17' maxlength="17" pattern="^[0-9]">
+						<input matInput formControlName="steamID"  minlength = '17' maxlength="100" >
 						<mat-hint>Numbers only!</mat-hint>
 					</mat-form-field>			
 				</form>
