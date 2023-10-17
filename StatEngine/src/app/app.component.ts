@@ -7,7 +7,8 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { SearchService } from './_services/search.service';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { User } from './models/user.model';
-
+import { MatAutocomplete } from '@angular/material/autocomplete';
+// import { UserService } from './user/user.component';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,14 +16,15 @@ import { User } from './models/user.model';
 })
 export class AppComponent {
   title = 'StatEngine';
-  opened = true;
-  isDisplayed = false;
-  displayRegAndLogin  = false;
+  opened: boolean = true;
+  isDisplayed: boolean = false;
+  displayRegAndLogin: boolean  = false;
   public SearchForm: FormGroup;
-  searchString: "";
 
-
-  constructor( private searchServ:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+  searchString: string =  "";
+  showSuggestions: boolean = false;
+  suggestions: any = [];
+  constructor( private searchService:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
       this.isDisplayed = true;
       this.displayRegAndLogin = false;
@@ -38,57 +40,46 @@ export class AppComponent {
   }
 
 
-  searchSubmit(){
-    
 
+
+  onSearchInput() {
     this.searchString = this.SearchForm.value.username
-    // console.log(this.searchString); //USED FOR TESTING
+    if (this.searchString.length >= 3) {
+      this.searchService.getSuggestions(this.searchString).subscribe(
+        (data) => {
+          if (data == undefined){
 
-    this.searchServ.searchUser(this.searchString).subscribe((data: any) => { 
-        if (data == "No user exist!" ) {
-          // console.log("inside no data") //used for testing
-          // this.status_checker = true
-          console.log ("There is no such player exist")
-          // console.log ("data", data)
-          this.searchServ.message = "There is no such player exist"
-          this.searchServ.display_user = true
-          
-          // localStorage.setItem("searchResult", "There is no such player exist" )
-          // this.searchComponent.message = "There is no such player exist"
-          this.router.navigate(['search'])
-              
+          }
+          else{          
 
-          // window.location.reload();
+            // this.suggestions = Object.values(data);
+            // this.suggestions.push(data);
+            this.suggestions = data["users"]
+            this.showSuggestions = true;
+            // console.log ("suggestion data: ", this.suggestions)
+            // console.log ("data received", data["users"])
+          }
+
+        },
+        (error) => {
+          console.error('Error getting suggestions:', error);
         }
-        else{
-          //datafound
-          // console.log("user data-->", data)
-
-          const user: User = data;
-          // console.log("user data-->", user)
-          localStorage.setItem("searchResult", JSON.stringify(user))
-          // this.searchComponent.message = "User found!"
-
-          this.router.navigate(['search'])
-
-
-          // window.location.reload();
-          // this.status_checker = true
-          this.searchServ.message = "User found!"
-          this.searchServ.display_user = true
-        }
-      },
-      error => console.log(error)
-    )
-    
+      );
+    } else {
+      this.showSuggestions = false;
+    }
   }
-
 
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
     
     
+  }
+  userPageRedirect(selectedSuggestion){
+    this.router.navigate(['user', selectedSuggestion["_id"]])
+    this.SearchForm.reset()
+    this.suggestions = []
   }
 
   registerRedirect(){
