@@ -10,3 +10,8 @@ Johnny | 10-16-2023
 1. Fixing search bar positioning relative to current page and looking at user page
 2. CSS and HTML adjustments as well as enter function
 3. Nothing at the moment
+
+Johnnie | 10-16-2023
+1. setting up check for is a steamid is already present the user wont be prompted to reneter it when connecting to steam
+2. added validation for steam id to be present before pulling stats
+3. fell asleep before stand up, I havent had coffee yet, but no issues otherwise
