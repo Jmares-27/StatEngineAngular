@@ -1,0 +1,4 @@
+Derek | 10-18-2023
+1. Started working on Inventory page to display user inventories and aggregate values
+2. Pivoted off of converting SteamAPI inventory script from Python POC, as we have decided to keep it a Python asynchronous service
+3. No issues so far. 
