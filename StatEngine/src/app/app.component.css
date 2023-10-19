@@ -15,6 +15,12 @@
     margin: auto;
 }
 
+.suggested_users{
+    display: flex;
+    justify-content: left;
+    /* align-items: center; */
+}
+
 
 .menubox :hover{
     justify-content: center;
@@ -85,15 +91,7 @@
     margin-left: 15px;
 }
 
-.search-box {
-    position: relative;
-    z-index: 1;
-    margin: auto;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    width: 90%;
-}
+
 
 
 
@@ -119,3 +117,16 @@
     width: 50%;
     color: white;
 }
+
+.search-box {
+    position: absolute;
+    z-index: 1;
+    margin:  top;
+    display: flex;
+    align-items: flex-start;
+    top: 0; /* Align to the top of the page */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+    padding-top: 1%;
+}
+

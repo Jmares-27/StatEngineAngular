@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent {
-  userId: number
+  userId: string
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   lm_result: string;
   lm_kd: number;

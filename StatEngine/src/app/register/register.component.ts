@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
-import { user } from '../user';
+import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -28,9 +27,8 @@ export class RegisterComponent {
   }
 
   onSubmit(){
-    console.log()
-    const currentDate = new Date();
-    var dateString = currentDate.getMonth()+1 + "/"  + currentDate.getDate()  + "/" + currentDate.getFullYear();
+
+
     var newUser = {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
@@ -41,7 +39,7 @@ export class RegisterComponent {
       kills: 0,
       deaths: 0,
       KD: 0,
-      date_created: dateString,
+      date_created: "",
       likes: 0,
       dislike: 0,
       karmaRatio: 1,
@@ -51,12 +49,15 @@ export class RegisterComponent {
     // console.log(newUser); //USED FOR TESTING
     this.http.createUser(newUser).subscribe(
       data=>{
-        // console.log("HERE -->", data);
-        if ( data == "Username or email already exist!" ) {
-          // console.log("inside no data") //used for testing
-          this.status_checker = true
-          console.log("Username or email already exist!")
-          this.message = "Username or email already exist!"
+        // console.log("Register data -->", data);
+        if ( data == "Email has been used!" ) {
+          // // console.log("inside email been used") //used for testing
+
+          this.snackBar.open("Email has been used","Login",{duration:2000}).onAction()
+          .subscribe(() => {
+            // Redirect to the login page
+            this.onClickToSignIn()
+          });
         }
         else if  ( data == "Sign Up Success!" ) {
 
@@ -64,8 +65,7 @@ export class RegisterComponent {
           this.router.navigate(['login'])
           console.log("Sign Up success!")
           // console.log("user data-->", data)
-          this.status_checker = true
-          // this.message = "Sign Up Success!"
+
 
         }
       },

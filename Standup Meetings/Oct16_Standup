@@ -1,0 +1,27 @@
+
+
+
+Derek | 10-16-2023
+1. Translating SteamAPI function from Python Proof of Concept into Typescript
+2. Finished proof of concept for getting steam market data
+3. the rate limit has been determined to be 25 calls per 5 minute period. we can get all items into our database via asynchronous requests with increasing timeout budget. 
+
+Johnny | 10-16-2023
+1. Fixing search bar positioning relative to current page and looking at user page
+2. CSS and HTML adjustments as well as enter function
+3. Nothing at the moment
+
+Johnnie | 10-16-2023
+1. setting up check for is a steamid is already present the user wont be prompted to reneter it when connecting to steam
+2. added validation for steam id to be present before pulling stats
+3. fell asleep before stand up, I havent had coffee yet, but no issues otherwise
+
+Nathan | 10-16-2023
+1. Created service to run express on web server
+2. Working on creating a service to run python script that updates steam item data in MongoDB
+3. File path differences when running code on EC2 instance vs. local (also forgetting to update standup doc day of)
+
+Dat | 10-16-2023 
+1. Code clean up by remove any functions and commented items that are not needed and commented out/remove any console.log() i see. Add validations and protect endpoints.
+2. Just finished search component and just start on add some validations for the email in the backend when when user send an http post request from the frontend.
+3. Nothing at the moment.

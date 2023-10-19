@@ -2,7 +2,7 @@
 <!-- Background -->
 <div class="back-ground">
     <!-- Login Form -->
-    <form [formGroup]="loginForm"  novalidate>
+    <form [formGroup]="loginForm"  novalidate (keydown.enter)="onLogin()">
 
         <!-- StatEngine Logo -->
         <h1 class = "title-header">StatEngine</h1>
@@ -22,10 +22,10 @@
 
             <!-- Password Field -->
             <div>
-                <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline">
+                <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline" (keydown.enter)="$event.preventDefault()">
                     <mat-label style="color:white">Password</mat-label>
                     <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
                         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
                     <!-- <mat-hint>Enter a password</mat-hint> -->

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
 
+
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -21,6 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -29,7 +31,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
-import { SearchComponent } from './search/search.component';
+
+
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
@@ -44,13 +47,12 @@ import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-pa
     RegisterComponent,
     LoginComponent,
     MyAccountComponent,
-    SearchComponent,
     DeleteAccountComponent,
     PasswordresetComponent,
-    UserComponent,
     BugReportComponent,
     BugReportSuccessComponent,
     FavoritesComponent,
+    UserComponent,
     SteamLoadingPageComponent,
   ],
   imports: [
@@ -71,6 +73,7 @@ import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-pa
     MatListModule,
     MatSelectModule,
     MatCardModule,
+    MatAutocompleteModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
