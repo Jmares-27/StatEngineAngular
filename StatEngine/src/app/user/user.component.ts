@@ -66,53 +66,7 @@ export class UserComponent implements OnInit{
         this.oa_adr = Math.round(parseFloat(overall["overall_adr"])*100)/100
         this.oa_hsp = Math.round(parseFloat(overall["overall_hsp"])*10000)/100
   
-        let results = document.getElementById("winloss")
-        if (this.lm_result == "Win"){
-          results.style.color = "green"
-        }
-        else{
-          results.style.color = "red"
-        }
-  
-        let lm_kd = document.getElementById("lm_kd")
-        if (this.lm_kd > 1){
-          lm_kd.style.color = "green"
-        }
-        else{
-          lm_kd.style.color = "red"
-        }
-  
-        let oa_kd = document.getElementById("oa_kd")
-        if (this.oa_kd > 1){
-          oa_kd.style.color = "green"
-        }
-        else{
-          oa_kd.style.color = "red"
-        }
-  
-        let oa_adr = document.getElementById("oa_adr")
-        if (this.oa_adr > 80){
-          oa_adr.style.color = "green"
-        }
-        else{
-          oa_adr.style.color = "red"
-        }
-  
-        let oa_hsp = document.getElementById("oa_hsp")
-        if (this.oa_hsp > 30){
-          oa_hsp.style.color = "green"
-        }
-        else{
-          oa_hsp.style.color = "red"
-        }
-  
-        let lm_adr = document.getElementById("lm_adr")
-        if (this.lm_adr > 80){
-          lm_adr.style.color = "green"
-        }
-        else{
-          lm_adr.style.color = "red"
-        }
+       
       },
       (error) => {
         if (error.status === 500) {

@@ -27,8 +27,8 @@ export class HttpService {
     // var userDataString = localStorage.getItem("userToken");
     // var userDataString = JSON.stringify (userData);
     // console.log ("userData", userDataString);
-    if (localStorage.getItem("userToken")){
-      var userData = JSON.parse(localStorage.getItem("userToken"));
+    if (localStorage.getItem("userData")){
+      var userData = JSON.parse(localStorage.getItem("userData"))["token"];
       // console.log ("This is token", userData);
       return userData;  
 

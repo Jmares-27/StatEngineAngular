@@ -17,21 +17,21 @@
 
       
       <!-- Search Form -->
-      <form [formGroup]="SearchForm" class="search-box" >
-            
+      <form [formGroup]="SearchForm" (keydown.enter)="onSearchInput()" class="search-box" >
+             
         <!-- Search Function Button -->
-        <button  (click)="onSearchInput()"><img src="assets/icons/Search.png"></button>
+        <button  (keydown.enter)="onSearchInput()"><img src="assets/icons/Search.png"></button>
                 
         <!-- Username lookup field -->
         <mat-form-field appearance="fill">
         <mat-label style="color:black; ">Search for a Player</mat-label>
-        <input matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
+        <input  (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
         </mat-form-field>
 
         <!-- <div   class="suggested-results" *ngIf="showSuggestions">
         </div> -->
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let suggestion of suggestions" (click)=" userPageRedirect(suggestion)">
+            <mat-option *ngFor="let suggestion of suggestions"  (click)=" userPageRedirect(suggestion)">
 
               <div  class="suggested_users"> <p><img class="avatar" style="width:10%; height: 10%; padding-top: 5%;" mat-card-avatar src={{suggestion.profile_img_url}}> {{ suggestion.username }} </p></div>
             </mat-option>
