@@ -93,6 +93,12 @@ export class AppComponent {
 
   }
 
+
+  resetPasswordRedirect(){
+    this.router.navigate(['passwordreset']);
+    this.menuToggle();
+  }
+
   myAccountRedirect(){
     this.router.navigate(['myaccount']);
     this.menuToggle();
