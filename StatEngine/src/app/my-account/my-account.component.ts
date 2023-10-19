@@ -26,6 +26,7 @@ export class MyAccountComponent {
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
+
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
     //this.steamIDForm = this.fb.group({
     //  steamID: ["", Validators.required]
@@ -43,6 +44,7 @@ export class MyAccountComponent {
   getStatfunction (){
     
     this.http.getStats(this.userName).subscribe((data)=>{
+
       var body = JSON.parse(JSON.stringify(data))
       console.log(body)
       var last_match = body["last_match"]
@@ -101,7 +103,16 @@ export class MyAccountComponent {
       else{
         lm_adr.style.color = "red"
       }
-
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
     })
   }
   Steamlogin() {

@@ -45,8 +45,7 @@ export class RegisterComponent {
       karmaRatio: 1,
       profile_img_url: "assets/images/no_profile_img.png",
       friend_list: [],
-    }
-    // console.log(newUser); //USED FOR TESTING
+
     this.http.createUser(newUser).subscribe(
       data=>{
         // console.log("Register data -->", data);

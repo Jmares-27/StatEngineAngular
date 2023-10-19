@@ -9,6 +9,11 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { MyAccountComponent } from './my-account/my-account.component';
 import { BugReportComponent } from './bug-report/bug-report.component';
+import { DeleteAccountComponent } from './delete-account/delete-account.component';
+import { PasswordresetComponent } from './passwordreset/passwordreset.component';
+import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
+import { UserComponent } from './user/user.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 
 //Materials Imports
@@ -33,12 +38,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
 
 
+
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { PasswordresetComponent } from './passwordreset/passwordreset.component';
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
 import { UserComponent } from './user/user.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-page.component';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +61,7 @@ import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-pa
     FavoritesComponent,
     UserComponent,
     SteamLoadingPageComponent,
+
   ],
   imports: [
     BrowserModule,
