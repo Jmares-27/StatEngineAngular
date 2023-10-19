@@ -3,15 +3,17 @@ import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { query } from '@angular/animations';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  // private baseURL = 'http://localhost:3026'
-  private baseURL = 'http://3.144.231.224:3026'
+  private baseURL = 'http://localhost:3026'
+  // private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
 
   
   createUser(user:Object):Observable<Object>{
@@ -34,11 +36,13 @@ export class HttpService {
 
     }
     else {
-      console.log ("No data");
-      return null;
+      // console.log ("No data");
+      this.snackBar.open("You have no logged in!","",{duration:2000});
+      // return null;
     }
   
   }
+  
   
   isLoggedIn(){
     this.http.get<boolean>(`${this.baseURL}/api/authenticate`).subscribe(
@@ -78,9 +82,9 @@ export class HttpService {
 
   }
 
-  updatePassword(username:Object, newPa:Object):Observable<Object>{
+  updatePassword(username:Object, token:Object, userid:Object, oldpass:Object,  newPa:Object):Observable<Object>{
 
-    return this.http.put(`${this.baseURL}/api/updatePassword/${username}/${newPa}`, {username,newPa});
+    return this.http.put(`${this.baseURL}/api/updatePassword/${username}`, {token, userid, oldpass, newPa});
   }
 
   resetPassword(username:Object, password:Object):Observable<Object>{
