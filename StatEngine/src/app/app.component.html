@@ -94,29 +94,31 @@
     <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
 
     <!-- Home -->
-    <div class="menubox"  (click)="homeRedirect()"><h2><img src="assets/icons/Home.png">Home</h2></div>
+    <div class="menubox" *ngIf="!hasLoggedIn"  (click)="homeRedirect()"><h2><img src="assets/icons/Home.png">Home</h2></div>
     
     <!-- Favorites -->
-    <div class="menubox" *ngIf="isDisplayed" (click)="favoritesRedirect()"><p><img src="assets/icons/FriendList.png">Favorites</p></div>
+    <div class="menubox" *ngIf="hasLoggedIn" (click)="favoritesRedirect()"><p><img src="assets/icons/FriendList.png">Favorites</p></div>
 
     <!-- Register -->
-    <div  class="menubox" *ngIf="displayRegAndLogin" (click)="registerRedirect()"><h2 class="menuboxText">Register</h2></div>
+    <div  class="menubox" *ngIf="!hasLoggedIn" (click)="registerRedirect()"><h2 class="menuboxText">Register</h2></div>
 
     <!-- Login -->
-    <div class="menubox" *ngIf="displayRegAndLogin" (click)="loginRedirect()"><h2 class="menuboxText">Login</h2></div>
+    <div class="menubox" *ngIf="!hasLoggedIn" (click)="loginRedirect()"><h2 class="menuboxText">Login</h2></div>
 
     <!-- My Account -->
-    <div class="menubox"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
+    <div class="menubox" *ngIf="hasLoggedIn"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 
     <!-- Report Bug -->
-    <div *ngIf="isDisplayed" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
+    <div *ngIf="hasLoggedIn" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
 
     <!-- Password Reset -->
-    <div *ngIf="isDisplayed" class="menubox"  (click)="resetPasswordRedirect()"><p><img src="">Password Reset</p></div>
+    <div *ngIf="hasLoggedIn" class="menubox"  (click)="resetPasswordRedirect()"><p><img src="">Password Reset</p></div>
 
+    <!-- Delete Account -->
+    <div *ngIf="hasLoggedIn" class="menubox"  (click)="deleteAccountRedirect()"><p><img src="">Delete Account</p></div>
 
     <!-- Logout -->
-    <div  *ngIf="isDisplayed" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
+    <div  *ngIf="hasLoggedIn" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
   
   </mat-drawer>
 

@@ -38,7 +38,6 @@ export class PasswordresetComponent {
 // }
 
 onPasswordReset(){
-  if (this.http.isLoggedIn()) {
 
     const username = this.resetForm.value.username
     const newpassword = this.resetForm.value.newpassword
@@ -75,10 +74,7 @@ onPasswordReset(){
         }
       } 
     )
-  }
-  else {
-    this.snackBar.open("You have not login to perform this action","",{duration:2000});
-  }
+
 
   
 

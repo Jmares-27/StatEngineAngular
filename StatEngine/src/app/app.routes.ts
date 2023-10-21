@@ -21,6 +21,7 @@ export const appRoutes: Routes =[
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
     {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},
     {path: 'favorites', component:FavoritesComponent, canActivate: [AuthGuard]},
+    {path: 'deleteaccount', component:DeleteAccountComponent, canActivate: [AuthGuard]},
     {path: 'user/:userid', component:UserComponent},
     {path: '**', redirectTo:'home'}
 ]

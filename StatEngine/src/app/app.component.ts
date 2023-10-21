@@ -8,6 +8,7 @@ import { SearchService } from './_services/search.service';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { User } from './models/user.model';
 import { MatAutocomplete } from '@angular/material/autocomplete';
+import { AuthGuard } from './_services/authGuard';
 // import { UserService } from './user/user.component';
 @Component({
   selector: 'app-root',
@@ -17,21 +18,22 @@ import { MatAutocomplete } from '@angular/material/autocomplete';
 export class AppComponent {
   title = 'StatEngine';
   opened: boolean = true;
-  isDisplayed: boolean = false;
-  displayRegAndLogin: boolean  = false;
+  // isDisplayed: boolean = false;
+  // displayRegAndLogin: boolean  = false;
+  hasLoggedIn :boolean = false;
   public SearchForm: FormGroup;
 
   searchString: string =  "";
   showSuggestions: boolean = false;
   suggestions: any = [];
-  constructor( private searchService:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
+  constructor(private authGuard:AuthGuard, private searchService:SearchService, private formBuilder:FormBuilder,private http:HttpService, private router: Router, private snackBar: MatSnackBar){
     if (this.checkAuthenication() == true) {
-      this.isDisplayed = true;
-      this.displayRegAndLogin = false;
+      this.hasLoggedIn = true;
     }else {
-      this.isDisplayed = false;
-      this.displayRegAndLogin = true;
+      this.hasLoggedIn = false;
     }
+
+
 
     this.SearchForm = this.formBuilder.group({
       username:['',[Validators.required]],
@@ -51,9 +53,6 @@ export class AppComponent {
 
           }
           else{          
-
-            // this.suggestions = Object.values(data);
-            // this.suggestions.push(data);
             this.suggestions = data["users"]
             this.showSuggestions = true;
             // console.log ("suggestion data: ", this.suggestions)
@@ -73,9 +72,8 @@ export class AppComponent {
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
-    
-    
   }
+
   userPageRedirect(selectedSuggestion){
     this.router.navigate(['user', selectedSuggestion["_id"]])
     this.SearchForm.reset()
@@ -119,14 +117,15 @@ export class AppComponent {
       return true;
     }
   }
-  canDisplayed(){
-    this.isDisplayed = true;
-  }
+
+  // canDisplayed(){
+  //   // this.http.isDisplayed = true;
+  //   // this.isDisplayed = true;
+  //   this.hasLoggedIn = true
+  // }
 
   logoutRedirect(){
     this.http.logOut();
-    this.isDisplayed = false;
-    this.displayRegAndLogin = true;
     this.snackBar.open("Logging out! Redirecting...","",{duration: 2000});
     this.router.navigate(["home"]);
     this.menuToggle();
