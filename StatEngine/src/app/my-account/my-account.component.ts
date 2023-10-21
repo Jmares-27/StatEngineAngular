@@ -22,17 +22,29 @@ export class MyAccountComponent {
   oa_hsp: number;
   displayedColumns: string[] = ['map','kills','deaths','KD'];
   dataSource = playerStats;
-  steamIDForm: FormGroup;
+  //steamIDForm: FormGroup;
+  currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
-    this.userId = JSON.parse(localStorage.getItem("userData"))["_id"];
-    this.steamIDForm = this.fb.group({
-      steamID: ["", Validators.required]
-    });
 
-    this.http.getStats(this.userId).subscribe((data)=>{
+    this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
+    //this.steamIDForm = this.fb.group({
+    //  steamID: ["", Validators.required]
+    
+    console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
+    console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
+    console.log(this.currentSteamID.length)
 
-      
+    this.getStatfunction()
+    
+  }
+
+  
+
+  getStatfunction (){
+    
+    this.http.getStats(this.userName).subscribe((data)=>{
+
       var body = JSON.parse(JSON.stringify(data))
       console.log(body)
       var last_match = body["last_match"]
@@ -103,12 +115,8 @@ export class MyAccountComponent {
       }
     })
   }
-  onIDSubmit(){
-    console.log(this.steamIDForm.value.steamID)
-    console.log(JSON.parse(localStorage.getItem("userData"))["username"])
-    this.http.updateSteamID(this.steamIDForm.value.steamID, this.userName).subscribe((data)=>{
-      this.snackBar.open("Steam ID Updated!","",{duration:2000});
-    })
+  Steamlogin() {
+    window.location.href = "http://localhost:4200/auth/steam";
   }
   
 

@@ -10,6 +10,7 @@ import { PasswordresetComponent } from "./passwordreset/passwordreset.component"
 import { BugReportComponent } from "./bug-report/bug-report.component";
 import { BugReportSuccessComponent } from "./bug-report-success/bug-report-success.component";
 import { FavoritesComponent } from "./favorites/favorites.component";
+import { SteamLoadingPageComponent } from "./steam-loading-page/steam-loading-page.component";
 import { UserComponent } from "./user/user.component";
 
 export const appRoutes: Routes =[
@@ -21,6 +22,7 @@ export const appRoutes: Routes =[
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},
     {path: 'bugreportsuccess', component: BugReportSuccessComponent, canActivate: [AuthGuard]},
     {path: 'favorites', component:FavoritesComponent, canActivate: [AuthGuard]},
+    {path: 'steamLoadingPage', component:SteamLoadingPageComponent, canActivate: [AuthGuard]},
     {path: 'user/:userid', component:UserComponent},
     {path: '**', redirectTo:'home'}
 ]
