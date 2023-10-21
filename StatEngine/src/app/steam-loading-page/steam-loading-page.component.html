@@ -1,0 +1,16 @@
+<mat-card style="float:left; width: 92%;">
+			<mat-card-title>
+				Input SteamID:
+			</mat-card-title>
+			<mat-card-content>
+				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
+					<mat-form-field [style.width.px]="600">
+						<mat-label>Please enter a steamID to be linked to your account:</mat-label>
+						<input matInput formControlName="steamID"  minlength = '17' maxlength="100" >
+						<mat-hint>Numbers only!</mat-hint>
+					</mat-form-field>			
+				</form>
+				<button mat-flat-button (click)="onIDSubmit()" color="primary" [disabled]="!steamIDForm.valid">Submit</button>
+
+			</mat-card-content>
+		</mat-card>
