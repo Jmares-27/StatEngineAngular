@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppComponent } from '../app.component';
+import { UserResponse } from '../models/userResponse.model';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -37,19 +38,16 @@ export class LoginComponent {
             duration: 2000,
           });
         } else  {
-          // Create a User object and populate it with data
-          const user: User = data.data;
-          const userToken = data.data.token;
-          // console.log('User:', user);
-          // console.log("User token: ", userToken)
-          localStorage.setItem('userToken',  JSON.stringify(userToken))
-          localStorage.setItem('userData',  JSON.stringify(user))
+          // Create a UserResponse object and populate it with data
+          const userData: UserResponse = data.data;
+          // console.log('UserData:', userData);
+          localStorage.setItem('userData',  JSON.stringify(userData))
 
           if (this.http.getAuthentication()){
-            this.appComponent.canDisplayed();
-            this.appComponent.displayRegAndLogin = false;
+            // this.appComponent.canDisplayed();
+            this.appComponent.hasLoggedIn = true;
             this.snackBar.open("Login Success!","",{duration:2000});
-            this.router.navigate(["myaccount"]);
+            this.router.navigate(["home"]);
 
           } else {
             this.loginForm.reset(this.loginForm.value);

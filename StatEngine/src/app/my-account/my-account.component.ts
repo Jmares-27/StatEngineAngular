@@ -21,6 +21,13 @@ export class MyAccountComponent {
   oa_adr: number;
   oa_hsp: number;
   displayedColumns: string[] = ['map','kills','deaths','KD'];
+//   steamIDForm: FormGroup;
+//   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+//     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
+//     this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
+//     this.steamIDForm = this.fb.group({
+//       steamID: ["", Validators.required]
+//     });
   dataSource = playerStats;
   //steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
@@ -46,7 +53,7 @@ export class MyAccountComponent {
     this.http.getStats(this.userName).subscribe((data)=>{
 
       var body = JSON.parse(JSON.stringify(data))
-      console.log(body)
+      // console.log(body)
       var last_match = body["last_match"]
       var overall = body["overall"]
       this.lm_result = last_match["last_match_result"]
@@ -56,53 +63,6 @@ export class MyAccountComponent {
       this.oa_adr = Math.round(parseFloat(overall["overall_adr"])*100)/100
       this.oa_hsp = Math.round(parseFloat(overall["overall_hsp"])*10000)/100
 
-      let results = document.getElementById("winloss")
-      if (this.lm_result == "Win"){
-        results.style.color = "green"
-      }
-      else{
-        results.style.color = "red"
-      }
-
-      let lm_kd = document.getElementById("lm_kd")
-      if (this.lm_kd > 1){
-        lm_kd.style.color = "green"
-      }
-      else{
-        lm_kd.style.color = "red"
-      }
-
-      let oa_kd = document.getElementById("oa_kd")
-      if (this.oa_kd > 1){
-        oa_kd.style.color = "green"
-      }
-      else{
-        oa_kd.style.color = "red"
-      }
-
-      let oa_adr = document.getElementById("oa_adr")
-      if (this.oa_adr > 80){
-        oa_adr.style.color = "green"
-      }
-      else{
-        oa_adr.style.color = "red"
-      }
-
-      let oa_hsp = document.getElementById("oa_hsp")
-      if (this.oa_hsp > 30){
-        oa_hsp.style.color = "green"
-      }
-      else{
-        oa_hsp.style.color = "red"
-      }
-
-      let lm_adr = document.getElementById("lm_adr")
-      if (this.lm_adr > 80){
-        lm_adr.style.color = "green"
-      }
-      else{
-        lm_adr.style.color = "red"
-      }
     },
     (error) => {
       if (error.status === 500) {
@@ -122,20 +82,6 @@ export class MyAccountComponent {
 
 
 }
-export interface statData {
-  kills: number;
-  deaths: number;
-  KD: number;
-  map: string;
 
-}
-
-const playerStats: statData[] = [
-  {map: "Anubis",kills: 23, deaths: 20, KD: 23/20},
-  {map: "Anubis",kills: 2, deaths: 80, KD: 23/20},
-  {map: "Anubis",kills: 12, deaths: 23, KD: 23/20},
-  {map: "Anubis",kills: 54, deaths: 3, KD: 23/20}
-
-]
 
 

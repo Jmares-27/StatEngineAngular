@@ -16,48 +16,66 @@ export class PasswordresetComponent {
   constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
     this.resetForm = this.formBuilder.group({
       username:['',[Validators.required]],
-      password:['',[Validators.required]]
+      oldpassword:['',[Validators.required]],
+      newpassword:['',[Validators.required]]
     })
 }
 
-async resetPassword(){
-  var userData = [
-    {username: this.resetForm.value.username},
-    {password: this.resetForm.value.password},
-  ]
-  convertedData: JSON = JSON.parse(JSON.stringify(userData));
-  await this.http.checkUser(userData).subscribe(
-    data=>{
-      var dataString = JSON.stringify(userData);
-      var dataJson = JSON.parse(dataString);
-    },
-    error => console.log(error)
-  )
- //this.http.updatePassword(convertedData);
-}
+// async resetPassword(){
+//   var userData = [
+//     {username: this.resetForm.value.username},
+//     {oldpassword: this.resetForm.value.oldpassword},
+//   ]
+//   // convertedData: JSON = JSON.parse(JSON.stringify(userData));
+//   await this.http.checkUser(userData).subscribe(
+//     data=>{
+//       var dataString = JSON.stringify(userData);
+//       var dataJson = JSON.parse(dataString);
+//     },
+//     error => console.log(error)
+//   )
+//  //this.http.updatePassword(convertedData);
+// }
 
-onSubmit(){
+onPasswordReset(){
 
-  var profilename = this.resetForm.value.username
-  var profilepassword = this.resetForm.value.password
-
-  this.http.updatePassword(profilename, profilepassword).subscribe(
-    data=>{
-      // console.log("HERE -->", data);
-      if ( !data ) {
-        console.log("inside no data") //used for testings
-        this.status_checker = true
-        this.message = "There is no such player exist"
-      }
-      else{
+    const username = this.resetForm.value.username
+    const newpassword = this.resetForm.value.newpassword
+    const oldpassword = this.resetForm.value.oldpassword
+    const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
+    const token = JSON.parse(localStorage.getItem("userData"))["token"]
+  
+    console.log ("this userid:", userid)
+    console.log ("this token:", token)
+    this.http.updatePassword(username, token, userid, oldpassword, newpassword).subscribe(
+      (data:any)=>{
+        if (data.message == "Updated password Successfully!"){
+          this.router.navigate(['myaccount']);
+          this.snackBar.open("Updated password Successfully!","",{duration:2000});
+        }
+  
         
-        console.log("user data-->", data)
-        this.status_checker = true
-        this.message = "password updated successfully!!"
-      }
-    },
-    error => console.log(error)
-  )
+      },
+      error =>{
+  
+        if (error.status == 500 ){
+          if (error.error.error == "Error in finding user") {
+            this.snackBar.open("Error in finding user","",{duration:2000});
+          }
+          else if (error.error.error == "Old Password does not match"){
+            this.snackBar.open("Old Password does not match","",{duration:2000});
+          }
+          else {
+            console.log("An error occured:", error);
+          }
+        }
+        else {
+          console.log("An error occured:", error);
+        }
+      } 
+    )
+
+
   
 
 }

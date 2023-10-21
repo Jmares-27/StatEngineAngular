@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class SearchService {
-  private baseURL = 'http://localhost:3026'
-  // private baseURL = 'http://3.144.231.224:3026'
+  // private baseURL = 'http://localhost:3026'
+  private baseURL = 'http://3.144.231.224:3026'
 
 
   public userID: string
@@ -34,13 +34,6 @@ export class SearchService {
     
   }
 
-  setMessage(message: string): void {
-    this.message = message;
-  }
-
-  getMessage(): string{
-    return this.message;
-  }
 
   setUserData(userData: Object): void{
     for (const value in userData) {

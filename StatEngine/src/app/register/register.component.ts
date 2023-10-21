@@ -12,8 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent {
   hide = true;
   registerForm:FormGroup;
-  message = ""
-  status_checker = false
+
   constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, private snackBar: MatSnackBar){
     this.registerForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
@@ -48,6 +47,7 @@ export class RegisterComponent {
 
     this.http.createUser(newUser).subscribe(
       data=>{
+
         // console.log("Register data -->", data);
         if ( data == "Email has been used!" ) {
           // // console.log("inside email been used") //used for testing
@@ -62,8 +62,7 @@ export class RegisterComponent {
 
           this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
           this.router.navigate(['login'])
-          console.log("Sign Up success!")
-          // console.log("user data-->", data)
+
 
 
         }

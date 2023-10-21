@@ -96,3 +96,11 @@
     width:50%;
     align-items:center;
 }
+
+.goodStat {
+    color: green
+}
+
+.badStat {
+    color: red
+}
