@@ -4,7 +4,6 @@ import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -36,18 +35,22 @@ export class RegisterComponent {
     }
     this.http.createUser(newUser).subscribe(
       data=>{
-        // console.log("HERE -->", data);
-        if ( data == "Email has been used!") {
 
-          this.snackBar.open("Email has been used!","Login",{duration:2000}).onAction()
+        // console.log("Register data -->", data);
+        if ( data == "Email has been used!" ) {
+          // // console.log("inside email been used") //used for testing
+
+          this.snackBar.open("Email has been used","Login",{duration:2000}).onAction()
           .subscribe(() => {
-            this.router.navigate(['login']);
+            // Redirect to the login page
+            this.onClickToSignIn()
           });
         }
         else if  ( data == "Sign Up Success!" ) {
 
           this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
           this.router.navigate(['login'])
+
 
 
         }

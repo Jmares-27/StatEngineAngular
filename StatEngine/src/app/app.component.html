@@ -3,21 +3,17 @@
 <mat-drawer-container>
   <mat-drawer-content style=" height: 100vh; position: relative;">
 
-
-
-
-    <div class="top-row-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%">
-
-
+    <div class="top-row-container" style="z-index: 2; position: relative; width: 100%">
 
       <!-- Nav-Toggle button -->
       <button mat-icon-button id="sidenavtoggle" class="nav-toggle" (click)="menuToggle()">
         <mat-icon>menu</mat-icon>
       </button>
 
-      
       <!-- Search Form -->
+
       <form [formGroup]="SearchForm" (keydown.enter)="onSearchInput()" class="search-box" >
+
              
         <!-- Search Function Button -->
         <button  (keydown.enter)="onSearchInput()"><img src="assets/icons/Search.png"></button>
@@ -25,65 +21,30 @@
         <!-- Username lookup field -->
         <mat-form-field appearance="fill">
         <mat-label style="color:black; ">Search for a Player</mat-label>
-        <input  (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
+
+        <input (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
+
         </mat-form-field>
 
-        <!-- <div   class="suggested-results" *ngIf="showSuggestions">
-        </div> -->
           <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let suggestion of suggestions"  (click)=" userPageRedirect(suggestion)">
 
-              <div  class="suggested_users"> <p><img class="avatar" style="width:10%; height: 10%; padding-top: 5%;" mat-card-avatar src={{suggestion.profile_img_url}}> {{ suggestion.username }} </p></div>
+                <div  class="suggested_users"> 
+                  <img class="avatar" style="width:12%; height: 12%;" mat-card-avatar src={{suggestion.profile_img_url}}> 
+                  <p> {{ suggestion.username }} </p>
+                </div>
+            
             </mat-option>
           </mat-autocomplete>
 
-          <!-- <mat-list >
-            <mat-list-item  *ngFor="let suggestion of suggestions">
 
-              
-              <div style="color:white" >{{ suggestion.username }}</div>
-
-
-              <mat-card class="card-details" style="margin-top: 20px;">
-                <mat-card-header>
-                    <div>
-                      <img class="avatar" mat-card-avatar src={{suggestion.profile_img_url}}>
-                      
-                    </div>
-  
-                    <div>                        
-                      <mat-card-title style="padding-left: 10px;">
-                          {{suggestion.username}}
-                          
-   
-       
-                      </mat-card-title> 
-                      <mat-card-subtitle style="color:white; padding-left: 10px;"></mat-card-subtitle>
-  
-
-                    </div>
-  
-                  </mat-card-header>
-                  <mat-card-content>
-  
-                  </mat-card-content>
-                  <mat-card-actions style="justify-content: center;text-align: center;">
-  
-                  </mat-card-actions>
-              </mat-card>
-            </mat-list-item> 
-          </mat-list> -->
 
       </form>
 
     </div>
 
-    <div>
-      <router-outlet ></router-outlet>
 
-    </div>
-
-
+  <router-outlet ></router-outlet>
 
 
   </mat-drawer-content>
@@ -122,9 +83,5 @@
   
   </mat-drawer>
 
-
-  
-  
 </mat-drawer-container>
-
 

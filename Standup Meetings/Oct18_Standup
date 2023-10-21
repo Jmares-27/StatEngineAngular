@@ -1,0 +1,14 @@
+Derek | 10-18-2023
+1. Started working on Inventory page to display user inventories and aggregate values
+2. Pivoted off of converting SteamAPI inventory script from Python POC, as we have decided to keep it a Python asynchronous service
+3. No issues so far. 
+
+Dat | 10-18-2023
+1. Code clean up and protect endpoints for DeleteAcount and ResetPassword for both frontend and backend
+2. Changed document.getElementByID to ngClass to display user's stat text color. Resetpassword should be protected in both frontend and backend in my branch, Will create a pull request later.
+3. No issue at the moment.  
+
+Johnny | 10-16-2023
+1. Planning layout for user page
+2. Fixed search bar positioning
+3. Nothing at the moment
