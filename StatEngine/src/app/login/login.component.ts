@@ -47,7 +47,7 @@ export class LoginComponent {
             // this.appComponent.canDisplayed();
             this.appComponent.hasLoggedIn = true;
             this.snackBar.open("Login Success!","",{duration:2000});
-            this.router.navigate(["home"]);
+            this.router.navigate(["myaccount"]);
 
           } else {
             this.loginForm.reset(this.loginForm.value);

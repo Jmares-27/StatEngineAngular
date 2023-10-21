@@ -21,15 +21,8 @@ export class MyAccountComponent {
   oa_adr: number;
   oa_hsp: number;
   displayedColumns: string[] = ['map','kills','deaths','KD'];
-//   steamIDForm: FormGroup;
-//   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
-//     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
-//     this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
-//     this.steamIDForm = this.fb.group({
-//       steamID: ["", Validators.required]
-//     });
-  dataSource = playerStats;
-  //steamIDForm: FormGroup;
+
+  // steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
   constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
@@ -49,9 +42,9 @@ export class MyAccountComponent {
   
 
   getStatfunction (){
-    
-    this.http.getStats(this.userName).subscribe((data)=>{
+    this.http.getStats(this.userId).subscribe((data)=>{
 
+      
       var body = JSON.parse(JSON.stringify(data))
       // console.log(body)
       var last_match = body["last_match"]
@@ -74,6 +67,7 @@ export class MyAccountComponent {
         console.error('Error:', error);
       }
     })
+  
   }
   Steamlogin() {
     window.location.href = "http://localhost:4200/auth/steam";
@@ -82,6 +76,3 @@ export class MyAccountComponent {
 
 
 }
-
-
-

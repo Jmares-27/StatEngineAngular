@@ -12,7 +12,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class RegisterComponent {
   hide = true;
   registerForm:FormGroup;
-
+  message = ""
+  status_checker = false
   constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, private snackBar: MatSnackBar){
     this.registerForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
@@ -31,23 +32,10 @@ export class RegisterComponent {
     var newUser = {
       username: this.registerForm.value.username,
       email: this.registerForm.value.email,
-      password:this.registerForm.value.password,
-      introduction: "",
-      steamID:"",
-      steamName:"",
-      kills: 0,
-      deaths: 0,
-      KD: 0,
-      date_created: "",
-      likes: 0,
-      dislike: 0,
-      karmaRatio: 1,
-      profile_img_url: "assets/images/no_profile_img.png",
-      friend_list: [],
-
+      password: this.registerForm.value.password,
+    }
     this.http.createUser(newUser).subscribe(
       data=>{
-
         // console.log("Register data -->", data);
         if ( data == "Email has been used!" ) {
           // // console.log("inside email been used") //used for testing
@@ -62,7 +50,8 @@ export class RegisterComponent {
 
           this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
           this.router.navigate(['login'])
-
+          console.log("Sign Up success!")
+          // console.log("user data-->", data)
 
 
         }

@@ -3,7 +3,7 @@
 		<mat-card-header style = "color: white">
 			<mat-card-title>
 				{{userName}}
-					<div style="" mat-card-avatar class = "image"></div>
+					<div mat-card-avatar class = "image"></div>
 				</mat-card-title>
 			</mat-card-header>		
 		<mat-list >
@@ -29,19 +29,19 @@
 			<mat-card-content style="padding-bottom: 3%;">
 				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					KD:
-					<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
+					<div style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
 						{{oa_kd}}
 					</div>
 				</div>
 				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					ADR:
-					<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" style="font-size: 36px; font:bold; padding: 4%;" id="oa_adr">
+					<div style="font-size: 36px; font:bold; padding: 4%;" id="oa_adr">
 						{{oa_adr}}
 					</div>
 				</div>
 				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					Headshot Rate:
-					<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" style="font-size: 36px; font:bold; padding: 6%;" id="oa_hsp">
+					<div style="font-size: 36px; font:bold; padding: 6%;" id="oa_hsp">
 						{{oa_hsp}}%
 					</div>
 				</div>
@@ -58,19 +58,19 @@
 			<mat-card-content style="padding-bottom: 3%;">
 				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					Result
-					<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
+					<div style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
 						{{lm_result}}
 					</div>
 				</div>
 				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					KD:
-					<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
+					<div style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
 						{{lm_kd}}
 					</div>
 				</div>
-				<div  style="text-align: center; width: 33%;font-size:24px; float:left">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
 					ADR:
-					<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
+					<div style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
 						{{lm_adr}} 
 					</div>
 				</div>

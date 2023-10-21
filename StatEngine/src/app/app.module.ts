@@ -14,7 +14,7 @@ import { PasswordresetComponent } from './passwordreset/passwordreset.component'
 import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
 import { UserComponent } from './user/user.component';
 import { FavoritesComponent } from './favorites/favorites.component';
-
+import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-page.component';
 
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,12 +39,7 @@ import { AuthInterceptor } from './authInterceptor';
 
 
 
-import { DeleteAccountComponent } from './delete-account/delete-account.component';
-import { PasswordresetComponent } from './passwordreset/passwordreset.component';
-import { BugReportSuccessComponent } from './bug-report-success/bug-report-success.component';
-import { UserComponent } from './user/user.component';
-import { FavoritesComponent } from './favorites/favorites.component';
-import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-page.component';
+
 
 
 @NgModule({
