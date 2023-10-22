@@ -15,7 +15,7 @@ export class BugReportComponent {
   message = ""
   status_checker = false
   username = ""
-  constructor(private appComponent: AppComponent,private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private appComponent: AppComponent,private formBuilder: FormBuilder, private http: HttpService, private snackBar: MatSnackBar,private router: Router){
     this.bugReportForm = this.formBuilder.group({
       description:['',[Validators.required]],
       reportedBy:['',],
@@ -37,16 +37,16 @@ export class BugReportComponent {
     this.http.bugReport(newBugReport).subscribe(
       data=>{
         // console.log("HERE -->", data);
-        if ( data == "Submitted" ) {
+        if ( data == "Bug report sent!" ) {
           // console.log("inside no data") //used for testing
           this.bugReportForm.reset(this.bugReportForm);
           this.snackBar.open("Submitted!","",{duration:2000});
-          console.log("Submitted to the backend")
-          this.appComponent.bugReportSuccessRedirect();
+          // console.log("Submitted to the backend")
+          this.router.navigate(['bugreportsuccess'])
         }
         else{
 
-          console.log("Failed to submit bug report form")
+          // console.log("Failed to submit bug report form")
           this.snackBar.open("Failed to submit, Try again","",{duration:2000});
         }
       },

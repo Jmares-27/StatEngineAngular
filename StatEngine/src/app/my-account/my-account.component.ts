@@ -31,9 +31,9 @@ export class MyAccountComponent {
     //this.steamIDForm = this.fb.group({
     //  steamID: ["", Validators.required]
     
-    console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
-    console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
-    console.log(this.currentSteamID.length)
+    // console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
+    // console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
+    // console.log(this.currentSteamID.length)
 
     this.getStatfunction()
     
@@ -42,6 +42,7 @@ export class MyAccountComponent {
   
 
   getStatfunction (){
+    this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
     this.http.getStats(this.userId).subscribe((data)=>{
 
       

@@ -38,7 +38,7 @@ export class AuthGuard implements CanActivate {
     
           this.httpC.get<boolean>(`${this.baseURL}/api/authenticate`, headersData).subscribe(
             data => {
-              console.log("THIS data ", data);
+            //   console.log("THIS data ", data);
               var dataString = JSON.stringify(data);
               var dataJson = JSON.parse(dataString);
               if (dataJson['value']) {
