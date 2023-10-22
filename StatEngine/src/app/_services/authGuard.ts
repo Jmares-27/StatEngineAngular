@@ -10,8 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-    private baseURL = 'http://localhost:3026'
-    // private baseURL = 'http://3.144.231.224:3026'
+    // private baseURL = 'http://localhost:3026'
+    private baseURL = 'http://3.144.231.224:3026'
 
 
     private tokenCheckInterval: any;
