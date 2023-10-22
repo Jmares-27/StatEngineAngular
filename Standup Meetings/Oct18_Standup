@@ -17,3 +17,8 @@ johnnie | 10-18-23
 1. want to add check to skip steam id input if user has one already registered 
 2. completed my tasks for sprint, stat function will also not be called if no stram id is registered
 3. super jet lagged. but no issies rn
+
+Nathan | 10-18-23
+1. Working script to add item data to MongoDB collection
+2. Fine tuning collection structure for item data to collect timestamps with price/name
+3. N/A
