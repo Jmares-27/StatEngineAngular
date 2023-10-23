@@ -36,6 +36,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
+import { InventoryComponent } from './inventory/inventory.component';
 
 
 
@@ -56,6 +57,7 @@ import { AuthInterceptor } from './authInterceptor';
     FavoritesComponent,
     UserComponent,
     SteamLoadingPageComponent,
+    InventoryComponent,
 
   ],
   imports: [

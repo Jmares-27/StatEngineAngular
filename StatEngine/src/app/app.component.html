@@ -111,6 +111,8 @@
     <!-- My Account -->
     <div class="menubox" *ngIf="hasLoggedIn"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 
+    <!-- My Inventory-->
+    <div class="menubox" *ngIf="hasLoggedIn"><a class="menuboxText" (click)="myInventoryRedirect()">My Inventory</a> </div>
     <!-- Report Bug -->
     <div *ngIf="hasLoggedIn" class="menubox"  (click)="bugReportRedirect()"><p><img src="assets/icons/BugReport.png">Bug Report</p></div>
 

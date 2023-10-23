@@ -9,8 +9,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   providedIn: 'root'
 })
 export class HttpService {
-  // private baseURL = 'http://localhost:3026'
-  private baseURL = 'http://3.144.231.224:3026'
+  private baseURL = 'http://localhost:3026'
+  // private baseURL = 'http://3.144.231.224:3026'
   private bool = false;
   hasLoggedIn : boolean = false
 
@@ -119,6 +119,11 @@ export class HttpService {
 
   getStats(id:string):Observable<Object>{
     return this.http.post(`${this.baseURL}/api/getStats/${id}`, {id});
+  }
+
+  getInventory(id:string):Observable<Object>{
+    console.log("HTTP SERVICE:",id);
+    return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
   }
 
 }

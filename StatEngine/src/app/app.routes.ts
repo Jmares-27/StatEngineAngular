@@ -12,6 +12,7 @@ import { BugReportSuccessComponent } from "./bug-report-success/bug-report-succe
 import { FavoritesComponent } from "./favorites/favorites.component";
 import { SteamLoadingPageComponent } from "./steam-loading-page/steam-loading-page.component";
 import { UserComponent } from "./user/user.component";
+import { InventoryComponent } from "./inventory/inventory.component";
 
 export const appRoutes: Routes =[
     {path: 'home', component:HomeComponent},
@@ -25,5 +26,6 @@ export const appRoutes: Routes =[
     {path: 'deleteaccount', component:DeleteAccountComponent, canActivate: [AuthGuard]},
     {path: 'steamLoadingPage', component:SteamLoadingPageComponent, canActivate: [AuthGuard]},
     {path: 'user/:userid', component:UserComponent},
+    {path: 'myinventory', component:InventoryComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo:'home'}
 ]
