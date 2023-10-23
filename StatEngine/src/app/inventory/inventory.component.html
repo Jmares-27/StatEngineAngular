@@ -11,17 +11,29 @@
         <mat-card>
             <mat-card-header style="background-color: rgba(24, 23, 23, 0.61);">
                 <mat-card-title>
-                    <h1>Inventory</h1>
+                    <div  style="float:left; width:70%">
+                        <h1>Market</h1>
+                    </div>
+                    <div style="float:right; width:30%; align-items: right;">
+                        <input type="text" [(ngModel)]="searchText" placeholder="Search items">
+                    </div>
                 </mat-card-title>
             </mat-card-header>
-            <div>
-                <!--Iterates through an array given by the backend to populate items in user inventory-->
-                <!-- <div *ngFor="let item of items">
-
-                </div> -->
-            </div>
+            <mat-card-content>
+                <ng-container *ngFor="let item of filteredItems">
+                    <mat-card class="itemBox">
+                        <mat-card-header>
+                            <mat-card-title style="color:white; height: 50%;">
+                                <h2>{{item.name}}</h2>
+                            </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content style="color:white">
+                            <p>[Item Image Placeholder]</p>
+                            <p>Bitskins Price: ${{item.suggested_price/100}}</p>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-container>
+            </mat-card-content>
         </mat-card>
-
     </div>
-
 </body>

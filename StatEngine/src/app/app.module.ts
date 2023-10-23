@@ -37,6 +37,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
 import { InventoryComponent } from './inventory/inventory.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -79,6 +80,7 @@ import { InventoryComponent } from './inventory/inventory.component';
     MatSelectModule,
     MatCardModule,
     MatAutocompleteModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
