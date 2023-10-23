@@ -154,4 +154,9 @@ export class AppComponent {
     this.router.navigate(['favorites'])
     this.menuToggle();
   }
+
+  myInventoryRedirect(){
+    this.router.navigate(['myinventory'])
+    this.menuToggle();
+  }
 }

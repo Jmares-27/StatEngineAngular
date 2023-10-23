@@ -121,6 +121,11 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/getStats/${id}`, {id});
   }
 
+  getInventory(id:string):Observable<Object>{
+    console.log("HTTP SERVICE:",id);
+    return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
+  }
+
 }
 
 

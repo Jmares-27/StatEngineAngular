@@ -36,6 +36,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ReactiveFormsModule} from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
+import { InventoryComponent } from './inventory/inventory.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -56,6 +58,7 @@ import { AuthInterceptor } from './authInterceptor';
     FavoritesComponent,
     UserComponent,
     SteamLoadingPageComponent,
+    InventoryComponent,
 
   ],
   imports: [
@@ -77,6 +80,7 @@ import { AuthInterceptor } from './authInterceptor';
     MatSelectModule,
     MatCardModule,
     MatAutocompleteModule,
+    FormsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
