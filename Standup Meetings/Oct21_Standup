@@ -1,0 +1,4 @@
+Derek | 10-21-23
+1. Pivoted to display all items in a market setting for the time being, due to unreliability with SteamAPI causing bad loading with specific inventories.
+2. Nothing new finished. 
+3. We had to pivot due to SteamAPI constantly returning a Response 249 (Too many Requests) when trying to access inventory. For the time being we went with just showing all items via our cached data. We also have a proof of concept repository (owned by me, worked on in conjunction with Nathan) to outline proof of concepts for asynchronous functions on our backend to update our data. 
