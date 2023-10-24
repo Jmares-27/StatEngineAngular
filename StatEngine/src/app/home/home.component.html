@@ -1,50 +1,59 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="home.component.css">
+</head>
+<body>
+    <div class="back-ground">
 
-<div class = "back-ground" >
+        <div class = "container"  >
 
     
-    <div style="justify-content: center; text-align: center;">
-        <h1 class="title"><b>StatEngine</b></h1>
-        <h2 style='color: white'>Get your CS:GO stats in real time!</h2>
+            <div  style="justify-content: center; text-align: center;">
+                <h1 class="title"><b>StatEngine</b></h1>
+                <h2 style='color: white'>Get your CS:GO stats in real time!</h2>
+            </div>
+            <div class='table-container'>
+                <mat-table  [dataSource]="dataSource" class="mat-elevation-z8 ex-table">
+              
+                    <!-- Date Column -->
+                    <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef style="color:white"> Date </mat-header-cell>
+                    <mat-cell *matCellDef="let stat"> {{stat.date}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Map Column -->
+                    <ng-container matColumnDef="map">
+                    <mat-header-cell *matHeaderCellDef style="color:white"> Map </mat-header-cell>
+                    <mat-cell *matCellDef="let stat"> {{stat.map}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Kills Column -->
+                    <ng-container matColumnDef="kills">
+                    <mat-header-cell *matHeaderCellDef style="color:white"> Kills </mat-header-cell>
+                    <mat-cell *matCellDef="let stat"> {{stat.kills}} </mat-cell>
+                    </ng-container>
+                
+                    <!-- Deaths Column -->
+                    <ng-container matColumnDef="deaths">
+                    <mat-header-cell *matHeaderCellDef style="color:white"> deaths </mat-header-cell>
+                    <mat-cell *matCellDef="let stat"> {{stat.deaths}} </mat-cell>
+                    </ng-container>
+        
+                    <ng-container matColumnDef="KD">
+                    <mat-header-cell *matHeaderCellDef style="color:white"> KD </mat-header-cell>
+                    <mat-cell *matCellDef="let stat"> {{stat.KD}} </mat-cell>
+                    </ng-container>
+                    
+                    
+                
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        
+                </mat-table>
+        
+            </div>
+            <footer style="justify-content: center; text-align: center; padding-top: 10%; color: white " >This is a StatEngine Production</footer>
+        </div>
     </div>
-    <div class='table-container'>
-        <mat-table  [dataSource]="dataSource" class="mat-elevation-z8 ex-table">
-      
-            <!-- Date Column -->
-            <ng-container matColumnDef="date">
-            <mat-header-cell *matHeaderCellDef style="color:white"> Date </mat-header-cell>
-            <mat-cell *matCellDef="let stat"> {{stat.date}} </mat-cell>
-            </ng-container>
-        
-            <!-- Map Column -->
-            <ng-container matColumnDef="map">
-            <mat-header-cell *matHeaderCellDef style="color:white"> Map </mat-header-cell>
-            <mat-cell *matCellDef="let stat"> {{stat.map}} </mat-cell>
-            </ng-container>
-        
-            <!-- Kills Column -->
-            <ng-container matColumnDef="kills">
-            <mat-header-cell *matHeaderCellDef style="color:white"> Kills </mat-header-cell>
-            <mat-cell *matCellDef="let stat"> {{stat.kills}} </mat-cell>
-            </ng-container>
-        
-            <!-- Deaths Column -->
-            <ng-container matColumnDef="deaths">
-            <mat-header-cell *matHeaderCellDef style="color:white"> deaths </mat-header-cell>
-            <mat-cell *matCellDef="let stat"> {{stat.deaths}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="KD">
-            <mat-header-cell *matHeaderCellDef style="color:white"> KD </mat-header-cell>
-            <mat-cell *matCellDef="let stat"> {{stat.KD}} </mat-cell>
-            </ng-container>
-            
-            
-        
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-
-        </mat-table>
-
-    </div>
-    <footer style="justify-content: center; text-align: center; padding-top: 10%; color: white " >This is a StatEngine Production</footer>
-</div>
+</body>
