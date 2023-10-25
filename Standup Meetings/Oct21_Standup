@@ -17,3 +17,8 @@ Dat | 10-20-23
 1. Add a prompt when user enter invalid credidents in login page, and continue to favorite a user in favorite component
 2. Cleaned up any console.log and not need functions in the backend, and some in the frontend.
 3. Nothing at the moment
+
+johnnie | 10-21-23
+1. formulating a possibke more effective way to obtain steam id than having user input it before linking steam account
+2. finsihed implementing steam login and authentication, finished tasks for the sprint 
+3. need coffee, i think my hamster has insomnia, no issues at the moment.
