@@ -12,3 +12,8 @@ Sean | 10-21-23
 1. Moving away from using DMarket API as we have already had rapid success with bitSkins api. Sadly the DMarket API is unresponsive.
 2. Currently I'll be focusing on implementing bitskins api calls.
 3. I'll be fixing/improving any pages that call the bitskins API.
+
+Dat | 10-20-23
+1. Add a prompt when user enter invalid credidents in login page, and continue to favorite a user in favorite component
+2. Cleaned up any console.log and not need functions in the backend, and some in the frontend.
+3. Nothing at the moment
