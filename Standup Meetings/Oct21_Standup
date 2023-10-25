@@ -7,3 +7,8 @@ Johnny | 10-21-23
 1. Adjusting page layouts to fit mobile devices, especially backgrounds for most pages
 2. Search bar is mobile friendly
 3. User-page still needs to be worked on
+
+Sean | 10-21-23
+1. Moving away from using DMarket API as we have already had rapid success with bitSkins api. Sadly the DMarket API is unresponsive.
+2. Currently I'll be focusing on implementing bitskins api calls.
+3. I'll be fixing/improving any pages that call the bitskins API.
