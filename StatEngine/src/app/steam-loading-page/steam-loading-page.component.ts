@@ -27,7 +27,7 @@ export class SteamLoadingPageComponent {
     this.http.updateSteamID(this.steamIDForm.value.steamID, this.userName).subscribe((data)=>{
       this.snackBar.open("Steam ID Updated!","",{duration:2000});
     })
-    window.location.href="http://localhost:3026/api/auth/steam/return"
+    window.location.href="http://3.144.231.224:3026/api/auth/steam/return"
   }
 
 }
