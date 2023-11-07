@@ -71,7 +71,8 @@ export class MyAccountComponent {
   
   }
   Steamlogin() {
-    window.location.href = "http://localhost:4200/auth/steam";
+    //window.location.href = "http://3.144.231.224:3026/api/auth/steam/return";
+    window.location.href = "http://localhost:3026/api/auth/steam/return";
   }
   
 
