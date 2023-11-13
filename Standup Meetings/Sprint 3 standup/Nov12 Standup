@@ -24,3 +24,8 @@ Dat | Nov 12
 1. I'm working helping Johnnie to find a way to send userid from the frontend to the backend after successfuly logged in in steam. And i need the to add a confirm pop up for delete account
 2. User can now favorite another user from user page and favorit page
 3. For some reason, the user need to reload the page twice so that the data can display properly after favorite/unfavorite another user.
+
+Sean | Nov 12
+1. I'm Working on making the search bar and side bar persistent on desktop, and function properly on mobile still.
+2. I'm fixing the search bar and side bar to not appear on certain pages, like the login screen.
+3. After this, there will be needed visual adjustments for me to make. Small Css changes caused because the overall screen space will have decreased.
