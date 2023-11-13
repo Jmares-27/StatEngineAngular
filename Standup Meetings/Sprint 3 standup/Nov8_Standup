@@ -13,3 +13,8 @@ Nathan | 11/8/23
 1. Working on pulling Steam data for invididual item prices
 2. Script that saves to text file for all items and deals with rate limiting
 3. Issues with market hash names for items
+
+Dat | Nov 12
+1. Working on unfavorite a favorited user at favorite page
+2. User can now favorite/unfavorite another user in use page
+3. Data does not display properly after favorite/unfavorite a user in user page unless refresh the page twice
