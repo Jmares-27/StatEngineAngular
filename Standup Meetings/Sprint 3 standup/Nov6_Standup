@@ -24,3 +24,8 @@ Dat | Nov 12
 2. I was able to update the favorite_list in the database after a user is favorited/unfavorite
 3.  Nothing at the moment
 
+
+johnnie | Nov 12
+1. working on pulling steam id from steam login intead of needing manaul imput
+2. removeed the input bar for manual steam id entry
+3. need more coffee
