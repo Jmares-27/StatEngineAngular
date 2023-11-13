@@ -3,26 +3,36 @@
 
     
     <ng-container *ngIf="favorites.length > 0; else nofavorites">
-      <div  >
+      <div  style="padding-top: 10%;">
         <div >
          
           <div style="color:white" *ngFor="let favorite of favorites">
             <mat-card class="card-details" style="margin-top: 20px;">
               <mat-card-header>
                   <div>
-                    <img class="avatar" mat-card-avatar src={{favorite.img_url}}>
+                    <img class="avatar" mat-card-avatar src={{favorite.profile_img_url}}>
                     
                   </div>
 
                   <div>                        
                     <mat-card-title style="padding-left: 10px;">
-                        {{favorite.name}}
+                        {{favorite.username}}
                         
                         <a *ngIf="favorite.karmaRatio >= 1; else badKarma"> 
                             <img style="width:30px;height:25px;" src="assets/icons/Like.png">     
                         </a>
-                        <button style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button>
-                        <button style="background-color: black;" ><u style="color:white;">view stat</u></button>
+
+                        <button  (click)="toggleFavorite(favorite.userid);">
+                          <img
+                            style="width:20px;height:20px;"
+                            [src]="isUserFavorited(favorite.userid) ? 'assets/icons/Favorited.png' : 'assets/icons/Favorite.png'"
+                          />
+                          </button>
+                        <!-- <button style ="background-color: black; "><img style ="background-color: black; width: 20px; height:20px" src="assets/icons/Favorited.png"></button> -->
+
+
+
+                        <button (click)="userPageRedirect(favorite.userid)" style="background-color: black;" ><u style="color:white;">view stat</u></button>
                     </mat-card-title> 
                     <mat-card-subtitle style="color:white; padding-left: 10px;">{{favorite.introduction}}</mat-card-subtitle>
 

@@ -1,6 +1,6 @@
 
 <!-- Navigation Bar -->
-<mat-drawer-container>
+<mat-drawer-container fullscreen>
   <mat-drawer-content style=" height: 100vh; position: relative;">
 
 
@@ -31,7 +31,7 @@
         <!-- <div   class="suggested-results" *ngIf="showSuggestions">
         </div> -->
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let suggestion of suggestions"  (click)=" userPageRedirect(suggestion)">
+            <mat-option *ngFor="let suggestion of suggestions"  (click)="userPageRedirect(suggestion)">
 
               <div  class="suggested_users"> 
                 <img class="avatar" style="width:12%; height: 12%;" mat-card-avatar src={{suggestion.profile_img_url}}> 
