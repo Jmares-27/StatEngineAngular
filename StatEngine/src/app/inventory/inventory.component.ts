@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-inventory',
@@ -14,6 +15,9 @@ export class InventoryComponent {
   public items: any = [];
   public displayedColumns = ['name', 'price', 'quantity'];
   public searchText: string = "";
+  public page = 1;
+  public pageSize = 100;
+  public pageSizeOptions: number[] = [100, 250, 1000];
   
   constructor(private http: HttpService) {
     console.log(JSON.parse(localStorage.getItem('userData'))['steamID']);
@@ -34,6 +38,11 @@ export class InventoryComponent {
     return this.items.filter((item) => {
       return item.name.toLowerCase().includes(this.searchText.toLowerCase());
     });
+  }
+
+  handlePageEvent(event: PageEvent){
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
   }
 
 

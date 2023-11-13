@@ -20,7 +20,12 @@
                 </mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <ng-container *ngFor="let item of filteredItems">
+                <mat-paginator [length]="filteredItems.length" 
+                               [pageSize]="100" 
+                               [pageSizeOptions]="[100, 250, 500, 1000]"
+                               (page)="handlePageEvent($event)">
+                </mat-paginator>
+                <ng-container *ngFor="let item of filteredItems | slice: (page - 1) * pageSize : page * pageSize">
                     <mat-card class="itemBox">
                         <mat-card-header>
                             <mat-card-title style="color:white; height: 50%;">
