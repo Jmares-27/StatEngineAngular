@@ -8,3 +8,8 @@ Johnny | 11-12-2023
 1. Minor CSS changes for login page
 2. Minor CSS changes for registration page
 3. None
+
+Nathan | 11/6/23
+1. Working on pulling urls for Steam market items and saving into Mongo
+2. Pulling a text file with market hash names and urls
+3. Parsing for incorrect market hash names
