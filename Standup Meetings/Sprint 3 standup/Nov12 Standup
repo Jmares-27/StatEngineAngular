@@ -29,3 +29,8 @@ Sean | Nov 12
 1. I'm Working on making the search bar and side bar persistent on desktop, and function properly on mobile still.
 2. I'm fixing the search bar and side bar to not appear on certain pages, like the login screen.
 3. After this, there will be needed visual adjustments for me to make. Small Css changes caused because the overall screen space will have decreased.
+
+johnnie | Nov 12
+1. setting up route & functions to pass data to steam passporr strat
+2. set up the route in express
+3. express route doesnt seem to be getting the data from font end, also target is having a sale rn 
