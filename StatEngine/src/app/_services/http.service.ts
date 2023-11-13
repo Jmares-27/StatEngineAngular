@@ -126,6 +126,11 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
   }
 
+  getUserid(userid:string):Observable<Object>{
+    console.log("HTTP SERVICE:",userid);
+    return this.http.post(`${this.baseURL}/api/help/bssteam`,{userid});
+  }
+
 }
 
 

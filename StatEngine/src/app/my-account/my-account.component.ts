@@ -72,9 +72,15 @@ export class MyAccountComponent {
   }
   Steamlogin() {
     //window.location.href = "http://3.144.231.224:3026/api/auth/steam/return";
+   
+    const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
+    console.log(userid)
+    this.http.getUserid(userid).subscribe
     window.location.href = "http://localhost:3026/api/auth/steam/return";
   }
   
-
+  sendUserId(){
+    
+  }
 
 }
