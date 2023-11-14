@@ -79,6 +79,9 @@
 .top-row-container {
     display: flex;
     align-items: center;
+    width: auto;
+    background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
+    height: auto;
 }
 
 .nav-toggle {
@@ -124,8 +127,8 @@
     margin:  top;
     display: flex;
     align-items: flex-start;
-    top: 0; /* Align to the top of the page */
+    top: 0; /*Align to the top of the page*/
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    padding-top: 1%;
+    
 }
