@@ -28,6 +28,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -80,7 +82,14 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatCardModule,
     MatAutocompleteModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+
+    
+
+  ],
+  entryComponents: [
+    DeleteAccountComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
