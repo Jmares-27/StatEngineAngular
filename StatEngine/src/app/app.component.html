@@ -21,13 +21,15 @@
              
         
         <!-- Username lookup field -->
-        <mat-form-field appearance="fill">
+        <mat-form-field class="username-field" appearance="fill">
         <mat-label style="color:black; ">Search for a Player</mat-label>
         <input (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
         </mat-form-field>
         
         <!-- Search Function Button -->
-        <button  (keydown.enter)="onSearchInput()"><img src="assets/icons/Search.png"></button>
+        <button class="search-button"  (keydown.enter)="onSearchInput()">
+          <img class="search-button-img"  src="assets/icons/Search.png">
+        </button>
                 
 
         <!-- <div   class="suggested-results" *ngIf="showSuggestions">
