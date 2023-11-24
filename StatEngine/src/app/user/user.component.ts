@@ -85,6 +85,14 @@ export class UserComponent implements OnInit{
           if (error.status === 500) {
             // Handle the 500 error
             console.error('Server error (500):', error.error);
+            // console.log ("error username", error.error.username)
+            this.userName = error.error.username
+            this.lm_result = null
+            this.lm_kd = null
+            this.lm_adr = null
+            this.oa_kd = null
+            this.oa_adr = null
+            this.oa_hsp = null
             // You can also display an error message to the user
           } else {
             // Handle other errors

@@ -10,8 +10,8 @@ import { FavoriteItem } from '../models/favoriteItem.model';
   providedIn: 'root'
 })
 export class HttpService {
-  private baseURL = 'http://localhost:3026'
-  // private baseURL = 'http://statengines.org:3026'
+  // public baseURL = 'http://localhost:3026'
+  public baseURL = 'http://statengines.org:3026'
   private bool = false;
   hasLoggedIn : boolean = false
   favorite_list :string[] = []
