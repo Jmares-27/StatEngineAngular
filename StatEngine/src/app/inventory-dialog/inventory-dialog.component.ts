@@ -14,8 +14,8 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
     <div style="text-align:center;padding-bottom:15%">
       <img [src]="data.image_url" style="width: 300px">
       <p>Bitskins Price: {{data.suggested_price / 1000 | currency:'USD':true}}</p>
-      <p>Steam Price: {{data.price / 100 | currency:'USD':true}}</p>
-      <p>Arbitrage: {{data.suggested_price / 1000 - data.price / 100 | currency:'USD':true}}</p>
+      <p>Steam Price: {{data.steam_price / 100 | currency:'USD':true}}</p>
+      <p>Arbitrage: {{data.suggested_price / 1000 - data.steam_price / 100 | currency:'USD':true}}</p>
     </div>
       `
 })
