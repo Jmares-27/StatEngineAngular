@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconRegistry } from '@angular/material/icon';
 import { NgModule } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { InventoryDialogComponent } from '../inventory-dialog/inventory-dialog.component';
 
 @Component({
   selector: 'app-inventory',
@@ -19,7 +21,7 @@ export class InventoryComponent {
   public pageSize = 100;
   public pageSizeOptions: number[] = [100, 250, 1000];
   
-  constructor(private http: HttpService) {
+  constructor(private http: HttpService, public dialog:MatDialog) {
     console.log(JSON.parse(localStorage.getItem('userData'))['steamID']);
     var steamID = JSON.parse(localStorage.getItem('userData'))['steamID'];
     this.items = this.http.getInventory(steamID).subscribe(
@@ -43,6 +45,12 @@ export class InventoryComponent {
   handlePageEvent(event: PageEvent){
     this.page = event.pageIndex + 1;
     this.pageSize = event.pageSize;
+  }
+
+  openDialog(item:any){
+    this.dialog.open(InventoryDialogComponent, {
+      data: item
+    });
   }
 
 

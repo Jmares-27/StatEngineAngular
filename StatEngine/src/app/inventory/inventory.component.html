@@ -26,14 +26,16 @@
                                (page)="handlePageEvent($event)">
                 </mat-paginator>
                 <ng-container *ngFor="let item of filteredItems | slice: (page - 1) * pageSize : page * pageSize">
-                    <mat-card class="itemBox">
+                    <mat-card class="itemBox" (click)="openDialog(item)">
                         <mat-card-header>
                             <mat-card-title style="color:white; height: 50%;">
                                 <h2>{{item.name}}</h2>
                             </mat-card-title>
                         </mat-card-header>
                         <mat-card-content style="color:white">
-                            <p>[Item Image Placeholder]</p>
+                            <p>
+                                <img [src]="item.image_url" style="width: 40%; height: 40%;">
+                            </p>
                             <p>Bitskins Price: ${{item.suggested_price/1000}}</p>
                         </mat-card-content>
                     </mat-card>

@@ -29,6 +29,7 @@ import {MatListModule} from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 //Other Imports
 import { appRoutes } from './app.routes';
@@ -39,6 +40,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './authInterceptor';
 import { InventoryComponent } from './inventory/inventory.component';
 import { FormsModule } from '@angular/forms';
+import { InventoryDialogComponent } from './inventory-dialog/inventory-dialog.component';
 
 
 
@@ -60,6 +62,7 @@ import { FormsModule } from '@angular/forms';
     UserComponent,
     SteamLoadingPageComponent,
     InventoryComponent,
+    InventoryDialogComponent,
 
   ],
   imports: [
@@ -82,7 +85,8 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatAutocompleteModule,
     FormsModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
