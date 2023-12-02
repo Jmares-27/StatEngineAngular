@@ -108,9 +108,9 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/bugReport`,bugReportDetail);
   }
 
-  updateSteamID(steamID:Object, username:Object):Observable<Object>{
-    console.log("HTTP SERVICE:",steamID,username)
-    return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,username});
+  updateSteamID(steamID:string, userid:string):Observable<any>{
+    // console.log("HTTP SERVICE:",steamID,userid)
+    return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,userid});
   }
 
   // getStats(username:Object):Observable<Object>{
@@ -131,6 +131,33 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/help/bssteam`,{userid});
   }
 
+
+  authenticateWithSteam() {
+    const apiUrl = 'http://localhost:3026/api/auth/steam/return';
+
+    // Append the userid as a query parameter
+    const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
+    const urlWithParams = `${apiUrl}?userid=${userid}`;
+
+    window.location.href = urlWithParams;
+
+    // // Make the GET request
+    // this.http.get(urlWithParams).subscribe(
+    //   (response) => {
+    //     console.log('Authentication successful:', response);
+    //   },
+    //   (error) => {
+    //     console.error('Authentication failed:', error);
+    //   }
+    // );
+  }
+
+  getSteamId(): Observable<any> {
+        const redirectUrl = "http://localhost:3026/api/auth/steam/";
+
+    // const url = 'http://localhost:3026/api/auth/steam/';
+    return this.http.get<any>(redirectUrl);
+  }
 }
 
 
