@@ -359,6 +359,3 @@ export class HttpService {
     return this.http.get(`${this.baseURL}/api/getFavoriteData/${userid}`);
   }
 }
-
-
-
