@@ -12,29 +12,29 @@
 			</div> -->
 
 			<!-- Overall Stats -->
-			<mat-card class="cardbox-mini" style="width: 92%; ">
+			<mat-card class="cardbox-mini">
 				<mat-card-title >
 					
-					<div style="color:black; opacity: 100%; font-size: 20px">
-						Overall Stats
+					<div class="stat-card-title">
+						Overall
 					</div>
 				</mat-card-title>
 				<mat-card-content style="padding-bottom: 3%;">
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
+					<div class="stat-title">
 						KD:
-						<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-numbers" id="oa_kd">
+						<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-number" id="oa_kd">
 							{{oa_kd}}
 						</div>
 					</div>
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
+					<div class="stat-title">
 						ADR:
-						<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-numbers" id="oa_adr">
+						<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-number" id="oa_adr">
 							{{oa_adr}}
 						</div>
 					</div>
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
+					<div class="stat-title">
 						HSP:
-						<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" style="font-size: 4vw; font:bold; padding: 6%;" id="oa_hsp">
+						<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" class="stat-number" id="oa_hsp">
 							{{oa_hsp}}%
 						</div>
 					</div>
@@ -42,28 +42,28 @@
 			</mat-card>
 			
 			<!-- Last Match Stats -->
-			<mat-card class="cardbox-mini" style="width: 92%; ">
+			<mat-card class="cardbox-mini">
 				<mat-card-title style="font-size:60px">
-					<div style="color:black; opacity: 100%; font-size: 20px">
-						Last Match Stats
+					<div class="stat-card-title">
+						Last Match
 					</div>
 				</mat-card-title>
 				<mat-card-content style="padding-bottom: 3%;">
-					<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					<div class="stat-title">
 						Result
-						<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
+						<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" class="stat-number" id="winloss">
 							{{lm_result}}
 						</div>
 					</div>
-					<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					<div class="stat-title" >
 						KD:
-						<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
+						<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" class="stat-number" id="lm_kd">
 							{{lm_kd}}
 						</div>
 					</div>
-					<div  style="text-align: center; width: 33%;font-size:24px; float:left">
+					<div class="stat-title">
 						ADR:
-						<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
+						<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" class="stat-number" id="lm_adr">
 							{{lm_adr}} 
 						</div>
 					</div>

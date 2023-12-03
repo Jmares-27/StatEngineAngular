@@ -1,99 +1,132 @@
-.back-ground {   
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top:  0px;
-    display:flex; 
-    padding-top: 5%;
-    background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
-    text-align: left;
-}
-
-.img {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+    .back-ground {   
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top:  0px;
+        display:flex; 
+        padding-top: 5%;
+        background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
+        text-align: left;
     }
 
-.card-class {
-    float: left;
-    height: 90%;
-    width: 30%;
-    text-align: left;
-    margin-left: 5%;
-    display: flexbox;
-    background-color: gray;
-}
 
-.card-stats-class {
-    float: left;
-    height: 80%;
-    width: 120%;
-    text-align: left;
-    margin-left:10%;
-    margin-top:13%;
-    padding:2%;
-    display: flexbox;
-    bottom: 80px;
-    opacity: 80%;
-    background-color: darkslategray;
-}
+    .img {
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        }
+
+    .card-class {
+        float: left;
+        height: 90%;
+        width: 30%;
+        text-align: left;
+        margin-left: 5%;
+        display: flexbox;
+        background-color: gray;
+    }
+
+    .card-stats-class {
+        float: left;
+        height: 80%;
+        width: 120%;
+        text-align: left;
+        margin-left:10%;
+        margin-top:13%;
+        padding:2%;
+        display: flexbox;
+        bottom: 80px;
+        opacity: 80%;
+        background-color: darkslategray;
+    }
 
 
 
-.class-list-text {
-    color:red;
-}
+    .class-list-text {
+        color:red;
+    }
 
-.cardbox{
-    height: 80%;
-    display: flexbox;
-    float: left;
-    padding-top: 5%;
-    padding-left: 5%;
-    justify-content: center;
-    align-items: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(4, 4, 50) 35%, rgb(0, 24, 29) 100%);
-    /* opacity: 80%; */
-}
+    .cardbox{
+        height: 80%;
+        display: flexbox;
+        float: left;
+        padding-top: 5%;
+        padding-left: 5%;
+        justify-content: center;
+        align-items: center;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(4, 4, 50) 35%, rgb(0, 24, 29) 100%);
+        /* opacity: 80%; */
+    }
 
-.cardbox-mini{
-    /* height: auto; */
-    /* width: 80vw; */
-    display: table-cell;
-    float: left;
-    padding-top: 1%;
-    padding-left: 2%;
-    margin:5px;
-    justify-content: center;
-    align-items: center;
-    /* width: 22.5%; */
-    font-size: medium;
-    text-align: center;
-    overflow: hidden;
-    background-color: white;
-}
-.image {
-    background-image: url('/../assets/images/The_Murray.jpg');
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-    background-color: white;
-    background-position:50% 50%;
+    .cardbox-mini{
+        /* height: auto; */
+        /* width: 80vw; */
+        display: table-cell;
+        float: left;
+        padding-top: 1%;
+        padding-left: 2%;
+        margin:5px;
+        justify-content: center;
+        align-items: center;
+        /* width: 22.5%; */
+        font-size: medium;
+        text-align: center;
+        overflow: hidden;
+        background-color: white;
+    }
+    .image {
+        background-image: url('/../assets/images/The_Murray.jpg');
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        background-position:50% 50%;
+        
+    }
+    .stat-card-title{
+        color:black; 
+        opacity: 100%; 
+        font-size: 4vw
+    }
+    .stat-title{
+        text-align: center; 
+        width: 33%;
+        font-size:3vw; 
+        float:left
+    }
+    @media (max-width: 1024px) {
+        .stat-numbers {
+            font-size: 3vw; /* Larger size for smaller screens */
+        }
+    }
     
-}
+    @media (max-width: 768px) {
+        .stat-numbers {
+            font-size: 4vw; /* Even larger size for mobile screens */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .stat-numbers {
+            font-size: 5vw; /* Adjust for very small screens */
+        }
+    }
+    .stat-number{
+        font-size:2vw; 
+    }
+    .steamButton{
+        width:50%;
+        align-items:center;
+    }
 
-.steamButton{
-    width:50%;
-    align-items:center;
-}
+    .goodStat {
+        color: green
+    }
 
-.goodStat {
-    color: green
-}
+    .badStat {
+        color: red
+    }
 
-.badStat {
-    color: red
-}
+    
