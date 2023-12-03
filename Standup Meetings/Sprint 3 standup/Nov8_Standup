@@ -1,0 +1,30 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Derek 
+1. Working on Proof of Concept for pagination and dialog boxes
+2. Proof of concept for pagination is finished
+3. None
+
+Johnny | 11-08-2023
+1. More slight changes to user page and login page
+2. CSS changes to login and register page
+3. None
+
+Nathan | 11/8/23
+1. Working on pulling Steam data for invididual item prices
+2. Script that saves to text file for all items and deals with rate limiting
+3. Issues with market hash names for items
+
+Dat | Nov 12
+1. Working on unfavorite a favorited user at favorite page
+2. User can now favorite/unfavorite another user in use page
+3. Data does not display properly after favorite/unfavorite a user in user page unless refresh the page twice
+
+johnnie | Nov 12
+1.still working on autimatic steam id pull when logging in
+2.routes have been set up to send user id (unique to our db) to back end
+3. ive sadly developed a tolerance to coffee

@@ -1,0 +1,31 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Derek 
+1. Working on Proof of Concept for pagination and dialog boxes
+2. None
+3. None
+
+Johnny | 11-6-2023
+1. Minor CSS changes for login page
+2. Minor CSS changes for registration page
+3. None
+
+Nathan | 11/6/23
+1. Working on pulling urls for Steam market items and saving into Mongo
+2. Pulling a text file with market hash names and urls
+3. Parsing for incorrect market hash names
+
+Dat | Nov 12
+1. Working on favorite/unfavorite another user at user page after searching up their name
+2. I was able to update the favorite_list in the database after a user is favorited/unfavorite
+3.  Nothing at the moment
+
+
+johnnie | Nov 12
+1. working on pulling steam id from steam login intead of needing manaul imput
+2. removeed the input bar for manual steam id entry
+3. need more coffee
