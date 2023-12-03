@@ -2,15 +2,15 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { HttpService } from './http.service';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
   // private baseURL = 'http://localhost:3026'
-  // private baseURL = 'http://statengines.org:3026'
+  private baseURL = 'http://statengines.org:3026'
 
-  private baseURL = this.httpS.baseURL
 
   public userID: string
   public message = '';
@@ -30,8 +30,8 @@ export class SearchService {
     friend_list: "",
   };
 
-  constructor(private httpS:HttpService, private http:HttpClient,private router: Router) { 
-
+  constructor(private http:HttpClient,private router: Router) { 
+    
   }
 
 

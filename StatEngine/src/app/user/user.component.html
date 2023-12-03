@@ -2,20 +2,7 @@
     <mat-card class = "card-class" >
 		<mat-card-header style = "color: white">
 			<mat-card-title>
-				<a style="padding-right: 5px;">{{userName}}</a>
-
-				<button (click)="toggleFavorite();">
-					<img
-					  style="width:20px;height:20px;"
-					  [src]="userBeenFavorited ? 'assets/icons/Favorited.png' : 'assets/icons/Favorite.png'"
-					/>
-				  </button>
-
-				<!-- <button (click)="favorite()" *ngIf="userBeenFavorited; else showFavoriteButton">
-					<img style="width:20px;height:20px;" src="assets/icons/Favorited.png">
-				</button> -->
-
-
+				{{userName}}
 					<div style="" mat-card-avatar class = "image"></div>
 				</mat-card-title>
 			</mat-card-header>		
@@ -90,12 +77,4 @@
 		</mat-card>
 		<div style="margin: 5%; width: 100%; float:left">
 		</div>
-
-
-
-
-		<!-- <ng-template #showFavoriteButton>
-			<button (click)="unfavorite()">
-			  <img style="width:20px;height:20px;" src="assets/icons/Favorite.png">
-			</button>
-		  </ng-template> -->
+	

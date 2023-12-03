@@ -1,6 +1,6 @@
 
 <!-- Navigation Bar -->
-<mat-drawer-container fullscreen>
+<mat-drawer-container>
   <mat-drawer-content style=" height: 100vh; position: relative;">
 
 
@@ -35,7 +35,7 @@
         <!-- <div   class="suggested-results" *ngIf="showSuggestions">
         </div> -->
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let suggestion of suggestions"  (click)="userPageRedirect(suggestion)">
+            <mat-option *ngFor="let suggestion of suggestions"  (click)=" userPageRedirect(suggestion)">
 
               <div  class="suggested_users"> 
                 <img class="avatar" style="width:12%; height: 12%;" mat-card-avatar src={{suggestion.profile_img_url}}> 
@@ -90,7 +90,7 @@
     <div *ngIf="hasLoggedIn" class="menubox"  (click)="deleteAccountRedirect()"><p><img src="">Delete Account</p></div>
 
     <!-- Logout -->
-    <div  *ngIf="hasLoggedIn" class="menubox"  (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
+    <div  *ngIf="hasLoggedIn" class="menubox" style="position:absolute; bottom:0;" (click)="logoutRedirect()"><p><img src="assets/icons/LogOut.png">Log Out</p></div>
   
   </mat-drawer>
 

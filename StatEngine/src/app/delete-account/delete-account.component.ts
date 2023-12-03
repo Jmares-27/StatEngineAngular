@@ -1,10 +1,9 @@
-import { Component, Inject } from '@angular/core';
+import { Component } from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog , MatDialogRef, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-delete-account',
@@ -18,23 +17,13 @@ export class DeleteAccountComponent {
   // status_checker = false
   // searchString = ""
   // public deleteForm: FormGroup;
-  constructor(public dialog:MatDialog, private snackBar:MatSnackBar,private formBuilder: FormBuilder, private http: HttpService, private router: Router){
+  constructor(private snackBar:MatSnackBar,private formBuilder: FormBuilder, private http: HttpService, private router: Router){
     // // searchString: String;
     // this.deleteForm = this.formBuilder.group({
     //   username:['',[Validators.required]],
-    // });  
+    // });
+  }
 
-    
-}
-openDialog() {
-  const dialogRef = this.dialog.open(DeleteAccountDialog, {
-    data: { onSubmit: this.onSubmit.bind(this) },
-  });
-
-  dialogRef.afterClosed().subscribe(result => {
-    // console.log(`Dialog result: ${result}`);
-  });
-}
 
 
 
@@ -85,22 +74,4 @@ openDialog() {
 
 }
 
-@Component({
-  selector: 'delete-account-popup',
-  templateUrl: 'delete-account-popup.html',
-  standalone:true,
-  imports: [MatDialogModule, MatButtonModule]
-})
-export class DeleteAccountDialog {
-  constructor(
-    public dialogRef: MatDialogRef<DeleteAccountDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
 
-  onDeleteClick(): void {
-    // Call onSubmit function of the parent component
-    this.data.onSubmit();
-    // Close the dialog
-    this.dialogRef.close();
-  }
-}

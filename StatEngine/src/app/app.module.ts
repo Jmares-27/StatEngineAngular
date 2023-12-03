@@ -91,6 +91,7 @@ import { InventoryDialogComponent } from './inventory-dialog/inventory-dialog.co
   entryComponents: [
     DeleteAccountComponent,
     MatPaginatorModule,
+    MatDialogModule,
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
