@@ -1,0 +1,12 @@
+
+<h2 mat-dialog-title>Token Expired</h2>
+<mat-dialog-content class="mat-typography">
+  <p>Your token has expired, please re-login!</p>
+
+
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+  <button mat-button  [mat-dialog-close]="true" cdkFocusInitial>Re-login</button>
+</mat-dialog-actions>
