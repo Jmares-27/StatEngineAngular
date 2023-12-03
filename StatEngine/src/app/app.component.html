@@ -6,7 +6,7 @@
 
 
 
-    <div class="top-row-container" style="z-index: 2; position: absolute; top: 0; left: 0; width: 100%">
+    <div id="searchbar1" class="top-row-container" style="z-index: 2; position: fixed; top: 0; left: 0; width: 100%">
 
 
 
@@ -17,16 +17,20 @@
 
       
       <!-- Search Form -->
-      <form [formGroup]="SearchForm" (keydown.enter)="onSearchInput()" class="search-box" >
+      <form  [formGroup]="SearchForm" (keydown.enter)="onSearchInput()" class="search-box" >
              
-        <!-- Search Function Button -->
-        <button  (keydown.enter)="onSearchInput()"><img src="assets/icons/Search.png"></button>
-                
+        
         <!-- Username lookup field -->
-        <mat-form-field appearance="fill">
+        <mat-form-field class="username-field" appearance="fill">
         <mat-label style="color:black; ">Search for a Player</mat-label>
-        <input  (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
+        <input (input)="onSearchInput()" matInput formControlName="username" style="color:black" [matAutocomplete]="auto" >
         </mat-form-field>
+        
+        <!-- Search Function Button -->
+        <button class="search-button"  (keydown.enter)="onSearchInput()">
+          <img class="search-button-img"  src="assets/icons/Search.png">
+        </button>
+                
 
         <!-- <div   class="suggested-results" *ngIf="showSuggestions">
         </div> -->
@@ -55,7 +59,7 @@
   </mat-drawer-content>
 
   <!-- Navbar options -->
-  <mat-drawer mode="over" class="sidebar" [(opened)]="opened">
+  <mat-drawer id="sidebar1" [mode]="drawerMode" class="sidebar" [(opened)]="opened">
     <!-- MENU -->
     <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
 
