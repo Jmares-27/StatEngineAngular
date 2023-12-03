@@ -85,11 +85,8 @@ import { InventoryDialogComponent } from './inventory-dialog/inventory-dialog.co
     MatCardModule,
     MatAutocompleteModule,
     FormsModule,
-    MatDialogModule,
-  ],
-  entryComponents: [
-    DeleteAccountComponent
     MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

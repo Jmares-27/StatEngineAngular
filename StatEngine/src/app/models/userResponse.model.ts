@@ -3,5 +3,4 @@ export interface UserResponse {
     username: string;
     userID : string;
     token: string;
-    favorite_list : [string];
   }

@@ -1,24 +1,21 @@
-import { Component, Inject } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { HttpService} from './http.service';
 import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog , MatDialogRef, MAT_DIALOG_DATA, MatDialogModule} from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
-import { Token } from '@angular/compiler';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  // public baseURL = 'http://localhost:3026'
-    // private baseURL = 'http://statengines.org:3026'
-    private baseURL = this.httpS.baseURL
+    //private baseURL = 'http://localhost:3026'
+    private baseURL = 'http://statengines.org:3026'
+
 
     private tokenCheckInterval: any;
-    constructor(public dialog:MatDialog,  private httpC: HttpClient, private router: Router, private httpS: HttpService, private snackBar: MatSnackBar){
+    constructor(private httpC: HttpClient, private router: Router, private http: HttpService, private snackBar: MatSnackBar){
         // if (this.http.isLoggedIn()){
         //     // return true
         // } else {
@@ -31,44 +28,11 @@ export class AuthGuard implements CanActivate {
         // }
     }
 
-    openDialogTokenExpired(): void {
-      const dialogRef = this.dialog.open(TokenExpiredDialog, {
-        disableClose: true, // Prevent closing by clicking outside the dialog
-      });
-    
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          // user clicked relogin
-          this.httpS.logOut();
-          window.location.reload();
-        } else {
-          // User clicked "Cancel" or closed the dialog
-
-        }
-      });
-    }
-
-    openDialogTokenError(): void {
-      const dialogRef = this.dialog.open(TokenErrorDialog, {
-        disableClose: true, // Prevent closing by clicking outside the dialog
-      });
-    
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          // User clicked "relogin"
-          this.httpS.logOut();
-          window.location.reload();
-        } else {
-          // User clicked "Cancel" or closed the dialog
-
-        }
-      });
-    }
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (this.httpS.getAuthentication()) {
+        if (this.http.getAuthentication()) {
           const headers = new HttpHeaders({
-            'Authorization': `Bearer ${this.httpS.getAuthentication()}`,
+            'Authorization': `Bearer ${this.http.getAuthentication()}`,
           });
           const headersData = { headers: headers };
     
@@ -81,10 +45,14 @@ export class AuthGuard implements CanActivate {
                 return true;
               } else {
                 if (dataJson['error'] === 'TokenExpiredError') {
-                    this.openDialogTokenExpired()
+                    this.http.logOut();
+                    // window.location.reload();
+                    this.snackBar.open("Token has expired. Please Re-login","",{duration:5000});
                     return false
                 } else {
-                    this.openDialogTokenError()
+                    this.http.logOut();
+                    // window.location.reload();
+                    this.snackBar.open("Invalid token. Please Re-login","",{duration:5000});
                     return false
                 }
               }
@@ -100,30 +68,4 @@ export class AuthGuard implements CanActivate {
         }
       }
 
-}
-
-@Component({
-  selector: 'token-expired-popup',
-  templateUrl: 'token-expired-popup.html',
-  standalone:true,
-  imports: [MatDialogModule, MatButtonModule]
-})
-export class TokenExpiredDialog {
-  constructor(
-    public dialogRef: MatDialogRef<TokenExpiredDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-}
-
-@Component({
-  selector: 'token-error-popup',
-  templateUrl: 'token-error-popup.html',
-  standalone:true,
-  imports: [MatDialogModule, MatButtonModule]
-})
-export class TokenErrorDialog {
-  constructor(
-    public dialogRef: MatDialogRef<TokenErrorDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
 }
