@@ -1,85 +1,76 @@
 <div class="back-ground">
     <mat-card class = "card-class" >
-		
 		<mat-card-header style = "color: white">
 			<mat-card-title>
 				{{userName}}
+					<div mat-card-avatar class = "image"></div>
 				</mat-card-title>
 			</mat-card-header>		
-			<img  src="/../assets/images/The_Murray.jpg">
-			<!-- <div class="username">
-				{{userName}}
-			</div> -->
 
-			<!-- Overall Stats -->
-			<mat-card class="cardbox-mini" style="width: 92%; ">
-				<mat-card-title >
-					
-					<div style="color:black; opacity: 100%; font-size: 20px">
-						Overall Stats
-					</div>
-				</mat-card-title>
-				<mat-card-content style="padding-bottom: 3%;">
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
-						KD:
-						<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-numbers" id="oa_kd">
-							{{oa_kd}}
-						</div>
-					</div>
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
-						ADR:
-						<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-numbers" id="oa_adr">
-							{{oa_adr}}
-						</div>
-					</div>
-					<div style="text-align: center; width: 33%;font-size:4vw; float:left">
-						HSP:
-						<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" style="font-size: 4vw; font:bold; padding: 6%;" id="oa_hsp">
-							{{oa_hsp}}%
-						</div>
-					</div>
-				</mat-card-content>
-			</mat-card>
-			
-			<!-- Last Match Stats -->
-			<mat-card class="cardbox-mini" style="width: 92%; ">
-				<mat-card-title style="font-size:60px">
-					<div style="color:black; opacity: 100%; font-size: 20px">
-						Last Match Stats
-					</div>
-				</mat-card-title>
-				<mat-card-content style="padding-bottom: 3%;">
-					<div style="text-align: center; width: 33%;font-size:24px; float:left">
-						Result
-						<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
-							{{lm_result}}
-						</div>
-					</div>
-					<div style="text-align: center; width: 33%;font-size:24px; float:left">
-						KD:
-						<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
-							{{lm_kd}}
-						</div>
-					</div>
-					<div  style="text-align: center; width: 33%;font-size:24px; float:left">
-						ADR:
-						<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
-							{{lm_adr}} 
-						</div>
-					</div>
-				</mat-card-content>
-			</mat-card>
 		<button mat-flat-button color="primary" class="steamButton"><a href="http://statengines.org/steamLoadingPage">Login with Steam</a></button>
 	</mat-card>
-
-	
 	<br>
 	
 	<div class="cardbox" style="width: 60%;">
-		
+		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%;">
+			<mat-card-title style="font-size:60px">
+				<div style="padding:2%">
+					{{userName}}
+				</div>
+				<div style="color:black; opacity: 100%; font-size: 20px">
+					Overall Stats
+				</div>
+			</mat-card-title>
+			<mat-card-content style="padding-bottom: 3%;">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					KD:
+					<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
+						{{oa_kd}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					ADR:
+					<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" style="font-size: 36px; font:bold; padding: 4%;" id="oa_adr">
+						{{oa_adr}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					Headshot Rate:
+					<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" style="font-size: 36px; font:bold; padding: 6%;" id="oa_hsp">
+						{{oa_hsp}}%
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
 		<div style="margin: 5%; width: 100%; float:left">
 		</div>
-		
+		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%">
+			<mat-card-title style="font-size:60px">
+				<div style="color:black; opacity: 100%; font-size: 20px">
+					Last Match Stats
+				</div>
+			</mat-card-title>
+			<mat-card-content style="padding-bottom: 3%;">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					Result
+					<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
+						{{lm_result}}
+					</div>
+				</div>
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					KD:
+					<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
+						{{lm_kd}}
+					</div>
+				</div>
+				<div  style="text-align: center; width: 33%;font-size:24px; float:left">
+					ADR:
+					<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
+						{{lm_adr}} 
+					</div>
+				</div>
+			</mat-card-content>
+		</mat-card>
 		<div style="margin: 5%; width: 100%; float:left">
 		</div>
 	<!--	<mat-card style="float:left; width: 92%;">

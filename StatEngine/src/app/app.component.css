@@ -15,7 +15,6 @@
     margin: auto;
 }
 
-
 .suggested_users{
     display: flex;
     justify-content: left;
@@ -80,10 +79,6 @@
 .top-row-container {
     display: flex;
     align-items: center;
-    width: auto;
-    background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%);
-    height: auto;
-    padding-bottom: 10px;
 }
 
 .nav-toggle {
@@ -91,10 +86,9 @@
     z-index: 1;
     color: white;
     background-color: rgba(0, 0, 0, 0.425);
-    margin-top: 4px;
-    margin-left: 8px;
+    margin-top: 15px;
     float: left;
-
+    margin-left: 15px;
 }
 
 
@@ -114,7 +108,9 @@
         width: 70vw;
     }
 
-    
+    .nav-toggle{
+        margin: 5px;
+    }
 }
 
 .table{
@@ -128,89 +124,8 @@
     margin:  top;
     display: flex;
     align-items: flex-start;
-    top: 0; /*Align to the top of the page*/
+    top: 0; /* Align to the top of the page */
     left: 50%; /* Center horizontally */
     transform: translateX(-50%); /* Center horizontally */
-    width: 50%;
-    margin-top: 5px;
-    padding-left: 10px;
-    
-
-    
-}
-
-.search-button{
-    margin-top: 5px;
-    width: 45px;    
-    height: 45px;
-
-}
-
-.username-field{
-    width: 100%;
-    height: 67px;
-    margin-top: auto;
-    margin-top: 5px;
-}
-
-.search-button-img{
-    display: block;
-    max-width:10px;
-    max-height: 10px;
-
-}
-
-@media only screen and (max-device-width: 768px) {
-    .username-field{
-      
-    }
-
-    .search-box{
-        width: 65%;
-        height: 35px;
-        padding-left: 40px ;
-        
-    }
-
-    .search-button{
-    }
-
-    
-
-
-}
-
-@media only screen and (max-device-width: 425px) {
-    .top-row-container{
-        padding-bottom: 0px;
-        height: 60px    ;
-    }
-
-    .username-field{
-        width: 100%;
-        height: 60px;
-        margin-top: auto;
-        margin-top: 5px;
-    }
-
-    .search-button{
-        height: 38px;
-    }
-    
-    .search-button-img{
-        display: block;
-        max-width:10px;
-        max: height 10px;
-    
-    
-    }
-
-}
-
-@media only screen and (min-device-width: 1080px) {
-    .search-box{
-        width: 30%;
-        
-    }
-
+    padding-top: 1%;
 }
