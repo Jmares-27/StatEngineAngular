@@ -40,15 +40,18 @@ export class MyAccountComponent implements OnInit {
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
-    
-    console.log("CURRENT STEAM ID", this.currentSteamID)
-    this.http.getUserInventory(this.currentSteamID).subscribe((data)=>{
-        this.items = data;
-      }, (error) => {
-        console.log('Error getting user inventory:', error);
-      }
-    )
-    
+    if (JSON.parse(localStorage.getItem("userInventory")) == undefined){
+      this.http.getUserInventory(this.currentSteamID).subscribe((data)=>{
+          this.items = data;
+          // console.log(data)
+          localStorage.setItem("userInventory", JSON.stringify(data))
+        }, (error) => {
+          console.log('Error getting user inventory:', error);
+        }
+      )
+    } else {
+      this.items = JSON.parse(localStorage.getItem("userInventory"));
+    }
   }
 
   ngOnInit(){
