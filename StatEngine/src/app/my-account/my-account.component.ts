@@ -57,28 +57,32 @@ export class MyAccountComponent implements OnInit {
   ngOnInit(){
     this.route.params.subscribe((params) => {
       this.steamId = params['steamid'];
-      const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
+      console.log ("STEAMID IS: ", this.steamId)
+      if (this.steamId !== undefined){
+        const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
 
-      // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
-    this.http.updateSteamID(this.steamId, userid).subscribe(
-      response => {
+          // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
+        this.http.updateSteamID(this.steamId, userid).subscribe(
+          response => {
+    
+            //the backend should sent steamID set! at this point
+            // this.snackBar.open(`${response.message}`,"",{duration:5000});
+    
+          },
+          error => {
+            if (error.status === 500) {
+              
+              this.snackBar.open(`${error.message}`,"",{duration:5000});
+    
+            } else {
+              // Handle other errors
+              console.error('Error:', error);
+            }
+          }  
+        );
 
-        //the backend should sent steamID set! at this point
-        // this.snackBar.open(`${response.message}`,"",{duration:5000});
-
-      },
-      error => {
-        if (error.status === 500) {
-          
-          this.snackBar.open(`${error.message}`,"",{duration:5000});
-
-        } else {
-          // Handle other errors
-          console.error('Error:', error);
-        }
-      }  
-    );
-    this.getStatfunction()
+      }
+      this.getStatfunction()
 
 
     })
