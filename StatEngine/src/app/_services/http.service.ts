@@ -86,6 +86,11 @@ export class HttpService {
     }
   
   }
+
+  getUserInventory(steamID:string){
+    console.log("HTTP SERVICE:",steamID)
+    return this.http.get(`${this.baseURL}/api/getUserInventory/${steamID}`);
+  }
   
   // getFavoriteDataService(){
   //   // this.getFavoriteList()

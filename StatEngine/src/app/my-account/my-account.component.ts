@@ -6,6 +6,9 @@ import { UserComponent } from '../user/user.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { InventoryDialogComponent } from '../inventory-dialog/inventory-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-my-account',
@@ -15,7 +18,6 @@ import { ActivatedRoute } from '@angular/router';
 export class MyAccountComponent implements OnInit {
   baseURL = this.http.baseURL
   steamId: string
-
   userId: string
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   lm_result: string;
@@ -25,16 +27,27 @@ export class MyAccountComponent implements OnInit {
   oa_kd: number;
   oa_adr: number;
   oa_hsp: number;
-  displayedColumns: string[] = ['map','kills','deaths','KD'];
 
+  public items: any = [];
+  public displayedColumns = ['name', 'price', 'quantity'];
+  public searchText: string = "";
+  public page = 1;
+  public pageSize = 100;
+  public pageSizeOptions: number[] = [100, 250, 1000];
   // steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
-  constructor(private route:ActivatedRoute, private httpC: HttpClient,private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private route:ActivatedRoute, private httpC: HttpClient,private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar, public dialog:MatDialog){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
-
-    // this.getStatfunction()
+    
+    console.log("CURRENT STEAM ID", this.currentSteamID)
+    this.http.getUserInventory(this.currentSteamID).subscribe((data)=>{
+        this.items = data;
+      }, (error) => {
+        console.log('Error getting user inventory:', error);
+      }
+    )
     
   }
 
@@ -100,14 +113,28 @@ export class MyAccountComponent implements OnInit {
   
   }
   Steamlogin() {
-
-    
     const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
         // const redirectUrl =   `http://localhost:4200/api/auth/steam/`;
 
     window.location.href = redirectUrl
   }
   
+  get filteredItems():any[] {
+    return this.items.filter((item) => {
+      return item.name.toLowerCase().includes(this.searchText.toLowerCase());
+    });
+  }
+
+  handlePageEvent(event: PageEvent){
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+  }
+
+  openDialog(item:any){
+    this.dialog.open(InventoryDialogComponent, {
+      data: item
+    });
+  }
 
 
 }
