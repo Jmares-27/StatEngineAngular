@@ -3,7 +3,13 @@
 		
 		<mat-card-header style = "color: white">
 			<mat-card-title>
-				{{userName}}
+				<a style="padding-right: 5px;">{{userName}}</a>
+				<button (click)="toggleFavorite();">
+					<img
+					  style="width:20px;height:20px;"
+					  [src]="userBeenFavorited ? 'assets/icons/Favorited.png' : 'assets/icons/Favorite.png'"
+					/>
+				  </button>
 				</mat-card-title>
 			</mat-card-header>		
 			<img  src="/../assets/images/The_Murray.jpg">
