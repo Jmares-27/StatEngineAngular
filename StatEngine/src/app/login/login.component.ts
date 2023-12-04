@@ -31,13 +31,8 @@ export class LoginComponent {
       username: this.loginForm.value.username,
       password: this.loginForm.value.password,
     }).subscribe((data: any) => { 
-        if (data == 'No user exist!') {
-          // console.log('There is no such player exist');
-          this.loginForm.reset(this.loginForm.value);
-          this.snackBar.open('Login Unsuccessful! Please Try Again.', 'X', {
-            duration: 2000,
-          });
-        } else  {
+
+
           // Create a UserResponse object and populate it with data
           const userData: UserResponse = data.data;
           // console.log('UserData:', userData);
@@ -53,9 +48,17 @@ export class LoginComponent {
             this.loginForm.reset(this.loginForm.value);
             this.snackBar.open("Login Unsuccessful! Please Try Again.","X", {duration: 2000})
           }
-        }
+        
       },
       (error) => {
+        if (error.status == 500) {
+          console.log ("Login error: ", error.error.error)
+          if (error.error.error == "No user exist!") {
+            this.loginForm.reset(this.loginForm.value);
+            this.snackBar.open('Invalid password or username!', '', {duration: 2000});            
+          }
+
+        }
         console.error('Error:', error);
       }
     );

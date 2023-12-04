@@ -8,9 +8,8 @@ import { HttpService } from './http.service';
   providedIn: 'root'
 })
 export class SearchService {
-   private baseURL = this.httpS.baseURL
-  //private baseURL = 'http://statengines.org:3026'
 
+  private baseURL = this.httpS.baseURL
 
   public userID: string
   public message = '';
@@ -31,8 +30,7 @@ export class SearchService {
   };
 
   constructor(private httpS: HttpService, private httpC:HttpClient,private router: Router) { 
-    
-  }
+
 
 
   setUserData(userData: Object): void{

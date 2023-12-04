@@ -1,106 +1,184 @@
-.back-ground {   
-    
-
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0px;
-    top:  0px;
-    display:flex; 
-    padding-top: 5%;
-    background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
-    text-align: left;
-    
-
-    
-}
-
-.img {
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+    .back-ground {   
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0px;
+        top:  0px;
+        display:flex; 
+        padding-top: 10%;
+        background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
+        text-align: left;
     }
 
-.card-class {
-    float: left;
-    height: 90%;
-    width: 30%;
-    text-align: left;
-    margin-left: 5%;
-    display: flexbox;
-    background-color: gray;
-}
 
-.card-stats-class {
-    float: left;
-    height: 80%;
-    width: 120%;
-    text-align: left;
-    margin-left:10%;
-    margin-top:13%;
-    padding:2%;
-    display: flexbox;
-    bottom: 80px;
-    opacity: 80%;
-    background-color: darkslategray;
-}
+    .img {
+        height: 250px;
+        width: 250px;
+        border-radius: 50%;
+        }
 
-.image {
-    background-image: url('/../assets/images/The_Murray.jpg');
-    background-size: cover;
-    width: 300px;
-    height: 300px;
-    background-color: white;
-    background-position:50% 50%;
+    .card-class {
+        float: left;
+        height: 90%;
+        width: 30%;
+        text-align: left;
+        margin-left: 5%;
+        display: flexbox;
+        background-color: gray;
+    }
+
+    .card-stats-class {
+        float: left;
+        height: 80%;
+        width: 120%;
+        text-align: left;
+        margin-left:10%;
+        margin-top:13%;
+        padding:2%;
+        display: flexbox;
+        bottom: 80px;
+        opacity: 80%;
+        background-color: darkslategray;
+    }
+
+
+
+    .class-list-text {
+        color:red;
+    }
+
+    .cardbox{
+        height: 80%;
+        display: flexbox;
+        float: left;
+        padding-top: 5%;
+        padding-left: 5%;
+        justify-content: center;
+        align-items: center;
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(4, 4, 50) 35%, rgb(0, 24, 29) 100%);
+        /* opacity: 80%; */
+    }
+
+    .cardbox-mini{
+        display: flex;
+        /* flex-wrap:wrap; */
+        float: left;
+        padding-top: 0%;
+        padding-bottom: 5%;
+        margin:5px;
+        margin-top: 0;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        overflow: hidden;
+        color: white;
+        background-color: #323338;
+        
+    }
+    .cardbox-mini > div {
+        min-height: 30px; /* Adjust this value as needed */
+        flex-shrink: 0; /* Prevents the item from shrinking too much */
+        flex-grow: 1; /* Allows the item to grow if necessary */
+        /* Other styling as needed */
+    }
+    /* .image {
+        background-image: url('/../assets/images/The_Murray.jpg');
+        background-size: cover;
+        width: 300px;
+        height: 300px;
+        background-color: white;
+        background-position:50% 50%;
+        
+    } */
+
+    /* Stat Card CSS */
+    .stat-card-title{
+        /* color:black;  */
+        font-size: 2vw  ;
+        height: 20%;
+    }
+
+    .stat-title{
+        text-align: center; 
+        width: 100%;
+        height: auto;
+        font-size:2vw; 
+        float:left
+    }
+
+    .stat-number{
+        /* font-size:1vw;  */
+    }
+    @media (max-width: 800px) {
+        .stat-card-title{
+            font-size: 2vw;
+        }
+        .stat-number {
+            font-size: 2vw; /* Larger size for smaller screens */
+        }
+        .stat-title {
+            font-size: 3vw;
+        }
+    }
     
-}
+    @media (max-width: 675px) {
+        .stat-card-title{
+            font-size: 3vw;
+        }
+        .stat-number {
+            font-size: 3vw; /* Even larger size for mobile screens */
+        }
+        .stat-title {
+            font-size: 4vw;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .stat-card-title{
+            font-size: 4vw;
+        }
+        .stat-number {
+            font-size: 4vw; /* Adjust for very small screens */
+        }
+        .stat-title {
+            font-size: 5vw;
+        }
+        .stat-container{
+            flex-direction: column;
+            overflow:scroll
+        }
+    }
+    
 
-.listFont {
-    font: bold;
-}
+    .stat-container{
+        display:flex;
+        flex:wrap;
+        justify-content: space-between;
+        align-items: center;
+        overflow:hidden;
+        width: 100%;
+        min-height: 35px;
+    }
+    /* .stat-nugget{
+        border-radius: 50%;
+        width: 10vw;
+        height:10vw;
+        background-color: black;
+    } */
+    /* Steam Button */
+    .steamButton{
+        width:50%;
+        align-items:center;
+    }
 
-.class-list-text {
-    color:red;
-}
+    /* Stat colors */
+    .goodStat {
+        color: green
+    }
 
-.cardbox{
-    height: 80%;
-    display: flexbox;
-    float: left;
-    padding-top: 5%;
-    padding-left: 5%;
-    justify-content: center;
-    align-items: center;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(4, 4, 50) 35%, rgb(0, 24, 29) 100%);
-    /* opacity: 80%; */
-}
+    .badStat {
+        color: red
+    }
 
-.cardbox-mini{
-    height: auto;
-    width: 80vw;
-    display: table-cell;
-    float: left;
-    padding-top: 1%;
-    padding-left: 2%;
-    justify-content: center;
-    align-items: center;
-    width: 22.5%;
-    font-size: medium;
-    text-align: center;
-    overflow: hidden;
-    background-color: white;
-}
-
-.steamButton{
-    width:50%;
-    align-items:center;
-}
-
-.goodStat {
-    color: green
-}
-
-.badStat {
-    color: red
-}
+    
