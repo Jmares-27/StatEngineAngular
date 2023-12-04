@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControlName} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AppComponent } from '../app.component';
@@ -14,14 +14,21 @@ import { UserResponse } from '../models/userResponse.model';
 export class LoginComponent {
   hide = true;
   loginForm;
-  constructor(private appComponent:AppComponent, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
+  constructor(private appComponent:AppComponent, private ar: ActivatedRoute, private formBuilder: FormBuilder, private http: HttpService, private router: Router, public snackBar: MatSnackBar){
     this.loginForm = this.formBuilder.group({
       username:['',[Validators.required]],
       password:['',[Validators.required]]
     })
+
+    this.ar.queryParams.subscribe(params => {
+      console.log(params)
+
+     
+      
+      });
   }
 
-
+  
   onClickToSignUp(){
     this.router.navigate(['register']);
   }

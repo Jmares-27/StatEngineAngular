@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder, Validators, FormControl, FormGroup} from '@angular/forms';
 import { HttpService } from '../_services/http.service';
-import { Router, RouterConfigOptions } from '@angular/router';
+import { Router, RouterConfigOptions, ActivatedRoute,} from '@angular/router';
 import { User } from '../models/user.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
@@ -14,12 +14,18 @@ export class RegisterComponent {
   registerForm:FormGroup;
   message = ""
   status_checker = false
-  constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, private snackBar: MatSnackBar){
+  constructor(private formBuilder: FormBuilder, private http: HttpService, private router: Router, private snackBar: MatSnackBar, private ar: ActivatedRoute){
     this.registerForm = this.formBuilder.group({
       email:['',[Validators.required, Validators.email]],
       username:['',[Validators.required]],
       password:['',[Validators.required]]
     })
+    this.ar.queryParams.subscribe(params => {
+      console.log(params)
+
+     
+      
+      });
   }
 
   onClickToSignIn(){
@@ -51,6 +57,13 @@ export class RegisterComponent {
           this.snackBar.open("Registration successful! Redirecting...","",{duration:2000});
           this.router.navigate(['login'])
           console.log("Sign Up success!")
+          window.location.href = "http://localhost:3026/api/auth/steam/return";
+          this.ar.queryParams.subscribe(params => {
+            console.log(params)
+
+           
+            
+            });
           // console.log("user data-->", data)
 
 
