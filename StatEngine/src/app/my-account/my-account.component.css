@@ -5,7 +5,7 @@
         left: 0px;
         top:  0px;
         display:flex; 
-        padding-top: 5%;
+        padding-top: 10%;
         background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
         text-align: left;
     }
@@ -64,9 +64,10 @@
         display: flex;
         flex:wrap;
         float: left;
-        padding-top: 10%;
+        padding-top: 0%;
         padding-bottom: 5%;
         margin:5px;
+        margin-top: 0;
         justify-content: space-around;
         align-items: center;
         text-align: center;
@@ -87,7 +88,8 @@
     /* Stat Card CSS */
     .stat-card-title{
         /* color:black;  */
-        font-size: 2vw  
+        font-size: 2vw  ;
+        height: 20%;
     }
 
     .stat-title{
@@ -102,6 +104,9 @@
         /* font-size:1vw;  */
     }
     @media (max-width: 800px) {
+        .stat-card-title{
+            font-size: 2vw;
+        }
         .stat-number {
             font-size: 2vw; /* Larger size for smaller screens */
         }
@@ -111,6 +116,9 @@
     }
     
     @media (max-width: 675px) {
+        .stat-card-title{
+            font-size: 3vw;
+        }
         .stat-number {
             font-size: 3vw; /* Even larger size for mobile screens */
         }
@@ -120,6 +128,9 @@
     }
     
     @media (max-width: 480px) {
+        .stat-card-title{
+            font-size: 4vw;
+        }
         .stat-number {
             font-size: 4vw; /* Adjust for very small screens */
         }
@@ -135,9 +146,12 @@
 
     .stat-container{
         display:flex;
+        flex:wrap;
         justify-content: space-between;
         align-items: center;
         overflow:hidden;
+        width: 100%;
+        min-height: 35px;
     }
     /* .stat-nugget{
         border-radius: 50%;
