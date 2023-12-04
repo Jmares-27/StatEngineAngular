@@ -15,3 +15,51 @@ border-radius: 10px;
 
 
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+
+
+    /* Define CSS for desktop and larger screens */
+    @media screen and (min-width: 768px) {
+        body {
+            /* padding-top: 5%; */
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            /* margin: 0 auto; */
+            /* padding: 20px; */
+        }
+        .button-box{
+            /* width: 500px; */
+            /* height: 800px; */
+        }
+
+
+    }
+    
+    /* Define CSS for smaller screens (e.g., phones) */
+    @media screen and (max-width: 767px) {
+        body {
+            /* padding-top: 10%; */
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;
+            padding-top: 20%;
+        }
+        .button-box{
+            /* width: 500px; */
+            /* height: 800px; */
+        }
+
+    }

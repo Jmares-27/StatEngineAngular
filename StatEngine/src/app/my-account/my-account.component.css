@@ -176,11 +176,15 @@
     } */
     /* Steam Button */
     .steamButton{
-        width:33%;
-        align-items:center;
+        width:95%;
+
         background-color: rgb(0, 0, 0, 0);
     }
 
+    /* Change to cursor icon on hover */
+    .steamButton:hover {
+        cursor: pointer;
+    }
     /* Stat colors */
     .goodStat {
         color: green
