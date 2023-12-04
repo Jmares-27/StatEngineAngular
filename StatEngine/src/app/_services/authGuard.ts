@@ -13,6 +13,7 @@ import { Token } from '@angular/compiler';
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
+
   // public baseURL = 'http://localhost:3026'
     // private baseURL = 'http://statengines.org:3026'
     private baseURL = this.httpS.baseURL
@@ -81,6 +82,7 @@ export class AuthGuard implements CanActivate {
                 return true;
               } else {
                 if (dataJson['error'] === 'TokenExpiredError') {
+
                     this.openDialogTokenExpired()
                     return false
                 } else {

@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { HttpService } from '../_services/http.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserComponent } from '../user/user.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css']
 })
-export class MyAccountComponent {
+export class MyAccountComponent implements OnInit {
+  baseURL = this.http.baseURL
+  steamId: string
+
   userId: string
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   lm_result: string;
@@ -24,22 +29,44 @@ export class MyAccountComponent {
 
   // steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
-  constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private route:ActivatedRoute, private httpC: HttpClient,private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
-    //this.steamIDForm = this.fb.group({
-    //  steamID: ["", Validators.required]
-    
-    // console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
-    // console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
-    // console.log(this.currentSteamID.length)
 
     this.getStatfunction()
     
   }
 
-  
+  ngOnInit(){
+    this.route.params.subscribe((params) => {
+      this.steamId = params['steamid'];
+      const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
+
+      // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
+    this.http.updateSteamID(this.steamId, userid).subscribe(
+      response => {
+
+        //the backend should sent steamID set! at this point
+        this.snackBar.open(`${response.message}`,"",{duration:5000});
+
+      },
+      error => {
+        if (error.status === 500) {
+          
+          this.snackBar.open(`${error.message}`,"",{duration:5000});
+
+        } else {
+          // Handle other errors
+          console.error('Error:', error);
+        }
+      }  
+    );
+    // this.getStatfunction()
+
+
+    })
+  }
 
   getStatfunction (){
     this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
@@ -61,7 +88,9 @@ export class MyAccountComponent {
     (error) => {
       if (error.status === 500) {
         // Handle the 500 error
-        console.error('Server error (500):', error.error);
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
         // You can also display an error message to the user
       } else {
         // Handle other errors
@@ -71,7 +100,8 @@ export class MyAccountComponent {
   
   }
   Steamlogin() {
-    window.location.href = "http://localhost:4200/auth/steam";
+    const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
+    window.location.href = redirectUrl
   }
   
 

@@ -6,6 +6,33 @@
 				{{userName}}
 				</mat-card-title>
 			</mat-card-header>		
+      
+		<mat-list >
+		<h2 matSubheader style = "font-size: 22px; width: 53px; height: 24px; margin-left: 1rem; color: white">Socials</h2>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="discord"></mat-icon> <span style= "color: white">MurphTurph</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="instagram"></mat-icon><span style= "color: white">MucleHead</span></mat-list-item>
+			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="facebook"></mat-icon><span style= "color: white">Facebook</span></mat-list-item>
+		</mat-list>
+		<button mat-flat-button color="primary" class="steamButton" (click)="Steamlogin()">Login with Steam</button>
+	</mat-card>
+	<br>
+	
+	<div class="cardbox" style="width: 60%;">
+		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%;">
+			<mat-card-title style="font-size:60px">
+				<div style="padding:2%">
+					{{userName}}
+				</div>
+				<div style="color:black; opacity: 100%; font-size: 20px">
+					Overall Stats
+				</div>
+			</mat-card-title>
+			<mat-card-content style="padding-bottom: 3%;">
+				<div style="text-align: center; width: 33%;font-size:24px; float:left">
+					KD:
+					<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
+						{{oa_kd}}
+            
 			<img  src="/../assets/images/The_Murray.jpg">
 			<!-- <div class="username">
 				{{userName}}
@@ -16,6 +43,7 @@
 				<mat-card-title >
 					<div class="stat-card-title">
 						<strong>Overall</strong>
+
 					</div>
 				</mat-card-title>
 				<mat-card-content class="stat-container">

@@ -10,6 +10,7 @@ import { FavoriteItem } from '../models/favoriteItem.model';
   providedIn: 'root'
 })
 export class HttpService {
+
   // public baseURL = 'http://localhost:3026'
   public baseURL = 'http://statengines.org:3026'
   private bool = false;
@@ -328,9 +329,9 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/bugReport`,bugReportDetail);
   }
 
-  updateSteamID(steamID:Object, username:Object):Observable<Object>{
-    console.log("HTTP SERVICE:",steamID,username)
-    return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,username});
+  updateSteamID(steamID:string, userid:string):Observable<any>{
+    // console.log("HTTP SERVICE:",steamID,userid)
+    return this.http.post(`${this.baseURL}/api/setSteamID`, {steamID,userid});
   }
 
   // getStats(username:Object):Observable<Object>{
@@ -345,7 +346,6 @@ export class HttpService {
     console.log("HTTP SERVICE:",id);
     return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
   }
-
 
   getFavoriteList(userid: string):Observable<Object>{
     return this.http.get(`${this.baseURL}/api/getFavoriteList/${userid}`);
