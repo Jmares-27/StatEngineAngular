@@ -9,6 +9,6 @@ export interface User {
   dislikes : number;
   karmaRatio : number;
   profile_img_url : string;
-  friend_list : string[];
+  favorite_list : string[];
   date_created : Date;
 }

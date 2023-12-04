@@ -4,17 +4,59 @@ import { Observable } from 'rxjs';
 import { query } from '@angular/animations';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { FavoriteItem } from '../models/favoriteItem.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  //private baseURL = 'http://localhost:3026'
-  private baseURL = 'http://statengines.org:3026'
+  // public baseURL = 'http://localhost:3026'
+  public baseURL = 'http://statengines.org:3026'
   private bool = false;
   hasLoggedIn : boolean = false
+  favorite_list :string[] = []
 
-  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { }
+
+
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) { 
+    if (localStorage.getItem("userData")){
+      const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
+      this.getFavoriteList(userid).subscribe(
+        (response:any)=>{
+        if (response.data == "No favorite"){
+          //favorite_list is empty
+        }
+        else{
+          const userData = JSON.parse(localStorage.getItem("userData"))
+          userData.favorite_list = response.data;
+          localStorage.setItem("userData", JSON.stringify(userData));
+        }
+        },
+        error => {
+          if (error.status == 500 ){
+            if (error.error.error == "Cannot find the user data in the database") {
+              this.snackBar.open("Error in finding user data","",{duration:2000});
+            }
+            // else if (error.error.error == "TokenExpiredError"){
+            //   this.http.logOut()
+            //   this.snackBar.open("Token has expired","",{duration:Infinity});
+            // }
+            // else if (error.error.error == "invalid token") {
+            //   this.http.logOut()
+            //   this.snackBar.open("Invalid token","Login",{duration:Infinity});
+            // }
+            else {
+              console.log ("An error occured:",error.error.error)
+            }
+          }
+          else {
+            console.log("An error occured:", error);
+          }
+        })
+
+    }
+      
+  }
 
   
   createUser(user:Object):Observable<Object>{
@@ -44,7 +86,89 @@ export class HttpService {
   
   }
   
+  // getFavoriteDataService(){
+  //   // this.getFavoriteList()
+  //   // console.log (this.http.favorite_list)
+  //   const user_favorite_list = JSON.parse(localStorage.getItem("userData"))["favorite_list"]  
+  //   for (const favorite_userid of user_favorite_list) {
+  //     this.getStats(favorite_userid);//update the stats of the current userid
+  //     this.getFavoriteData(favorite_userid).subscribe(
+  //       (response:any)=>{
   
+  
+  //           const newFavorite: FavoriteItem = response.data
+  //           // console.log ("Updated favorite list: ", response.data)
+  //           this.favorites.push(newFavorite)
+          
+  
+  //       },
+  //       error => {
+  //         if (error.status == 500 ){
+  //           if (error.error.error == "Cannot find the user data in the database") {
+  //             this.snackBar.open("Error in finding user data","",{duration:2000});
+  //           }
+  //           // else if (error.error.error == "TokenExpiredError"){
+  //           //   this.http.logOut()
+  //           //   this.snackBar.open("Token has expired","",{duration:Infinity});
+  //           // }
+  //           // else if (error.error.error == "invalid token") {
+  //           //   this.http.logOut()
+  //           //   this.snackBar.open("Invalid token","Login",{duration:Infinity});
+  //           // }
+  //           else {
+  //             console.log ("An error occured:",error.error.error)
+  //           }
+  //         }
+  //         else {
+  //           console.log("An error occured:", error);
+  //         }
+  //       })
+  
+  //   }
+  // }
+
+// getFavoriteListService (){
+//   const userid = JSON.parse(localStorage.getItem("userData"))["userid"]    
+//   this.getFavoriteList(userid).subscribe(
+//     (response:any)=>{
+//     // if (response.data == []){
+//     //   //favorite_list is empty
+//     //   const userData = JSON.parse(localStorage.getItem("userData"))
+//     //   userData.favorite_list = response.data;
+//     //   localStorage.setItem("userData", JSON.stringify(userData));
+//     // }
+//     // else{
+//       this.favorite_list = response.data //response can be an empty array (ex. []) or an array that contain favorited userids
+//       const userData = JSON.parse(localStorage.getItem("userData"))
+//       userData.favorite_list = response.data;
+//       localStorage.setItem("userData", JSON.stringify(userData));
+//       // console.log (this.http.favorite_list)
+//     // }
+//     },
+//     error => {
+//       if (error.status == 500 ){
+//         if (error.error.error == "Cannot find the user data in the database") {
+//           this.snackBar.open("Error in finding user data","",{duration:2000});
+//         }
+//         // else if (error.error.error == "TokenExpiredError"){
+//         //   this.http.logOut()
+//         //   this.snackBar.open("Token has expired","",{duration:Infinity});
+//         // }
+//         // else if (error.error.error == "invalid token") {
+//         //   this.http.logOut()
+//         //   this.snackBar.open("Invalid token","Login",{duration:Infinity});
+//         // }
+//         else {
+//           console.log ("An error occured:",error.error.error)
+//         }
+//       }
+//       else {
+//         console.log("An error occured:", error);
+//       }
+//     })
+
+  
+// }
   isLoggedIn(){
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.getAuthentication()}`,
@@ -70,20 +194,116 @@ export class HttpService {
     this.router.navigate(['login'])
     window.location.reload();
   }
-  // searchUser(username:Object):Observable<Object>{
-    
-  //   // let queryParams = new HttpParams(); 
-  //   // queryParams = queryParams.set("username", this.username);
 
-  //   //console.log("HTTP SERVICE:",username);
+  favorite(userid: string) { 
+    // console.log ("favorite function from http service was called")
+    this.favorite_list = JSON.parse(localStorage.getItem("userData"))["favorite_list"]
+    if (userid ==  JSON.parse(localStorage.getItem("userData"))["userid"]){
+      //you can't favorite yourself! thats weird!
+    }
+    else{
+      if (this.favorite_list.length == 0) {
+        this.favorite_list.push(userid)
+      }
+      else {
+        if (this.favorite_list.includes(userid)) {
+          
+          //this user has been favorited
 
-  //   return this.http.get(`${this.baseURL}/api/searchuser/${username}`);
+        } else {
+          // console.log ("current user favorite list: ", this.favorite_list)
+          this.favorite_list.push(userid);
+          //add this selected userid to the favorite list
 
-  // }
+        }
+      }
 
-  // updatePassword(userData:JSON):Observable<Object>{
-  //   return this.http.post(`${this.baseURL}/api/resetpassword`,userData);
-  // }
+    }
+    const currentUserID = JSON.parse(localStorage.getItem("userData"))["userid"]
+    const currentUserToken = JSON.parse(localStorage.getItem("userData"))["token"]
+    this.updateFavoriteList(currentUserID, currentUserToken, this.favorite_list).subscribe(
+      (response:any)=>{
+        if (response.message ==  "Favorite list updated!") {
+          this.snackBar.open("User favorited successfully","",{duration:2000});
+        }
+    },error => {
+      if (error.status == 500 ){
+        if (error.error.error == "Cannot find the user data in the database") {
+          this.snackBar.open("Error in finding user data","",{duration:2000});
+        }
+        else if (error.error.error == "TokenExpiredError"){
+          this.logOut()
+          this.snackBar.open("Token has expired","",{duration:Infinity});
+        }
+        else if (error.error.error == "invalid token") {
+          this.logOut()
+          this.snackBar.open("Invalid token","Login",{duration:Infinity});
+        }
+        else {
+          console.log ("An error occured:",error.error.error)
+        }
+      }
+      else {
+        console.log("An error occured:", error);
+      }
+    })
+  }
+
+  unfavorite(userid: any) {
+    this.favorite_list = JSON.parse(localStorage.getItem("userData"))["favorite_list"]
+    console.log ("sent userid from http.service ", userid)
+    if (userid ==  JSON.parse(localStorage.getItem("userData"))["userid"]){
+      //you can't unfavorite yourself! thats weird!
+    }
+    else{
+      if (this.favorite_list.length == 0) {
+        //there is no one here to unfavorite
+      }
+      else {
+        if (this.favorite_list.includes(userid)) {
+          const index = this.favorite_list.indexOf(userid);
+          if (index !== -1) {
+            this.favorite_list.splice(index, 1);
+          }
+          //this user has been unfavorited from this favorite list. We now need to update the favorite_list in the database
+
+        } else {
+  
+          //userid does not exist in the favorite list
+
+        }
+      }
+
+    }
+    const currentUserID = JSON.parse(localStorage.getItem("userData"))["userid"]
+    const currentUserToken = JSON.parse(localStorage.getItem("userData"))["token"]
+    this.updateFavoriteList(currentUserID, currentUserToken, this.favorite_list).subscribe(
+      (response:any)=>{
+        if (response.message ==  "Favorite list updated!") {
+          this.snackBar.open("User unfavorited successfully","",{duration:2000});
+        }
+    },error => {
+      if (error.status == 500 ){
+        if (error.error.error == "Cannot find the user data in the database") {
+          this.snackBar.open("Error in finding user data","",{duration:2000});
+        }
+        else if (error.error.error == "TokenExpiredError"){
+          this.logOut()
+          this.snackBar.open("Token has expired","",{duration:Infinity});
+        }
+        else if (error.error.error == "invalid token") {
+          this.logOut()
+          this.snackBar.open("Invalid token","Login",{duration:Infinity});
+        }
+        else {
+          console.log ("An error occured:",error.error.error)
+        }
+      }
+      else {
+        console.log("An error occured:", error);
+      }
+    })
+  }
 
   deleteAccount(token:string, userid:string):Observable<Object>{
     const params = new HttpParams()
@@ -126,7 +346,16 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
   }
 
+
+  getFavoriteList(userid: string):Observable<Object>{
+    return this.http.get(`${this.baseURL}/api/getFavoriteList/${userid}`);
+  }
+
+  updateFavoriteList (userid:string, token:string, favorite_list:Array<string> ):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/updateFavoriteList`, {userid, token, favorite_list});
+  }
+
+  getFavoriteData(userid: string):Observable<Object>{
+    return this.http.get(`${this.baseURL}/api/getFavoriteData/${userid}`);
+  }
 }
-
-
-
