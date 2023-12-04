@@ -34,7 +34,7 @@ export class MyAccountComponent implements OnInit {
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
 
-    this.getStatfunction()
+    // this.getStatfunction()
     
   }
 
@@ -48,7 +48,7 @@ export class MyAccountComponent implements OnInit {
       response => {
 
         //the backend should sent steamID set! at this point
-        this.snackBar.open(`${response.message}`,"",{duration:5000});
+        // this.snackBar.open(`${response.message}`,"",{duration:5000});
 
       },
       error => {
@@ -62,7 +62,7 @@ export class MyAccountComponent implements OnInit {
         }
       }  
     );
-    // this.getStatfunction()
+    this.getStatfunction()
 
 
     })
@@ -100,7 +100,11 @@ export class MyAccountComponent implements OnInit {
   
   }
   Steamlogin() {
+
+    
     const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
+        // const redirectUrl =   `http://localhost:4200/api/auth/steam/`;
+
     window.location.href = redirectUrl
   }
   
