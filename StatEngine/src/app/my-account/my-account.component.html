@@ -14,12 +14,11 @@
 			<!-- Overall Stats -->
 			<mat-card class="cardbox-mini">
 				<mat-card-title >
-					
 					<div class="stat-card-title">
-						Overall
+						<strong>Overall</strong>
 					</div>
 				</mat-card-title>
-				<mat-card-content style="padding-bottom: 3%;">
+				<mat-card-content class="stat-container">
 					<div class="stat-title">
 						KD:
 						<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-number" id="oa_kd">
@@ -27,7 +26,7 @@
 						</div>
 					</div>
 					<div class="stat-title">
-						ADR:
+						ADR:	
 						<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-number" id="oa_adr">
 							{{oa_adr}}
 						</div>
@@ -43,14 +42,14 @@
 			
 			<!-- Last Match Stats -->
 			<mat-card class="cardbox-mini">
-				<mat-card-title style="font-size:60px">
+				<mat-card-title>
 					<div class="stat-card-title">
-						Last Match
+						<strong>Last Match</strong>
 					</div>
 				</mat-card-title>
-				<mat-card-content style="padding-bottom: 3%;">
+				<mat-card-content class="stat-container">
 					<div class="stat-title">
-						Result
+						W/L
 						<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" class="stat-number" id="winloss">
 							{{lm_result}}
 						</div>
