@@ -62,7 +62,7 @@
 
     .cardbox-mini{
         display: flex;
-        flex:wrap;
+        /* flex-wrap:wrap; */
         float: left;
         padding-top: 0%;
         padding-bottom: 5%;
@@ -74,6 +74,13 @@
         overflow: hidden;
         color: white;
         background-color: #323338;
+        
+    }
+    .cardbox-mini > div {
+        min-height: 30px; /* Adjust this value as needed */
+        flex-shrink: 0; /* Prevents the item from shrinking too much */
+        flex-grow: 1; /* Allows the item to grow if necessary */
+        /* Other styling as needed */
     }
     /* .image {
         background-image: url('/../assets/images/The_Murray.jpg');
