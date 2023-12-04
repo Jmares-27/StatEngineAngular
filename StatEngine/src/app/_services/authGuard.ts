@@ -10,12 +10,12 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-    private baseURL = 'http://localhost:3026'
+    private baseURL = this.httpS.baseURL
     //private baseURL = 'http://statengines.org:3026'
 
 
     private tokenCheckInterval: any;
-    constructor(private httpC: HttpClient, private router: Router, private http: HttpService, private snackBar: MatSnackBar){
+    constructor(private httpC: HttpClient, private router: Router, private httpS: HttpService, private snackBar: MatSnackBar){
         // if (this.http.isLoggedIn()){
         //     // return true
         // } else {
@@ -30,9 +30,9 @@ export class AuthGuard implements CanActivate {
 
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-        if (this.http.getAuthentication()) {
+        if (this.httpS.getAuthentication()) {
           const headers = new HttpHeaders({
-            'Authorization': `Bearer ${this.http.getAuthentication()}`,
+            'Authorization': `Bearer ${this.httpS.getAuthentication()}`,
           });
           const headersData = { headers: headers };
     
@@ -45,12 +45,12 @@ export class AuthGuard implements CanActivate {
                 return true;
               } else {
                 if (dataJson['error'] === 'TokenExpiredError') {
-                    this.http.logOut();
+                    this.httpS.logOut();
                     // window.location.reload();
                     this.snackBar.open("Token has expired. Please Re-login","",{duration:5000});
                     return false
                 } else {
-                    this.http.logOut();
+                    this.httpS.logOut();
                     // window.location.reload();
                     this.snackBar.open("Invalid token. Please Re-login","",{duration:5000});
                     return false

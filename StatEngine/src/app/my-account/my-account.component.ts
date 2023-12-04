@@ -13,6 +13,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
+  baseURL = this.http.baseURL
   steamId: string
 
   userId: string
@@ -32,12 +33,6 @@ export class MyAccountComponent implements OnInit {
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
-    //this.steamIDForm = this.fb.group({
-    //  steamID: ["", Validators.required]
-    
-    // console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
-    // console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
-    // console.log(this.currentSteamID.length)
 
     this.getStatfunction()
     
@@ -48,24 +43,26 @@ export class MyAccountComponent implements OnInit {
       this.steamId = params['steamid'];
       const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
 
-      console.log ("STEAMID SENT FROM BACKEND", this.steamId)
+      // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
     this.http.updateSteamID(this.steamId, userid).subscribe(
       response => {
-        console.log( "Backend response", response.message);
-        // Handle the response as needed
+
+        //the backend should sent steamID set! at this point
+        this.snackBar.open(`${response.message}`,"",{duration:5000});
+
       },
       error => {
         if (error.status === 500) {
-          // Handle the 500 error
-          console.error('Server error (500):', error.message);
-          // You can also display an error message to the user
+          
+          this.snackBar.open(`${error.message}`,"",{duration:5000});
+
         } else {
           // Handle other errors
           console.error('Error:', error);
         }
       }  
     );
-    this.getStatfunction()
+    // this.getStatfunction()
 
 
     })
@@ -91,7 +88,9 @@ export class MyAccountComponent implements OnInit {
     (error) => {
       if (error.status === 500) {
         // Handle the 500 error
-        console.error('Server error (500):', error.error);
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
         // You can also display an error message to the user
       } else {
         // Handle other errors
@@ -101,59 +100,10 @@ export class MyAccountComponent implements OnInit {
   
   }
   Steamlogin() {
-    // window.location.href = "http://3.144.231.224:3026/api/auth/steam/return";
-   
-    // const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
-    // console.log(userid)
-    // // this.http.getUserid(userid).subscribe
-    // Append the documentid to the URL
-    // const redirectUrl = `http://localhost:3026/api/auth/steam/return?userid=${userid}`;
-    const redirectUrl = "http://localhost:3026/api/auth/steam/";
-    // const redirectUrl = `http://localhost:3026/api/auth/steam/return?userid=1123456789`;
-
-    
+    const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
     window.location.href = redirectUrl
-
-
-
-    // this.http.authenticateWithSteam()
-
-
-    // this.http.getSteamId().subscribe(
-    //   response => {
-    //     console.log('Steam user data:', response);
-    //     // Handle the response as needed
-    //   },
-    //   error => {
-    //     console.error('Error fetching Steam user data:', error);
-    //   }
-    // );
-
-    // const apiUrl = 'http://your-backend-url/api/auth/steam/return';
-
-    // this.httpC.get(redirectUrl).subscribe(
-    //   (response: any) => {
-    //     if (response.status === 'success') {
-    //       // Successfully authenticated
-    //       console.log('User ID:', response.data);
-  
-    //       // Redirect to 'http://localhost:4200/myaccount'
-    //       // this.router.navigate(['/myaccount']);
-    //     } else {
-    //       // Handle authentication failure
-    //       console.error('Authentication failed');
-    //     }
-    //   },
-    //   (error) => {
-    //     // Handle HTTP error
-    //     console.error('HTTP Error:', error);
-    //   }
-    // );
-
   }
   
-  sendUserId(){
-    
-  }
+
 
 }

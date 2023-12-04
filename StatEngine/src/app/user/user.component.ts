@@ -71,7 +71,18 @@ export class UserComponent implements OnInit{
       (error) => {
         if (error.status === 500) {
           // Handle the 500 error
-          console.error('Server error (500):', error.error);
+          this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+          this.userName = error.error.username
+          var last_match = null
+          var overall = null
+          this.lm_result = null
+          this.lm_kd = null
+          this.lm_adr = null
+          this.oa_kd = null
+          this.oa_adr = null
+          this.oa_hsp = null
+
+          // console.error('Server error (500):', error.error);
           // You can also display an error message to the user
         } else {
           // Handle other errors

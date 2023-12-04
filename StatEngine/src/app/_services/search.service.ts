@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-   private baseURL = 'http://localhost:3026'
+   private baseURL = this.httpS.baseURL
   //private baseURL = 'http://statengines.org:3026'
 
 
@@ -30,7 +30,7 @@ export class SearchService {
     friend_list: "",
   };
 
-  constructor(private http:HttpClient,private router: Router) { 
+  constructor(private httpS: HttpService, private httpC:HttpClient,private router: Router) { 
     
   }
 
@@ -46,12 +46,12 @@ export class SearchService {
   }
 
   searchUser(username:Object):Observable<Object>{
-    return this.http.get(`${this.baseURL}/api/searchuser/${username}`)
+    return this.httpC.get(`${this.baseURL}/api/searchuser/${username}`)
   }
   
   
   getSuggestions(searchUsername:string):Observable<Object>{
-    return this.http.get(`${this.baseURL}/api/suggestions/${searchUsername}`)
+    return this.httpC.get(`${this.baseURL}/api/suggestions/${searchUsername}`)
     
   }
 
