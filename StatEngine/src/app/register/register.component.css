@@ -60,4 +60,15 @@
     .site-header{
         margin-top: 40px;
     }
+
+    
+    .login-container{
+        width: 65%;
+        margin: auto;
+    }
+    .input-box{
+        margin-left: auto;
+        width: 90%;
+    }
+
 }
