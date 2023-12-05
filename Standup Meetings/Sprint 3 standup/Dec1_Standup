@@ -28,3 +28,8 @@ Sean | 12/01/2023
 1. Finished adjusting the search bar.
 2. I need to spend a bit fixing the login and redirect pages for responsiveness.
 3. I have to some stress testing but havent found anything new.
+
+Nathan | Dec 1
+1. Testing free proxy server usage for Steam scraping
+2. Sent test requests through proxy server
+3. Issues with bad requests being sent to Steam
