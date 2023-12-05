@@ -22,7 +22,7 @@ export class UserComponent implements OnInit{
 
   userBeenFavorited : boolean;
 
-
+  profile_img_url:string;
   steamIDForm: FormGroup;
   constructor(private router:Router, private route:ActivatedRoute, private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
 
@@ -56,51 +56,12 @@ export class UserComponent implements OnInit{
         this.router.navigate(["myaccount"]);
       }else{
 
-
-
-       
-
         // Check if the user's favorite status has been stored in local storage
         const user_favorite_list = JSON.parse(localStorage.getItem("userData"))["favorite_list"]
         this.userBeenFavorited = user_favorite_list.includes(this.userId);  
+        this.getStatfunction()
+        this.getSteamAvatarFunction()
 
-        this.http.getStats(this.userId).subscribe((data)=>{
-
-      
-          var body = JSON.parse(JSON.stringify(data))
-          console.log(body)
-          this.userName = body["username"]
-          var last_match = body["last_match"]
-          var overall = body["overall"]
-          this.lm_result = last_match["last_match_result"]
-          this.lm_kd = Math.round(parseFloat(last_match["last_match_kd"])*100)/100
-          this.lm_adr = Math.round(parseFloat(last_match["last_match_adr"])*100)/100
-          this.oa_kd = Math.round(parseFloat(overall["overall_kd"])*100)/100
-          this.oa_adr = Math.round(parseFloat(overall["overall_adr"])*100)/100
-          this.oa_hsp = Math.round(parseFloat(overall["overall_hsp"])*10000)/100
-    
-         
-        },
-        (error) => {
-          if (error.status === 500) {
-            // Handle the 500 error
-            this.snackBar.open(`${error.error.message}`,"",{duration:5000});
-
-            // console.error('Server error (500):', error.error);
-            // console.log ("error username", error.error.username)
-            this.userName = error.error.username
-            this.lm_result = null
-            this.lm_kd = null
-            this.lm_adr = null
-            this.oa_kd = null
-            this.oa_adr = null
-            this.oa_hsp = null
-            // You can also display an error message to the user
-          } else {
-            // Handle other errors
-            console.error('Error:', error);
-          }
-        })
       }
 
 
@@ -113,6 +74,72 @@ export class UserComponent implements OnInit{
 
   }
 
+  getSteamAvatarFunction(){
+    this.http.getSteamAvatarUrl(this.userId).subscribe(
+      (url: string) => {
+        // console.log (url);
+        this.profile_img_url = url
+
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        // this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+        this.profile_img_url =  null       // console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+
+  }
+
+
+  getStatfunction (){
+
+    this.http.getStats(this.userId).subscribe((data)=>{
+
+      
+      var body = JSON.parse(JSON.stringify(data))
+      console.log(body)
+      this.userName = body["username"]
+      var last_match = body["last_match"]
+      var overall = body["overall"]
+      this.lm_result = last_match["last_match_result"]
+      this.lm_kd = Math.round(parseFloat(last_match["last_match_kd"])*100)/100
+      this.lm_adr = Math.round(parseFloat(last_match["last_match_adr"])*100)/100
+      this.oa_kd = Math.round(parseFloat(overall["overall_kd"])*100)/100
+      this.oa_adr = Math.round(parseFloat(overall["overall_adr"])*100)/100
+      this.oa_hsp = Math.round(parseFloat(overall["overall_hsp"])*10000)/100
+
+     
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
+        // console.log ("error username", error.error.username)
+        this.userName = error.error.username
+        this.lm_result = null
+        this.lm_kd = null
+        this.lm_adr = null
+        this.oa_kd = null
+        this.oa_adr = null
+        this.oa_hsp = null
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+  
+  
+  
+  
+  }
 
   favorite (){
       this.route.params.subscribe((params) => {

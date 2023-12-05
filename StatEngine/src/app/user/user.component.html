@@ -12,7 +12,7 @@
 				  </button>
 				</mat-card-title>
 			</mat-card-header>		
-			<img  src="/../assets/images/The_Murray.jpg">
+			<img  [src]="profile_img_url || 'assets/images/no_profile_img.png'">
 			<!-- <div class="username">
 				{{userName}}
 			</div> -->
@@ -75,7 +75,7 @@
 					</div>
 				</div>
 			</mat-card>
-		<button mat-flat-button color="primary" class="steamButton"><a href="http://statengines.org/steamLoadingPage">Login with Steam</a></button>
+		<!-- <button mat-flat-button color="primary" class="steamButton"><a href="http://statengines.org/steamLoadingPage">Login with Steam</a></button> -->
 	</mat-card>
 
 	
