@@ -8,9 +8,9 @@
     padding-top: 10%;
     background: linear-gradient(180deg, #62B8B9 2.0%, #0F1119 35%, #B63986 60.0%);
     text-align: left;
-    background-attachment: fixed;
+    /* background-attachment: fixed;
     background-repeat: repeat;
-    background-size:cover;
+    background-size:cover; */
 }
 .title{
     color: black;
