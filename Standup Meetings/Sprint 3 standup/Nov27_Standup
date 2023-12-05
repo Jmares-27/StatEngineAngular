@@ -8,3 +8,8 @@ Johnny Pham | 11-27-2023
 1. Making cards responsive
 2. Cleared space for inventory
 3. Again responsiveness for text
+
+Dat | Nov 27
+1. Try to find out a way to load data in favorite component without reload the page twice, work with Johnnie to find a way to save steamid to the correct user in our database.
+2. Added popup for delete account. Tried even more different of methods for both favorite issue and steam login button issue. 
+3. Still not able to find a solution for favorite issue and the steamid login button
