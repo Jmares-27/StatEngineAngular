@@ -28,6 +28,8 @@ export class MyAccountComponent implements OnInit {
   oa_adr: number;
   oa_hsp: number;
 
+  profile_img_url:string;
+
   public items: any = [];
   public displayedColumns = ['name', 'price', 'quantity'];
   public searchText: string = "";
@@ -37,6 +39,8 @@ export class MyAccountComponent implements OnInit {
   // steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
   constructor(private route:ActivatedRoute, private httpC: HttpClient,private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar, public dialog:MatDialog){
+
+    
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
@@ -52,6 +56,9 @@ export class MyAccountComponent implements OnInit {
     } else {
       this.items = JSON.parse(localStorage.getItem("userInventory"));
     }
+
+
+    
   }
 
   ngOnInit(){
@@ -60,7 +67,7 @@ export class MyAccountComponent implements OnInit {
       console.log ("STEAMID IS: ", this.steamId)
       if (this.steamId !== undefined){
         const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
-
+        
           // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
         this.http.updateSteamID(this.steamId, userid).subscribe(
           response => {
@@ -81,13 +88,39 @@ export class MyAccountComponent implements OnInit {
           }  
         );
 
+
+
+      
+
       }
       this.getStatfunction()
-
+      this.getSteamAvatarFunction()
 
     })
   }
 
+
+  getSteamAvatarFunction(){
+    this.http.getSteamAvatarUrl(this.userId).subscribe(
+      (url: string) => {
+        // console.log (url);
+        this.profile_img_url = url
+
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+  }
+  
   getStatfunction (){
     this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
     this.http.getStats(this.userId).subscribe((data)=>{
