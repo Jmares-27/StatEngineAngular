@@ -347,10 +347,6 @@ export class HttpService {
     return this.http.post(`${this.baseURL}/api/getStats/${id}`, {id});
   }
 
-  getInventory(id:string):Observable<Object>{
-    console.log("HTTP SERVICE:",id);
-    return this.http.post(`${this.baseURL}/api/getInventory/${id}`, {id});
-  }
 
   getFavoriteList(userid: string):Observable<Object>{
     return this.http.get(`${this.baseURL}/api/getFavoriteList/${userid}`);
@@ -367,4 +363,11 @@ export class HttpService {
   getSteamAvatarUrl(id:string):Observable<Object>{
     return this.http.post(`${this.baseURL}/api/getSteamProfileUrl/${id}`, {});
   }
+
+  getUserSteamID(Obj_id:string):Observable<Object>{
+    // console.log(Obj_id)
+    return this.http.get(`${this.baseURL}/api/getUserSteamID/${Obj_id}`, {});
+  }
+
+
 }

@@ -160,3 +160,19 @@
     color: red
 }
 
+.itemBox {
+    width: 24%;
+    height: 400px;
+    margin: 0.5%;
+    background: rgb(66, 66, 66);
+    text-align: center;
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px;
+    float:left;
+    font-size: 15px;
+    color: black;
+    min-width: 150px;
+
+}
+

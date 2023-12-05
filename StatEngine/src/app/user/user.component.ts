@@ -4,6 +4,11 @@ import { HttpService } from '../_services/http.service';
 import { Router, RouterConfigOptions } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { InventoryDialogComponent } from '../inventory-dialog/inventory-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
+import { switchMap } from 'rxjs';
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -24,17 +29,41 @@ export class UserComponent implements OnInit{
 
   profile_img_url:string;
   steamIDForm: FormGroup;
-  constructor(private router:Router, private route:ActivatedRoute, private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  private currentUserSID: string;
+  public items: any = [];
+  public displayedColumns = ['name', 'price', 'quantity'];
+  public searchText: string = "";
+  public page = 1;
+  public pageSize = 100;
+  public pageSizeOptions: number[] = [100, 250, 1000];
+  constructor(private router:Router, private route:ActivatedRoute, private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar, public dialog:MatDialog){
 
 
     this.steamIDForm = this.fb.group({
       steamID: ["", Validators.required]
     });
 
-    
-
-
   }
+
+  get filteredItems():any[] {
+    return this.items.filter((item) => {
+      return item.name.toLowerCase().includes(this.searchText.toLowerCase());
+    });
+  }
+
+  handlePageEvent(event: PageEvent){
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+  }
+
+  openDialog(item:any){
+    this.dialog.open(InventoryDialogComponent, {
+      data: item
+    });
+  }
+  
+
+
   onIDSubmit(){
     // console.log(this.steamIDForm.value.steamID)
     // console.log(JSON.parse(localStorage.getItem("userData"))["username"])
@@ -61,17 +90,29 @@ export class UserComponent implements OnInit{
         this.userBeenFavorited = user_favorite_list.includes(this.userId);  
         this.getStatfunction()
         this.getSteamAvatarFunction()
-
       }
-
-
-
-
-
-  
     });
 
-
+    this.http.getUserSteamID(this.userId).pipe(
+      switchMap((data) => {
+        this.currentUserSID = data.toString();
+        console.log("current user steam id: ", this.currentUserSID);
+        if (this.currentUserSID) {
+          return this.http.getUserInventory(this.currentUserSID);
+        } else {
+          // Handle the case where there is no steamID
+          throw new Error('No SteamID found');
+        }
+      })
+    ).subscribe(
+      (data) => {
+        this.items = data;
+      },
+      (error) => {
+        // Handle any errors that occur
+        console.error('Error:', error);
+      }
+    );
   }
 
   getSteamAvatarFunction(){

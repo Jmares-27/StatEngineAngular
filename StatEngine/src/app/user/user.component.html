@@ -82,12 +82,46 @@
 	<br>
 	<!-- right side -->
 	<div class="cardbox" style="width: 60%;">
-		
-		<div style="margin: 5%; width: 100%; float:left">
-		</div>
-		
-		<div style="margin: 5%; width: 100%; float:left">
-		</div>
+			<mat-card>
+				<mat-card-header style="background-color: rgba(24, 23, 23, 0.61);">
+					<mat-card-title>
+						<div  style="float:left; width:70%">
+							<h1>{{userName}}'s Inventory</h1>
+						</div>
+						<div style="float:right; width:30%; align-items: right;">
+							<input type="text" [(ngModel)]="searchText" placeholder="Search items">
+						</div>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<mat-paginator [length]="filteredItems.length" 
+								   [pageSize]="100" 
+								   [pageSizeOptions]="[100, 250, 500, 1000]"
+								   (page)="handlePageEvent($event)">
+					</mat-paginator>
+					<ng-container *ngFor="let item of filteredItems | slice: (page - 1) * pageSize : page * pageSize">
+						<mat-card class="itemBox" (click)="openDialog(item)">
+							<mat-card-header>
+								<mat-card-title style="color:white; height: 50%;">
+									<h2>{{item.name}}</h2>
+								</mat-card-title>
+							</mat-card-header>
+							<mat-card-content style="color:white">
+								<p *ngIf="item.image_url != null; else elseblock1">
+									<img [src]="item.image_url" style="width: 40%; height: 40%;">
+								</p>
+								<ng-template #elseblock1><p>
+									<img src="../../assets/images/Image_not_available.png" style="width: 40%; height: 40%;">
+								</p></ng-template>
+	
+								<p>Bitskins Price: ${{item.suggested_price/1000}}</p>
+								<p *ngIf="item.steam_price != null; else elseblock">Steam Price: ${{item.steam_price/100}}</p>
+								<ng-template #elseblock><p>Steam Price: No Steam Listings</p></ng-template>
+							</mat-card-content>
+						</mat-card>
+					</ng-container>
+				</mat-card-content>
+			</mat-card>
 	<!--	<mat-card style="float:left; width: 92%;">
 			<mat-card-title>
 				(Placeholder) Input SteamID:
