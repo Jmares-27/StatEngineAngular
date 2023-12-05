@@ -363,4 +363,8 @@ export class HttpService {
   getFavoriteData(userid: string):Observable<Object>{
     return this.http.get(`${this.baseURL}/api/getFavoriteData/${userid}`);
   }
+
+  getSteamAvatarUrl(id:string):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/getSteamProfileUrl/${id}`, {});
+  }
 }
