@@ -8,3 +8,8 @@ Johnny Pham | 11-29-2023
 1. Color coding for stats
 2. Positioning for stat titles
 3. None so far
+
+Dat |  11-29-23
+1. Add a pop-up for token expire instead of automatically log user out when their token is invalid/expired, add confirm pop for delete account. Work with Johnnie find a solution to update steamID to the database after successfully login in through steam
+2. A perssistent pop-up will appear then token is invalid or expired and the popup will now appear when click on delete now button in delete account component.
+3. Still trying to find a way to update steamID to the database after successfully login in through steam

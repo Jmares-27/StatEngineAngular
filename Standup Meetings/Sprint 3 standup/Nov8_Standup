@@ -19,12 +19,12 @@ Nathan | 11/8/23
 2. Script that saves to text file for all items and deals with rate limiting
 3. Issues with market hash names for items
 
-Dat | Nov 12
+Dat | Nov 8
 1. Working on unfavorite a favorited user at favorite page
 2. User can now favorite/unfavorite another user in use page
 3. Data does not display properly after favorite/unfavorite a user in user page unless refresh the page twice
 
-johnnie | Nov 12
+johnnie | Nov 8
 1.still working on autimatic steam id pull when logging in
 2.routes have been set up to send user id (unique to our db) to back end
 3. ive sadly developed a tolerance to coffee
