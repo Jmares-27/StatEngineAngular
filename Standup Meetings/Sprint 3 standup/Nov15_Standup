@@ -14,7 +14,12 @@ Johnnie Mares| 11-15-2023
 2. we can login i and authenticate when steam logs in
 3. steam id is proving diffcult to manage, just like my life ( jk im fine )
 
-Dat | Nov 12
+Dat | Nov 15
 1. Try to find out a way to load data in favorite component without reload the page twice, work with Johnnie to find a way to save steamid to the correct user in our database.
 2. Tried couple of methods for both favorite issue and steam login button issue. Some minor changes here and there
 3. Still not able to find a solution for favorite issue and the steamid login button
+
+Derek | 11-15-2023
+1. Still working on Dialg and Pagination for the market page: I haven't had a ton of time to work on the project as I would liked to have.
+2. Nothing changed from before.
+3. Nothing, just scheduling issues

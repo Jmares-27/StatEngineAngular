@@ -18,3 +18,8 @@ Johnnie Mares| 11/29/2023
 1. me and dat working to make steam login work
 2. can pull stea id from query param, working to also get user id/name for db lookup 
 3. Could really go for some pan dulce (sweet bread) right now 
+
+Derek | 11-29-2023
+1. Still working on adding inventories to the user page
+2. Nothing since last standup
+3. Some issues with how steamID is being displayed is in error, and that is causing hiccups on the inventory end. 

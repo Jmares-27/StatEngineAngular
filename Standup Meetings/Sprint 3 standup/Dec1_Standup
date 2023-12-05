@@ -18,3 +18,8 @@ Johnnie Mares| 12/01/2023
 1. still working on steam login with Dat 
 2. steam login button should be working now
 3. me and dat have formed a life long frienship, so no issues
+
+Derek Zhang | 12/01/2023
+1. Working on Inventories for other user pages
+2. Finished MyAccount Inventory loading. Some issues with how the data is loaded that I will need to discuss with Nathan
+3. Right now loading the Myaccount inventories are super slow, as it needs to find each item one by one in our 21k database. Need to find a faster way to do this. 
