@@ -23,3 +23,8 @@ Derek | 11-13-2023
 1. Working on Dialog Boxes and Pagination onto the Market Page
 2. Nothing Changed since last time.
 3. Not really an issue, but having to load 21,000 items each time I make a minor change is touching a nerve. 
+
+Nathan | Nov 13
+1. Separate script to scrape Steam hosted inventory URLs and Steam price
+2. Steam URL is scraped for all items, but needs to be further processed and added to database
+3. Not all items show when script is run, researching further
