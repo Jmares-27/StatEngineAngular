@@ -1,0 +1,30 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Johnny Pham | 12-1-2023
+1. Fixing bugs with text sizes on mobile
+2. Changed color coding for stats to be relative with overall
+3. Stat box becomes vertically squashed on desktop
+
+Dat |  12-01-23
+1. Working with Johnnie to find a way to update steamID to the correct user data in the database after successfully login through steam. Need to update myAccount in the frontend where it will display steamid in the the url (ex: localhost:4200/myaccount/steamid) if user does not have steamid the url just show localhost:4200/myaccount/, remove any not need code that relaate to steam login button
+2. Steam login button should be fully functional.
+3. None
+
+Johnnie Mares| 12/01/2023
+1. still working on steam login with Dat 
+2. steam login button should be working now
+3. me and dat have formed a life long frienship, so no issues
+
+Derek Zhang | 12/01/2023
+1. Working on Inventories for other user pages
+2. Finished MyAccount Inventory loading. Some issues with how the data is loaded that I will need to discuss with Nathan
+3. Right now loading the Myaccount inventories are super slow, as it needs to find each item one by one in our 21k database. Need to find a faster way to do this. 
+
+Sean | 12/01/2023
+1. Finished adjusting the search bar.
+2. I need to spend a bit fixing the login and redirect pages for responsiveness.
+3. I have to some stress testing but havent found anything new.

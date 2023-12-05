@@ -1,0 +1,25 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Johnny Pham | 11-13-2023
+1. Planning layout for user page
+2. Small CSS adjustments to user page
+3. Nothing so far
+
+Johnni Mares | 11-13-2023
+1. planning logic for steam login
+2. can direct to steam when clicking button
+3. im pretty sure i need more coffee
+
+Dat | Nov 12
+1. Try to find out a way to load data in favorite component without reload the page twice, work with Johnnie to find a way to save steamid to the correct user in our database.
+2. Tried couple of methods for both favorite issue and steam login button issue. Some minor changes here and there
+3. Still not able to find a solution for favorite issue and the steamid login button
+
+Derek | 11-13-2023
+1. Working on Dialog Boxes and Pagination onto the Market Page
+2. Nothing Changed since last time.
+3. Not really an issue, but having to load 21,000 items each time I make a minor change is touching a nerve. 

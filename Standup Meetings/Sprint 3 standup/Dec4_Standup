@@ -1,0 +1,31 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Johnny Pham | 12-04-2023
+1. Working on CSS for stat cards once again
+2. Color coding and positioning of stat cards
+3. Stat divs are being squashed still on desktop
+
+Dat |  12-04-23
+1. css for pages. Add a avatar url from steam to our page in user component and myaccount component. Merge steam login button branch and favorite(cont.) branch to main
+2. comepleted all of above with some minor fixes and changes after merge
+3. None
+
+Johnnie Mares| 12/04/2023
+1. css update for bug report page
+2. did above but some white bar is showing up randomly
+3. nada, im finally at peace
+
+Derek | 12/04/2023
+1. Finished :)
+2. Got User inventories working on other pages, and fixed loading issue with myaccount inventory.
+3. Nothing! Ready to show off haha.
+
+
+Sean | 12/04/2023
+1. Just making tweaks and bugfixes to the search bar.
+2. Finished fixing the login and register pages.
+3. I am pleased with the results and to show our project to the class!

@@ -1,0 +1,30 @@
+Format: 
+Name | Date
+1. What I Am Working ON.
+2. What I have completed.
+3. What issues am I running into.
+
+Johnny Pham | 11-29-2023
+1. Color coding for stats
+2. Positioning for stat titles
+3. None so far
+
+Dat |  11-29-23
+1. Add a pop-up for token expire instead of automatically log user out when their token is invalid/expired, add confirm pop for delete account. Work with Johnnie find a solution to update steamID to the database after successfully login in through steam
+2. A perssistent pop-up will appear then token is invalid or expired and the popup will now appear when click on delete now button in delete account component.
+3. Still trying to find a way to update steamID to the database after successfully login in through steam
+
+Johnnie Mares| 11/29/2023
+1. me and dat working to make steam login work
+2. can pull stea id from query param, working to also get user id/name for db lookup 
+3. Could really go for some pan dulce (sweet bread) right now 
+
+Derek | 11-29-2023
+1. Still working on adding inventories to the user page
+2. Nothing since last standup
+3. Some issues with how steamID is being displayed is in error, and that is causing hiccups on the inventory end. 
+
+Sean | 11/29/2023
+1. I am struggling with the search bar not displaying properly on mobile.
+2. I am trying to make it so the search bar is the only nav hud on the page during a mobile use.
+3. After that I will work on the login and redirect pages a bit.
