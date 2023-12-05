@@ -28,3 +28,8 @@ Sean | 11/18/2023
 1. Some groupmates have informed me that the search bar has some bugs. 
 2. I need to make it so that the pages hide the searchbar using onInit() instead of during a redirect
 3. Responsiveness is making this a bit tedious, but I'm used to it.
+
+Nathan | Nov 18
+1. Looking into python microservice hosting for data parsing
+2. Test deployment on PythonAnywhere
+3. Doesn’t work for our purposes :(
