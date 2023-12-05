@@ -97,7 +97,7 @@ export class AppComponent {
   homeRedirect(){
     this.router.navigate(['home']);
     this.menuToggle();
-    document.getElementById("searchbar1").style.display="block";
+
 
   }
 
@@ -112,6 +112,7 @@ export class AppComponent {
   registerRedirect(){
     this.router.navigate(['register']);
     this.menuToggle();
+    if(this.viewportState == 'laptopOrDesktop')
     document.getElementById("searchbar1").style.display="none";
 
   }
@@ -119,7 +120,8 @@ export class AppComponent {
   loginRedirect(){
     this.router.navigate(['login']);
     this.menuToggle();
-    document.getElementById("searchbar1").style.display="none";
+    if(this.viewportState == 'laptopOrDesktop')
+     document.getElementById("searchbar1").style.display="none";
 
   }
 

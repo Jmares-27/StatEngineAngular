@@ -74,6 +74,9 @@ export class MyAccountComponent {
     window.location.href = "http://localhost:4200/auth/steam";
   }
   
+  ngOnInit(){
+    document.getElementById("searchbar1").style.display="block";
 
+  }
 
 }

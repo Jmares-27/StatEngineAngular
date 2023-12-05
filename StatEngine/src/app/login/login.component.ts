@@ -74,6 +74,12 @@ export class LoginComponent {
   goToAccount(){
     this.router.navigate(["myaccount"]);
   } 
+
+  ngOnInit(){
+    if(this.appComponent.viewportState == 'laptopOrDesktop')
+      document.getElementById("searchbar1").style.display="none";
+
+  }
   }
 
 

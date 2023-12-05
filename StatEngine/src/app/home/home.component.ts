@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AppComponent } from '../app.component';
+
+
 export interface GameStats {
   date: string
   map: string;
@@ -17,10 +20,21 @@ const EXAMPLE_DATA: GameStats[] = [
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
+
+  
 })
 export class HomeComponent {
+  constructor(private appComponent:AppComponent){
+
+  }
 displayedColumns: string[] = ['date', 'map', 'kills', 'deaths'];
   dataSource = EXAMPLE_DATA;
+  
 
+  ngOnInit() {
+    if(this.appComponent.viewportState == 'laptopOrDesktop')
+    document.getElementById("searchbar1").style.display="none";
+
+    }
 
 }
