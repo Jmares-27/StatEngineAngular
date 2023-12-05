@@ -13,3 +13,8 @@ Johnny Pham | 11-18-2023
 1. still workin gon steam login
 2. can confirm steam is us returned in back end
 3. need to figure out how to save steam id to user profile, going to box steam
+
+Dat | Nov 18
+1. Try to find out a way to load data in favorite component without reload the page twice, work with Johnnie to find a way to save steamid to the correct user in our database.
+2. Tried  even more different of methods for both favorite issue and steam login button issue. 
+3. Still not able to find a solution for favorite issue and the steamid login button
