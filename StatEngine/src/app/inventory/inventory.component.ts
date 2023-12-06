@@ -23,7 +23,7 @@ export class InventoryComponent {
   
   constructor(private http: HttpService, public dialog:MatDialog) {
     var steamID = JSON.parse(localStorage.getItem('userData'))['steamID'];
-    this.items = this.http.getUserInventory(steamID).subscribe(
+    this.items = this.http.getMarketData().subscribe(
       (data) => {
         // console.log(data);
         this.items = data;

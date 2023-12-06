@@ -368,5 +368,9 @@ export class HttpService {
     return this.http.get(`${this.baseURL}/api/getUserSteamID/${Obj_id}`, {});
   }
 
+  getMarketData():Observable<Object>{
+    return this.http.get(`${this.baseURL}/api/getMarketData/`, {});
+  }
+
 
 }
