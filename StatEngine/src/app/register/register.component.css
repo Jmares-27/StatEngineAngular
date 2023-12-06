@@ -49,3 +49,15 @@
   .input-box{
     width: 100%;
   }
+
+
+  .site-header{
+    margin-top: 0px;
+}
+
+/* if the screen is of tablet size or smaller */
+@media only screen and (max-device-width: 768px) {
+    .site-header{
+        margin-top: 40px;
+    }
+}
