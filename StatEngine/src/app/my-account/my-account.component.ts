@@ -56,9 +56,11 @@ export class MyAccountComponent implements OnInit {
   }
 
   ngOnInit(){
+    document.getElementById("searchbar1").style.display="block";
+
     this.route.params.subscribe((params) => {
       this.steamId = params['steamid'];
-      console.log ("STEAMID IS: ", this.steamId)
+      // console.log ("STEAMID IS: ", this.steamId)
       if (this.steamId !== undefined){
         const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
         
@@ -149,10 +151,12 @@ export class MyAccountComponent implements OnInit {
   Steamlogin() {
     const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
         // const redirectUrl =   `http://localhost:4200/api/auth/steam/`;
-
     window.location.href = redirectUrl
   }
   
+
+
+
   get filteredItems():any[] {
     return this.items.filter((item) => {
       return item.name.toLowerCase().includes(this.searchText.toLowerCase());
@@ -169,6 +173,5 @@ export class MyAccountComponent implements OnInit {
       data: item
     });
   }
-
 
 }
