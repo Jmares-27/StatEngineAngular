@@ -1,80 +1,216 @@
 <div class="back-ground">
     <mat-card class = "card-class" >
+		
 		<mat-card-header style = "color: white">
 			<mat-card-title>
-				{{userName}}
-					<div style="" mat-card-avatar class = "image"></div>
+				<a style="padding-right: 5px;">{{userName}}</a>
+				<button (click)="toggleFavorite();">
+					<img
+					  style="width:20px;height:20px;"
+					  [src]="userBeenFavorited ? 'assets/icons/Favorited.png' : 'assets/icons/Favorite.png'"
+					/>
+				  </button>
 				</mat-card-title>
 			</mat-card-header>		
-		<mat-list >
-		<h2 matSubheader style = "font-size: 22px; width: 53px; height: 24px; margin-left: 1rem; color: white">Socials</h2>
-			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="discord"></mat-icon> <span style= "color: white">MurphTurph</span></mat-list-item>
-			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="instagram"></mat-icon><span style= "color: white">MucleHead</span></mat-list-item>
-			<mat-list-item><mat-icon style=" font-size: 33px; width: 33px; height: 24px; margin-left: 1rem;" svgIcon="facebook"></mat-icon><span style= "color: white">Facebook</span></mat-list-item>
-		</mat-list>
+			<img  [src]="profile_img_url || 'assets/images/no_profile_img.png'">
+
+			<!-- Overall Stats -->
+			<mat-card class="cardbox-mini">
+				<mat-card-title >
+					<div class="stat-card-title">
+						<strong>Overall</strong>
+					</div>
+				</mat-card-title>
+				<mat-card-content class="stat-container">
+					<div class="stat-title">
+						KD:
+						<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-number" id="oa_kd">
+							{{oa_kd}}
+						</div>
+					</div>
+					<div class="stat-title">
+						ADR:	
+						<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-number" id="oa_adr">
+							{{oa_adr}}
+						</div>
+					</div>
+					<div class="stat-title">
+						HSP:
+						<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" class="stat-number" id="oa_hsp">
+							{{oa_hsp}}%
+						</div>
+					</div>
+				</mat-card-content>
+			</mat-card>
+			
+			<!-- Last Match Stats -->
+			<mat-card class="cardbox-mini">
+				<mat-card-title>
+					<div class="stat-card-title">
+						<strong>Last Match</strong>
+					</div>
+				</mat-card-title>
+				<div class="stat-container">
+					
+					<div class="stat-title" >
+						KD:
+						<div [ngClass]="{'goodStat': lm_kd >= oa_kd, 'badStat': lm_kd < oa_kd}" class="stat-number" id="lm_kd">
+							{{lm_kd}}
+						</div>
+					</div>
+					<div class="stat-title">
+						ADR:
+						<div [ngClass]="{'goodStat': lm_adr >= oa_adr, 'badStat': lm_adr < oa_adr}" class="stat-number" id="lm_adr">
+							{{lm_adr}} 
+						</div>
+					</div>
+					<div class="stat-title">
+						W/L
+						<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" class="stat-number" id="winloss">
+							{{lm_result}}
+						</div>
+					</div>
+				</div>
+			</mat-card>
 	</mat-card>
+
+	
 	<br>
-	
+	<!-- right side -->
 	<div class="cardbox" style="width: 60%;">
-		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%;">
-			<mat-card-title style="font-size:60px">
-				<div style="padding:2%">
-					{{userName}}
-				</div>
-				<div style="color:black; opacity: 100%; font-size: 20px">
-					Overall Stats
-				</div>
-			</mat-card-title>
-			<mat-card-content style="padding-bottom: 3%;">
-				<div style="text-align: center; width: 33%;font-size:24px; float:left">
-					KD:
-					<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" style="font-size: 48px; font:bold; padding: 4%;" id="oa_kd">
-						{{oa_kd}}
-					</div>
-				</div>
-				<div style="text-align: center; width: 33%;font-size:24px; float:left">
-					ADR:
-					<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" style="font-size: 36px; font:bold; padding: 4%;" id="oa_adr">
-						{{oa_adr}}
-					</div>
-				</div>
-				<div style="text-align: center; width: 33%;font-size:24px; float:left">
-					Headshot Rate:
-					<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" style="font-size: 36px; font:bold; padding: 6%;" id="oa_hsp">
-						{{oa_hsp}}%
-					</div>
-				</div>
-			</mat-card-content>
-		</mat-card>
-		<div style="margin: 5%; width: 100%; float:left">
-		</div>
-		<mat-card class="cardbox-mini" style="width: 92%; opacity: 100%">
-			<mat-card-title style="font-size:60px">
-				<div style="color:black; opacity: 100%; font-size: 20px">
-					Last Match Stats
-				</div>
-			</mat-card-title>
-			<mat-card-content style="padding-bottom: 3%;">
-				<div style="text-align: center; width: 33%;font-size:24px; float:left">
-					Result
-					<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" style="font-size: 48px; font:bold; padding: 4%;" id="winloss">
-						{{lm_result}}
-					</div>
-				</div>
-				<div style="text-align: center; width: 33%;font-size:24px; float:left">
-					KD:
-					<div [ngClass]="{'goodStat': lm_kd > 1, 'badStat': lm_kd <= 1}" style="font-size: 36px; font:bold; padding: 4%;" id="lm_kd">
-						{{lm_kd}}
-					</div>
-				</div>
-				<div  style="text-align: center; width: 33%;font-size:24px; float:left">
-					ADR:
-					<div [ngClass]="{'goodStat': lm_adr >= 80, 'badStat': lm_adr < 80}" style="font-size: 36px; font:bold; padding: 6%;" id="lm_adr">
-						{{lm_adr}} 
-					</div>
-				</div>
-			</mat-card-content>
-		</mat-card>
-		<div style="margin: 5%; width: 100%; float:left">
-		</div>
+			<mat-card>
+				<mat-card-header style="background-color: rgba(24, 23, 23, 0.61);">
+					<mat-card-title>
+						<div  style="float:left; width:70%">
+							<h1>{{userName}}'s Inventory</h1>
+						</div>
+						<div style="float:right; width:30%; align-items: right;">
+							<input type="text" [(ngModel)]="searchText" placeholder="Search items">
+						</div>
+					</mat-card-title>
+				</mat-card-header>
+				<mat-card-content>
+					<mat-paginator [length]="filteredItems.length" 
+								   [pageSize]="100" 
+								   [pageSizeOptions]="[100, 250, 500, 1000]"
+								   (page)="handlePageEvent($event)">
+					</mat-paginator>
+					<ng-container *ngFor="let item of filteredItems | slice: (page - 1) * pageSize : page * pageSize">
+						<mat-card class="itemBox" (click)="openDialog(item)">
+							<mat-card-header>
+								<mat-card-title style="color:white; height: 50%;">
+									<h2>{{item.name}}</h2>
+								</mat-card-title>
+							</mat-card-header>
+							<mat-card-content style="color:white">
+								<p *ngIf="item.image_url != null; else elseblock1">
+									<img [src]="item.image_url" style="width: 40%; height: 40%;">
+								</p>
+								<ng-template #elseblock1><p>
+									<img src="../../assets/images/Image_not_available.png" style="width: 40%; height: 40%;">
+								</p></ng-template>
 	
+								<p>Bitskins Price: ${{item.suggested_price/1000}}</p>
+								<p *ngIf="item.steam_price != null; else elseblock">Steam Price: ${{item.steam_price/100}}</p>
+								<ng-template #elseblock><p>Steam Price: No Steam Listings</p></ng-template>
+							</mat-card-content>
+						</mat-card>
+					</ng-container>
+				</mat-card-content>
+			</mat-card>
+	<!--	<mat-card style="float:left; width: 92%;">
+			<mat-card-title>
+				(Placeholder) Input SteamID:
+			</mat-card-title>
+			<mat-card-content>
+				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
+					<mat-form-field [style.width.px]="600">
+						<mat-label>Please enter a steamID to be linked to your account:</mat-label>
+						<input matInput formControlName="steamID">
+						<mat-hint>Numbers only!</mat-hint>
+					</mat-form-field>			
+				</form>
+				<button mat-flat-button (click)="onIDSubmit()" color="primary">Submit</button>
+
+			</mat-card-content>
+		</mat-card>
+	</div>
+	 <mat-card class = "card-stats-class">
+		<mat-card-header style = "color: white">
+			<mat-card-title style = "vertical-align: 40">
+				Stats
+			</mat-card-title>
+		</mat-card-header>
+		<div class='table'>
+			<table mat-table [dataSource] = "dataSource" class="mat-elevation-z8">
+				<ng-container matColumnDef = "map">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> map </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.map}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "kills">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> kills </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.kills}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "deaths">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> deaths </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.deaths}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef = "KD">
+					<th mat-header-cell *matHeaderCellDef style="color:black"> KD </th>
+					<td mat-cell *matCellDef = "let stat"> {{stat.KD}}</td>
+				</ng-container>
+
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+			</table>
+		</div>
+		<div style="margin-top:10%"></div>
+		<mat-card style="float:left;">
+			<mat-card-title>
+				(Placeholder) Input SteamID:
+			</mat-card-title>
+			<mat-card-content>
+				<form [formGroup]="steamIDForm" (ngSubmit)="onIDSubmit()">
+					<mat-label>Please enter a steamID to be linked to your account:</mat-label>
+					<input matInput formControlName="steamID">
+					<mat-hint>Numbers only!</mat-hint>
+				</form>
+				<button (click)="onIDSubmit()">Submit</button>
+
+			</mat-card-content>
+		</mat-card>
+	</mat-card> -->
+</div>
+
+
+<!-- =======
+<div style="background: conic-gradient(from 45deg at 0% 100%, #999999 0deg, rgba(0, 0, 0, 0) 360deg), linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%); filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));">
+    <div style="display:flexbox">
+        <p style="text-align: center;color:white;"><b>Example user account page</b></p>
+    </div>
+    <div class="back-ground" style="display:flex; justify-content: center; padding-top: 10%;">
+        <form  [formGroup]="deleteForm" (ngSubmit)="onSubmit()" novalidate>
+            <div  style="text-align: center; padding-top: 50%;">    
+                <h1 style="color: white">Delete your account</h1>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label style="color: white">Delete Account</mat-label>
+                    <input matInput formControlName="username" style="color: white">
+                    <mat-hint>Enter A Name You Want To Search</mat-hint>
+                </mat-form-field>
+            </div>
+    
+            <div>Block 3 for submit button
+                <button mat-flat-button color="primary" type="submit" style="justify-content: center; align-self: center; left: 30%; top: 50%; color: white" onclick="onSubmit();" [disabled]="!deleteForm.valid">Delete Now</button>
+                <div style="display:flex; justify-content: center; padding-top: 10%; color: white">{{message}}</div>
+                <footer style="justify-content: center; text-align: center; padding-top: 80%; color: white " >This is a StatEngine Production</footer>
+            </div>
+    
+    
+        </form>
+    </div> -->

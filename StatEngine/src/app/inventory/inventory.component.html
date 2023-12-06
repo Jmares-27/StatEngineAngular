@@ -28,15 +28,22 @@
                 <ng-container *ngFor="let item of filteredItems | slice: (page - 1) * pageSize : page * pageSize">
                     <mat-card class="itemBox" (click)="openDialog(item)">
                         <mat-card-header>
-                            <mat-card-title style="color:white; height: 50%;">
+                            <mat-card-title style="color:white; height: 30%;">
                                 <h2>{{item.name}}</h2>
                             </mat-card-title>
                         </mat-card-header>
-                        <mat-card-content style="color:white">
-                            <p>
-                                <img [src]="item.image_url" style="width: 40%; height: 40%;">
-                            </p>
-                            <p>Bitskins Price: ${{item.suggested_price/1000}}</p>
+                        <mat-card-content style="color:white;">
+                            <div>
+                                <p *ngIf="item.image_url != null; else elseblock1">
+                                    <img [src]="item.image_url" style="width: 40%; height: 40%;">
+                                </p>
+                                <ng-template #elseblock1><p>
+                                    <img src="../../assets/images/Image_not_available.png" style="width: 40%; height: 40%;">
+                                </p></ng-template>
+                                <p>Bitskins Price: ${{item.suggested_price/1000}}</p>
+                                <p *ngIf="item.steam_price != null; else elseblock">Steam Price: ${{item.steam_price/100}}</p>
+                                <ng-template #elseblock><p>Steam Price: No Steam Listings</p></ng-template>
+                            </div>
                         </mat-card-content>
                     </mat-card>
                 </ng-container>

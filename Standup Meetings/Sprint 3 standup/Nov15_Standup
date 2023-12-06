@@ -23,13 +23,3 @@ Derek | 11-15-2023
 1. Still working on Dialg and Pagination for the market page: I haven't had a ton of time to work on the project as I would liked to have.
 2. Nothing changed from before.
 3. Nothing, just scheduling issues
-
-Sean | 11-15-2023
-1. Still working to tweak the search-bar.
-2. I finished the tweaks for desktop.
-3. Some of the viewport issues are harder to handle in typescript.
-
-Nathan | Nov 15
-1. More work on the price script
-2. Fully working script with no blatant errors, handles some of the more exotic names that gave errors before
-3. Some items still don’t show each time on the script due to current Steam listings
