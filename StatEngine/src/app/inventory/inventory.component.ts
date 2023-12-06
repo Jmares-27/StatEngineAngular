@@ -22,7 +22,6 @@ export class InventoryComponent {
   public pageSizeOptions: number[] = [100, 250, 1000];
   
   constructor(private http: HttpService, public dialog:MatDialog) {
-    console.log(JSON.parse(localStorage.getItem('userData'))['steamID']);
     var steamID = JSON.parse(localStorage.getItem('userData'))['steamID'];
     this.items = this.http.getUserInventory(steamID).subscribe(
       (data) => {
