@@ -12,7 +12,12 @@ import {MatDialog, MatDialogRef} from '@angular/material/dialog';
       </button>
     </div>
     <div style="text-align:center;padding-bottom:15%">
-      <img [src]="data.image_url" style="width: 300px">
+      <p *ngIf="data.image_url != null; else elseblock1">
+          <img [src]="data.image_url" style="width: 40%; height: 40%;">
+      </p>
+      <ng-template #elseblock1><p>
+        <img src="../../assets/images/Image_not_available.png" style="width: 40%; height: 40%;">
+      </p></ng-template>
       <p>Bitskins Price: {{data.suggested_price / 1000 | currency:'USD':true}}</p>
       <p>Steam Price: {{data.steam_price / 100 | currency:'USD':true}}</p>
       <!-- <p>Arbitrage: {{data.suggested_price / 1000 - data.steam_price*0.85 / 100 | currency:'USD':true}}</p> -->

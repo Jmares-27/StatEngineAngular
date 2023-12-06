@@ -1,16 +1,23 @@
-import { Component } from '@angular/core';
+import { Component , OnInit} from '@angular/core';
 import { HttpService } from '../_services/http.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserComponent } from '../user/user.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {HttpClient, HttpParams, HttpHeaders} from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { InventoryDialogComponent } from '../inventory-dialog/inventory-dialog.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
   styleUrls: ['./my-account.component.css']
 })
-export class MyAccountComponent {
+export class MyAccountComponent implements OnInit {
+  baseURL = this.http.baseURL
+  steamId: string
   userId: string
   userName: string = JSON.parse(localStorage.getItem("userData"))["username"];
   lm_result: string;
@@ -20,27 +27,96 @@ export class MyAccountComponent {
   oa_kd: number;
   oa_adr: number;
   oa_hsp: number;
-  displayedColumns: string[] = ['map','kills','deaths','KD'];
 
+  profile_img_url:string;
+
+  public items: any = [];
+  public displayedColumns = ['name', 'price', 'quantity'];
+  public searchText: string = "";
+  public page = 1;
+  public pageSize = 100;
+  public pageSizeOptions: number[] = [100, 250, 1000];
   // steamIDForm: FormGroup;
   currentSteamID: string = JSON.parse(localStorage.getItem("userData"))["steamID"];
-  constructor(private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar){
+  constructor(private route:ActivatedRoute, private httpC: HttpClient,private fb: FormBuilder, private http: HttpService, private snackBar: MatSnackBar, public dialog:MatDialog){
+
+    
     this.userName = JSON.parse(localStorage.getItem("userData"))["username"];
 
     this.currentSteamID = JSON.parse(localStorage.getItem("userData"))["steamID"];
-    //this.steamIDForm = this.fb.group({
-    //  steamID: ["", Validators.required]
-    
-    // console.log(JSON.parse(localStorage.getItem("userData"))["steamID"])
-    // console.log("current steam id for:" + this.userName + " "+this.currentSteamID)
-    // console.log(this.currentSteamID.length)
+    this.http.getUserInventory(this.currentSteamID).subscribe((data)=>{
+        this.items = data;
+      }, (error) => {
+        console.log('Error getting user inventory:', error);
+      }
+    )
 
-    this.getStatfunction()
+
     
   }
 
-  
+  ngOnInit(){
+    document.getElementById("searchbar1").style.display="block";
 
+    this.route.params.subscribe((params) => {
+      this.steamId = params['steamid'];
+      // console.log ("STEAMID IS: ", this.steamId)
+      if (this.steamId !== undefined){
+        const userid = JSON.parse(localStorage.getItem("userData"))["userid"];
+        
+          // console.log ("STEAMID SENT FROM BACKEND", this.steamId)
+        this.http.updateSteamID(this.steamId, userid).subscribe(
+          response => {
+    
+            //the backend should sent steamID set! at this point
+            // this.snackBar.open(`${response.message}`,"",{duration:5000});
+    
+          },
+          error => {
+            if (error.status === 500) {
+              
+              this.snackBar.open(`${error.message}`,"",{duration:5000});
+    
+            } else {
+              // Handle other errors
+              console.error('Error:', error);
+            }
+          }  
+        );
+
+
+
+      
+
+      }
+      this.getStatfunction()
+      this.getSteamAvatarFunction()
+
+    })
+  }
+
+
+  getSteamAvatarFunction(){
+    this.http.getSteamAvatarUrl(this.userId).subscribe(
+      (url: string) => {
+        // console.log (url);
+        this.profile_img_url = url
+
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+  }
+  
   getStatfunction (){
     this.userId = JSON.parse(localStorage.getItem("userData"))["userid"];
     this.http.getStats(this.userId).subscribe((data)=>{
@@ -61,7 +137,9 @@ export class MyAccountComponent {
     (error) => {
       if (error.status === 500) {
         // Handle the 500 error
-        console.error('Server error (500):', error.error);
+        this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+
+        // console.error('Server error (500):', error.error);
         // You can also display an error message to the user
       } else {
         // Handle other errors
@@ -71,12 +149,29 @@ export class MyAccountComponent {
   
   }
   Steamlogin() {
-    window.location.href = "http://localhost:4200/auth/steam";
+    const redirectUrl =   `${this.baseURL}/api/auth/steam/`;
+        // const redirectUrl =   `http://localhost:4200/api/auth/steam/`;
+    window.location.href = redirectUrl
   }
   
-  ngOnInit(){
-    document.getElementById("searchbar1").style.display="block";
 
+
+
+  get filteredItems():any[] {
+    return this.items.filter((item) => {
+      return item.name.toLowerCase().includes(this.searchText.toLowerCase());
+    });
+  }
+
+  handlePageEvent(event: PageEvent){
+    this.page = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+  }
+
+  openDialog(item:any){
+    this.dialog.open(InventoryDialogComponent, {
+      data: item
+    });
   }
 
 }
