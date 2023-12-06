@@ -96,7 +96,6 @@ export class UserComponent implements OnInit{
     this.http.getUserSteamID(this.userId).pipe(
       switchMap((data) => {
         this.currentUserSID = data.toString();
-        console.log("current user steam id: ", this.currentUserSID);
         if (this.currentUserSID) {
           return this.http.getUserInventory(this.currentUserSID);
         } else {
