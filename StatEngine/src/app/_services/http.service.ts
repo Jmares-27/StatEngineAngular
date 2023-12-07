@@ -372,5 +372,9 @@ export class HttpService {
     return this.http.get(`${this.baseURL}/api/getMarketData/`, {});
   }
 
+  getMarketDataPreview():Observable<Object>{
+    return this.http.get(`${this.baseURL}/api/getMarketDataPreview/`, {});
+  }
+
 
 }

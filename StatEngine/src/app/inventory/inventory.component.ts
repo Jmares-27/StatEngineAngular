@@ -7,13 +7,14 @@ import { NgModule } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { MatDialog } from '@angular/material/dialog';
 import { InventoryDialogComponent } from '../inventory-dialog/inventory-dialog.component';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-inventory',
   templateUrl: './inventory.component.html',
   styleUrls: ['./inventory.component.css']
 })
-export class InventoryComponent {
+export class InventoryComponent implements AfterViewInit {
   public items: any = [];
   public displayedColumns = ['name', 'price', 'quantity'];
   public searchText: string = "";
@@ -23,7 +24,7 @@ export class InventoryComponent {
   
   constructor(private http: HttpService, public dialog:MatDialog) {
     var steamID = JSON.parse(localStorage.getItem('userData'))['steamID'];
-    this.items = this.http.getMarketData().subscribe(
+    this.items = this.http.getMarketDataPreview().subscribe(
       (data) => {
         // console.log(data);
         this.items = data;
@@ -33,6 +34,22 @@ export class InventoryComponent {
       }
     )
 
+  }
+  
+  ngAfterViewInit(): void {
+      this.loadInventory();
+  }
+
+  loadInventory(){
+    this.items = this.http.getMarketData().subscribe(
+      (data) => {
+        // console.log(data);
+        this.items = data;
+      },
+      (error) => {
+        console.error('Error getting inventory:', error);
+      }
+    )
   }
 
   get filteredItems():any[] {
