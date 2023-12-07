@@ -45,8 +45,7 @@ onPasswordReset(){
     const userid = JSON.parse(localStorage.getItem("userData"))["userid"]
     const token = JSON.parse(localStorage.getItem("userData"))["token"]
   
-    console.log ("this userid:", userid)
-    console.log ("this token:", token)
+    
     this.http.updatePassword(username, token, userid, oldpassword, newpassword).subscribe(
       (data:any)=>{
         if (data.message == "Updated password Successfully!"){

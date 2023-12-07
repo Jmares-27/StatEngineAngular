@@ -318,9 +318,9 @@ export class HttpService {
 
   }
 
-  updatePassword(username:Object, token:Object, userid:Object, oldpass:Object,  newPa:Object):Observable<Object>{
+  updatePassword(username:Object, token:Object, userid:Object, oldpass:Object,  newpass:Object):Observable<Object>{
 
-    return this.http.put(`${this.baseURL}/api/updatePassword/${username}`, {token, userid, oldpass, newPa});
+    return this.http.put(`${this.baseURL}/api/updatePassword/${username}`, {token, userid, oldpass, newpass});
   }
 
   resetPassword(username:Object, password:Object):Observable<Object>{
