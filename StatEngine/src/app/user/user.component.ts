@@ -119,7 +119,7 @@ export class UserComponent implements OnInit{
       (url: string) => {
         // console.log (url);
         this.profile_img_url = url
-
+        this.setSteamAvatarFunction()
     },
     (error) => {
       if (error.status === 500) {
@@ -135,6 +135,28 @@ export class UserComponent implements OnInit{
 
   }
 
+  setSteamAvatarFunction(){
+
+    // this.getSteamAvatarFunction()
+
+    const token = JSON.parse(localStorage.getItem("userData"))["token"]
+    this.http.setSteamAvatarUrl(this.userId, token, this.profile_img_url).subscribe(
+      (response: any) => {
+        // console.log ("RESPONSE FROM SETSTEAMAVATARIN USER COMPONENT", response)
+    },
+    (error) => {
+      if (error.status === 500) {
+        // Handle the 500 error
+        // this.snackBar.open(`${error.error.message}`,"",{duration:5000});
+        // this.profile_img_url =  null       // console.error('Server error (500):', error.error);
+        // You can also display an error message to the user
+      } else {
+        // Handle other errors
+        console.error('Error:', error);
+      }
+    })
+
+  }
 
   getStatfunction (){
 

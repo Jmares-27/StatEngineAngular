@@ -11,8 +11,8 @@ import { FavoriteItem } from '../models/favoriteItem.model';
 })
 export class HttpService {
 
-  // public baseURL = 'http://localhost:3026'
-  public baseURL = 'http://statengines.org:3026'
+  public baseURL = 'http://localhost:3026'
+  // public baseURL = 'http://statengines.org:3026'
   private bool = false;
   hasLoggedIn : boolean = false
   favorite_list :string[] = []
@@ -361,6 +361,10 @@ export class HttpService {
 
   getSteamAvatarUrl(id:string):Observable<Object>{
     return this.http.post(`${this.baseURL}/api/getSteamProfileUrl/${id}`, {});
+  }
+
+  setSteamAvatarUrl(userid:Object, token:Object, profile_img_url:string):Observable<Object>{
+    return this.http.post(`${this.baseURL}/api/setSteamProfileUrl`, {userid, token, profile_img_url});
   }
 
   getUserSteamID(Obj_id:string):Observable<Object>{

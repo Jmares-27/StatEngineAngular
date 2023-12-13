@@ -79,6 +79,8 @@ export class AppComponent {
           }
           else{          
             this.suggestions = data["users"]
+            // console.log ("from app.component username", this.suggestions[0].username)
+            // console.log ("From app.component steamid", this.suggestions[0].steamID)
             this.showSuggestions = true;
             // console.log ("suggestion data: ", this.suggestions)
             // console.log ("data received", data["users"])

@@ -6,7 +6,7 @@
 				{{userName}}
 				</mat-card-title>
 			</mat-card-header>		
-			<img  [src]="profile_img_url">
+			<img  [src]="profile_img_url || 'assets/images/no_profile_img.png'">
 
 			<!-- Overall Stats -->
 			<mat-card class="cardbox-mini">
