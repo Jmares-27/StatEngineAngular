@@ -75,6 +75,9 @@
     <!-- Login -->
     <div class="menubox" *ngIf="!hasLoggedIn" (click)="loginRedirect()"><h2 class="menuboxText">Login</h2></div>
 
+    <!-- About Us -->
+    <div class="menubox" *ngIf="!hasLoggedIn" (click)="aboutUsRedirect()"><h2 class="menuboxText">About Us</h2></div>
+    
     <!-- My Account -->
     <div class="menubox" *ngIf="hasLoggedIn"><a class="menuboxText" (click)="myAccountRedirect()">My Account</a> </div>
 

@@ -197,6 +197,11 @@ export class AppComponent {
 
   }
 
+  aboutUsRedirect(){
+    this.router.navigate(['aboutus'])
+    this.menuToggle();
+  }
+
   favoritesRedirect(){
     this.router.navigate(['favorites'])
     this.menuToggle();

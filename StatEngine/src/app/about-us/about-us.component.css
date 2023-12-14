@@ -1,0 +1,111 @@
+/* about-us.component.css */
+
+.back-ground {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: 0;
+    background: rgb(242, 242, 242);
+    background: conic-gradient(from 45deg at 0% 100%, #999999 0deg, rgba(0, 0, 0, 0) 360deg),
+        linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
+    filter: drop-shadow(24% 16% 0% rgba(0, 0, 0, 0.14)) drop-shadow(0% 6% 30% rgba(0, 0, 0, 0.12))
+        drop-shadow(0px 8px 10 rgba(0, 0, 0, 0.2));
+    background-attachment: fixed;
+}
+
+
+#tableOfContents {
+  position: fixed;
+  top: 8%;
+  right: 0;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 1000;
+  border-radius: 10px;
+}
+#tableOfContents {
+    position: fixed;
+    top: 10%;
+    right: 2%; /* Updated from right to left */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #323338 ;
+    align-items: flex-start; /* Updated from align-items: flex-end */
+    z-index: 1000;
+    border-radius: 10px;
+  }
+
+
+
+  button {
+    color: black;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    text-align: right;
+    text-decoration: none;
+  }
+
+  .button-effect {
+    color: black;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust the alpha channel for transparency */
+    text-align: right;
+    text-decoration: none;
+    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition effect */
+  }
+  
+  .button-effect:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighter color on hover, adjust the alpha channel */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Add a box shadow for the light-up effect */
+  }
+  
+  .button:hover {
+    background-color: #777;
+  }
+  
+
+  .content-section {
+    margin-top: 50px;
+    padding: 20px;
+    max-width: 800px;
+    /* display: flex; */
+    margin: 0 auto;
+
+  }
+
+  .sidebar{
+    top: 10px; /* Adjust the distance from the top as needed */
+    right: 10px; /* Adjust the distance from the right as needed */
+    /* width: 25vw; */
+    width: 100px; 
+    height: 100px
+    /* height: 100vh;  */
+    /* background-image: linear-gradient(to right,#282828 100%, #272727 65.63%, #262626 0%); */
+}
+  .drawer {
+    position: fixed;
+    top: 10px; /* Adjust the distance from the top as needed */
+    right: 10px; /* Adjust the distance from the right as needed */
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust the background color and alpha channel */
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 1001; /* Make sure the drawer is on top of the tableOfContents */
+    transition: right 0.3s ease-in-out; /* Add a smooth transition effect */
+}
+  .show-tab {
+    right: 0;
+  }

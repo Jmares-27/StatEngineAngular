@@ -13,6 +13,7 @@ import { FavoritesComponent } from "./favorites/favorites.component";
 import { SteamLoadingPageComponent } from "./steam-loading-page/steam-loading-page.component";
 import { UserComponent } from "./user/user.component";
 import { InventoryComponent } from "./inventory/inventory.component";
+import { AboutUsComponent } from "./about-us/about-us.component";
 
 export const appRoutes: Routes =[
     {path: 'home', component:HomeComponent},
@@ -20,6 +21,7 @@ export const appRoutes: Routes =[
     {path: 'register', component: RegisterComponent},
     {path: 'myaccount', component: MyAccountComponent, canActivate: [AuthGuard]},
     {path: 'myaccount/:steamid', component: MyAccountComponent, canActivate: [AuthGuard]},
+    {path: 'aboutus', component: AboutUsComponent},
 
     {path: 'passwordreset', component: PasswordresetComponent, canActivate: [AuthGuard]},
     {path: 'bugreport', component: BugReportComponent, canActivate: [AuthGuard]},

@@ -48,6 +48,24 @@ mat-cell{
     color: white;
 }
 
+.signup-button {
+    background-color: #323338;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+/* Hover effect */
+.signup-button:hover {
+    background-color: black; /* Darker shade on hover */
+}
+
 
 /* Define CSS for desktop and larger screens */
 @media screen and (min-width: 768px) {

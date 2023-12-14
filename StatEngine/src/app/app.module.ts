@@ -15,6 +15,8 @@ import { BugReportSuccessComponent } from './bug-report-success/bug-report-succe
 import { UserComponent } from './user/user.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { SteamLoadingPageComponent } from './steam-loading-page/steam-loading-page.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+
 
 //Materials Imports
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -63,6 +65,7 @@ import { InventoryDialogComponent } from './inventory-dialog/inventory-dialog.co
     SteamLoadingPageComponent,
     InventoryComponent,
     InventoryDialogComponent,
+    AboutUsComponent,
 
   ],
   imports: [

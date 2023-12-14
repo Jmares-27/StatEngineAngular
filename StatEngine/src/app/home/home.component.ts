@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 export interface GameStats {
   date: string
   map: string;
@@ -22,5 +23,9 @@ export class HomeComponent {
 displayedColumns: string[] = ['date', 'map', 'kills', 'deaths'];
   dataSource = EXAMPLE_DATA;
 
+  constructor(private router: Router){}
 
+  onClickToSignUp(){
+    this.router.navigate(['register']);
+  }
 }
