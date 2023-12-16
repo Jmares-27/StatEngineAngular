@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from '../app.component';
+
 export interface GameStats {
   date: string
   map: string;
@@ -19,13 +21,20 @@ const EXAMPLE_DATA: GameStats[] = [
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent {
+  
 displayedColumns: string[] = ['date', 'map', 'kills', 'deaths'];
   dataSource = EXAMPLE_DATA;
 
-  constructor(private router: Router){}
+  constructor(private router: Router, private appComponent: AppComponent){}
 
   onClickToSignUp(){
     this.router.navigate(['register']);
+  }
+
+  ngOnInit(){
+    if(this.appComponent.viewportState == 'laptopOrDesktop')
+    document.getElementById("searchbar1").style.display="none";
   }
 }

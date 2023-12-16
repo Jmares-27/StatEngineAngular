@@ -50,5 +50,10 @@
     }
     .login-container{
         width: 60%;
+        margin: auto;
+    }
+    .input-box{
+        margin-left: auto;
+        width: 90%;
     }
 }
