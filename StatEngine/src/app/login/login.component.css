@@ -1,9 +1,8 @@
 .back-ground {   
     position: absolute;
-    width: 100%;
-    height: 100%;
     left: 0px;
     top:  0px;
+    width: 100%;
     display:flex; 
     justify-content: center; 
     padding-top: 10%;
@@ -28,6 +27,7 @@
     margin-top: 50px;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(97, 97, 112, 0.5);
+    
 }
 
 .login-buttons{
@@ -56,4 +56,6 @@
         margin-left: auto;
         width: 90%;
     }
+
+    
 }
