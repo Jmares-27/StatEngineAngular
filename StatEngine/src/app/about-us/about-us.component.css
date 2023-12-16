@@ -79,6 +79,7 @@
     margin-top: 50px;
     padding: 20px;
     max-width: 800px;
+    font-size: 16px;
     /* display: flex; */
     margin: 0 auto;
 
@@ -106,6 +107,30 @@
     z-index: 1001; /* Make sure the drawer is on top of the tableOfContents */
     transition: right 0.3s ease-in-out; /* Add a smooth transition effect */
 }
-  .show-tab {
-    right: 0;
+
+
+  footer {
+    /* position: fixed; */
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    color: white;
+  }
+
+  /* Media query for screens smaller than a certain width (e.g., 600px) */
+@media screen and (max-width: 600px) {
+    #tableOfContents {
+      display: none; /* Hide the table of contents on smaller screens */
+    }
+    .content-section {
+        /* margin-top: 50px; */
+        padding-top: 50px;
+        /* padding: 20px; */
+        max-width: 800px;
+        font-size: 16px;
+        /* display: flex; */
+        margin: 0 auto;
+    
+      }
   }
