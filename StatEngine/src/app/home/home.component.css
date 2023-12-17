@@ -12,12 +12,7 @@
     background-attachment: fixed;
 }
 
-.title{
-    position: relative;
-    color: white;
-    font-size: 32px;
-    padding-top: 10%;
-}
+
 
 .table-container{
     width:80%;
@@ -77,6 +72,17 @@ mat-cell{
         /* margin: 0 auto; */
         /* padding: 20px; */
     }
+    .title{
+        position: relative;
+        color: white;
+        font-size: 32px;
+        /* padding-top: 10%; */
+    }
+        .logo{
+        padding-top: 10%; 
+        width:20%;
+        height: auto;
+    }
 }
 
 /* Define CSS for smaller screens (e.g., phones) */
@@ -88,5 +94,16 @@ mat-cell{
     .container {
         width: 100%;
         padding-top: 10%;
+    }
+    .title{
+        position: relative;
+        color: white;
+        font-size: 32px;
+        /* padding-top: 10%; */
+    }
+    .logo{
+        padding-top: 10%; 
+        width:40%;
+        height: auto;
     }
 }

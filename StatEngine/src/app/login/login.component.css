@@ -5,7 +5,7 @@
     width: 100%;
     display:flex; 
     justify-content: center; 
-    padding-top: 10%;
+    padding-top: 3%;
     background: linear-gradient(180deg, #62B8B9 10.0%, #0F1119 35%, #B63986 80.0%);
     color: white;
 }
@@ -40,13 +40,40 @@
     margin-bottom: 15px;
 }
 
+/* .logo{
+    padding-top: 10%; 
+    width:20%;
+    height: auto;
+} */
+
 .site-header{
     margin-top: 0px;
 }
+
+
+/* Define CSS for desktop and larger screens */
+@media screen and (min-width: 768px) {
+    body {
+        /* padding-top: 20%; */
+        font-size: 16px;
+    }
+    .logo{
+        /* padding-top: 10%;  */
+        width: 45%;
+        height: auto;
+    }
+}
+
+
+
 /* if the screen is of tablet size or smaller */
-@media only screen and (max-device-width: 768px) {
+@media only screen and (max-width: 767px) {
+    body {
+        /* padding-top: 10%; */
+        font-size: 14px;
+    }
     .site-header{
-        margin-top: 40px;
+        /* margin-top: 40px; */
     }
     .login-container{
         width: 60%;
@@ -57,5 +84,10 @@
         width: 90%;
     }
 
-    
+    .logo {
+        padding-top: 15%; 
+        width: 40%; 
+        height: auto;
+
+    }
 }

@@ -1,57 +1,68 @@
 
-<!-- Background -->
-<div class="back-ground">
-    <!-- Login Form -->
-    <form [formGroup]="loginForm"  novalidate (keydown.enter)="onLogin()">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="login.component.css">
+</head>
+<body>
+    <!-- Background -->
+    <div class="back-ground">
+        <!-- Login Form -->
+        <form [formGroup]="loginForm"  novalidate (keydown.enter)="onLogin()">
 
-        <!-- StatEngine Logo -->
-        <h1 class = "title-header site-header">StatEngine</h1>
-        
-        <!-- Login Container -->
-        <div class = "login-container">
-            <h1 class = "title-header">Login</h1>
+            <!-- StatEngine Logo -->
+            <div style=" display: flex; justify-content: center; align-items: center; text-align: center;">
+                <img class="logo"  src="assets/icons/Statengineslogo.png">
+            </div>
 
-            <!-- Username Field -->
+            <h1 class = "title-header site-header">StatEngine</h1>
+            
+            <!-- Login Container -->
+            <div class = "login-container">
+                <h1 class = "title-header">Login</h1>
+
+                <!-- Username Field -->
+                <div>
+                    <mat-form-field class="input-box" appearance="outline">
+                        <mat-label style="color:white">Username</mat-label>
+                        <input matInput formControlName="username" style="color:white">
+                        <!-- <mat-hint>Enter a username</mat-hint> -->
+                    </mat-form-field>
+                </div>  
+
+                <!-- Password Field -->
+                <div>
+                    <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline" (keydown.enter)="$event.preventDefault()">
+                        <mat-label style="color:white">Password</mat-label>
+                        <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <!-- <mat-hint>Enter a password</mat-hint> -->
+                    </mat-form-field>
+                </div>
+
+                <!-- Sign up button -->
+                <div  style ="margin-top: 35px;" class="login-buttons"> <!--Block 3 for submit button-->
+                    <button (click)="onLogin()" mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
+                </div>
+
+                <!-- Sign up button -->
+                <div class="login-buttons">            
+                    <a style="margin-right: 150px;"><button mat-button (click)="onClickToSignUp()" style="color:white"><u >Sign Up</u></button></a>
+                    <button mat-button  (click)="goToPassReset()" style="color:white"><u>Reset Password</u></button>
+                </div>
+
+
+                
+
+                
+                
+            </div>
+
             <div>
-                <mat-form-field class="input-box" appearance="outline">
-                    <mat-label style="color:white">Username</mat-label>
-                    <input matInput formControlName="username" style="color:white">
-                    <!-- <mat-hint>Enter a username</mat-hint> -->
-                </mat-form-field>
-            </div>  
-
-            <!-- Password Field -->
-            <div>
-                <mat-form-field style="margin-top: 30px;" class="input-box" appearance="outline" (keydown.enter)="$event.preventDefault()">
-                    <mat-label style="color:white">Password</mat-label>
-                    <input matInput formControlName="password" type="password" style="color:white" [type]="hide ? 'password' : 'text'">
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide" >
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button>
-                    <!-- <mat-hint>Enter a password</mat-hint> -->
-                </mat-form-field>
+            <footer style="justify-content: center; text-align: center; padding-top: 50%; color: white " >This is a StatEngine Production</footer>
             </div>
-
-            <!-- Sign up button -->
-            <div  style ="margin-top: 35px;" class="login-buttons"> <!--Block 3 for submit button-->
-                <button (click)="onLogin()" mat-flat-button  color="primary" type="submit" [disabled]="!loginForm.valid">Sign In</button>
-            </div>
-
-            <!-- Sign up button -->
-            <div class="login-buttons">            
-                <a style="margin-right: 150px;"><button mat-button (click)="onClickToSignUp()" style="color:white"><u >Sign Up</u></button></a>
-                <button mat-button  (click)="goToPassReset()" style="color:white"><u>Reset Password</u></button>
-            </div>
-
-
-            
-
-            
-            
-        </div>
-
-        <div>
-        <footer style="justify-content: center; text-align: center; padding-top: 50%; color: white " >This is a StatEngine Production</footer>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
+</body>

@@ -119,7 +119,7 @@
   }
 
   /* Media query for screens smaller than a certain width (e.g., 600px) */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1300px) {
     #tableOfContents {
       display: none; /* Hide the table of contents on smaller screens */
     }
