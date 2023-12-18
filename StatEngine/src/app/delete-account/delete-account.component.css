@@ -1,5 +1,4 @@
 .back-ground{
-    position: absolute;
     width: 100%;
     height: 100%;
     left: 0px;
@@ -7,6 +6,9 @@
 
     background: conic-gradient(from 45deg at 0% 100%, hsl(0, 0%, 60%) 0deg, rgba(0, 0, 0, 0) 360deg), linear-gradient(180deg, #282828 0%, rgba(38, 38, 38, 0) 100%);
     filter: drop-shadow(0px 16px 24px rgba(0, 0, 0, 0.14)) drop-shadow(0px 6px 30px rgba(0, 0, 0, 0.12)) drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.2));
+    background-attachment:scroll;
+    background-repeat:repeat;
+    background-size:cover;
 }  
 .mat-flat-button {
 border-color: white;
@@ -20,7 +22,7 @@ border-radius: 10px;
 
     /* Define CSS for desktop and larger screens */
     @media screen and (min-width: 768px) {
-        body {
+        .mainbody {
             /* padding-top: 5%; */
             font-size: 16px;
             display: flex;
@@ -43,7 +45,7 @@ border-radius: 10px;
     
     /* Define CSS for smaller screens (e.g., phones) */
     @media screen and (max-width: 767px) {
-        body {
+        .mainbody {
             /* padding-top: 10%; */
             font-size: 14px;
             display: flex;

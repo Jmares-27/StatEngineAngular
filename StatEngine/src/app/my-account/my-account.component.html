@@ -29,15 +29,15 @@
 									</mat-card-title>
 									<mat-card-content>
 										<div class="row">
-											<div class="col-sm-4 col-md-3 col-lg-3">
+											<div class="col-sm-4 col-md-4 col-lg-4">
 												<div class="stat-title">KD:</div>
 												<div class="stat-number" [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}">{{oa_kd}}</div>
 											</div>
-											<div class="col-sm-4 col-md-3 col-lg-3">
+											<div class="col-sm-4 col-md-4 col-lg-4">
 												<div class="stat-title">ADR:</div>
 												<div class="stat-number" [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}">{{oa_adr}}</div>
 											</div>
-											<div class="col-sm-4 col-md-3 col-lg-3">
+											<div class="col-sm-4 col-md-4 col-lg-4">
 												<div class="stat-title">HSP:</div>
 												<div class="stat-number" [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}">{{oa_hsp}}%</div>
 											</div>
@@ -90,7 +90,7 @@
 									<div style="float:left; width:70%">
 										<h1>{{userName}}'s Inventory</h1>
 									</div>
-									<div style="float:right; width:30%; align-items: right;">
+									<div class="searchbar" style="float:right; width:30%; align-items: right;">
 										<input type="text" [(ngModel)]="searchText" placeholder="Search items">
 									</div>
 								</mat-card-title>

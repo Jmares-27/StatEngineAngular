@@ -67,7 +67,7 @@
         display: flex;
         flex-wrap:wrap;
         float: left;
-        height:150px;
+        height:18vh;
         padding-top: 0%;
         padding-bottom: 5%;
         margin:5px;
@@ -125,6 +125,7 @@
         }
         .stat-number {
             font-size: 2vw; /* Larger size for smaller screens */
+            text-align: center;
         }
         .stat-title {
             font-size: 3vw;
@@ -135,6 +136,19 @@
         .card-class {
             width: 100%; /* Full width on smaller screens */
         }
+        .cardbox-mini{
+            height: 22vh;
+        }
+        .stat-card-title{
+            font-size: 1em;
+        }
+        .stat-number {
+            font-size: .8em; /* Even larger size for mobile screens */
+            text-align: center;
+        }
+        .stat-title {
+            font-size: 1em;
+        } 
     }
     
     @media (max-width: 675px) {
@@ -143,6 +157,7 @@
         }
         .stat-number {
             font-size: 3vw; /* Even larger size for mobile screens */
+            text-align: center;
         }
         .stat-title {
             font-size: 4vw;
@@ -155,9 +170,12 @@
         }
         .stat-number {
             font-size: 4vw; /* Adjust for very small screens */
+            text-align: center;
+            
+            flex-direction: row;
         }
         .stat-title {
-            font-size: 5vw;
+            font-size: 3vw;
         }
         .stat-container{
             flex-direction: column;
@@ -165,12 +183,39 @@
         }
     }
 
+    @media (max-width: 575px) {
+        .cardbox-mini{
+            height: 40vh;
+        } 
+    }
+
     @media (max-width: 425px) {
         .cardbox-mini{
-            height: 200px;
+            height: 40vh;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .sticky-top {
+            margin-top: -50px;
         }
     }
     
+    @media (max-width: 992px) {
+        .cardbox-mini{
+            height: 22vh;
+        }
+        .stat-card-title{
+            font-size: 1em;
+        }
+        .stat-number {
+            font-size: .8em; /* Even larger size for mobile screens */
+            text-align: center;
+        }
+        .stat-title {
+            font-size: 1em;
+        } 
+    }
 
     .stat-container{
         display: flex;
