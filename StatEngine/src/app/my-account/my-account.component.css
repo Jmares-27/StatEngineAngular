@@ -48,7 +48,7 @@
     }
 
     .cardbox{
-        height: 80%;
+        height: 100%;
         display: flexbox;
         float: none;
         padding-top: 5%;
@@ -67,7 +67,7 @@
         display: flex;
         flex-wrap:wrap;
         float: left;
-        height:250px;
+        height:150px;
         padding-top: 0%;
         padding-bottom: 5%;
         margin:5px;
@@ -84,7 +84,7 @@
         min-height: 30px; /* Adjust this value as needed */
         flex-shrink: 0; /* Prevents the item from shrinking too much */
         flex-grow: 1; /* Allows the item to grow if necessary */
-        margin-bottom:10%;
+        margin-bottom:15px;
         /* Other styling as needed */
     }
     /* .image {
@@ -100,23 +100,23 @@
     /* Stat Card CSS */
     .stat-card-title{
         /* color:black;  */
-        font-size: 2vw  ;
+        font-size: 2em  ;
         height: 20%;
-        margin-bottom:10%;
+        margin-bottom:10px;
     }
 
     .stat-title{
-        text-align: center; 
-        width: 100%;
-        height: 40%;
-        font-size:2vw; 
-        float:left;
+        text-align: center;
+        font-size:1.2em; 
+        padding-right: 5px;
+        padding-bottom: 5px;
         /* margin-bottom: 10%; */
     }
 
     .stat-number{
+        text-align: center;
         /* font-size:1vw;  */
-        font-size: 2vw;
+        font-size: 1em;
         /* margin-bottom:5% */
     }
     @media (max-width: 800px) {
@@ -162,6 +162,12 @@
         .stat-container{
             flex-direction: column;
             overflow:scroll
+        }
+    }
+
+    @media (max-width: 425px) {
+        .cardbox-mini{
+            height: 200px;
         }
     }
     

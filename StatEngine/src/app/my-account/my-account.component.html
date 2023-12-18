@@ -22,28 +22,24 @@
 
 								<!-- Overall Stats -->
 								<mat-card class="cardbox-mini">
-									<mat-card-title >
+									<mat-card-title>
 										<div class="stat-card-title">
 											<strong>Overall</strong>
 										</div>
 									</mat-card-title>
-									<mat-card-content class="stat-container">
-										<div class="stat-title">
-											KD:
-											<div [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}" class="stat-number" id="oa_kd">
-												{{oa_kd}}
+									<mat-card-content>
+										<div class="row">
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">KD:</div>
+												<div class="stat-number" [ngClass]="{'goodStat': oa_kd > 1, 'badStat': oa_kd <= 1}">{{oa_kd}}</div>
 											</div>
-										</div>
-										<div class="stat-title">
-											ADR:	
-											<div [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}" class="stat-number" id="oa_adr">
-												{{oa_adr}}
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">ADR:</div>
+												<div class="stat-number" [ngClass]="{'goodStat': oa_adr >= 80, 'badStat': oa_adr < 80}">{{oa_adr}}</div>
 											</div>
-										</div>
-										<div class="stat-title">
-											HSP:
-											<div  [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}" class="stat-number" id="oa_hsp">
-												{{oa_hsp}}%
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">HSP:</div>
+												<div class="stat-number" [ngClass]="{'goodStat': oa_hsp >= 30, 'badStat': oa_hsp < 30}">{{oa_hsp}}%</div>
 											</div>
 										</div>
 									</mat-card-content>
@@ -56,27 +52,22 @@
 											<strong>Last Match</strong>
 										</div>
 									</mat-card-title>
-									<div class="stat-container">
-										
-										<div class="stat-title" >
-											KD:
-											<div [ngClass]="{'goodStat': lm_kd >= oa_kd, 'badStat': lm_kd < oa_kd}" class="stat-number" id="lm_kd">
-												{{lm_kd}}
+									<mat-card-content>
+										<div class="row">
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">KD:</div>
+												<div [ngClass]="{'goodStat': lm_kd >= oa_kd, 'badStat': lm_kd < oa_kd}" class="stat-number">{{lm_kd}}</div>
+											</div>
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">ADR:</div>
+												<div [ngClass]="{'goodStat': lm_adr >= oa_adr, 'badStat': lm_adr < oa_adr}" class="stat-number">{{lm_adr}}</div>
+											</div>
+											<div class="col-sm-4 col-md-3 col-lg-3">
+												<div class="stat-title">W/L:</div>
+												<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" class="stat-number">{{lm_result}}</div>
 											</div>
 										</div>
-										<div class="stat-title">
-											ADR:
-											<div [ngClass]="{'goodStat': lm_adr >= oa_adr, 'badStat': lm_adr < oa_adr}" class="stat-number" id="lm_adr">
-												{{lm_adr}} 
-											</div>
-										</div>
-										<div class="stat-title">
-											W/L
-											<div [ngClass]="{'goodStat': lm_result === 'Win', 'badStat': lm_result !== 'Win'}" class="stat-number" id="winloss">
-												{{lm_result}}
-											</div>
-										</div>
-									</div>
+									</mat-card-content>
 								</mat-card>
 
 							<!-- Steam Button -->
