@@ -61,7 +61,7 @@
   <!-- Navbar options -->
   <mat-drawer id="sidebar1" [mode]="drawerMode" class="sidebar" [(opened)]="opened">
     <!-- MENU -->
-    <div class="menubox"><a (click)="menuToggle()"><h1><b>MENU</b></h1></a></div>
+    <div><a (click)="homeRedirect()"><img class="logo" src="assets/icons/Statengineslogo.png" style="height:100%; width:100%"></a></div>
 
     <!-- Home -->
     <div class="menubox" *ngIf="!hasLoggedIn"  (click)="homeRedirect()"><h2><img src="assets/icons/Home.png">Home</h2></div>
