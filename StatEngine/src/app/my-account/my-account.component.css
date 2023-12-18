@@ -21,12 +21,9 @@
         }
 
     .card-class {
-        float: left;
-        height: 90%;
-        width: 30%;
-        text-align: left;
-        margin-left: 5%;
-        display: flexbox;
+        width: 100%;
+        display: flex; /* Corrected */
+        flex-direction: column; /* Organize children vertically */
         background-color: gray;
     }
 
@@ -53,20 +50,24 @@
     .cardbox{
         height: 80%;
         display: flexbox;
-        float: left;
+        float: none;
         padding-top: 5%;
         padding-left: 5%;
+        padding-right: 5%;
         justify-content: center;
         align-items: center;
-        background: rgb(2,0,36);
         background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(4, 4, 50) 35%, rgb(0, 24, 29) 100%);
+        background-repeat: repeat;
+        background-size:cover;
+        background-attachment: fixed;
         /* opacity: 80%; */
     }
 
     .cardbox-mini{
         display: flex;
-        /* flex-wrap:wrap; */
+        flex-wrap:wrap;
         float: left;
+        height:250px;
         padding-top: 0%;
         padding-bottom: 5%;
         margin:5px;
@@ -129,6 +130,12 @@
             font-size: 3vw;
         }
     }
+
+    @media (max-width: 768px) {
+        .card-class {
+            width: 100%; /* Full width on smaller screens */
+        }
+    }
     
     @media (max-width: 675px) {
         .stat-card-title{
@@ -160,13 +167,10 @@
     
 
     .stat-container{
-        display:flex;
-        flex:wrap;
-        justify-content: space-between;
+        display: flex;
+        flex-wrap: wrap; /* Corrected */
+        justify-content: space-around;
         align-items: center;
-        overflow:hidden;
-        width: 100%;
-        min-height: 35px;
     }
     /* .stat-nugget{
         border-radius: 50%;
@@ -234,4 +238,21 @@
         min-width: 150px;
     
     }
-    
+
+    .itemBox:hover {
+        cursor: pointer;
+    }
+
+    .sticky-top {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        padding-top: 60px;
+        z-index: 0; /* Ensure it's above other content */
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        width: auto;
+        height: auto;
+    }
